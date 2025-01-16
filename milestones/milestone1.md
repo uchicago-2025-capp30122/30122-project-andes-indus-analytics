@@ -15,16 +15,26 @@
 For each source please add a section with the following:
 
 ### Data Source #1: {Name}
-
+US population Cesus
 - A URL to the data source.
 - Is the data coming from a webpage, bulk data, or an API?
+Census API
+Education Bulk data
+Crime API
+
 - Are there any challenges or uncertainity about the data at this point?
+
+School Location and the dissagregation level we can get from the census data
 
 ## Preliminary Project Plan
 
 A short summary of what components of the project might be needed (e.g. data ingestion, cleaning/preparation, visualization).
-
 You might also begin to think about who will work on what.
+
+Cesus data management: Angela 
+School data: Shahzaib
+Crime data: Cesar
+
 This can be very brief, and will almost certainly change by the next milestone.
 
 ## Questions
