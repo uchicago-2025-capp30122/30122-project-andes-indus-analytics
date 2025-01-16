@@ -1,10 +1,10 @@
-# {Team Name}
+# Andes-Indus Analytics
 
 ## Members
 
-- Name <name@uchicago.edu>
-- Name <name@uchicago.edu>
-- Name <name@uchicago.edu>
+- Shahzaib Jamali <shahzaibjamali@uchicago.edu>
+- Angela López <alopezsanchez@uchicago.edu>
+- César Núñez <cnunezh@uchicago.edu>
 
 ## Abstract
 
