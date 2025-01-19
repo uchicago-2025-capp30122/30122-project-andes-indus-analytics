@@ -21,9 +21,9 @@ The project will use and integrate 3 main data sources: Demographic data from th
 - Is the data coming from a webpage, bulk data, or an API?: Census API
 - Are there any challenges or uncertainity about the data at this point?: Yes, the microdata geography is the public use for certain areas we havent fully mapped Chicago.
 
-### Data Source #2: {Chicago Crime Data}
-- URL to the data source: https://www.chicagopolice.org/statistics-data/data-requests/
-- Is the data coming from a webpage, bulk data, or an API?: Chicago Police Depertment API
+### Data Source #2: {Chicago Crime and Homicides Data}
+- URL to the data source: Crime Data (https://dev.socrata.com/foundry/data.cityofchicago.org/ijzp-q8t2) and Homicides Data (https://dev.socrata.com/foundry/data.cityofchicago.org/gumc-mgzr)
+- Is the data coming from a webpage, bulk data, or an API?: Chicago API
 - Are there any challenges or uncertainity about the data at this point?: None we have thougth of at this point
 
 ### Data Source #3: {Chicago Public Schools Administrative Records}
@@ -38,13 +38,17 @@ Census data management: Angela
 We will gather data from the Census API and verify that the information is available at the neighborhood level within the city (or undertand the lowest dissagregation level). Our primary focus is to characterize the city's neighborhoods (or the lowest disaggregation level) in terms of socioeconomic status, predominant ethnicity, school-aged population, and the percentage of NEET (Not in Education, Employment, or Training) youth. To achieve this, we will build spatial clustering indicators, which will require cleaning the collected data and constructing comparable, clustered integration variables to interoperate and merge with the rest of the datasets.
 
 School data: Shahzaib
+<<<<<<< HEAD
 School locations will be mapped, and the data will be integrated with other spatial datasets, such as neighborhood demographics, and economic indicators. This integration will enable a more comprehensive understanding of the spatial distribution of school performance and the potential influence of contextual factors.
 
 To accurately analyze these spatial relationships, it is crucial to obtain precise and up-to-date longitudinal and latitudinal coordinates for all schools. This will facilitate the creation of accurate maps and enable the application of spatial analysis techniques, such as spatial clustering, to identify groups of schools with similar characteristics and understand the spatial patterns of school performance within the city
 
 Crime data: Cesar
+=======
+>>>>>>> cesar
 
-This can be very brief, and will almost certainly change by the next milestone.
+Crime data: Cesar
+We will use the City of Chicago's API (Crimes) which reflects reported incidents of crime (with the exception of murders) in the city from 2001 to present. This data set contains informatión about the location of the crime (at a block level), the type of crime (accordint to the Chicago Police Department), the description of the crime, indicates whether an arrest was made, and other information related to the crime. Our primary focus will be on computing an index of crime incidents in a neighborhood level, differenciating by type of crime and arrest. Also, the City of Chicago's API has another data source that maps the homicides and non-fatal shootings that can also give us more information to characterize the crime behavior in the city.
 
 ## Questions
 
