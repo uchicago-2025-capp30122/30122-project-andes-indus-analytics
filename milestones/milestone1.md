@@ -31,13 +31,16 @@ The project will use and integrate 3 main data sources: Demographic data from th
 - Are there any challenges or uncertainity about the data at this point?: How to Map Schools (Locations)
 
 ## Preliminary Project Plan
-<b>Census data management:</b> \\
+<b>Census data management:</b> 
+
 We will gather data from the Census API and verify that the information is available at the neighborhood level within the city (or undertand the lowest dissagregation level). Our primary focus is to characterize the city's neighborhoods (or the lowest disaggregation level) in terms of socioeconomic status, predominant ethnicity, school-aged population, and the percentage of NEET (Not in Education, Employment, or Training) youth. To achieve this, we will build spatial clustering indicators, which will require cleaning the collected data and constructing comparable, clustered integration variables to interoperate and merge with the rest of the datasets.
 
-<b>School data:</b> \\
+<b>School data:</b> 
+
 School locations will be mapped, and the data will be integrated with other spatial datasets, such as neighborhood demographics, and economic indicators. This integration will enable a more comprehensive understanding of the spatial distribution of school performance and the potential influence of contextual factors. To accurately analyze these spatial relationships, it is crucial to obtain precise and up-to-date longitudinal and latitudinal coordinates for all schools. This will facilitate the creation of accurate maps and enable the application of spatial analysis techniques, such as spatial clustering, to identify groups of schools with similar characteristics and understand the spatial patterns of school performance within the city
 
-<b>Crime data:</b> \\
+<b>Crime data:</b> 
+
 We will use the City of Chicago's API (Crimes) which reflects reported incidents of crime (with the exception of murders) in the city from 2001 to present. This data set contains informatión about the location of the crime (at a block level), the type of crime (accordint to the Chicago Police Department), the description of the crime, indicates whether an arrest was made, and other information related to the crime. Our primary focus will be on computing an index of crime incidents in a neighborhood level, differenciating by type of crime and arrest. Also, the City of Chicago's API has another data source that maps the homicides and non-fatal shootings that can also give us more information to characterize the crime behavior in the city.
 
 ## Questions
