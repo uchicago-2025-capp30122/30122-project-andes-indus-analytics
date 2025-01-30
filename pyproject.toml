@@ -1,0 +1,17 @@
+[project]
+name = "30122-project-andes-indus-analytics"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "cssselect>=1.2.0",
+    "httpx>=0.28.1",
+    "ipdb>=0.13.13",
+    "ipython>=8.31.0",
+    "lxml>=5.3.0",
+    "pandas>=2.2.3",
+    "pytest>=8.3.4",
+    "ruff>=0.9.4",
+    "sodapy>=2.2.0",
+]

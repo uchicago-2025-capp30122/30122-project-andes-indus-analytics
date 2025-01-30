@@ -26,10 +26,14 @@ Additionally, for each data source, add a section like:
 - Are there any challenges or uncertainity about the data at this point?: Yes, the microdata geography is the public use for certain areas we havent fully mapped Chicago.
 
 ### Data Source #2: {Chicago Crime Data}
-- URL to the data source: https://www.chicagopolice.org/statistics-data/data-requests/
-- Is the data coming from a webpage, bulk data, or an API?: Chicago Police Depertment API
+- URL to the data source: Crime Data (https://dev.socrata.com/foundry/data.cityofchicago.ls/ijzp-q8t2) and Homicides Data (https://dev.socrata.com/foundry/data.cityofchicago.org/gumc-mgzr)
+- Is the data coming from a webpage, bulk data, or an API?: Chicago City API
 - How many records (rows) does your data set have?
+    - Crime data: from 2001 to the last update (Jan 22th, 2025) there are 8,247,404 records in the database. 
+    - Homicides Data: from 1991 to the last update (Jan 28th, 2025) there are 61,046 records in the database.
 - How many properties (columns) does your data set have?
+    - Crime data: It has 22 columns such as ID, Case Number, Date, Block, IUCR (code), Primary Type, Description, Location Description, Arrest, Domestic, Beat, District, Ward, Community Area, FBI Code, X Coordinate, Y Coordinate, Latitude, and Longitude.
+    - Homicides: It has 38 columns such as Case Number, Date, Block, IUCR (code), Description, Zip code, Ward, Community Area, District and Age.
 - Write a few sentences about your exploration of the data set. At this point you should have downloaded some of the data and explored it with an eye for things that might cause issues for your project.
 - Are there any challenges or uncertainity about the data at this point?: None we have thougth of at this point
 
