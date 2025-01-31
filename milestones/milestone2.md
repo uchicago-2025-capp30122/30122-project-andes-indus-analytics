@@ -36,7 +36,7 @@ Additionally, for each data source, add a section like:
     - Homicides: It has 38 columns such as Case Number, Date, Block, IUCR (code), Description, Zip code, Ward, Community Area, District and Age.
 - Write a few sentences about your exploration of the data set. At this point you should have downloaded some of the data and explored it with an eye for things that might cause issues for your project.
     - Crime data: There are some missing values for latitude and longitude (and other columns) for some records in every year. From a sample of 100,000 entries, the percentage of records that has missing values for latitude and longitude is between 0.005% (2023-2025) to 1.9% (2021).
-    - Homicides: In this data set the variables with significant missing values are those related to victim's personal identity, which is not relevant for our application.
+    - Homicides: In this data set the variables with significant missing values are those related to victim's personal identity, which is not relevant for our application. All the other variables has less than 0.1%
 - Are there any challenges or uncertainity about the data at this point?: None we have thougth of at this point
 
 ### Data Source #3: {Chicago Public Schools Administrative Records}
