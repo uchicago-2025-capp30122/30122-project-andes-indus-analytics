@@ -21,7 +21,9 @@ Additionally, for each data source, add a section like:
 - URL to the data source: https://www.census.gov/data/developers/data-sets/census-microdata-api.html
 - Is the data coming from a webpage, bulk data, or an API?: Census API
 - How many records (rows) does your data set have?
+  The dataset is comprised by information of each of the 18 PUMAS that conform the city of Chicago. The number of rows are 18 * the demografic variable of interest (sex, age brackets)
 - How many properties (columns) does your data set have?
+  As we dont have microdata access we will extract information for total_population_count, race (black_count, latino_count, white_count), working_age_population ages_18_24 employment_status, school_enrollment_status (of school age population), ages_18_24_NEET (Not in Education, Employment, or Training)  
 - Write a few sentences about your exploration of the data set. At this point you should have downloaded some of the data and explored it with an eye for things that might cause issues for your project.
 - Are there any challenges or uncertainity about the data at this point?: Yes, the microdata geography is the public use for certain areas we havent fully mapped Chicago.
 
@@ -58,7 +60,7 @@ Additionally, for each data source, add a section like:
 ## Preliminary Project Plan
 <b>Census data management:</b> 
 
-We will gather data from the Census API and verify that the information is available at the neighborhood level within the city (or undertand the lowest dissagregation level). Our primary focus is to characterize the city's neighborhoods (or the lowest disaggregation level) in terms of socioeconomic status, predominant ethnicity, school-aged population, and the percentage of NEET (Not in Education, Employment, or Training) youth. To achieve this, we will build spatial clustering indicators, which will require cleaning the collected data and constructing comparable, clustered integration variables to interoperate and merge with the rest of the datasets.
+We will gather data from the Census API. We have already verified the information is available for 18 Public Use Microdata Areas PUMA of the city for which we will calculate socieconomic indicators. Our primary focus is to characterize the city's PUMA's areas in terms of socioeconomic status, predominant ethnicity, school-aged population, and the percentage of NEET (Not in Education, Employment, or Training) youth. To achieve this, we will build spatial clustering indicators, which will require cleaning the collected data and constructing comparable, clustered integration variables to interoperate and merge with the rest of the datasets.
 
 <b>School data:</b> 
 
