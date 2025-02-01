@@ -42,10 +42,15 @@ Additionally, for each data source, add a section like:
 ### Data Source #3: {Chicago Public Schools Administrative Records}
 - URL to the data source: https://www.cps.edu/about/district-data/metrics/ 
 - Is the data coming from a webpage, bulk data, or an API?: Administrative Records - Bulk data
+- The data source is coming from Bulk data and is in csv format.
 - How many records (rows) does your data set have?
+- The data spans 152 rows, with each row representing a different school.
 - How many properties (columns) does your data set have?
+- Graduation and Dropout Rates (2017–2024) :The dataset consists of eight columns for both graduation and dropout rates, with each  column representing a year from 2017 to 2024. In addition to these rates, the data also includes the total number of graduates, the number of dropouts, and the number of students in the 9th-grade cohort for each corresponding year.
 - Write a few sentences about your exploration of the data set. At this point you should have downloaded some of the data and explored it with an eye for things that might cause issues for your project.
+- The dataset provides comprehensive information on graduation and dropout rates for the period between 2017 and 2024. Data is available for most columns; however, it is important to note that some schools ceased operations during this period, and certain schools lack data for the initial years of the timeframe.
 - Are there any challenges or uncertainity about the data at this point?: How to Map Schools (Locations)
+- An online locator tool is available; however, there is no dedicated data source from which the precise latitude and longitude coordinates of the schools can be extracted. Therefore, it is necessary to engage in a discussion regarding geocoding procedures to obtain accurate location data.
 
 
 ## Project Plan
