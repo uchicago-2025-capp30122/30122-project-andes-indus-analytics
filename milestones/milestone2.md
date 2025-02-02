@@ -18,14 +18,31 @@ Additionally, for each data source, add a section like:
 
 ### Data Source #1: { US Population Census - American Community Survey }
 
-- URL to the data source: https://www.census.gov/data/developers/data-sets/census-microdata-api.html
+- URL to the data source:  https://www.census.gov/data/developers/data-sets/census-microdata-api.html
 - Is the data coming from a webpage, bulk data, or an API?: Census API
 - How many records (rows) does your data set have?
-  The dataset is comprised by information of each of the 18 PUMAS that conform the city of Chicago. The number of rows are 18 * the demografic variable of interest (sex, age brackets)
+  The dataset consists of individual sample information from the 18 Public Use Microdata Areas (PUMAs) that make up the city of Chicago. PUMAs are statistical geographic areas used for tabulating and disseminating data from the American Community Survey (ACS) and the Puerto Rico Community Survey Public Use Microdata Sample (PUMS). They are also used for ACS period estimates and decennial census data. The dataset contains a sample of 18,244 individuals (rows) for the year 2023.
 - How many properties (columns) does your data set have?
-  As we dont have microdata access we will extract information for total_population_count, race (black_count, latino_count, white_count), working_age_population ages_18_24 employment_status, school_enrollment_status (of school age population), ages_18_24_NEET (Not in Education, Employment, or Training)  
+ For the initial analysis, we will retrieve data for 10 key variables:
+  PUMA (Public Use Microdata Area)
+  Race: RACBLK (Black), HISP (Hispanic), RACWHT (White)
+  Age: AGEP (Population Age)
+  Employment Status: ESR
+  School Enrollment Status: SCH
+  Household Income (Past 12 Months): HINCP
+  Adjustment Factor for Income and Earnings Dollar Amounts: ADJINC
+  Population Weights: PWGTP
+  Additional variables may be considered in the next phase of the project.
+
+  The JSON dictionary of variables can be found here: Census API Variable Dictionary. https://api.census.gov/data/2023/acs/acs1/pums/variables.json
+
 - Write a few sentences about your exploration of the data set. At this point you should have downloaded some of the data and explored it with an eye for things that might cause issues for your project.
-- Are there any challenges or uncertainity about the data at this point?: Yes, the microdata geography is the public use for certain areas we havent fully mapped Chicago.
+  We began exploring the dataset using the Census API via the link provided above, extracting the specified variables for each of the 18 PUMAs in Chicago.
+  We ensured that the total population estimate aligns with Census records (2,664,493 people).
+  We verified that the retrieved variables contain complete and consistent data for our analysis.
+- Are there any challenges or uncertainity about the data at this point?: 
+  At this stage, we have determined the lowest level of data disaggregation available and have not encountered any major challenges with the dataset.
+  However, as we continue our exploration, one potential challenge may arise when working with data prior to 2020. The number of PUMAs changed from 18 to 19 after the 2020 Census, which could impact comparisons over time. If we decide to analyze historical data, we will need to account for this change.
 
 ### Data Source #2: {Chicago Crime Data}
 - URL to the data source: Crime Data (https://dev.socrata.com/foundry/data.cityofchicago.ls/ijzp-q8t2) and Homicides Data (https://dev.socrata.com/foundry/data.cityofchicago.org/gumc-mgzr)
@@ -60,7 +77,7 @@ Additionally, for each data source, add a section like:
 ## Preliminary Project Plan
 <b>Census data management:</b> 
 
-We will gather data from the Census API. We have already verified the information is available for 18 Public Use Microdata Areas PUMA of the city for which we will calculate socieconomic indicators. Our primary focus is to characterize the city's PUMA's areas in terms of socioeconomic status, predominant ethnicity, school-aged population, and the percentage of NEET (Not in Education, Employment, or Training) youth. To achieve this, we will build spatial clustering indicators, which will require cleaning the collected data and constructing comparable, clustered integration variables to interoperate and merge with the rest of the datasets.
+We will retrive data from the Census API. We have already verified the information is available for 18 Public Use Microdata Areas PUMA of the city (from 2021 onwards) for which we will calculate socieconomic indicators. Our primary focus is to characterize the city's PUMA's areas in terms of socioeconomic status, predominant ethnicity, school-aged population, and the percentage of NEET (Not in Education, Employment, or Training) youth. To achieve this, we will build spatial clustering indicators, which will require cleaning the collected data and constructing comparable, clustered integration variables to interoperate and merge with the rest of the datasets. This key variables will be code for each one of the 18 PUMAs to study.
 
 <b>School data:</b> 
 
