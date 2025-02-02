@@ -97,9 +97,11 @@ It is recommended that you:
 
 Required Components
 
-1. Data Collection and Cleaning – Census Data Responsible: [Angela, Support: [Cesar]
-Crime data: [Cesar, Support: [Shahzaib]
-Schools data: [Shahzaib, Support: [Angela]
+1. Data Collection and Cleaning
+  Census Data Responsible: [Angela, Support: [Cesar]
+  Crime data: [Cesar, Support: [Shahzaib]
+  Schools data: [Shahzaib, Support: [Angela]
+
 2. Spatial Analysis and Mapping – Responsible: [Cesar], Support: [Shahzaib]
 
 3. Statistical Analysis of Dropout and Crime Correlation – Responsible: [Angela], Support: [Cesar]
