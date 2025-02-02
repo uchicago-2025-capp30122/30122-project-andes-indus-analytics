@@ -93,6 +93,39 @@ It is recommended that you:
 - Have a plan that makes it clear what will be built by Milestone #3 (it may be helpful to break this out weekly for the remainder of the quarter) and what will be built by the final project.
 - For each component, identify who is primarily responsible, and who else might work on it with them.
 
+## Project Components and Responsibilities
+
+Required Components
+
+1. Data Collection and Cleaning – Census Data Responsible: [Angela, Support: [Cesar]
+Crime data: [Cesar, Support: [Shahzaib]
+Schools data: [Shahzaib, Support: [Angela]
+2. Spatial Analysis and Mapping – Responsible: [Cesar], Support: [Shahzaib]
+
+3. Statistical Analysis of Dropout and Crime Correlation – Responsible: [Angela], Support: [Cesar]
+
+4. Visualization and Reporting – Responsible: [Angela], Support: [Cesar - Shahzaib]
+
+Milestone #3 Plan
+
+Week 1: Data collection and cleaning finalized
+
+Week 2: Initial spatial mapping and visualization
+
+Week 3: Preliminary correlation analysis between crime and dropout rates
+
+Week 4: Refinement and preparation for final integration
+
+Final Project Deliverables
+
+A fully integrated dataset
+
+Interactive maps and spatial visualizations
+
+Statistical models explaining dropout rates
+
+A final report
+
 ## Questions
 
 A **numbered** list of questions for us to respond to.
