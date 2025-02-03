@@ -8,7 +8,7 @@ Early school dropout is a multifaceted challenge that impacts education systems 
 
 ### Data Reconciliation Plan
 
-An important thing to do at this step is to have a plan for how data from your various sources will be brought together. to discuss on Thursday
+An important thing to do at this step is to have a plan for how data from your various sources will be brought together. 
 
 For each data set, you will need to identify the "unique key" that will allow you to connect it to other data sets. (We'll discuss this in more detail.)
 
@@ -71,6 +71,7 @@ Additionally, for each data source, add a section like:
 - Are there any challenges or uncertainity about the data at this point?: How to Map Schools (Locations)
   - An online locator tool is available; however, there is no dedicated data source from which the precise latitude and longitude coordinates of the schools can be extracted. Therefore, it is necessary to engage in a discussion regarding geocoding procedures to obtain accurate location data.
 
+The data will be brought together using: the borders of the 18 PUMAS of the city of Chicago, creating a variable for each datatset where we can identify the PUMA each obervation (crime - school) belongs to. 
 
 ## Project Plan
 
