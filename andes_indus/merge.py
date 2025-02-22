@@ -52,6 +52,8 @@ def gen_chi_bbox(pumas: list[Puma]):
 
     chi_bbox = BBox(min_lon, min_lat, max_lon, max_lat)
 
+    return chi_bbox
+
 def assign_puma(pumas: list[Puma], chi_bbox: BBox, crime: Crime) -> list:
 
     capacity = 5
