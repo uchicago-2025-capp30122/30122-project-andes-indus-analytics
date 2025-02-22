@@ -15,6 +15,12 @@ def get_crime_data(client, data_set: str, lst_years: list) -> pd.DataFrame:
         results_df = pd.DataFrame.from_records(results)
         results_df["year"] = pd.to_datetime(results_df["date"]).dt.year.astype(int)
         results_df = results_df[results_df["year"].isin(lst_years)]
+        
+        # Keeping useful columns
+        homicides_cols = ["case_number", "year","date", "block", "latitude",
+                          "longitude"]
+        results_df = results_df.loc[:,homicides_cols].convert_dtypes()
+        results_df = results_df.astype({'latitude':float, 'longitude':float})
     else:
         results_df = pd.DataFrame()
         for y in lst_years:
@@ -22,6 +28,12 @@ def get_crime_data(client, data_set: str, lst_years: list) -> pd.DataFrame:
             results = pd.DataFrame.from_records(results)
             results_df = pd.concat((results_df, results))
         results_df["year"] = pd.to_datetime(results_df["date"]).dt.year.astype(int)
+
+        # Keeping useful columns
+        crime_cols = ["case_number", "year","date", "block", "iucr", "primary_type",
+                "latitude", "longitude"]
+        results_df =  results_df.loc[:,crime_cols].convert_dtypes()
+        results_df = results_df.astype({'latitude':float, 'longitude':float})
 
     return results_df
 
