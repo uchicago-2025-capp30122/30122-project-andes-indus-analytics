@@ -1,24 +1,6 @@
 import pandas as pd
-from sodapy import Socrata
-from datetime import datetime
-import os 
 
-# Creating the client with credentials safely. 
-try:
-    APP_TOKEN = os.environ["APP_TOKEN"]
-except KeyError:
-    raise Exception(
-        "Make sure that you have set the APP Token environment variable as described in the README."
-    )
-
-client = Socrata("data.cityofchicago.org", APP_TOKEN, timeout=10)
-
-# Establishing the data sets' code and years
-crime_data = "ijzp-q8t2"
-homicides_data = "gumc-mgzr"
-lst_years = list(range(2021, 2024))
-
-def get_data(data_set: str, lst_years: list) -> pd.DataFrame:
+def get_crime_data(client, data_set: str, lst_years: list) -> pd.DataFrame:
     '''
     Gathers data from an specific dataset from the City of Chicago's Data 
 
@@ -53,7 +35,7 @@ def get_missings(df: pd.DataFrame) -> pd.Series:
     missings = missings[missings != 0]
     return pd.Series(missings)
  
-def look_for_missings(data_set: str, lst_years: list) -> pd.DataFrame:
+def look_for_missings(client, data_set: str, lst_years: list) -> pd.DataFrame:
     '''
     Generates a yearly table of missings values for each variable that has at 
     least one missing value in the period of analysis
@@ -64,7 +46,7 @@ def look_for_missings(data_set: str, lst_years: list) -> pd.DataFrame:
     
     Returns: pd.DataFrame with the percentage of missing values in the dataframe
     '''
-    results_df = get_data(data_set, lst_years)
+    results_df = get_crime_data(client, data_set, lst_years)
     final_df = {}
 
     for year in lst_years:
