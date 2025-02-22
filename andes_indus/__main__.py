@@ -19,6 +19,6 @@ crime_code = "ijzp-q8t2"
 homicides_code = "gumc-mgzr"
 lst_years = list(range(2021, 2024))
 
-# Creating the pd.Dataframes
+# Creating the pd.Dataframes for crime and homicides_data
 crime_data = get_crime_data(client, crime_code, lst_years)
 homicides_data = get_crime_data(client, homicides_code, lst_years)
