@@ -51,6 +51,32 @@ class Quadtree:
             raise QuadtreeError("a node must always have 0 or 4 children")
         return bool(self.children)
 
+    def subdivide(self) -> None:
+        """
+        Subdivide this node into 4 children.
+        A child for quadrant of this node's bounding box.
+        """
+        # Current bounding box
+        minx, miny, maxx, maxy = self.bbox
+
+        # Midpoints
+        midx = (minx + maxx) / 2.0
+        midy = (miny + maxy) / 2.0
+
+        # four child bounding boxes: NW, NE, SE, SW
+        bbox_nw = BBox(minx, midy, midx, maxy)  # northwest
+        bbox_ne = BBox(midx, midy, maxx, maxy)  # northeast
+        bbox_se = BBox(midx, miny, maxx, midy)  # southeast
+        bbox_sw = BBox(minx, miny, midx, midy)  # southwest
+
+        # Create child Quadtrees at the next depth
+        self.children = [
+            Quadtree(bbox_nw, self.capacity, self.depth + 1),
+            Quadtree(bbox_ne, self.capacity, self.depth + 1),
+            Quadtree(bbox_se, self.capacity, self.depth + 1),
+            Quadtree(bbox_sw, self.capacity, self.depth + 1),
+        ]
+
     def __repr__(self) -> str:
         """
         Return a view of the interior of the node.
@@ -62,82 +88,131 @@ class Quadtree:
         else:
             return f"Quadtree(polygons={len(self.polygons)})"
 
-    def split_quad(self, parent: BBox, capacity: int, depth: int):
-        """
-        Helper function to compute the split only if exceeded capacity and max
-        depth not reached.
-
-        Args:
-            - parent: BBox class with parent coordinates
-            - capacity: capacity from the parent
-            - depth: depth level of the parent
-        """
-        # Computing mid points from parent's coordinates
-        minx, miny, maxx, maxy = parent
-        midx, midy = (maxx + minx) / 2, (maxy + miny) / 2
-
-        # Generating the list of children with midpoints
-        self.children = [
-            Quadtree(BBox(minx, miny, midx, midy), capacity, depth + 1),
-            Quadtree(BBox(minx, midy, midx, maxy), capacity, depth + 1),
-            Quadtree(BBox(midx, miny, maxx, midy), capacity, depth + 1),
-            Quadtree(BBox(midx, midy, maxx, maxy), capacity, depth + 1),
-        ]
-
-    def add_to_children(self, id: str, polygon: Polygon):
-        """
-        Helper function to add polygons to a Quadtree's children when it's already
-        splitted.
-        """
-        for child in self.children:
-            # Only computing add_polygon if polygon is inside the box
-            if box(*child.bbox).intersects(polygon):
-                child.add_polygon(id, polygon)
-
     def add_polygon(self, id: str, polygon: Polygon) -> bool:
-        # Conditional to verify if the Polygon intersects with our Quadtree
-        if not box(*self.bbox).intersects(polygon):
+        # 1) Check if polygon intersects the bounding box of this node
+        node_box = box(
+            self.bbox.min_x, self.bbox.min_y, self.bbox.max_x, self.bbox.max_y
+        )
+
+        if not polygon.intersects(node_box):
             return False
 
-        if not self.is_split():
-            # Base case 1: Capacity not reached
-            if self.capacity > len(self.polygons):
-                self.polygons[id] = polygon
-                return True
-            # Base case 2: Max depth reached
-            elif self.depth >= MAX_DEPTH:
-                self.polygons[id] = polygon
-                return True
-            else:
-                # Splitting the quad
-                self.split_quad(self.bbox, self.capacity, self.depth)
-                # Storing existent polygons
-                parent_polygons = list(self.polygons.items()) + [(id, polygon)]
-                self.polygons = {}
-                # Recursive case 1: Adding one polygon and splitting a quadtree
-                for key, val in parent_polygons:
-                    self.add_to_children(key, val)
-        else:
-            # Recursive case 2: Adding one polygon to the childs of an already
-            # splitted quadtree
-            self.add_to_children(id, polygon)
+        # 2) If this node is already split, pass polygon to the children
+        if self.is_split():
+            added = False
+            for child in self.children:
+                child_box = box(
+                    child.bbox.min_x,
+                    child.bbox.min_y,
+                    child.bbox.max_x,
+                    child.bbox.max_y,
+                )
+                if polygon.intersects(child_box):
+                    child.add_polygon(id, polygon)
+                    added = True
+            return added
 
-        return True
+        # 3) If not split: check capacity
+        if len(self.polygons) >= self.capacity and self.depth < MAX_DEPTH:
+            # subdivide
+            self.subdivide()
+
+            # move existing polygons to children
+            old_polygons = self.polygons
+            self.polygons = {}  # Clear them from this node
+
+            for pid, poly in old_polygons.items():
+                for child in self.children:
+                    child_box = box(
+                        child.bbox.min_x,
+                        child.bbox.min_y,
+                        child.bbox.max_x,
+                        child.bbox.max_y,
+                    )
+                    if poly.intersects(child_box):
+                        child.add_polygon(pid, poly)
+
+            # Now add the new polygon similarly
+            added = False
+            for child in self.children:
+                child_box = box(
+                    child.bbox.min_x,
+                    child.bbox.min_y,
+                    child.bbox.max_x,
+                    child.bbox.max_y,
+                )
+                if polygon.intersects(child_box):
+                    child.add_polygon(id, polygon)
+                    added = True
+            return added
+        else:
+            # either capacity not exceeded, or we're at MAX_DEPTH
+            self.polygons[id] = polygon
+            return True
 
     def match(self, point: Point) -> list[str]:
-        if not box(*self.bbox).contains(point):
-            # Base case 1: Point not inside the BBox
-            return []
+        """
+        This method takes a point and finds the id of all polygons
+        that it falls within that are within this node or its children.
+        """
 
-        # Recursive case: Splitted Quadtree --> Do search on its children
+        results = []
+        # 1) check bounding-box containment
+        node_box = box(
+            self.bbox.min_x, self.bbox.min_y, self.bbox.max_x, self.bbox.max_y
+        )
+        if not node_box.contains(point):
+            return results
+
+        # 2) If split, recurse to children.
         if self.is_split():
-            lst = []
             for child in self.children:
-                if box(*child.bbox).contains(point):
-                    lst.extend(child.match(point))
-            return lst
+                # Double-check child's bbox
+                child_box = box(
+                    child.bbox.min_x,
+                    child.bbox.min_y,
+                    child.bbox.max_x,
+                    child.bbox.max_y,
+                )
+                if child_box.contains(point):
+                    results.extend(child.match(point))
         else:
-            # Base case 2: Not splitted Quadtree --> find ids on self.polygons
-            return [
-                key for key, value in self.polygons.items() if value.contains(point)
-            ]
+            # Unsplitted node: check all polygons it holds
+            for pid, poly in self.polygons.items():
+                if poly.contains(point):
+                    results.append(pid)
+
+        return results
+
+
+def quadtree_spatial_join(
+    facilities: list,
+    tracts: list,
+) -> list[tuple[str, str]]:
+    # These variables should be passed in to your root quadtree.
+    #
+    # Bounding box of Illinois, should be used as bounds of your
+    # root quadtree.
+    il_bbox = BBox(-91.513079, 36.970298, -87.494756, 42.508481)
+    capacity = 10
+    quadtree = Quadtree(il_bbox, capacity)
+
+    # Add each tract polygon to the quadtree
+    for tract_id, tract_poly in tracts:
+        quadtree.add_polygon(tract_id, tract_poly)
+
+    # For each facility, find which tract polygons it falls in
+    results = []
+    for facility in facilities:
+        # Create a Shapely point from facility’s longitude & latitude
+        fac_point = Point(facility.longitude, facility.latitude)
+
+        # Look for matchin tracts in the Quadtree
+        matching_tract_ids = quadtree.match(fac_point)
+
+        # If polygons that contain the point,
+        # you can append them all:
+        for tract_id in matching_tract_ids:
+            results.append((facility.id, tract_id))
+
+    return results
