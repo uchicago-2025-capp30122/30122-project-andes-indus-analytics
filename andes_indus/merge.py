@@ -55,7 +55,6 @@ def gen_chi_bbox(pumas: list[Puma]):
     return chi_bbox
 
 def assign_puma(pumas: list[Puma], chi_bbox: BBox, crime: Crime) -> list:
-
     capacity = 5
     quadtree = Quadtree(chi_bbox, capacity)
 
@@ -65,4 +64,4 @@ def assign_puma(pumas: list[Puma], chi_bbox: BBox, crime: Crime) -> list:
     crime_shp = Point(crime.longitude, crime.latitude)
     match_lst = quadtree.match(crime_shp)
 
-    return match_lst    
+    return match_lst
