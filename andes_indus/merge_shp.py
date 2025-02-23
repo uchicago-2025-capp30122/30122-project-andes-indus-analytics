@@ -69,4 +69,4 @@ def assign_puma(quadtree: Quadtree, crime: Crime) -> list:
     crime_shp = Point(crime.longitude, crime.latitude)
     match_lst = quadtree.match(crime_shp)
 
-    return match_lst
+    return match_lst[0]
