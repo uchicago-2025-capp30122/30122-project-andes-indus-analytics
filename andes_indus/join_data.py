@@ -1,7 +1,7 @@
 import os
 from sodapy import Socrata
-from .crime_utils import get_crime_data 
-from .merge_shp import load_pumas_shp, load_neighborhood_shp, gen_chi_bbox, gen_quadtree
+from crime_utils import get_crime_data, Crime
+from merge_shp import load_pumas_shp, load_neighborhood_shp, gen_chi_bbox, gen_quadtree, assign_puma
 import pandas as pd
 from pathlib import Path
 
@@ -28,9 +28,20 @@ homicides_data = get_crime_data(client, homicides_code, lst_years)
 # INSERT CENSUS CODE
 
 # Merging crime and school data to pumas
-path_pumas = Path("./data/shapefiles/pumas")
-path_neighborhoods = Path("./data/shapefiles/chicago_neighborhoods.csv")
+path_pumas = Path("data/shapefiles/pumas/pumas2022")
+#path_neighborhoods = Path("data/shapefiles/chicago_neighborhoods.csv")
 pumas = load_pumas_shp(path_pumas)
-neighborhoods = load_pumas_shp(path_neighborhoods)
+#neighborhoods = load_neighborhood_shp(path_neighborhoods)
 
 quadtree_chi = gen_quadtree(pumas, gen_chi_bbox(pumas))
+
+new_crime_data = []
+for crime in crime_data:
+    new_puma = assign_puma(quadtree_chi, crime)
+    if new_puma is None:
+        continue
+    else:
+        new_crime_data.append(Crime(*crime[:-1], puma = new_puma))
+
+print(len(crime_data))
+print(len(new_crime_data))

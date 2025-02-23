@@ -1,14 +1,10 @@
 from shapely.geometry import Polygon, MultiPolygon, Point
-from .quadtree import Quadtree, BBox
+from quadtree import Quadtree, BBox
+from crime_utils import Crime
 from typing import NamedTuple
 import pathlib
 import shapefile
 import csv
-
-class Crime(NamedTuple):
-    case_number : str
-    latitude: float
-    longitude: float
 
 class Puma(NamedTuple):
     id : str
@@ -63,10 +59,14 @@ def gen_quadtree(pumas: list[Puma], chi_bbox: BBox):
 
     for puma in pumas:
         quadtree.add_polygon(puma.id, puma.polygon)
+    
+    return quadtree
 
-def assign_puma(quadtree: Quadtree, crime: Crime) -> list:
+def assign_puma(quadtree: Quadtree, crime: Crime) -> str:
     
     crime_shp = Point(crime.longitude, crime.latitude)
     match_lst = quadtree.match(crime_shp)
 
+    if len(match_lst) == 0:
+        return None
     return match_lst[0]
