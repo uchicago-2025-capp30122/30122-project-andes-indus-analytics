@@ -101,7 +101,7 @@ def build_census_csv(output_filename: Path):
         df.to_csv(output_filename, index=False)
         print(f"CSV file created at: {output_filename}")
     else:
-        print("No data available")
+        print("No data available") 
 
 if __name__ == "__main__":
     build_census_csv("output_filename.csv")
