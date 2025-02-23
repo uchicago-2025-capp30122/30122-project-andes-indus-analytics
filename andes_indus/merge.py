@@ -54,12 +54,17 @@ def gen_chi_bbox(pumas: list[Puma]):
 
     return chi_bbox
 
-def assign_puma(pumas: list[Puma], chi_bbox: BBox, crime: Crime) -> list:
+def gen_quadtree(pumas: list[Puma], chi_bbox: BBox):
+    '''
+    Helper function to create a quadtree for the pumas o neighborhoods 
+    '''
     capacity = 5
     quadtree = Quadtree(chi_bbox, capacity)
 
     for puma in pumas:
         quadtree.add_polygon(puma.id, puma.polygon)
+
+def assign_puma(quadtree: Quadtree, crime: Crime) -> list:
     
     crime_shp = Point(crime.longitude, crime.latitude)
     match_lst = quadtree.match(crime_shp)
