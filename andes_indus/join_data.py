@@ -2,6 +2,7 @@ import os
 from sodapy import Socrata
 from crime_utils import get_crime_data, Crime
 from merge_shp import load_pumas_shp, load_neighborhood_shp, gen_chi_bbox, gen_quadtree, assign_puma
+from census_utils import education_indicators
 import pandas as pd
 from pathlib import Path
 
@@ -26,6 +27,7 @@ homicides_data = get_crime_data(client, homicides_code, lst_years)
 # INSERT EDUCATION CODE
 
 # INSERT CENSUS CODE
+census_data = education_indicators(2023)
 
 # Merging crime and school data to pumas
 path_pumas = Path("data/shapefiles/pumas/pumas2022")

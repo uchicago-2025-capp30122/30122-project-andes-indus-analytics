@@ -5,24 +5,25 @@ import numpy as np
 from api_get import build_census_csv
 
 
-def chicago_dataframe(csv_file):
+def chicago_dataframe():
     """
     Filters the PUMAS to only the Chicago city
     """
-    build_census_csv(output_filename: Path)
+    
+    df = build_census_csv()
     # Read the CSV file into a DataFrame
-    df = pd.read_csv(csv_file)   
+    #df = pd.read_csv(csv_file)   
     # Filter the DataFrame for rows where PUMA is between 3151 and 3168
     chicago_df = df[(df["PUMA"] >= 3151) & (df["PUMA"] <= 3168)]
     return chicago_df
 
-def cleaning_data(csv_file):
+def cleaning_data():
     """
     load a cvs file and clean:
     - transform variables from string to numeric 
     - drop observations with no income information
     """
-    df = chicago_dataframe(csv_file)
+    df = chicago_dataframe()
     # convert to numeric
     cols = ["SCHL", "SCHG", "AGEP", "PUMA", "PWGTP", "HINCP"]
     df[cols] = df[cols].apply(pd.to_numeric)
@@ -32,11 +33,11 @@ def cleaning_data(csv_file):
 
     return df_clean
 
-def education_vars(csv_file):
+def education_vars():
     """ creates the education variables to be used
     in the analysis  
     """
-    df = cleaning_data(csv_file)
+    df = cleaning_data()
     # years of education
     df.loc[df["SCHL"] <= 3, "years_education"] = 0
     df.loc[df["SCHL"] == 4, "years_education"] = 1
@@ -93,11 +94,11 @@ def education_vars(csv_file):
     return selected_columns_df
 
 
-def education_indicators(csv_file, year):
+def education_indicators(year:int):
     """
     Creates education indicators, adds a 'year' column, and returns the aggregated DataFrame.
     """
-    df = education_vars(csv_file)
+    df = education_vars()
     
     # Calculate attendance rates (as percentages)
     df["attendance_rate_elementary"] = (df["atten_elementary_w"] / df["elementary_w"]) * 100
@@ -108,8 +109,7 @@ def education_indicators(csv_file, year):
     df["year"] = year
     return df
 
-
-def process_multiple_years(file_year_pairs, output_file="census_df.csv"):
+def process_multiple_years(output_file="census_df.csv"):
     """
     Processes multiple CSV files (one per year), appends the results with a 'year' column,
     and saves the final DataFrame to CSV.
@@ -119,21 +119,13 @@ def process_multiple_years(file_year_pairs, output_file="census_df.csv"):
         output_file: path for the output CSV file
     """
     dfs = []
-    for csv_file, year in file_year_pairs:
-        df = education_indicators(csv_file, year)
-        dfs.append(df)
+    for year in [2023]:
+    #for year in range(2021,2024):
+        dfs.append(education_indicators(year))
         
     final_df = pd.concat(dfs, ignore_index=True)
     final_df.to_csv(output_file, index=False)
-    return final_df
 
 
 if __name__ == "__main__":
-
-    # corresponding to years 2021, 2022, and 2023.
-    file_year_pairs = [
-      #  ("chicago_census_2023.csv", 2021),
-     #   ("chicago_census_2023.csv", 2022),
-        ("chicago_census_2023.csv", 2023),
-    ]
-    final_df = process_multiple_years(file_year_pairs)
+    process_multiple_years("census_df.csv")
