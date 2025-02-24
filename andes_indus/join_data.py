@@ -27,7 +27,7 @@ homicides_data = get_crime_data(client, homicides_code, lst_years)
 # INSERT EDUCATION CODE
 
 # INSERT CENSUS CODE
-census_data = education_indicators(2023)
+census_data = pd.read_csv("data/census_df.csv")
 
 # Merging crime and school data to pumas
 path_pumas = Path("data/shapefiles/pumas/pumas2022")
@@ -44,6 +44,3 @@ for crime in crime_data:
         continue
     else:
         new_crime_data.append(Crime(*crime[:-1], puma = new_puma))
-
-print(len(crime_data))
-print(len(new_crime_data))
