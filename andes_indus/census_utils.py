@@ -14,7 +14,7 @@ def chicago_dataframe():
     # Read the CSV file into a DataFrame
     #df = pd.read_csv(csv_file)   
     # Filter the DataFrame for rows where PUMA is between 3151 and 3168
-    chicago_df = df[(df["PUMA"] >= 3151) & (df["PUMA"] <= 3168)]
+    chicago_df = df[(df["PUMA"].astype(int) >= 3151) & (df["PUMA"].astype(int) <= 3168)]
     return chicago_df
 
 def cleaning_data():
@@ -109,7 +109,7 @@ def education_indicators(year:int):
     df["year"] = year
     return df
 
-def process_multiple_years(output_file="census_df.csv"):
+def process_multiple_years(output_file="data/census_df.csv"):
     """
     Processes multiple CSV files (one per year), appends the results with a 'year' column,
     and saves the final DataFrame to CSV.
