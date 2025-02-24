@@ -29,7 +29,7 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 ### 4. Data pipeline
 This project is structured to collect, process, and visualize data from multiple sources, focusing on education, crime, census, and demographic data. The pipeline follows a structured approach to integrate and process these datasets efficiently. Below is an overview of the data flow:
 
-![Preview]([https://raw.githubusercontent.com/uchicago-2025-capp30122/30122-project-andes-indus-analytics/refs/heads/main/data_pipeline.jpg](https://github.com/uchicago-2025-capp30122/30122-project-andes-indus-analytics/blob/main/data_pipeline.jpg))
+![]([https://raw.githubusercontent.com/uchicago-2025-capp30122/30122-project-andes-indus-analytics/refs/heads/main/data_pipeline.jpg](https://github.com/uchicago-2025-capp30122/30122-project-andes-indus-analytics/blob/main/data_pipeline.jpg))
 
 - education.py: Contains functions to fetch education-related data.
 - crime_utils.py: Includes functions for retrieving crime and homicide data.
@@ -41,5 +41,5 @@ This project is structured to collect, process, and visualize data from multiple
 ### 5. How to run
 By running the following commands, an html file will prompt with a draft visualization of our project. 
 
-1. Run $uv sync$
-2. Run $uv run andes_indus -m$
+1. Run uv sync
+2. Run uv run andes_indus -m
