@@ -16,21 +16,22 @@ class Neighborhood(NamedTuple):
     name : str
     multi_polygon: MultiPolygon
 
-class Education(NamedTuple):
-    school_id : str
-    school_name : str
-    school_latitude : float
-    school_longitude : float
-    school_student_count : float
-    school_is_high_school : bool
-    school_is_middle_school : bool
-    school_is_pre_school : bool
-    school_is_ele_school : bool
-    school_attendance_rate : float
-    school_graduation_rate : float
-    school_add_street : str
-    school_add_state : str
-    school_add_zipcode : float
+class School(NamedTuple):
+    id : str
+    name : str
+    latitude : float
+    longitude : float
+    student_count : float
+    is_high_school : bool
+    is_middle_school : bool
+    is_pre_school : bool
+    is_ele_school : bool
+    attendance_rate : float
+    graduation_rate : float
+    add_street : str
+    add_state : str
+    add_zipcode : float
+    puma: None | str
 
 
 def load_pumas_shp(path: pathlib.Path) -> list[Puma]:
@@ -57,6 +58,23 @@ def load_neighborhood_shp(path: pathlib.Path) -> list[Neighborhood]:
                 ))
     return neighborhoods
 
+def load_schools(path: pathlib.Path) -> list[School]:
+    """
+    Given a CSV containing facility data, return a list of Facility objects.
+    """
+    schools = []
+    with open(path) as f:
+        data = csv.DictReader(f)
+        for row in data:
+            schools.append(
+                School(row["School ID"], row["School Name"], row["Latitude"], row["Longitude"],
+                       row['Student Count'],row['Is High School'],row['Is Middle School'],
+                       row['Is Pre School'],row['Is Elementarty School'],row['Atttendance Rate Current Year'],
+                       row['Graduation Rate'],row['Address Street'],row['Address State'],row['Address Zip Code'],
+                       None)
+            )
+    return schools
+
 def gen_chi_bbox(pumas: list[Puma]):
     min_lon = min(p.polygon.bounds[0] for p in pumas)  # min x (longitude)
     min_lat = min(p.polygon.bounds[1] for p in pumas)  # min y (latitude)
@@ -79,10 +97,10 @@ def gen_quadtree(pumas: list[Puma], chi_bbox: BBox):
     
     return quadtree
 
-def assign_puma(quadtree: Quadtree, crime: Crime) -> str:
+def assign_puma(quadtree: Quadtree, location: Crime|School) -> str:
     
-    crime_shp = Point(crime.longitude, crime.latitude)
-    match_lst = quadtree.match(crime_shp)
+    loc_point = Point(location.longitude, location.latitude)
+    match_lst = quadtree.match(loc_point)
 
     if len(match_lst) == 0:
         return None
