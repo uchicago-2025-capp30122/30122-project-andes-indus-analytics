@@ -41,5 +41,5 @@ This project is structured to collect, process, and visualize data from multiple
 ### 5. How to run
 By running the following commands, an html file will prompt with a draft visualization of our project. 
 
-1. Run uv sync
-2. Run uv run andes_indus -m
+1. Run `uv sync`
+2. Run `uv run andes_indus -m`
