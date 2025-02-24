@@ -16,6 +16,23 @@ class Neighborhood(NamedTuple):
     name : str
     multi_polygon: MultiPolygon
 
+class Education(NamedTuple):
+    school_id : str
+    school_name : str
+    school_latitude : float
+    school_longitude : float
+    school_student_count : float
+    school_is_high_school : bool
+    school_is_middle_school : bool
+    school_is_pre_school : bool
+    school_is_ele_school : bool
+    school_attendance_rate : float
+    school_graduation_rate : float
+    school_add_street : str
+    school_add_state : str
+    school_add_zipcode : float
+
+
 def load_pumas_shp(path: pathlib.Path) -> list[Puma]:
     pumas = []
     with shapefile.Reader(path) as sf:
