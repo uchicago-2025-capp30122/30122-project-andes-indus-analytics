@@ -29,7 +29,7 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 ### 4. Data pipeline
 This project is structured to collect, process, and visualize data from multiple sources, focusing on education, crime, census, and demographic data. The pipeline follows a structured approach to integrate and process these datasets efficiently. Below is an overview of the data flow:
 
-![]([data_pipeline.jpg))
+![](data_pipeline.jpg)
 
 - education.py: Contains functions to fetch education-related data.
 - crime_utils.py: Includes functions for retrieving crime and homicide data.
