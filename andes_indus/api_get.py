@@ -6,8 +6,9 @@ from pathlib import Path
 import pandas as pd
 import httpx
 
+YEAR = 2023
 params = {"get": "SEX,PUMA,RACBLK,AGEP,HISP,FHISP,PWGTP,SCH,ESR,HINCP,ADJINC,SCHG,SCHL"} # variables to get
-url = "https://api.census.gov/data/2021/acs/acs1/pums"
+url = "https://api.census.gov/data/{YEAR}/acs/acs1/pums"
 
 class FetchException(Exception):
     """
@@ -61,10 +62,7 @@ def cached_get(url) -> dict:
     else:
         raise FetchException(response)
     
-START_URL = "https://api.census.gov/data/2021/acs/acs1/pums"
-CSV_COLUMNS = ("STATE","SEX","PUMA","RACBLK","AGEP","HISP","FHISP","PWGTP","SCH","ESR","HINCP","ADJINC","SCHG","SCHL")
-
-
+START_URL = "https://api.census.gov/data/{YEAR}/acs/acs1/pums"
 
 def build_census_csv(output_filename: Path):
     """
@@ -90,9 +88,8 @@ def build_census_csv(output_filename: Path):
     """  
     new_url = START_URL
 
-
     data = cached_get(new_url)
- # Convert to DataFrame if data is available
+    # Convert to DataFrame if data is available
     if data:
         df = pd.DataFrame(data[1:], columns=data[0])  # First row is headers
         print(df.head())  # Print the first few rows for a quick look
@@ -103,5 +100,6 @@ def build_census_csv(output_filename: Path):
     else:
         print("No data available") 
 
-if __name__ == "__main__":
-    build_census_csv("output_filename.csv")
+    if __name__ == "__main__":
+        output_filename = Path(f"census_{YEAR}.csv")
+        build_census_csv(output_filename)

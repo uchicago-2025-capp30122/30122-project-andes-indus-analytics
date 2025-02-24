@@ -1,22 +1,19 @@
 import csv
-import json
-import os
-import sys
 from pathlib import Path
 import pandas as pd
 import numpy as np
+from api_get import build_census_csv
 
 
-def chicago_dataframe(csv_file, output_file):
+def chicago_dataframe(csv_file):
     """
     Filters the PUMAS to only the Chicago city
     """
+    build_census_csv(output_filename: Path)
     # Read the CSV file into a DataFrame
     df = pd.read_csv(csv_file)   
     # Filter the DataFrame for rows where PUMA is between 3151 and 3168
     chicago_df = df[(df["PUMA"] >= 3151) & (df["PUMA"] <= 3168)]
-    # Save the filtered DataFrame to the output file without the index column
-    chicago_df.to_csv(output_file, index=False)
     return chicago_df
 
 def cleaning_data(csv_file):
@@ -25,7 +22,7 @@ def cleaning_data(csv_file):
     - transform variables from string to numeric 
     - drop observations with no income information
     """
-    df = pd.read_csv(csv_file)
+    df = chicago_dataframe(csv_file)
     # convert to numeric
     cols = ["SCHL", "SCHG", "AGEP", "PUMA", "PWGTP", "HINCP"]
     df[cols] = df[cols].apply(pd.to_numeric)
@@ -135,8 +132,8 @@ if __name__ == "__main__":
 
     # corresponding to years 2021, 2022, and 2023.
     file_year_pairs = [
-        ("chicago_census_2023.csv", 2021),
-        ("chicago_census_2023.csv", 2022),
+      #  ("chicago_census_2023.csv", 2021),
+     #   ("chicago_census_2023.csv", 2022),
         ("chicago_census_2023.csv", 2023),
     ]
     final_df = process_multiple_years(file_year_pairs)
