@@ -39,7 +39,27 @@ This project is structured to collect, process, and visualize data from multiple
 - __main__.py: Generates the final visualization using the processed data.
 
 ### 5. How to run
-By running the following commands, an html file will prompt with a draft visualization of our project. 
+
+As this module brings together information from different data sources. To run this program it is necessary to provide an APP key for the City of Chicago Data.
+The steps to create an APP KEY are:
+
+1. Enter https://data.cityofchicago.org/ to create an account
+2. Enter https://data.cityofchicago.org/profile/edit/developer_settings and hit "Create a new App Token"
+4. Safe your APP TOKEN in a safe place 
+
+For the simplicity of this milestone you can work with the key: `Eqk9pQsM8RsYYawwjwyFUTlYj`
+you can define a constant in the terminal:
+
+On Windows: 
+```
+$env:CHICAGO_APP_TOKEN = "Eqk9pQsM8RsYYawwjwyFUTlYj"
+```
+On Linux/MacOS:
+```
+export CHICAGO_APP_TOKEN="Eqk9pQsM8RsYYawwjwyFUTlYj"
+```
+
+After sort out the API Key step, by running the following commands, an html file will prompt with a draft visualization of our project. 
 
 1. Run `uv sync`
 2. Run `uv run andes_indus -m`
