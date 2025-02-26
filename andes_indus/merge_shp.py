@@ -1,6 +1,6 @@
 from shapely.geometry import Polygon, MultiPolygon, Point
-from quadtree import Quadtree, BBox
-from crime_utils import Crime
+from .quadtree import Quadtree, BBox
+from .crime_utils import Crime
 from typing import NamedTuple
 import pathlib
 import shapefile
@@ -99,6 +99,14 @@ def gen_quadtree(pumas: list[Puma], chi_bbox: BBox):
 
 def assign_puma(quadtree: Quadtree, location: Crime|School) -> str:
     
+    loc_point = Point(location.longitude, location.latitude)
+    match_lst = quadtree.match(loc_point)
+
+    if len(match_lst) == 0:
+        return None
+    return match_lst[0]
+
+def assign_neighborhood(quadtree: Quadtree, location: Crime|School) -> str:
     loc_point = Point(location.longitude, location.latitude)
     match_lst = quadtree.match(loc_point)
 
