@@ -63,7 +63,7 @@ def fetch_school_profiles(school_ids, api_base_url="https://api.cps.edu/schoolpr
     return pd.DataFrame(school_profiles)
 
 # Step 3: Save Data to CSV
-def save_to_csv(df, filename="cps_school_profiles.csv"):
+def save_to_csv(df, filename="data/cps_school_profiles.csv"):
     """
     Save DataFrame to a CSV file.
 

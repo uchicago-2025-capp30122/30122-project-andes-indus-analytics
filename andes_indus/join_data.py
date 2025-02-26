@@ -1,10 +1,13 @@
 import os
 from sodapy import Socrata
 from crime_utils import get_crime_data, Crime
-from merge_shp import load_pumas_shp, load_neighborhood_shp, gen_chi_bbox, gen_quadtree, assign_puma
-from census_utils import education_indicators
+from merge_shp import load_pumas_shp, load_neighborhood_shp, gen_chi_bbox, gen_quadtree, assign_puma, load_schools, School
+from census_utils import process_multiple_years
 import pandas as pd
 from pathlib import Path
+from education import get_all_school_ids, fetch_school_profiles, save_to_csv
+import folium as fm
+import geopandas as gpd
 
 # Creating all the API and APP Keys for the data sources. 
 try:
@@ -25,9 +28,17 @@ crime_data = get_crime_data(client, crime_code, lst_years)
 homicides_data = get_crime_data(client, homicides_code, lst_years)
 
 # INSERT EDUCATION CODE
+# school_ids = get_all_school_ids()  # Fetch School IDs
+# if school_ids:
+#     school_profiles_df = fetch_school_profiles(school_ids)  # Fetch selected school details
+#     save_to_csv(school_profiles_df)
+
+path_schools = Path('data/cps_school_profiles.csv')
+schools_data = load_schools(path_schools)
 
 # INSERT CENSUS CODE
-census_data = education_indicators(2023)
+#process_multiple_years("census_df.csv")
+census_data = pd.read_csv("data/census_df.csv")
 
 # Merging crime and school data to pumas
 path_pumas = Path("data/shapefiles/pumas/pumas2022")
@@ -45,5 +56,34 @@ for crime in crime_data:
     else:
         new_crime_data.append(Crime(*crime[:-1], puma = new_puma))
 
-print(len(crime_data))
-print(len(new_crime_data))
+new_school_data = []
+for school in schools_data:
+    new_puma = assign_puma(quadtree_chi, school)
+    if new_puma is None:
+        continue
+    else:
+        new_school_data.append(School(*school[:-1], puma = new_puma))
+
+crimes = pd.DataFrame(new_crime_data)
+schools = pd.DataFrame(new_school_data)
+
+pumas_shp = gpd.read_file('data/shapefiles/pumas/pumas2022.shp')
+z = fm.Map(location = [41.8783874319104, -87.62875352665596], tiles='cartodbpositron', zoom_start = 10.5)
+
+fm.Choropleth(
+    geo_data=pumas_shp,
+    data=census_data,
+    columns=['PUMA', 'attendance_rate_high'],
+    key_on="feature.properties.PUMACE20",
+    fill_color="YlOrRd",
+    fill_opacity=0.8,
+    line_opacity=0.2,
+    legend_name="Attendance rate (%)",
+    smooth_factor=0,
+    Highlight= True,
+    line_color = "#0000",
+    overlay=True,
+    nan_fill_color = "White"  # fill white missing values 
+    ).add_to(z)
+
+z.save("high_school_rate.html")

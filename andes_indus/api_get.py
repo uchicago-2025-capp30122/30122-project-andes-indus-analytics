@@ -92,7 +92,6 @@ def build_census_csv():
     # Convert to DataFrame if data is available
     if data:
         df = pd.DataFrame(data[1:], columns=data[0])  # First row is headers
-        print(df.head())  # Print the first few rows for a quick look
         return df
         # Write the DataFrame to a CSV file
         #df.to_csv(output_filename, index=False)
