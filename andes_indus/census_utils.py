@@ -1,8 +1,6 @@
-import csv
-from pathlib import Path
 import pandas as pd
 import numpy as np
-from .api_get import build_census_csv
+from api_get import build_census_csv
 
 
 def chicago_dataframe():

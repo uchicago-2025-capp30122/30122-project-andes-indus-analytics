@@ -1,6 +1,6 @@
 from shapely.geometry import Polygon, MultiPolygon, Point
-from .quadtree import Quadtree, BBox
-from .crime_utils import Crime
+from quadtree import Quadtree, BBox
+from crime_utils import Crime
 from typing import NamedTuple
 import pathlib
 import shapefile
@@ -32,7 +32,6 @@ class School(NamedTuple):
     add_state : str
     add_zipcode : float
     puma: None | str
-
 
 def load_pumas_shp(path: pathlib.Path) -> list[Puma]:
     pumas = []

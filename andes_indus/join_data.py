@@ -1,12 +1,7 @@
-import os
-from sodapy import Socrata
-from .crime_utils import get_crime_data, Crime
-from .merge_shp import load_pumas_shp, load_neighborhood_shp, gen_chi_bbox, gen_quadtree, assign_puma, load_schools, School
-from .census_utils import process_multiple_years
+from crime_utils import Crime
+from merge_shp import assign_puma, School
 import pandas as pd
-from pathlib import Path
-from .education import get_all_school_ids, fetch_school_profiles, save_to_csv
-from .quadtree import Quadtree
+from quadtree import Quadtree
 
 def assign_puma_to_list(data_lst: list[Crime|School], quadtree_chi: Quadtree) -> list[Crime|School]:
     new_data_lst = []
@@ -48,10 +43,27 @@ def grouped_data_by(data_lst: list[Crime|School], quadtree_chi: Quadtree, group:
     
     data = data_list_to_dataframe(new_data_lst)
 
-    if data_lst[0] is Crime:
+    if type(data_lst[0]) is Crime:
         final_data = data.groupby([group, 'year', 'primary_type']).size().reset_index(name='Count')
+        final_data = final_data.pivot_table(index=['puma', 'year'], columns='primary_type', values='Count', fill_value=0)
+        final_data = final_data.reset_index()
     else:
-        pass
-
+        numeric_cols = ['student_count', 'graduation_rate']
+        boolean_cols = ['is_high_school', 'is_middle_school', 'is_ele_school', 'is_pre_school']
+        data[numeric_cols] = data[numeric_cols].apply(pd.to_numeric, errors='coerce')
+        data[boolean_cols] = data[boolean_cols].astype(bool)
+        final_data = data.groupby('puma').agg(
+            num_schools=('id', 'count'),
+            num_high_schools=('is_high_school', 'sum'),
+            num_middle_schools=('is_middle_school', 'sum'),
+            num_ele_schools=('is_ele_school', 'sum'),
+            num_pre_schools=('is_pre_school', 'sum'),
+            total_students=('student_count', 'sum')
+            ).reset_index()
+        grad_rate = data[data['is_high_school']].groupby('puma').apply(
+            lambda x: (x['graduation_rate'] * x['student_count']).sum() / x['student_count'].sum()
+            if x['graduation_rate'].notna().any() else None
+            ).reset_index(name='weighted_hs_grad_rate')
+        final_data = final_data.merge(grad_rate, on='puma', how='left')
     return final_data
     
