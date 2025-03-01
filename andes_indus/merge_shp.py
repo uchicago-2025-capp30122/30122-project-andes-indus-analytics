@@ -6,56 +6,66 @@ import pathlib
 import shapefile
 import csv
 
+
 class Puma(NamedTuple):
-    id : str
-    name : str
+    id: str
+    name: str
     polygon: Polygon
+
 
 class Neighborhood(NamedTuple):
-    id : str
-    name : str
+    id: str
+    name: str
     polygon: Polygon
 
+
 class School(NamedTuple):
-    id : str
-    name : str
-    latitude : float
-    longitude : float
-    student_count : float
-    is_high_school : bool
-    is_middle_school : bool
-    is_pre_school : bool
-    is_ele_school : bool
-    attendance_rate : float
-    graduation_rate : float
-    add_street : str
-    add_state : str
-    add_zipcode : float
+    id: str
+    name: str
+    latitude: float
+    longitude: float
+    student_count: float
+    is_high_school: bool
+    is_middle_school: bool
+    is_pre_school: bool
+    is_ele_school: bool
+    attendance_rate: float
+    graduation_rate: float
+    add_street: str
+    add_state: str
+    add_zipcode: float
     puma: None | str
-    neighborhood : None | str
+    neighborhood: None | str
+
 
 def load_pumas_shp(path: pathlib.Path) -> list[Puma]:
     pumas = []
     with shapefile.Reader(path) as sf:
         for shape_rec in sf.shapeRecords():
             if shape_rec.record[3].startswith("Chicago City"):
-                pumas.append(Puma(
-                    id = shape_rec.record[1],
-                    name = shape_rec.record[3],
-                    polygon = Polygon(shape_rec.shape.points))
+                pumas.append(
+                    Puma(
+                        id=shape_rec.record[1],
+                        name=shape_rec.record[3],
+                        polygon=Polygon(shape_rec.shape.points),
+                    )
                 )
     return pumas
+
 
 def load_neighborhood_shp(path: pathlib.Path) -> list[Neighborhood]:
     neighborhood = []
     with shapefile.Reader(path) as sf:
         for shape_rec in sf.shapeRecords():
-            neighborhood.append(Neighborhood(
-                id = shape_rec.record[0],
-                name = shape_rec.record[2],
-                polygon = Polygon(shape_rec.shape.points))
+            neighborhood.append(
+                Neighborhood(
+                    id=shape_rec.record[0],
+                    name=shape_rec.record[2],
+                    polygon=Polygon(shape_rec.shape.points),
+                )
             )
     return neighborhood
+
 
 def load_schools(path: pathlib.Path) -> list[School]:
     """
@@ -66,16 +76,29 @@ def load_schools(path: pathlib.Path) -> list[School]:
         data = csv.DictReader(f)
         for row in data:
             schools.append(
-                School(row["School ID"], row["School Name"], row["Latitude"], row["Longitude"],
-                       row['Student Count'],row['Is High School'],row['Is Middle School'],
-                       row['Is Pre School'],row['Is Elementarty School'],row['Atttendance Rate Current Year'],
-                       row['Graduation Rate'],row['Address Street'],row['Address State'],row['Address Zip Code'],
-                       None,
-                       None)
+                School(
+                    row["School ID"],
+                    row["School Name"],
+                    row["Latitude"],
+                    row["Longitude"],
+                    row["Student Count"],
+                    row["Is High School"],
+                    row["Is Middle School"],
+                    row["Is Pre School"],
+                    row["Is Elementarty School"],
+                    row["Atttendance Rate Current Year"],
+                    row["Graduation Rate"],
+                    row["Address Street"],
+                    row["Address State"],
+                    row["Address Zip Code"],
+                    None,
+                    None,
+                )
             )
     return schools
 
-def gen_chi_bbox(division: list[Puma|Neighborhood]):
+
+def gen_chi_bbox(division: list[Puma | Neighborhood]):
     min_lon = min(p.polygon.bounds[0] for p in division)  # min x (longitude)
     min_lat = min(p.polygon.bounds[1] for p in division)  # min y (latitude)
     max_lon = max(p.polygon.bounds[2] for p in division)  # max x (longitude)
@@ -85,20 +108,21 @@ def gen_chi_bbox(division: list[Puma|Neighborhood]):
 
     return chi_bbox
 
-def gen_quadtree(division: list[Puma|Neighborhood], chi_bbox: BBox):
-    '''
-    Helper function to create a quadtree for the pumas o neighborhoods 
-    '''
+
+def gen_quadtree(division: list[Puma | Neighborhood], chi_bbox: BBox):
+    """
+    Helper function to create a quadtree for the pumas o neighborhoods
+    """
     capacity = 5
     quadtree = Quadtree(chi_bbox, capacity)
 
     for div in division:
         quadtree.add_polygon(div.id, div.polygon)
-    
+
     return quadtree
 
-def assign_division(quadtree: Quadtree, location: Crime|School) -> str:
-    
+
+def assign_division(quadtree: Quadtree, location: Crime | School) -> str:
     loc_point = Point(location.longitude, location.latitude)
     match_lst = quadtree.match(loc_point)
 

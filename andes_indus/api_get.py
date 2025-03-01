@@ -8,7 +8,9 @@ import httpx
 import time
 
 YEAR = [2021, 2022, 2023]
-params = {"get": "SEX,PUMA,RACBLK,AGEP,HISP,FHISP,PWGTP,SCH,ESR,HINCP,ADJINC,SCHG,SCHL"} # variables to get
+params = {
+    "get": "SEX,PUMA,RACBLK,AGEP,HISP,FHISP,PWGTP,SCH,ESR,HINCP,ADJINC,SCHG,SCHL"
+}  # variables to get
 
 
 class FetchException(Exception):
@@ -20,6 +22,7 @@ class FetchException(Exception):
         super().__init__(
             f"{response.status_code} retrieving {response.url}: {response.text}"
         )
+
 
 def combine_url_with_params(url, params):
     """
@@ -40,18 +43,19 @@ def combine_url_with_params(url, params):
         "https://example.com/api/?api_key=abc&page=2"
     """
     url = httpx.URL(url)
-    merged_params  = dict(url.params) | params  # merge the dictionaries
+    merged_params = dict(url.params) | params  # merge the dictionaries
     encoded_url = str(url.copy_with(params=merged_params))
     return encoded_url.replace("%2C", ",")
+
 
 def cached_get(url) -> dict:
     """
     This function caches all GET requests it makes by writing
     the successful responses to disk.
     """
-    full_url = combine_url_with_params(url, params)  # Ensure 'params' is defined in your context.
-    print(full_url)
-    breakpoint()
+    full_url = combine_url_with_params(
+        url, params
+    )  # Ensure 'params' is defined in your context.
     try:
         response = httpx.get(full_url, follow_redirects=False, timeout=10000.0)
     except httpx.ReadTimeout as exc:
@@ -63,7 +67,6 @@ def cached_get(url) -> dict:
         return data
     else:
         raise FetchException(response)
-    
 
 
 def build_census_csv(year, output_filename):
@@ -80,32 +83,27 @@ def build_census_csv(year, output_filename):
     - `PWGTP`   - URL of the API call that returned this record.
     - `SCH`     - School enrollment.
     - `ESR`     - URL of the API call that returned this record.
-    - `HINCP`   - Household income (past 12 months, use ADJINC to 
+    - `HINCP`   - Household income (past 12 months, use ADJINC to
                 adjust HINCP to constant dollars)
     - `SCHG` -  Grade level attending
     - `SCHL` -  Education attainment
 
     Parameters:
         output_filename: Path object representing location to write file.
-    """  
-    
-    START_URL = f"https://api.census.gov/data/{year}/acs/acs1/pums"
+    """
 
+    START_URL = f"https://api.census.gov/data/{year}/acs/acs1/pums"
 
     data = cached_get(START_URL)
     # Convert to DataFrame if data is available
     if data:
         df = pd.DataFrame(data[1:], columns=data[0])  # First row is headers
-        #return df
+        # return df
         # Write the DataFrame to a CSV file
         df.to_csv(output_filename, index=False)
-        print(f"CSV file created at: {output_filename}")
     else:
-        print(f"No data available for {year}") 
-    
+        print(f"No data available for {year}")
 
-    
-    
 
 if __name__ == "__main__":
     for yr in YEAR:
