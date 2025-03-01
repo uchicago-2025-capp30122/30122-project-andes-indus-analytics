@@ -9,6 +9,7 @@ class Crime(NamedTuple):
     date: str
     primary_type: str
     puma: None | str
+    neighborhood: None | str
 
 def get_crime_data(client, data_set: str, lst_years: list) -> list[Crime]:
     '''
@@ -39,6 +40,7 @@ def process_results(results, lst_results) -> list:
                 year = int(row['date'][0:4]),
                 date = row['date'],
                 primary_type = row.get('primary_type','homicide'),
-                puma = None
+                puma = None,
+                neighborhood= None
             ))
     return lst_results

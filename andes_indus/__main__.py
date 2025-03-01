@@ -47,14 +47,18 @@ def main():
 
     # Merging crime and school data to pumas
     path_pumas = Path("data/shapefiles/pumas/pumas2022")
-    #path_neighborhoods = Path("data/shapefiles/chicago_neighborhoods.csv")
+    path_neighborhoods = Path("data/shapefiles/chicomm/chicomm")
     pumas = load_pumas_shp(path_pumas)
-    #neighborhoods = load_neighborhood_shp(path_neighborhoods)
+    neighborhoods = load_neighborhood_shp(path_neighborhoods)
 
-    quadtree_chi = gen_quadtree(pumas, gen_chi_bbox(pumas))
+    quadtree_chi_pumas = gen_quadtree(pumas, gen_chi_bbox(pumas))
+    quadtree_chi_neighborhoods = gen_quadtree(neighborhoods, gen_chi_bbox(neighborhoods))
 
-    crimes_by_puma = grouped_data_by(crime_data, quadtree_chi, 'puma')
-    schools_by_puma = grouped_data_by(schools_data, quadtree_chi, 'puma')
+    crimes_by_puma = grouped_data_by(crime_data, quadtree_chi_pumas, 'puma')
+    schools_by_puma = grouped_data_by(schools_data, quadtree_chi_pumas, 'puma')
+
+    crimes_by_neighborhood = grouped_data_by(crime_data, quadtree_chi_neighborhoods, 'neighborhood')
+    schools_by_neighborhood = grouped_data_by(schools_data, quadtree_chi_neighborhoods, 'neighborhood')
     
     pumas_shp = gpd.read_file('data/shapefiles/pumas/pumas2022.shp')
     z = fm.Map(location = [41.8783874319104, -87.62875352665596], tiles='cartodbpositron', zoom_start = 10.5)
