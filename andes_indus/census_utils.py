@@ -1,19 +1,43 @@
 import pandas as pd
 import numpy as np
+import httpx
 from api_get import build_census_csv
+import io
 
 
-def chicago_dataframe():
+def chicago_dataframe(full_fetch=False):
     """
     Filters the PUMAS to only the Chicago city
     """
-    
-    df = build_census_csv()
-    # Read the CSV file into a DataFrame
-    #df = pd.read_csv(csv_file)   
-    # Filter the DataFrame for rows where PUMA is between 3151 and 3168
+    if full_fetch:
+        df = build_census_csv()
+        # Read the CSV file into a DataFrame
+        #df = pd.read_csv(csv_file)   
+        # Filter the DataFrame for rows where PUMA is between 3151 and 3168
+    else: 
+        # Original Google Drive share link (VIEW link)
+
+        path = 'https://drive.usercontent.google.com/download?id=1KqviAJthq8RzZa9nVoBS5dp553ix55I7&export=download&authuser=0&confirm=t&uuid=abf16c04-2bbc-48ee-8a9b-9a501f2b315a&at=AEz70l6_lxclQ30xwZyTTaVqhBtR:1740868465146'
+
+        # Fetch the raw CSV data from Google Drive
+        response = httpx.get(path, follow_redirects=True)
+        
+        # Check that we got a valid 200 OK
+        if response.status_code != 200:
+            # Debug: print the first part of the error text
+            print("Response text (first 500 chars):", response.text[:500])
+            raise RuntimeError(f"Error fetching file (status={response.status_code}).")
+        
+        # Convert the response text into a file-like object
+        text_buffer = io.StringIO(response.text)
+        
+        # Read the CSV contents
+        df = pd.read_csv(text_buffer)
+        print(type(df))
     chicago_df = df[(df["PUMA"].astype(int) >= 3151) & (df["PUMA"].astype(int) <= 3168)]
+    #breakpoint()
     return chicago_df
+
 
 def cleaning_data():
     """
@@ -36,6 +60,8 @@ def education_vars():
     in the analysis  
     """
     df = cleaning_data()
+    # total population 
+
     # years of education
     df.loc[df["SCHL"] <= 3, "years_education"] = 0
     df.loc[df["SCHL"] == 4, "years_education"] = 1
@@ -51,6 +77,7 @@ def education_vars():
     df.loc[df["SCHL"] == 14, "years_education"] = 11
     df.loc[df["SCHL"] == 15, "years_education"] = 12
     df.loc[df["SCHL"] >= 16, "years_education"] = 13
+
 
  # School age population
     df["school_age"]   = ((df["AGEP"] >= 5) & (df["AGEP"] <=18)).astype(int)
@@ -88,7 +115,7 @@ def education_vars():
     
     selected_columns_df = df[['PUMA', "atten_elementary_w", 'elementary_w', 
                           'atten_middle_w', 'middle_w', 
-                          'atten_high_school_w', 'high_school_w']].groupby("PUMA").sum().reset_index()
+                          'atten_high_school_w', 'high_school_w', 'PWGTP']].groupby("PUMA").sum().reset_index()
     return selected_columns_df
 
 
@@ -103,6 +130,12 @@ def education_indicators(year:int):
     df["attendance_rate_middle"] = (df["atten_middle_w"] / df["middle_w"]) * 100
     df["attendance_rate_high"] = (df["atten_high_school_w"] / df["high_school_w"]) * 100
     
+    # calculate school age population rates (as percentages)
+    df["elementary_percentage"] = (df["elementary_w"] / df["PWGTP"]) * 100
+    df["middle_percentage"]     = (df["middle_w"] / df["PWGTP"]) * 100
+    df["high_percentage"]       = (df["high_school_w"] / df["PWGTP"]) * 100
+
+
     # Add a new column for the year
     df["year"] = year
     return df
