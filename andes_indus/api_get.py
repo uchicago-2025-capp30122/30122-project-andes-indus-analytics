@@ -5,10 +5,11 @@ import sys
 from pathlib import Path
 import pandas as pd
 import httpx
+import time
 
-YEAR = 2023
+YEAR = [2021, 2022, 2023]
 params = {"get": "SEX,PUMA,RACBLK,AGEP,HISP,FHISP,PWGTP,SCH,ESR,HINCP,ADJINC,SCHG,SCHL"} # variables to get
-url = "https://api.census.gov/data/2023/acs/acs1/pums"
+
 
 class FetchException(Exception):
     """
@@ -49,7 +50,8 @@ def cached_get(url) -> dict:
     the successful responses to disk.
     """
     full_url = combine_url_with_params(url, params)  # Ensure 'params' is defined in your context.
-    
+    print(full_url)
+    breakpoint()
     try:
         response = httpx.get(full_url, follow_redirects=False, timeout=10000.0)
     except httpx.ReadTimeout as exc:
@@ -62,9 +64,9 @@ def cached_get(url) -> dict:
     else:
         raise FetchException(response)
     
-START_URL = "https://api.census.gov/data/2023/acs/acs1/pums"
 
-def build_census_csv():
+
+def build_census_csv(year, output_filename):
     """
     Create a CSV file populated with the following columns:
 
@@ -86,21 +88,27 @@ def build_census_csv():
     Parameters:
         output_filename: Path object representing location to write file.
     """  
-    new_url = START_URL
+    
+    START_URL = f"https://api.census.gov/data/{year}/acs/acs1/pums"
 
-    data = cached_get(new_url)
+
+    data = cached_get(START_URL)
     # Convert to DataFrame if data is available
     if data:
         df = pd.DataFrame(data[1:], columns=data[0])  # First row is headers
-        return df
+        #return df
         # Write the DataFrame to a CSV file
-        #df.to_csv(output_filename, index=False)
-        #print(f"CSV file created at: {output_filename}")
+        df.to_csv(output_filename, index=False)
+        print(f"CSV file created at: {output_filename}")
     else:
-        print("No data available") 
+        print(f"No data available for {year}") 
+    
+
     
     
 
-    #if __name__ == "__main__":
-    #    output_filename = Path(f"census_2023.csv")
-    #    build_census_csv(output_filename)
+if __name__ == "__main__":
+    for yr in YEAR:
+        output_filename = Path(f"census_{yr}.csv")
+        build_census_csv(yr, output_filename)
+        time.sleep(10)
