@@ -38,15 +38,15 @@ def chicago_dataframe(full_fetch=False):
     return chicago_df
 
 
-def cleaning_data():
+def cleaning_data(full_fetch=False):
     """
     load a cvs file and clean:
     - transform variables from string to numeric
     - drop observations with no income information
     """
-    df = chicago_dataframe()
+    df = chicago_dataframe(full_fetch=False)
     # convert to numeric
-    cols = ["SCHL", "SCHG", "AGEP", "PUMA", "PWGTP", "HINCP"]
+    cols = ["SCHL", "SCHG", "AGEP", "PUMA", "PWGTP", "HINCP", "SEX", "RACBLK"]
     df[cols] = df[cols].apply(pd.to_numeric)
     # we are assuming missing values are at random and droping them
     df.loc[(df["HINCP"] == -60000), "HINCP"] = None
@@ -55,11 +55,11 @@ def cleaning_data():
     return df_clean
 
 
-def education_vars():
+def education_vars(full_fetch=False):
     """creates the education variables to be used
     in the analysis
     """
-    df = cleaning_data()
+    df = cleaning_data(full_fetch=False)
     # total population
 
     # years of education
@@ -145,11 +145,11 @@ def education_vars():
     return selected_columns_df
 
 
-def education_indicators(year: int):
+def education_indicators(year: int, full_fetch=False):
     """
     Creates education indicators, adds a 'year' column, and returns the aggregated DataFrame.
     """
-    df = education_vars()
+    df = education_vars(full_fetch=False)
 
     # Calculate attendance rates (as percentages)
     df["attendance_rate_elementary"] = (
@@ -168,7 +168,7 @@ def education_indicators(year: int):
     return df
 
 
-def process_multiple_years(output_file="data/census_df.csv"):
+def process_multiple_years(output_file="data/census_df.csv", full_fetch=False):
     """
     Processes multiple CSV files (one per year), appends the results with a 'year' column,
     and saves the final DataFrame to CSV.
@@ -180,11 +180,11 @@ def process_multiple_years(output_file="data/census_df.csv"):
     dfs = []
     for year in [2023]:
         # for year in range(2021,2024):
-        dfs.append(education_indicators(year))
+        dfs.append(education_indicators(year, full_fetch=False))
 
     final_df = pd.concat(dfs, ignore_index=True)
     final_df.to_csv(output_file, index=False)
 
 
 if __name__ == "__main__":
-    process_multiple_years("census_df.csv")
+    process_multiple_years("census_df.csv", full_fetch=False)

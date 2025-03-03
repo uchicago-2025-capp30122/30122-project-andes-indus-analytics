@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "cssselect>=1.2.0",
+    "dash>=2.18.2",
     "datetime>=5.5",
     "folium>=0.19.4",
     "geopandas>=1.0.1",
