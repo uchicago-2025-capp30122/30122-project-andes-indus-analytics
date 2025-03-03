@@ -222,3 +222,42 @@ def gen_final_data():
     )
 
     data_neighborhoods.to_csv("data/data_neighborhoods.csv")
+
+def transform_to_long_format(
+    input_csv: str = "data/census_df.csv",
+    id_vars: list = ["PUMA","year"],
+    var_name: str = 'indicator',
+    value_name: str = 'value'
+) -> pd.DataFrame:
+    """
+    Reads a CSV file and transforms it from wide to long format.
+
+    Parameters:
+    -----------
+    input_csv : str
+        Path to the input CSV file.
+    id_vars : list
+        Columns to keep as identifier variables (they remain 'as is' in the long format).
+    var_name : str, optional
+        Name of the new column that will store the former wide column names.
+    value_name : str, optional
+        Name of the new column that will store the values from the melted columns.
+
+    Returns:
+    --------
+    df_long : pd.DataFrame
+        The reshaped DataFrame in long format.
+    """
+
+    # 1. Read the CSV
+    df = pd.read_csv(input_csv)
+
+    # 2. Reshape from wide to long using melt
+    df_long = pd.melt(
+        df,
+        id_vars=id_vars,      # columns to keep in place
+        var_name=var_name,    # new column name for old wide-column headers
+        value_name=value_name # new column name for the data values
+    )
+    df_long.to_csv('census_long.csv', index=False)
+    return df_long
