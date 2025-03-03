@@ -6,6 +6,11 @@ df = pd.read_csv("data/data_pumas.csv")
 
 app = Dash(__name__)
 
+colors = {
+    'background': '#111188',
+    'text': '#7FDBFF'
+}
+
 # 1) Define the layout with a parent Div using "display: flex"
 app.layout = html.Div(
     style={'display': 'flex'},  # Makes children arrange horizontally
@@ -40,7 +45,16 @@ app.layout = html.Div(
             style={'width': '50%', 'padding': '20px'}, 
             children=[
                 dcc.Graph(id='scatter-graph'),
-                dcc.Graph(id='bar-graph')
+                dcc.Graph(id='bar-graph', figure={
+                'layout': {
+                    'plot_bgcolor': colors['background'],
+                    'paper_bgcolor': colors['background'],
+                    'font': {
+                    'color': colors['text']
+                    }
+                }
+            })
+                
             ]
         )
     ]
