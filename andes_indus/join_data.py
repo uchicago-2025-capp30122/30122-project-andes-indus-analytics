@@ -12,7 +12,7 @@ import pandas as pd
 from quadtree import Quadtree
 import os
 from sodapy import Socrata
-from crime_utils import get_all_crime_data, Crime
+from crime_utils import get_all_crime_data, Crime, load_crime_data
 from pathlib import Path
 from education import get_all_school_ids, fetch_school_profiles, save_to_csv
 from census_utils import process_multiple_years
@@ -71,8 +71,10 @@ def grouped_data_by(
         new_data_lst = assign_neighborhood_to_list(data_lst, quadtree_chi)
 
     data = data_list_to_dataframe(new_data_lst)
-    
+
     if type(data_lst[0]) is Crime:
+        data.to_csv(f'data/crime_by_{group}.csv')
+
         mask1_1 = data["primary_type"] == 'HOMICIDE' 
         mask1_2 = data["primary_type"] == 'ROBBERY'
         mask1_3 = data["primary_type"] == 'CRIMINAL SEXUAL ASSAULT'
@@ -95,6 +97,7 @@ def grouped_data_by(
         )
         
     else:
+        data.to_csv(f'data/schools_by_{group}.csv')
         numeric_cols = ["student_count", "graduation_rate"]
         boolean_cols = [
             "is_high_school",
@@ -140,27 +143,7 @@ def lower_colnames(data: pd.DataFrame) -> pd.DataFrame:
     return data
 
 
-def gen_final_data():
-    
-    # Gathering education data
-    
-    
-    # Creating the APP Key for the data sources.
-    try:
-        CHICAGO_APP_TOKEN = os.environ["CHICAGO_APP_TOKEN"]
-    except KeyError:
-        raise Exception(
-            "Make sure that you have set the APP Token environment variable as described in the README."
-        )
-
-    # Gathering the crime data from the City of Chicago Data web
-    client = Socrata("data.cityofchicago.org", CHICAGO_APP_TOKEN, timeout=10)
-    crime_code = "ijzp-q8t2"
-    homicides_code = "gumc-mgzr"
-    lst_years = list(range(2021, 2024))
-
-    # Creating the pd.Dataframes for crime and homicides_data
-    crime_data, homicides_data = get_all_crime_data(False)
+def gen_final_data(full_fetch = False):
 
     # Gathering education data
     path_schools = Path("data/cps_school_profiles.csv")
@@ -187,13 +170,21 @@ def gen_final_data():
     path_pumas = Path("data/shapefiles/pumas/pumas2022")
     pumas = load_pumas_shp(path_pumas)
     quadtree_chi_pumas = gen_quadtree(pumas, gen_chi_bbox(pumas))
-    crimes_by_puma = lower_colnames(
-        grouped_data_by(crime_data, quadtree_chi_pumas, "puma")
-    )
-    schools_by_puma = lower_colnames(
-        grouped_data_by(schools_data, quadtree_chi_pumas, "puma")
-    )
 
+    # Creating the pd.Dataframes for crime
+    if full_fetch:
+        crime_data, _ = get_all_crime_data()
+        crimes_by_puma = lower_colnames(
+            grouped_data_by(crime_data, quadtree_chi_pumas, "puma")
+        )
+    else:
+        crimes_by_puma = load_crime_data()[0]
+        crimes_by_puma["puma"] = crimes_by_puma["puma"].astype(dtype=str).str.zfill(5)
+
+    schools_by_puma = lower_colnames(
+            grouped_data_by(schools_data, quadtree_chi_pumas, "puma")
+        )
+    
     pumas_shp = gpd.read_file("data/shapefiles/pumas/pumas2022.shp")
     pumas_shp = pumas_shp.rename(columns={"PUMACE20": "puma"})
     pumas_shp["puma"] = pumas_shp["puma"].astype(dtype=str).str.zfill(5)
@@ -214,16 +205,22 @@ def gen_final_data():
     quadtree_chi_neighborhoods = gen_quadtree(
         neighborhoods, gen_chi_bbox(neighborhoods)
     )
-    crimes_by_neighborhood = lower_colnames(
-        grouped_data_by(crime_data, quadtree_chi_neighborhoods, "neighborhood")
-    )
+
+    if full_fetch:
+        crime_data, _ = get_all_crime_data()
+        crimes_by_neighborhood = lower_colnames(
+            grouped_data_by(crime_data, quadtree_chi_pumas, "neighborhood")
+        )
+    else:
+        crimes_by_neighborhood = load_crime_data()[1]
+        crimes_by_neighborhood["neighborhood"] = crimes_by_neighborhood["neighborhood"].astype(dtype=str).str.zfill(5)
+        
     schools_by_neighborhood = lower_colnames(
         grouped_data_by(schools_data, quadtree_chi_neighborhoods, "neighborhood")
     )
 
     neighborhoods_shp = gpd.read_file("data/shapefiles/chicomm/chicomm.shp")
     neighborhoods_shp = neighborhoods_shp.rename(columns={"CHICOMNO": "neighborhood"})
-
     data_neighborhoods = pd.merge(
         crimes_by_neighborhood,
         schools_by_neighborhood,

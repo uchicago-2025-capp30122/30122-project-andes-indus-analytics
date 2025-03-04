@@ -70,67 +70,65 @@ def process_results(results, lst_results, full_fetch = False) -> list:
                         date=row["date"],
                         primary_type=row.get("primary_type", "homicide"),
                         description=row.get("description", "-"),
-                        puma=None,
-                        neighborhood=None,
+                        puma=row.get("puma", None),
+                        neighborhood=row.get("neighborhood", None),
                     )
                 )
     return lst_results
 
-def get_all_crime_data(full_fetch=False):
+def get_all_crime_data():
 
-    # Creating the pd.Dataframes for crime and homicides_data
-    if full_fetch:
-        # Creating the APP Key for the data sources.
-        try:
-            CHICAGO_APP_TOKEN = os.environ["CHICAGO_APP_TOKEN"]
-        except KeyError:
-            raise Exception(
-                "Make sure that you have set the APP Token environment variable as described in the README."
-            )
+    # Creating the APP Key for the data sources.
+    try:
+        CHICAGO_APP_TOKEN = os.environ["CHICAGO_APP_TOKEN"]
+    except KeyError:
+        raise Exception(
+            "Make sure that you have set the APP Token environment variable as described in the README."
+        )
 
-        # Gathering the crime data from the City of Chicago Data web
-        client = Socrata("data.cityofchicago.org", CHICAGO_APP_TOKEN, timeout=10)
-        crime_code = "ijzp-q8t2"
-        homicides_code = "gumc-mgzr"
-        lst_years = [2013,2018,2023]
+    # Gathering the crime data from the City of Chicago Data web
+    client = Socrata("data.cityofchicago.org", CHICAGO_APP_TOKEN, timeout=10)
+    crime_code = "ijzp-q8t2"
+    homicides_code = "gumc-mgzr"
+    lst_years = [2013,2018,2023]
+
+    crime_data = get_crime_data(client, crime_code, lst_years)
+    homicides_data = get_crime_data(client, homicides_code, lst_years)
+
+    crime_df = pd.DataFrame(crime_data)
+    crime_df.to_csv("data/crime_df.csv", index=False)
     
-        crime_data = get_crime_data(client, crime_code, lst_years)
-        homicides_data = get_crime_data(client, homicides_code, lst_years)
+    homicides_df = pd.DataFrame(homicides_data)
+    homicides_df.to_csv("data/homicides_df.csv", index=False)
 
-        crime_df = pd.DataFrame(crime_data)
-        crime_df.to_csv("data/crime_df.csv", index=False)
-        
-        homicides_df = pd.DataFrame(homicides_data)
-        homicides_df.to_csv("data/homicides_df.csv", index=False)
+    return crime_data , homicides_data
 
-        return crime_data , homicides_data
-    
-    else:
+def load_crime_data():
 
     # Original Google Drive share link (VIEW link)
-        dict_paths = {'crime' : 'https://drive.usercontent.google.com/download?id=1czf5w2gz8pp2_eQVHQ0XyFcABfHKLY3v&export=download&authuser=0&confirm=t&uuid=85720b0a-11ba-40c7-ab60-284e86d84892&at=AEz70l5d2KfQCDFLMMX9tZE7HLDr:1741110765742',
-                      'homicide': 'https://drive.usercontent.google.com/download?id=1wMsC1pNPm2Fr4SOuokAww9nClSlkGp0o&export=download&authuser=0&confirm=t&uuid=3cf0b2aa-7c0d-448f-9c3a-97e9d849ba69&at=AEz70l6AnERF72xb7U0TNg84Wf5U:1741110822006'}
-        
-        data_lists = []
-        for type, path in dict_paths.items():
+    dict_paths = {'crime_by_puma' : 'https://drive.usercontent.google.com/download?id=1JUDBpR3ot26PW-2F93pLGkIbZy7dFpF7&export=download&authuser=0&confirm=t&uuid=26c3238d-a65a-449f-a6c0-9195dec5f1b8&at=AEz70l6g5TH5Nh_sh4o71wbuDkur:1741115211114',
+                    'crime_by_neighborhood': 'https://drive.usercontent.google.com/download?id=1dUEmZnPna1hQv55Czi38KYIv4Z6oHcZy&export=download&authuser=0&confirm=t&uuid=47ca72e8-6681-453e-8eae-0f6e4730a14d&at=AEz70l5OzlGvfrEsZ2JLIPiaY653:1741115182166'}
+    
+    data_lst = []
+    for type, path in dict_paths.items():
 
-            # Fetch the raw CSV data from Google Drive
-            response = httpx.get(path, follow_redirects=True)
+        # Fetch the raw CSV data from Google Drive
+        response = httpx.get(path, follow_redirects=True)
 
-            # Check that we got a valid 200 OK
-            if response.status_code != 200:
-                # Debug: print the first part of the error text
-                print("Response text (first 500 chars):", response.text[:500])
-                raise RuntimeError(f"Error fetching file (status={response.status_code}).")
+        # Check that we got a valid 200 OK
+        if response.status_code != 200:
+            # Debug: print the first part of the error text
+            print("Response text (first 500 chars):", response.text[:500])
+            raise RuntimeError(f"Error fetching file (status={response.status_code}).")
 
-            # Convert the response text into a file-like object
-            text_buffer = io.StringIO(response.text)
+        # Convert the response text into a file-like object
+        text_buffer = io.StringIO(response.text)
 
-            # Read the CSV contents
-            df = pd.read_csv(text_buffer)
-            data_lists.append(process_results(df,[],full_fetch))
+        # Read the CSV contents
+        df = pd.read_csv(text_buffer)
+        data_lst.append(df)
 
-        return data_lists[0] , data_lists[1]
+    return data_lst[0] , data_lst[1]
     
 if __name__ == '__main__':
-    get_all_crime_data(True)
+    get_all_crime_data()

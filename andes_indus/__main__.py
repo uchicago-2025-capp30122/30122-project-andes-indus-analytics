@@ -4,14 +4,14 @@ import pandas as pd
 from pathlib import Path
 import geopandas as gpd
 import webbrowser
-
+import time
 
 def main():
     path_puma = Path("data/data_pumas.csv")
     path_neighborhood = Path("data/data_neighborhoods.csv")
 
     if not path_puma.exists() or not path_neighborhood.exists():
-        gen_final_data()
+        gen_final_data(full_fetch = False)
 
     data_pumas = pd.read_csv(path_puma)
     data_neighborhoos = pd.read_csv(path_neighborhood)
