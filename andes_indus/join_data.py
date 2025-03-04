@@ -91,8 +91,8 @@ def group_crime_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
     return final_data
 
 def group_school_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
-    if not Path(f'data/schools_by_{group}.csv').exists():
-        new_data_lst.to_csv(f'data/schools_by_{group}.csv')
+    # if not Path(f'data/schools_by_{group}.csv').exists():
+    #     new_data_lst.to_csv(f'data/schools_by_{group}.csv')
     numeric_cols = ["student_count", "graduation_rate"]
     boolean_cols = [
         "is_high_school",
@@ -129,7 +129,7 @@ def group_school_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
     final_data["year"] = 2023
     return final_data
 
-def lower_colnames(data: pd.DataFrame) -> pd.DataFrame:
+def lower_colnames(data: pd.DataFrame) -> pd.DataFrame | gpd.GeoDataFrame:
     """
     Helper function to lower all columns of a dataframe before merging
     """
@@ -187,10 +187,12 @@ def gen_final_data(full_fetch = False):
 
     census_data["puma"] = census_data["puma"].astype(float).astype(int).astype(dtype=str).str.zfill(5)
 
-    data_pumas = pd.merge(crimes_by_puma, schools_by_puma, how="inner", on=["puma", "year"])
-    data_pumas = pd.merge(data_pumas, census_data, how="inner", on=["puma", "year"])
-    data_pumas = pd.merge(data_pumas, pumas_shp, how="inner", on=["puma"])
+    data_pumas = pumas_shp.merge(crimes_by_puma, how="inner", on=["puma"])
+    data_pumas = data_pumas.merge(schools_by_puma, how="inner", on=["puma", "year"])
+    data_pumas = data_pumas.merge(census_data, how="inner", on=["puma", "year"])
+
     data_pumas.to_csv("data/data_pumas.csv")
+    data_pumas.to_file("data/shapefiles/data_pumas.shp")
 
     # Merging crime and school data to neighborhoods
     path_neighborhoods = Path("data/shapefiles/chicomm/chicomm")
@@ -215,16 +217,19 @@ def gen_final_data(full_fetch = False):
 
     neighborhoods_shp = gpd.read_file("data/shapefiles/chicomm/chicomm.shp")
     neighborhoods_shp = neighborhoods_shp.rename(columns={"CHICOMNO": "neighborhood"})
-    data_neighborhoods = pd.merge(
-        crimes_by_neighborhood,
+
+    data_neighborhoods = neighborhoods_shp.merge(
+        crimes_by_neighborhood, 
+        how="inner",
+        on=["neighborhood"])
+
+    data_neighborhoods = data_neighborhoods.merge(
         schools_by_neighborhood,
         how="inner",
-        on=["neighborhood", "year"],
-    )
-    data_neighborhoods = pd.merge(
-        data_neighborhoods, neighborhoods_shp, how="inner", on=["neighborhood"]
+        on=["neighborhood", "year"]
     )
     data_neighborhoods.to_csv("data/data_neighborhoods.csv")
+    data_neighborhoods.to_file("data/shapefiles/data_neighborhoods.shp")
 
 def transform_to_long_format(
     input_csv: str = "data/census_df.csv",
