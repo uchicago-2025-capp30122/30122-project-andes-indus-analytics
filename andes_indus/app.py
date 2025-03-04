@@ -66,7 +66,7 @@ dbc.Row(
                     ]),
                     style={"textAlign": "center"}
                 ),
-                width=3  # adjust column width as needed
+                width=2  # adjust column width as needed
             ),
 
             # Card 2
@@ -82,7 +82,7 @@ dbc.Row(
                     ]),
                     style={"textAlign": "center"}
                 ),
-                width=3
+                width=2
             ),
 
             # Card 3
@@ -98,7 +98,7 @@ dbc.Row(
                     ]),
                     style={"textAlign": "center"}
                 ),
-                width=3
+                width=2
             ),
 
             # Card 4
@@ -114,7 +114,7 @@ dbc.Row(
                     ]),
                     style={"textAlign": "center"}
                 ),
-                width=3
+                width=2
             ),
         ],
         justify="center",  # horizontally center the row
@@ -199,6 +199,6 @@ def update_charts(selected_year):
         html.Iframe(srcDoc=fig_scatter.to_html(), style={'width': '100%', 'height': '400px', 'border': '0'})
         
     )
-
+d
 if __name__ == '__main__':
     app.run_server(debug=True)
