@@ -1,93 +1,204 @@
 from dash import Dash, html, dcc, callback, Output, Input
+import dash_bootstrap_components as dbc
 import plotly.express as px
+import altair as alt
 import pandas as pd
 
+# Load data
 df = pd.read_csv("data/data_pumas.csv")
+df_c = pd.read_csv("data/census_df.csv")
 
-app = Dash(__name__)
+app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 colors = {
     'background': '#111188',
     'text': '#7FDBFF'
 }
 
-# 1) Define the layout with a parent Div using "display: flex"
-app.layout = html.Div(
-    style={'display': 'flex'},  # Makes children arrange horizontally
-    children=[
-        # 2) Left column: text and controls
-        html.Div(
-            style={'width': '50%', 'padding': '20px'}, 
-            children=[
-                html.H1(
-                    "Understanding School Dropouts in Chicago",
-                    style={'textAlign': 'center'}
-                ),
-                html.P(
-                    "This is a paragraph with background info  "
-                    ""
-                ),
-                html.Label("Select Year:"),
-                dcc.Dropdown(
-                    options=sorted(df['year'].unique()),
-                    value=sorted(df['year'].unique())[0],
-                    id='dropdown-year'
-                ),
-                html.P(
-                    "story or problem we are tackling. "
-                    "Use this space for any narrative or instructions."
-                )
-            ]
-        ),
+# Layout with two columns
+app.layout = html.Div([
+    # "Header" section
+    html.Div(
+        children=[
+            html.H1([
+                # "Michelin Guide to France" in black
+                html.Span("Understanding School Attendance and Crime in", 
+                          style={"color": "#000000", 
+                                 "font-weight": "normal"}),
+                " ",  # space
+                # "chicago in blue" 
+                html.Span("Chicago", 
+                          style={"color": "#00bfff", 
+                                 "font-weight": "normal"})
+            ], 
+            style={
+                "font-family": "Times New Roman, serif", 
+                "font-size": "36px",
+                "margin": "0",   # remove default H1 margin
+                "padding": "0"
+            }),
 
-        # 3) Right column: the graphs
-        html.Div(
-            style={'width': '50%', 'padding': '20px'}, 
-            children=[
-                dcc.Graph(id='scatter-graph'),
-                dcc.Graph(id='bar-graph', figure={
-                'layout': {
-                    'plot_bgcolor': colors['background'],
-                    'paper_bgcolor': colors['background'],
-                    'font': {
-                    'color': colors['text']
-                    }
-                }
+            # A thin border line below the header
+            html.Div(style={
+                "border-bottom": "1px solid #ccc",
+                "margin-top": "5px",
+                "margin-bottom": "20px"
             })
-                
-            ]
-        )
-    ]
-)
+        ],
+        style={
+            "padding": "10px"  # some padding around the "header"
+        }
+    ),
 
-# 4) Callback that updates both graphs based on the selected year
+dbc.Row(
+        [
+            # Card 1
+            dbc.Col(
+                dbc.Card(
+                    dbc.CardBody([
+                        # Top row: number + icon
+                        html.Div([
+                            html.H4("18", className="card-title", style={"margin": 0, "textAlign": "center"}),
+                            html.I(className="fas fa-chart-bar", style={"fontSize": "1.8rem"})
+                        ], style={"display": "flex", "justifyContent": "space-between", "alignItems": "center","textAlign": "center"}),
+
+                        html.P("PUMAS", className="card-text", style={"marginTop": "10px"})
+                    ]),
+                    style={"textAlign": "center"}
+                ),
+                width=3  # adjust column width as needed
+            ),
+
+            # Card 2
+            dbc.Col(
+                dbc.Card(
+                    dbc.CardBody([
+                        html.Div([
+                            html.H4("178", className="card-title", style={"margin": 0}),
+                            html.I(className="fas fa-file-alt", style={"fontSize": "1.8rem"})
+                        ], style={"display": "flex", "justifyContent": "space-between", "alignItems": "center"}),
+
+                        html.P("Neighborhoods", className="card-text", style={"marginTop": "10px"}),
+                    ]),
+                    style={"textAlign": "center"}
+                ),
+                width=3
+            ),
+
+            # Card 3
+            dbc.Col(
+                dbc.Card(
+                    dbc.CardBody([
+                        html.Div([
+                            html.H4("644", className="card-title", style={"margin": 0}),
+                            html.I(className="fas fa-calendar-check", style={"fontSize": "1.8rem"})
+                        ], style={"display": "flex", "justifyContent": "space-between", "alignItems": "center"}),
+
+                        html.P("Public Schools in 2023", className="card-text", style={"marginTop": "10px"}),
+                    ]),
+                    style={"textAlign": "center"}
+                ),
+                width=3
+            ),
+
+            # Card 4
+            dbc.Col(
+                dbc.Card(
+                    dbc.CardBody([
+                        html.Div([
+                            html.H4("391K", className="card-title", style={"margin": 0}),
+                            html.I(className="fas fa-download", style={"fontSize": "1.8rem"})
+                        ], style={"display": "flex", "justifyContent": "space-between", "alignItems": "center"}),
+
+                        html.P("School-age population", className="card-text", style={"marginTop": "10px"}),
+                    ]),
+                    style={"textAlign": "center"}
+                ),
+                width=3
+            ),
+        ],
+        justify="center",  # horizontally center the row
+        style={"marginBottom": "10px"}
+    ),
+
+    html.Div(
+        style={'display': 'flex'},
+        children=[
+            # Left column: text and controls
+            html.Div(
+                style={'width': '50%', 'padding': '20px'},
+                children=[
+                    html.P("This is a paragraph with background info."),
+                    html.Label("Select Year:"),
+                    dcc.Dropdown(
+                        options=[{'label': str(year), 'value': year} for year in sorted(df_c['year'].unique())],
+                        value=sorted(df_c['year'].unique())[0],
+                        id='dropdown-year'
+                    ),
+                    html.P(
+                        "Story or problem we are tackling. "
+                        "Use this space for any narrative or instructions."
+                    )
+                ]
+            ),
+            # Right column: the graphs
+            html.Div(
+                style={'width': '50%', 'padding': '20px'},
+                children=[
+                    html.Div(id='scatter-graph-container'),
+                    html.Div(id='bar-graph-container'),
+                ]
+            )
+        ]
+    )
+])
+
+# Callback updates the containers with iframes that embed the Altair charts.
 @callback(
-    Output('scatter-graph', 'figure'),
-    Output('bar-graph', 'figure'),
+    Output('scatter-graph-container', 'children'),
+    Output('bar-graph-container', 'children'),
     Input('dropdown-year', 'value')
 )
 def update_charts(selected_year):
     # Filter data for the selected year
-    dff = df[df['year'] == selected_year]
+    dff = df_c[df_c['year'] == selected_year]
+    brush = alt.selection_interval()
+    select = alt.selection_point(name="select", on="click")
+    highlight = alt.selection_point(name="highlight", on="pointerover", empty=False)
+    stroke_width = (
+    alt.when(select).then(alt.value(2, empty=False))
+    .when(highlight).then(alt.value(1))
+    .otherwise(alt.value(0))
+    )
 
-    # First graph: scatter plot
-    fig_scatter = px.scatter(
-        dff,
+
+
+
+    # Create the scatter plot with a brush selection
+    fig_scatter = alt.Chart(dff).mark_point().encode(
         x='attendance_rate_high',
-        y='robbery',
+        y='atten_middle_women_w',
+        color=alt.condition(brush, alt.value("steelblue"), alt.value("grey"))
+    ).add_params(brush).properties(
         title=f"Scatter Plot for Year {selected_year}"
     )
 
-    # Second graph: bar chart, sorted by 'attendance_rate_high' descending
-    dff_sorted = dff.sort_values('attendance_rate_high', ascending=False)
-    fig_bar = px.bar(
-        dff_sorted,
-        x='puma',
-        y='attendance_rate_high',
-        title=f"Attendance rate for Year {selected_year} - highschool"
-    )
+    # Create the bar chart sorted descending by attendance_rate_high
+    fig_bar = alt.Chart(dff).mark_bar(fill="#0099cc", stroke="black", cursor="pointer").encode(
+        x=alt.X('puma_label',axis=alt.Axis(title='PUMA name'), sort=alt.EncodingSortField(field='attendance_rate_high', op='sum', order='descending')),
+        y=alt.Y('attendance_rate_high', axis=alt.Axis(title='Attendance rate - high school')),
+        fillOpacity=alt.when(select).then(alt.value(1)).otherwise(alt.value(0.3)),
+        strokeWidth=stroke_width,
+    ).properties(
+        title=f"Attendance Rate for Year {selected_year} - High School (self reported)"
+    ).add_params(select, highlight)
 
-    return fig_bar, fig_scatter
+    # Return iframes that embed the Altair charts via their HTML representation
+    return (
+        html.Iframe(srcDoc=fig_bar.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
+        html.Iframe(srcDoc=fig_scatter.to_html(), style={'width': '100%', 'height': '400px', 'border': '0'})
+        
+    )
 
 if __name__ == '__main__':
     app.run_server(debug=True)
