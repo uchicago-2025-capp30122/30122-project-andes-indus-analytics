@@ -7,6 +7,7 @@ import pandas as pd
 # Load data
 df = pd.read_csv("data/data_pumas.csv")
 df_c = pd.read_csv("data/census_df.csv")
+df_e = pd.read_csv("data/")
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
