@@ -9,6 +9,7 @@ class Crime(NamedTuple):
     year: int
     date: str
     primary_type: str
+    description: str
     puma: None | str
     neighborhood: None | str
 
@@ -25,10 +26,10 @@ def get_crime_data(client, data_set: str, lst_years: list) -> list[Crime]:
     """
 
     if data_set == "gumc-mgzr":
-        results = client.get(data_set, limit=1000)
+        results = client.get(data_set, limit=10000000)
         return process_results(results, [])
     else:
-        results = [client.get(data_set, year=y, limit=1000) for y in lst_years]
+        results = [client.get(data_set, year=y, limit=10000000) for y in lst_years]
         return process_results([r for year in results for r in year], [])
 
 
@@ -44,6 +45,7 @@ def process_results(results, lst_results) -> list:
                     year=int(row["date"][0:4]),
                     date=row["date"],
                     primary_type=row.get("primary_type", "homicide"),
+                    description = row.get("description", "-"),
                     puma=None,
                     neighborhood=None,
                 )

@@ -17,6 +17,7 @@ from pathlib import Path
 from education import get_all_school_ids, fetch_school_profiles, save_to_csv
 from census_utils import process_multiple_years
 import geopandas as gpd
+import numpy as np
 
 
 def assign_puma_to_list(
@@ -72,18 +73,27 @@ def grouped_data_by(
     data = data_list_to_dataframe(new_data_lst)
 
     if type(data_lst[0]) is Crime:
+        mask1_1 = data["primary_type"] == 'HOMICIDE' 
+        mask1_2 = data["primary_type"] == 'ROBBERY'
+        mask1_3 = data["primary_type"] == 'CRIMINAL SEXUAL ASSAULT'
+        mask2 = data["primary_type"] == "ASSAULT"
+        mask3 = data["description"].str.startswith("AGGRAVATED")
+        data['crime_type'] = np.where((mask1_1  | mask1_2 | mask1_3) | (mask2 & mask3), "Violent", "Non-violent")
+        
         final_data = (
-            data.groupby([group, "year", "primary_type"])
+            data.groupby([group, "year", "crime_type"])
             .size()
             .reset_index(name="Count")
         )
         final_data = final_data.pivot_table(
-            index=[group, "year"], columns="primary_type", values="Count", fill_value=0
+            index=[group, "year"], columns="crime_type", values="Count", fill_value=0,
+            aggfunc = "sum"
         )
         final_data = final_data.reset_index()
         final_data["total_crimes"] = final_data.drop(columns=[group, "year"]).sum(
             axis=1
         )
+        
     else:
         numeric_cols = ["student_count", "graduation_rate"]
         boolean_cols = [
