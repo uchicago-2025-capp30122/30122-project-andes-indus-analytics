@@ -11,6 +11,12 @@ pumas_shp = gpd.read_file('data/shapefiles/data_pumas.shp')
 #neighborhood_shp = gpd.read_file('data/shapefiles/data_neighborhoods.shp')
 df_c = pd.read_csv("data/census_df.csv")
 
+crime_labels = {
+    'total_crim_pc': 'Total Crime',
+    'Violent_pc': 'Violent Crime',
+    'Non-violen_pc': 'Non Violent Crime'
+}
+
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 colors = {
@@ -152,7 +158,16 @@ dbc.Row(
                     html.Div(id='bar-graph-container'),
                     html.Div(id='crime_map')
                 ]
-            )
+            ),
+            dcc.RadioItems(
+                    id='crime-type',
+                    options=[
+                        {'label': 'Total Crime', 'value': 'total_crim_pc'},
+                        {'label': 'Violent Crime', 'value': 'Violent_pc'},
+                        {'label': 'Non Violent Crime', 'value': 'Non-violen_pc'}
+                        ],
+                        value='total_crim_pc',
+                        inline=True)
         ]
     )
 ])
@@ -162,9 +177,10 @@ dbc.Row(
     Output('scatter-graph-container', 'children'),
     Output('bar-graph-container', 'children'),
     Output('crime_map', 'children'),
-    Input('dropdown-year', 'value')
+    Input('dropdown-year', 'value'),
+    Input('crime-type', 'value')
 )
-def update_charts(selected_year):
+def update_charts(selected_year, selected_crime):
     # Filter data for the selected year
     dff = df_c[df_c['year'] == selected_year]
     brush = alt.selection_interval()
@@ -202,13 +218,14 @@ def update_charts(selected_year):
 
     crime_map = alt.Chart(df_map).mark_geoshape(
         stroke = 'white', strokeWidth = 0.5
-        ).encode(color = 'total_crime_pc', tooltip = ['puma_label', 'year','total_crime_pc'] 
+        ).encode(color=alt.Color(selected_crime, type="quantitative", title="Crime Rate"),
+                 tooltip=['puma_label', 'year', alt.Tooltip(selected_crime, title="Crime per 1000 hab.")]
         ).project(
             type='mercator'
         ).properties(
             width=500,
             height=500,
-            title=f"Crime ocurrances per 1000 hab. for Year {selected_year}"
+            title=f"{crime_labels[selected_crime]} ocurrances per 1000 hab. for Year {selected_year}"
         )
 
     # Return iframes that embed the Altair charts via their HTML representation
