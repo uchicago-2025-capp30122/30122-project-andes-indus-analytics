@@ -199,6 +199,6 @@ def update_charts(selected_year):
         html.Iframe(srcDoc=fig_scatter.to_html(), style={'width': '100%', 'height': '400px', 'border': '0'})
         
     )
-d
+
 if __name__ == '__main__':
     app.run_server(debug=True)

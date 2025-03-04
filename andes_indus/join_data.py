@@ -12,7 +12,7 @@ import pandas as pd
 from quadtree import Quadtree
 import os
 from sodapy import Socrata
-from crime_utils import get_crime_data, Crime
+from crime_utils import get_all_crime_data, Crime
 from pathlib import Path
 from education import get_all_school_ids, fetch_school_profiles, save_to_csv
 from census_utils import process_multiple_years
@@ -71,7 +71,7 @@ def grouped_data_by(
         new_data_lst = assign_neighborhood_to_list(data_lst, quadtree_chi)
 
     data = data_list_to_dataframe(new_data_lst)
-
+    
     if type(data_lst[0]) is Crime:
         mask1_1 = data["primary_type"] == 'HOMICIDE' 
         mask1_2 = data["primary_type"] == 'ROBBERY'
@@ -141,6 +141,10 @@ def lower_colnames(data: pd.DataFrame) -> pd.DataFrame:
 
 
 def gen_final_data():
+    
+    # Gathering education data
+    
+    
     # Creating the APP Key for the data sources.
     try:
         CHICAGO_APP_TOKEN = os.environ["CHICAGO_APP_TOKEN"]
@@ -156,8 +160,7 @@ def gen_final_data():
     lst_years = list(range(2021, 2024))
 
     # Creating the pd.Dataframes for crime and homicides_data
-    crime_data = get_crime_data(client, crime_code, lst_years)
-    homicides_data = get_crime_data(client, homicides_code, lst_years)
+    crime_data, homicides_data = get_all_crime_data(False)
 
     # Gathering education data
     path_schools = Path("data/cps_school_profiles.csv")

@@ -2,7 +2,6 @@ import argparse
 from join_data import gen_final_data, transform_to_long_format
 import pandas as pd
 from pathlib import Path
-import folium as fm
 import geopandas as gpd
 import webbrowser
 
