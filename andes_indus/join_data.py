@@ -93,7 +93,8 @@ def group_crime_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
 def group_school_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
     # if not Path(f'data/schools_by_{group}.csv').exists():
     #     new_data_lst.to_csv(f'data/schools_by_{group}.csv')
-    numeric_cols = ["student_count", "graduation_rate"]
+    numeric_cols = ["student_count", "graduation_rate", "attendance_rate",
+                        "dropout_rate", "num_dropout", "total_students_dropout"]
     boolean_cols = [
         "is_high_school",
         "is_middle_school",
@@ -103,7 +104,7 @@ def group_school_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
     new_data_lst[numeric_cols] = new_data_lst[numeric_cols].apply(pd.to_numeric, errors="coerce")
     new_data_lst[boolean_cols] = new_data_lst[boolean_cols].astype(bool)
     final_data = (
-        new_data_lst.groupby(group)
+        new_data_lst.groupby([group, "year"])
         .agg(
             num_schools=("id", "count"),
             num_high_schools=("is_high_school", "sum"),
@@ -111,12 +112,14 @@ def group_school_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
             num_ele_schools=("is_ele_school", "sum"),
             num_pre_schools=("is_pre_school", "sum"),
             total_students=("student_count", "sum"),
+            num_dropout=("num_dropout", "sum"),
+            total_students_dropout=("total_students_dropout", "sum")
         )
         .reset_index()
     )
     grad_rate = (
         new_data_lst[new_data_lst["is_high_school"]]
-        .groupby(group)
+        .groupby([group, "year"])
         .apply(
             lambda x: (x["graduation_rate"] * x["student_count"]).sum()
             / x["student_count"].sum()
@@ -126,7 +129,7 @@ def group_school_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
         .reset_index(name="weighted_hs_grad_rate")
     )
     final_data = final_data.merge(grad_rate, on=group, how="left")
-    final_data["year"] = 2023
+
     return final_data
 
 def lower_colnames(data: pd.DataFrame) -> pd.DataFrame | gpd.GeoDataFrame:

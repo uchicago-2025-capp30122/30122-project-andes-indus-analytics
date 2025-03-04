@@ -1,7 +1,7 @@
 from shapely.geometry import Polygon, MultiPolygon, Point
 from quadtree import Quadtree, BBox
 from crime_utils import Crime
-from typing import NamedTuple
+from typing import NamedTuple, Optional
 import pathlib
 import shapefile
 import csv
@@ -37,6 +37,12 @@ class School(NamedTuple):
     puma: None | str
     neighborhood: None | str
 
+    status_as_of_2024: Optional[str]
+    year: int
+    dropout_rate: Optional[float]
+    num_dropouts: Optional[int]
+    total_students_dropout: Optional[int]
+    adjusted_students: Optional[int]
 
 def load_pumas_shp(path: pathlib.Path) -> list[Puma]:
     pumas = []
@@ -93,6 +99,12 @@ def load_schools(path: pathlib.Path) -> list[School]:
                     row["Address Zip Code"],
                     None,
                     None,
+                    row["status_as_of_2024"],
+                    row["year"],
+                    row["dropout_rate"],
+                    row["num_dropouts"],
+                    row["total_students_dropout"],
+                    row["adjusted_students"]
                 )
             )
     return schools
