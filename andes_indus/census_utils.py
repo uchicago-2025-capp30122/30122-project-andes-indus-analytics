@@ -101,9 +101,30 @@ def education_vars(full_fetch=False):
     df["school_age_non_black"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 18) & (df["RACBLK"] == 0)).astype(int)
 
     # School levels theoretical age
-    df["elementary"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10)).astype(int)
+    df["elementary"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10) ).astype(int)
     df["middle"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13)).astype(int)
     df["high_school"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18)).astype(int)
+
+    # School levels theoretical age
+    df["elementary_men"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10) & (df["SEX"] == 1)).astype(int)
+    df["middle_men"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13) & (df["SEX"] == 1)).astype(int)
+    df["high_school_men"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["SEX"] == 1)).astype(int)
+
+# School levels theoretical age
+    df["elementary_women"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10) & (df["SEX"] == 2)).astype(int)
+    df["middle_women"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13) & (df["SEX"] == 2)).astype(int)
+    df["high_school_women"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["SEX"] == 2)).astype(int)
+
+# School levels theoretical age
+    df["elementary_black"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10) & (df["RACBLK"] == 1)).astype(int)
+    df["middle_black"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13) & (df["RACBLK"] == 1)).astype(int)
+    df["high_school_black"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["RACBLK"] == 1)).astype(int)
+
+# School levels theoretical age
+    df["elementary_non_black"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10) & (df["RACBLK"] == 0)).astype(int)
+    df["middle_non_black"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13) & (df["RACBLK"] == 0)).astype(int)
+    df["high_school_non_black"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["RACBLK"] == 0)).astype(int)
+
 
 
     # School attendance SCH
@@ -200,8 +221,20 @@ def education_vars(full_fetch=False):
         "atten_high_school_men",
         "atten_high_school_women",
         "elementary",
+        "elementary_men",
+        "elementary_women",
+        "elementary_black",
+        "elementary_non_black",
         "middle",
+        "middle_men",
+        "middle_women",
+        "middle_black",
+        "middle_non_black",
         "high_school",
+        "high_school_men",
+        "high_school_women",
+        "high_school_black",
+        "high_school_non_black",
         "HINCP",
         "men",
         "woman",
@@ -224,11 +257,19 @@ def education_vars(full_fetch=False):
                 "atten_elementary_black_w",
                 "atten_elementary_non_black_w",
                 "elementary_w",
+                "elementary_men_w",
+                "elementary_women_w",
+                "elementary_black_w",
+                "elementary_non_black_w",
                 "atten_middle_w",
                 "atten_middle_women_w",
                 "atten_middle_men_w",
                 "atten_middle_black_w",
                 "atten_middle_non_black_w",
+                "middle_men_w",
+                "middle_women_w",
+                "middle_black_w",
+                "middle_non_black_w",
                 "middle_w",
                 "atten_high_school_w",
                 "atten_high_school_non_black_w",
@@ -236,6 +277,10 @@ def education_vars(full_fetch=False):
                 "atten_high_school_men_w",
                 "atten_high_school_women_w",
                 "high_school_w",
+                "high_school_men_w",
+                "high_school_women_w",
+                "high_school_black_w",
+                "high_school_non_black_w",
                 "PWGTP",
                 "HINCP_w",
                 "men_w",
@@ -250,12 +295,36 @@ def education_vars(full_fetch=False):
     )
     return selected_columns_df
 
+def aggregate_puma_data(full_fetch=False):
+    """
+    Aggregates all PUMA information into a single row while keeping the original data.
+    
+    Parameters:
+    df (pd.DataFrame): Original dataset with multiple PUMA entries.
+    
+    Returns:
+    pd.DataFrame: The dataset with an additional aggregated PUMA row.
+    """
+    df = education_vars(full_fetch=False)
+    # Drop non-numeric columns before summing
+    aggregated_puma = df.drop(columns=["PUMA"]).sum()
+    
+    # Assign a new identifier for the aggregated PUMA
+    aggregated_puma["PUMA"] = 9999
+
+    # Convert to DataFrame
+    aggregated_puma_df = pd.DataFrame([aggregated_puma])
+
+    # Append the aggregated PUMA row to the original dataset
+    df_with_aggregated = pd.concat([df, aggregated_puma_df], ignore_index=True)
+
+    return df_with_aggregated
 
 def education_indicators(year: int, full_fetch=False):
     """
     Creates education indicators, adds a 'year' column, and returns the aggregated DataFrame.
     """
-    df = education_vars(full_fetch=False)
+    df = aggregate_puma_data(full_fetch=False)
 
     # Calculate attendance rates (as percentages)
     df["attendance_rate_elementary"] = (
@@ -263,6 +332,34 @@ def education_indicators(year: int, full_fetch=False):
     ) * 100
     df["attendance_rate_middle"] = (df["atten_middle_w"] / df["middle_w"]) * 100
     df["attendance_rate_high"] = (df["atten_high_school_w"] / df["high_school_w"]) * 100
+
+        # Calculate attendance rates (men)
+    df["attendance_rate_elementary_men"] = (
+        df["atten_elementary_men_w"] / df["elementary_men_w"]
+    ) * 100
+    df["attendance_rate_middle_men"] = (df["atten_middle_men_w"] / df["middle_men_w"]) * 100
+    df["attendance_rate_high_men"] = (df["atten_high_school_men_w"] / df["high_school_men_w"]) * 100
+
+        # Calculate attendance rates (women)
+    df["attendance_rate_elementary_women"] = (
+        df["atten_elementary_women_w"] / df["elementary_women_w"]
+    ) * 100
+    df["attendance_rate_middle_women"] = (df["atten_middle_women_w"] / df["middle_women_w"]) * 100
+    df["attendance_rate_high_women"] = (df["atten_high_school_women_w"] / df["high_school_women_w"]) * 100
+
+        # Calculate attendance rates (black)
+    df["attendance_rate_elementary_black"] = (
+        df["atten_elementary_black_w"] / df["elementary_black_w"]
+    ) * 100
+    df["attendance_rate_middle_black"] = (df["atten_middle_black_w"] / df["middle_black_w"]) * 100
+    df["attendance_rate_high_black"] = (df["atten_high_school_black_w"] / df["high_school_black_w"]) * 100
+
+        # Calculate attendance rates (none black)
+    df["attendance_rate_elementary_non_black"] = (
+        df["atten_elementary_non_black_w"] / df["elementary_non_black_w"]
+    ) * 100
+    df["attendance_rate_middle_non_black"] = (df["atten_middle_non_black_w"] / df["middle_non_black_w"]) * 100
+    df["attendance_rate_high_non_black"] = (df["atten_high_school_non_black_w"] / df["high_school_non_black_w"]) * 100
 
     # calculate school age population rates (as percentages)
     df["elementary_percentage"] = (df["elementary_w"] / df["PWGTP"]) * 100
@@ -329,6 +426,10 @@ def variable_labels(year, full_fetch=False):
     df.loc[(df["PUMA"] == 3166), "puma_label"] = "(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly" 
     df.loc[(df["PUMA"] == 3167), "puma_label"] = "(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park" 
     df.loc[(df["PUMA"] == 3168), "puma_label"] = "(South) - South Shore, South Chicago, East Side & South Deering" 
+    df.loc[(df["PUMA"] == 9999), "puma_label"] = "Chicago Area"
+
+   
+
 
     return df 
 
