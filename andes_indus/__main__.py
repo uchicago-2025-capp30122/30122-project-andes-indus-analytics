@@ -17,11 +17,11 @@ def main():
     data_pumas = pd.read_csv(path_puma)
     data_neighborhoos = pd.read_csv(path_neighborhood)
 
-    transform_to_long_format(
-    "data/census_df.csv",
-    ["PUMA","year"],
-    'indicator',
-    'value') 
+   # transform_to_long_format(
+    #"data/census_df.csv",
+    #["PUMA","year"],
+    #'indicator',
+    #'value') 
 
     # pumas_shp = gpd.read_file('data/shapefiles/pumas/pumas2022.shp')
     # neighborhoods_shp = gpd.read_file('data/shapefiles/chicomm/chicomm.shp')
