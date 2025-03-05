@@ -5,7 +5,6 @@ import pandas as pd
 import httpx
 import io
 
-
 class Crime(NamedTuple):
     case_number: str
     latitude: float

@@ -10,8 +10,6 @@ from merge_shp import (
 )
 import pandas as pd
 from quadtree import Quadtree
-import os
-from sodapy import Socrata
 from crime_utils import get_all_crime_data, Crime, load_crime_data
 from pathlib import Path
 from education import get_all_school_ids, fetch_school_profiles, save_to_csv
@@ -54,14 +52,8 @@ def assign_neighborhood_to_list(
             elif type(point) == School:
                 new_data_lst.append(School(*point[:-1], neighborhood=new_neighborhood))
     return new_data_lst
-    pass
 
-
-def data_list_to_dataframe(data_lst: list[Crime | School]) -> pd.DataFrame:
-    return pd.DataFrame(data_lst)
-
-
-def grouped_data_by(
+def assign_puma_neighborhood(
     data_lst: list[Crime | School], quadtree_chi: Quadtree, group: str
 ) -> pd.DataFrame:
     assert group in ("puma", "neighborhood")
@@ -70,72 +62,77 @@ def grouped_data_by(
     else:
         new_data_lst = assign_neighborhood_to_list(data_lst, quadtree_chi)
 
-    data = data_list_to_dataframe(new_data_lst)
+    return pd.DataFrame(new_data_lst)
 
-    if type(data_lst[0]) is Crime:
-        data.to_csv(f'data/crime_by_{group}.csv')
+def group_crime_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
+    # if not Path(f'data/crime_by_{group}.csv').exists():
+    #     new_data_lst.to_csv(f'data/crime_by_{group}.csv')
 
-        mask1_1 = data["primary_type"] == 'HOMICIDE' 
-        mask1_2 = data["primary_type"] == 'ROBBERY'
-        mask1_3 = data["primary_type"] == 'CRIMINAL SEXUAL ASSAULT'
-        mask2 = data["primary_type"] == "ASSAULT"
-        mask3 = data["description"].str.startswith("AGGRAVATED")
-        data['crime_type'] = np.where((mask1_1  | mask1_2 | mask1_3) | (mask2 & mask3), "Violent", "Non-violent")
-        
-        final_data = (
-            data.groupby([group, "year", "crime_type"])
-            .size()
-            .reset_index(name="Count")
-        )
-        final_data = final_data.pivot_table(
-            index=[group, "year"], columns="crime_type", values="Count", fill_value=0,
-            aggfunc = "sum"
-        )
-        final_data = final_data.reset_index()
-        final_data["total_crimes"] = final_data.drop(columns=[group, "year"]).sum(
-            axis=1
-        )
-        
-    else:
-        data.to_csv(f'data/schools_by_{group}.csv')
-        numeric_cols = ["student_count", "graduation_rate"]
-        boolean_cols = [
-            "is_high_school",
-            "is_middle_school",
-            "is_ele_school",
-            "is_pre_school",
-        ]
-        data[numeric_cols] = data[numeric_cols].apply(pd.to_numeric, errors="coerce")
-        data[boolean_cols] = data[boolean_cols].astype(bool)
-        final_data = (
-            data.groupby(group)
-            .agg(
-                num_schools=("id", "count"),
-                num_high_schools=("is_high_school", "sum"),
-                num_middle_schools=("is_middle_school", "sum"),
-                num_ele_schools=("is_ele_school", "sum"),
-                num_pre_schools=("is_pre_school", "sum"),
-                total_students=("student_count", "sum"),
-            )
-            .reset_index()
-        )
-        grad_rate = (
-            data[data["is_high_school"]]
-            .groupby(group)
-            .apply(
-                lambda x: (x["graduation_rate"] * x["student_count"]).sum()
-                / x["student_count"].sum()
-                if x["graduation_rate"].notna().any()
-                else None
-            )
-            .reset_index(name="weighted_hs_grad_rate")
-        )
-        final_data = final_data.merge(grad_rate, on=group, how="left")
-        final_data["year"] = 2023
+    mask1_1 = new_data_lst["primary_type"] == 'HOMICIDE' 
+    mask1_2 = new_data_lst["primary_type"] == 'ROBBERY'
+    mask1_3 = new_data_lst["primary_type"] == 'CRIMINAL SEXUAL ASSAULT'
+    mask2 = new_data_lst["primary_type"] == "ASSAULT"
+    mask3 = new_data_lst["description"].str.startswith("AGGRAVATED")
+    new_data_lst['crime_type'] = np.where((mask1_1  | mask1_2 | mask1_3) | (mask2 & mask3), "Violent", "Non-violent")
+    
+    final_data = (
+        new_data_lst.groupby([group, "year", "crime_type"])
+        .size()
+        .reset_index(name="Count")
+    )
+    final_data = final_data.pivot_table(
+        index=[group, "year"], columns="crime_type", values="Count", fill_value=0,
+        aggfunc = "sum"
+    )
+    final_data = final_data.reset_index()
+    final_data["total_crimes"] = final_data.drop(columns=[group, "year"]).sum(
+        axis=1
+    )
     return final_data
 
+def group_school_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
+    # if not Path(f'data/schools_by_{group}.csv').exists():
+    #     new_data_lst.to_csv(f'data/schools_by_{group}.csv')
+    numeric_cols = ["student_count", "graduation_rate", "attendance_rate",
+                        "dropout_rate", "num_dropout", "total_students_dropout"]
+    boolean_cols = [
+        "is_high_school",
+        "is_middle_school",
+        "is_ele_school",
+        "is_pre_school",
+    ]
+    new_data_lst[numeric_cols] = new_data_lst[numeric_cols].apply(pd.to_numeric, errors="coerce")
+    new_data_lst[boolean_cols] = new_data_lst[boolean_cols].astype(bool)
+    final_data = (
+        new_data_lst.groupby([group, "year"])
+        .agg(
+            num_schools=("id", "count"),
+            num_high_schools=("is_high_school", "sum"),
+            num_middle_schools=("is_middle_school", "sum"),
+            num_ele_schools=("is_ele_school", "sum"),
+            num_pre_schools=("is_pre_school", "sum"),
+            total_students=("student_count", "sum"),
+            num_dropout=("num_dropout", "sum"),
+            total_students_dropout=("total_students_dropout", "sum")
+        )
+        .reset_index()
+    )
+    grad_rate = (
+        new_data_lst[new_data_lst["is_high_school"]]
+        .groupby([group, "year"])
+        .apply(
+            lambda x: (x["graduation_rate"] * x["student_count"]).sum()
+            / x["student_count"].sum()
+            if x["graduation_rate"].notna().any()
+            else None
+        )
+        .reset_index(name="weighted_hs_grad_rate")
+    )
+    final_data = final_data.merge(grad_rate, on=group, how="left")
 
-def lower_colnames(data: pd.DataFrame) -> pd.DataFrame:
+    return final_data
+
+def lower_colnames(data: pd.DataFrame) -> pd.DataFrame | gpd.GeoDataFrame:
     """
     Helper function to lower all columns of a dataframe before merging
     """
@@ -157,7 +154,7 @@ def gen_final_data(full_fetch = False):
             )  # Fetch selected school details
             save_to_csv(school_profiles_df)
         schools_data = load_schools(path_schools)
-
+    
     # Gathering census data
     path_census = Path("data/census_df.csv")
     if path_census.exists():
@@ -174,30 +171,31 @@ def gen_final_data(full_fetch = False):
     # Creating the pd.Dataframes for crime
     if full_fetch:
         crime_data, _ = get_all_crime_data()
-        crimes_by_puma = lower_colnames(
-            grouped_data_by(crime_data, quadtree_chi_pumas, "puma")
+        crimes_by_puma = lower_colnames(group_crime_data_by(
+            assign_puma_neighborhood(crime_data, quadtree_chi_pumas, "puma"), "puma")
         )
     else:
-        crimes_by_puma = load_crime_data()[0]
+        crime_df = load_crime_data()[0]
+        crimes_by_puma = group_crime_data_by(crime_df,"puma")
         crimes_by_puma["puma"] = crimes_by_puma["puma"].astype(dtype=str).str.zfill(5)
-
-    schools_by_puma = lower_colnames(
-            grouped_data_by(schools_data, quadtree_chi_pumas, "puma")
+    
+    schools_by_puma = lower_colnames(group_school_data_by(
+            assign_puma_neighborhood(schools_data, quadtree_chi_pumas, "puma"), "puma")
         )
     
     pumas_shp = gpd.read_file("data/shapefiles/pumas/pumas2022.shp")
     pumas_shp = pumas_shp.rename(columns={"PUMACE20": "puma"})
     pumas_shp["puma"] = pumas_shp["puma"].astype(dtype=str).str.zfill(5)
-
     pumas_shp = lower_colnames(pumas_shp)
 
-    census_data["puma"] = census_data["puma"].astype(dtype=str).str.zfill(5)
-    data_pumas = pd.merge(
-        crimes_by_puma, schools_by_puma, how="inner", on=["puma", "year"]
-    )
-    data_pumas = pd.merge(data_pumas, census_data, how="inner", on=["puma", "year"])
-    data_pumas = pd.merge(data_pumas, pumas_shp, how="inner", on=["puma"])
+    census_data["puma"] = census_data["puma"].astype(float).astype(int).astype(dtype=str).str.zfill(5)
+
+    data_pumas = pumas_shp.merge(crimes_by_puma, how="inner", on=["puma"])
+    data_pumas = data_pumas.merge(schools_by_puma, how="inner", on=["puma", "year"])
+    data_pumas = data_pumas.merge(census_data, how="inner", on=["puma", "year"])
+
     data_pumas.to_csv("data/data_pumas.csv")
+    data_pumas.to_file("data/shapefiles/data_pumas.shp")
 
     # Merging crime and school data to neighborhoods
     path_neighborhoods = Path("data/shapefiles/chicomm/chicomm")
@@ -208,30 +206,33 @@ def gen_final_data(full_fetch = False):
 
     if full_fetch:
         crime_data, _ = get_all_crime_data()
-        crimes_by_neighborhood = lower_colnames(
-            grouped_data_by(crime_data, quadtree_chi_pumas, "neighborhood")
+        crimes_by_neighborhood = lower_colnames(group_crime_data_by(
+            assign_puma_neighborhood(crime_data, quadtree_chi_pumas, "neighborhood"), "neighborhood")
         )
     else:
-        crimes_by_neighborhood = load_crime_data()[1]
-        crimes_by_neighborhood["neighborhood"] = crimes_by_neighborhood["neighborhood"].astype(dtype=str).str.zfill(5)
+        crime_df = load_crime_data()[1]
+        crimes_by_neighborhood = group_crime_data_by(crime_df,"neighborhood")
+        crimes_by_neighborhood["neighborhood"] = crimes_by_neighborhood["neighborhood"].astype(dtype=str).str.zfill(4)
         
-    schools_by_neighborhood = lower_colnames(
-        grouped_data_by(schools_data, quadtree_chi_neighborhoods, "neighborhood")
+    schools_by_neighborhood = lower_colnames(group_school_data_by(
+            assign_puma_neighborhood(schools_data, quadtree_chi_neighborhoods, "neighborhood"), "neighborhood")
     )
 
     neighborhoods_shp = gpd.read_file("data/shapefiles/chicomm/chicomm.shp")
     neighborhoods_shp = neighborhoods_shp.rename(columns={"CHICOMNO": "neighborhood"})
-    data_neighborhoods = pd.merge(
-        crimes_by_neighborhood,
+
+    data_neighborhoods = neighborhoods_shp.merge(
+        crimes_by_neighborhood, 
+        how="inner",
+        on=["neighborhood"])
+
+    data_neighborhoods = data_neighborhoods.merge(
         schools_by_neighborhood,
         how="inner",
-        on=["neighborhood", "year"],
+        on=["neighborhood", "year"]
     )
-    data_neighborhoods = pd.merge(
-        data_neighborhoods, neighborhoods_shp, how="inner", on=["neighborhood"]
-    )
-
     data_neighborhoods.to_csv("data/data_neighborhoods.csv")
+    data_neighborhoods.to_file("data/shapefiles/data_neighborhoods.shp")
 
 def transform_to_long_format(
     input_csv: str = "data/census_df.csv",
