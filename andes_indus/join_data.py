@@ -65,8 +65,8 @@ def assign_puma_neighborhood(
     return pd.DataFrame(new_data_lst)
 
 def group_crime_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
-    # if not Path(f'data/crime_by_{group}.csv').exists():
-    #     new_data_lst.to_csv(f'data/crime_by_{group}.csv')
+    if not Path(f'data/crime_by_{group}.csv').exists():
+        new_data_lst.to_csv(f'data/crime_by_{group}.csv')
 
     mask1_1 = new_data_lst["primary_type"] == 'HOMICIDE' 
     mask1_2 = new_data_lst["primary_type"] == 'ROBBERY'
@@ -91,10 +91,11 @@ def group_crime_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
     return final_data
 
 def group_school_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
-    # if not Path(f'data/schools_by_{group}.csv').exists():
-    #     new_data_lst.to_csv(f'data/schools_by_{group}.csv')
+    if not Path(f'data/schools_by_{group}.csv').exists():
+        new_data_lst.to_csv(f'data/schools_by_{group}.csv')
+
     numeric_cols = ["student_count", "graduation_rate", "attendance_rate",
-                        "dropout_rate", "num_dropout", "total_students_dropout"]
+                        "dropout_rate", "num_dropouts", "total_students_dropout"]
     boolean_cols = [
         "is_high_school",
         "is_middle_school",
@@ -112,7 +113,7 @@ def group_school_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
             num_ele_schools=("is_ele_school", "sum"),
             num_pre_schools=("is_pre_school", "sum"),
             total_students=("student_count", "sum"),
-            num_dropout=("num_dropout", "sum"),
+            num_dropout=("num_dropouts", "sum"),
             total_students_dropout=("total_students_dropout", "sum")
         )
         .reset_index()
@@ -139,11 +140,10 @@ def lower_colnames(data: pd.DataFrame) -> pd.DataFrame | gpd.GeoDataFrame:
     data.columns = data.columns.str.lower()
     return data
 
-
 def gen_final_data(full_fetch = False):
 
     # Gathering education data
-    path_schools = Path("data/cps_school_profiles.csv")
+    path_schools = Path("data/merged_school_data.csv")
     if path_schools.exists():
         schools_data = load_schools(path_schools)
     else:
@@ -169,7 +169,7 @@ def gen_final_data(full_fetch = False):
     quadtree_chi_pumas = gen_quadtree(pumas, gen_chi_bbox(pumas))
 
     # Creating the pd.Dataframes for crime
-    if full_fetch:
+    if not full_fetch:
         crime_data, _ = get_all_crime_data()
         crimes_by_puma = lower_colnames(group_crime_data_by(
             assign_puma_neighborhood(crime_data, quadtree_chi_pumas, "puma"), "puma")
@@ -192,6 +192,7 @@ def gen_final_data(full_fetch = False):
 
     data_pumas = pumas_shp.merge(crimes_by_puma, how="inner", on=["puma"])
     data_pumas = data_pumas.merge(schools_by_puma, how="inner", on=["puma", "year"])
+    breakpoint()
     data_pumas = data_pumas.merge(census_data, how="inner", on=["puma", "year"])
 
     data_pumas.to_csv("data/data_pumas.csv")

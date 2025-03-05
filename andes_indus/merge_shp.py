@@ -34,15 +34,14 @@ class School(NamedTuple):
     add_street: str
     add_state: str
     add_zipcode: float
-    puma: None | str
-    neighborhood: None | str
-
     status_as_of_2024: Optional[str]
     year: int
     dropout_rate: Optional[float]
     num_dropouts: Optional[int]
     total_students_dropout: Optional[int]
     adjusted_students: Optional[int]
+    puma: None | str
+    neighborhood: None | str
 
 def load_pumas_shp(path: pathlib.Path) -> list[Puma]:
     pumas = []
@@ -84,7 +83,7 @@ def load_schools(path: pathlib.Path) -> list[School]:
             schools.append(
                 School(
                     row["School ID"],
-                    row["School Name"],
+                    row["School Name_x"],
                     row["Latitude"],
                     row["Longitude"],
                     row["Student Count"],
@@ -97,14 +96,14 @@ def load_schools(path: pathlib.Path) -> list[School]:
                     row["Address Street"],
                     row["Address State"],
                     row["Address Zip Code"],
+                    row["Status as of 2024"],
+                    row["Year"],
+                    row["DropoutRate"],
+                    row["NumDropouts"],
+                    row["TotalStudents"],
+                    row["AdjustedStudents"],
                     None,
-                    None,
-                    row["status_as_of_2024"],
-                    row["year"],
-                    row["dropout_rate"],
-                    row["num_dropouts"],
-                    row["total_students_dropout"],
-                    row["adjusted_students"]
+                    None
                 )
             )
     return schools
@@ -135,9 +134,12 @@ def gen_quadtree(division: list[Puma | Neighborhood], chi_bbox: BBox):
 
 
 def assign_division(quadtree: Quadtree, location: Crime | School) -> str:
-    loc_point = Point(location.longitude, location.latitude)
-    match_lst = quadtree.match(loc_point)
-
-    if len(match_lst) == 0:
+    if (location.longitude == '') or (location.latitude == ''):
         return None
-    return match_lst[0]
+    else:    
+        loc_point = Point(float(location.longitude), float(location.latitude))
+        match_lst = quadtree.match(loc_point)
+        if len(match_lst) == 0:
+            return None
+        return match_lst[0]
+    

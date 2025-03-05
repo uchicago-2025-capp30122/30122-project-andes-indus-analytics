@@ -4,6 +4,7 @@ import os
 import pandas as pd
 import httpx
 import io
+import numpy as np
 
 class Crime(NamedTuple):
     case_number: str
@@ -31,10 +32,10 @@ def get_crime_data(client, data_set: str, lst_years: list, full_fetch=False) -> 
     if full_fetch:
         if data_set == "gumc-mgzr":
             results = client.get(data_set, limit=100000000)
-            return process_results(results, [])
+            return process_results(results, [], full_fetch)
         else:
             results = [client.get(data_set, year=y, limit=100000000) for y in lst_years]
-            return process_results([r for year in results for r in year], [])
+            return process_results([r for year in results for r in year], [], full_fetch)
 
 
 def process_results(results, lst_results, full_fetch = False) -> list:
@@ -86,15 +87,22 @@ def get_all_crime_data():
         )
 
     # Gathering the crime data from the City of Chicago Data web
-    client = Socrata("data.cityofchicago.org", CHICAGO_APP_TOKEN, timeout=10)
+    client = Socrata("data.cityofchicago.org", CHICAGO_APP_TOKEN)
     crime_code = "ijzp-q8t2"
     homicides_code = "gumc-mgzr"
     lst_years = [2013,2018,2023]
 
-    crime_data = get_crime_data(client, crime_code, lst_years)
-    homicides_data = get_crime_data(client, homicides_code, lst_years)
+    crime_data = get_crime_data(client, crime_code, lst_years, True)
+    homicides_data = get_crime_data(client, homicides_code, lst_years, True)
 
     crime_df = pd.DataFrame(crime_data)
+    mask1_1 = crime_df["primary_type"] == 'HOMICIDE' 
+    mask1_2 = crime_df["primary_type"] == 'ROBBERY'
+    mask1_3 = crime_df["primary_type"] == 'CRIMINAL SEXUAL ASSAULT'
+    mask2 = crime_df["primary_type"] == "ASSAULT"
+    mask3 = crime_df["description"].str.startswith("AGGRAVATED")
+    crime_df['crime_type'] = np.where((mask1_1  | mask1_2 | mask1_3) | (mask2 & mask3), "Violent", "Non-violent")
+
     crime_df.to_csv("data/crime_df.csv", index=False)
     
     homicides_df = pd.DataFrame(homicides_data)

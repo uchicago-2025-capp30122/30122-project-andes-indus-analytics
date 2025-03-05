@@ -269,7 +269,7 @@ def update_charts(selected_year, selected_crime):
     opacity=alt.condition(selection, alt.value(0.9), alt.value(0.2)),
     tooltip=[alt.Tooltip('year', title='Year'), alt.Tooltip('puma_label', title='Puma'), alt.Tooltip('value', title='population number') ]
     ).add_params(selection)
-  s
+    
     fig_stacked2 = alt.Chart(df_filtered2).mark_bar().encode(
     x=alt.X('sum(value):Q', stack='zero', axis=alt.Axis(title='Population')),
     y=alt.Y('indicator_label:N', sort=indicator_order, axis=alt.Axis(title='Education level')),
