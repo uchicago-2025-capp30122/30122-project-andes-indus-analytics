@@ -38,7 +38,7 @@ colors = {
     'background': '#111188',
     'text': '#7FDBFF'
 }
-s
+
 # Layout with two columns
 app.layout = html.Div([
     # "Header" section
@@ -230,7 +230,9 @@ def update_charts(selected_year, selected_crime):
     (df_c_long['PUMA'] == 9999) &
     (df_c_long['indicator'].isin(['high_school_w','middle_w','elementary_w'])) &
     (df_c_long['cut_name'].isin(['women', 'men']))
+    
 ]
+    print(df_filtered)
     # Define selection
     selection = alt.selection_point(fields=['cut_name'], bind='legend')
     # Create stacked bar chart
