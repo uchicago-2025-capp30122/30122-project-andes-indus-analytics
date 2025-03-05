@@ -10,6 +10,7 @@ pumas_shp = gpd.read_file('data/shapefiles/data_pumas.shp')
 pumas_df = pd.read_csv('data/data_pumas.csv')
 #neighborhood_shp = gpd.read_file('data/shapefiles/data_neighborhoods.shp')
 df_c = pd.read_csv("data/census_df.csv")
+df_c_long = pd.read_csv("data/census_df_long.csv")
 
 crime_labels = {
     'total_crim_pc': 'Total Crime',
@@ -154,6 +155,7 @@ dbc.Row(
             html.Div(
                 style={'width': '50%', 'padding': '20px'},
                 children=[
+                    html.Div(id='stacked-graph-container'),
                     html.Div(id='scatter-graph-container'),
                     html.Div(id='bar-graph-container'),
                     html.Div(id='crime_map')
@@ -174,7 +176,7 @@ dbc.Row(
 
 # Callback updates the containers with iframes that embed the Altair charts.
 @callback(
-    Output('pyramid-graph-container','children'),
+    Output('stacked-graph-container','children'),
     Output('scatter-graph-container', 'children'),
     Output('bar-graph-container', 'children'),
     Output('crime_map', 'children'),
@@ -185,11 +187,6 @@ def update_charts(selected_year, selected_crime):
     # Filter data for the selected year
     dff = df_c[df_c['year'] == selected_year]
 
-    # for the pyramid 
-    slider = alt.binding_range(min=1850, max=2000, step=10)
-    select_year = alt.selection_point(name='year', fields=['year'],
-                                   bind=slider, value=2023)
-    
     # for the interactive barchart 
     brush = alt.selection_interval()
     select = alt.selection_point(name="select", on="click")
@@ -200,29 +197,28 @@ def update_charts(selected_year, selected_crime):
     .otherwise(alt.value(0))
     )
 
-
-
-    # create a pyramid with the school age population per sex and race 
-    
-    selection = alt.selection_point(fields=['site'], bind='legend')
-    fig_pyramid = alt.Chart(dff).mark_bar().transform_calculate(
-    site_order=f"if({selection.name}.site && indexof({selection.name}.site, datum.site) !== -1, 0, 1)"
-).encode(
-    x='sum(yield):Q',
-    y='variety:N',
-    color='site:N',
-    order='site_order:N',
-    opacity=alt.when(selection).then(alt.value(0.9)).otherwise(alt.value(0.2))
-).add_params(
-    selection
-)
+    # Create the staxked plot with 
+    df_filtered = df_c_long[
+    (df_c_long['PUMA'] == 9999) &
+    (df_c_long['indicator'].isin(['high_school_w','middle_w','elementary_w'])) &
+    (df_c_long['cut_name'].isin(['women', 'men']))
+]
+    # Define selection
+    selection = alt.selection_point(fields=['cut_name'], bind='legend')
+    # Create stacked bar chart
+    fig_stacked = alt.Chart(df_filtered).mark_bar().encode(
+    x='sum(value)',
+    y='indicator',
+    color='cut_name',
+    opacity=alt.condition(selection, alt.value(0.9), alt.value(0.2))
+    ).add_params(selection)
 
    # Create the scatter plot with a brush selection
     brush = alt.selection_interval()
     df_scatter = pumas_df[pumas_df['year'] == selected_year]
     fig_scatter = alt.Chart(df_scatter).mark_point().encode(
         x='total_crimes',
-        y='attendance_rate_high',
+        y='attendance_rate_high', 
         color=alt.condition(brush, alt.value("steelblue"), alt.value("grey"))
     ).add_params(brush).properties(
         title=f"Scatter Plot for Year {selected_year}"
@@ -240,8 +236,11 @@ def update_charts(selected_year, selected_crime):
 
     # Return iframes that embed the Altair charts via their HTML representation
     return (
+        html.Iframe(srcDoc=fig_stacked.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
         html.Iframe(srcDoc=fig_bar.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
-        html.Iframe(srcDoc=fig_scatter.to_html(), style={'width': '100%', 'height': '400px', 'border': '0'})
+        html.Iframe(srcDoc=fig_scatter.to_html(), style={'width': '100%', 'height': '400px', 'border': '0'}),
+        html.Div()
+        #html.Iframe(srcDoc=crime_map.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
         
     )
 
