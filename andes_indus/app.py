@@ -7,7 +7,7 @@ import geopandas as gpd
 
 # Load data
 pumas_shp = gpd.read_file('data/shapefiles/data_pumas.shp')
-
+pumas_df = pd.read_csv('data/data_pumas.csv')
 #neighborhood_shp = gpd.read_file('data/shapefiles/data_neighborhoods.shp')
 df_c = pd.read_csv("data/census_df.csv")
 
@@ -183,7 +183,6 @@ dbc.Row(
 def update_charts(selected_year, selected_crime):
     # Filter data for the selected year
     dff = df_c[df_c['year'] == selected_year]
-    brush = alt.selection_interval()
     select = alt.selection_point(name="select", on="click")
     highlight = alt.selection_point(name="highlight", on="pointerover", empty=False)
     stroke_width = (
@@ -193,9 +192,11 @@ def update_charts(selected_year, selected_crime):
     )
 
    # Create the scatter plot with a brush selection
-    fig_scatter = alt.Chart(dff).mark_point().encode(
-        x='attendance_rate_high',
-        y='atten_middle_women_w',
+    brush = alt.selection_interval()
+    df_scatter = pumas_df[pumas_df['year'] == selected_year]
+    fig_scatter = alt.Chart(df_scatter).mark_point().encode(
+        x='total_crimes',
+        y='attendance_rate_high',
         color=alt.condition(brush, alt.value("steelblue"), alt.value("grey"))
     ).add_params(brush).properties(
         title=f"Scatter Plot for Year {selected_year}"
