@@ -155,6 +155,7 @@ dbc.Row(
 
 # Callback updates the containers with iframes that embed the Altair charts.
 @callback(
+    Output('pyramid-graph-container','children'),
     Output('scatter-graph-container', 'children'),
     Output('bar-graph-container', 'children'),
     Input('dropdown-year', 'value')
@@ -162,6 +163,13 @@ dbc.Row(
 def update_charts(selected_year):
     # Filter data for the selected year
     dff = df_c[df_c['year'] == selected_year]
+
+    # for the pyramid 
+    slider = alt.binding_range(min=1850, max=2000, step=10)
+    select_year = alt.selection_point(name='year', fields=['year'],
+                                   bind=slider, value=2023)
+    
+    # for the interactive barchart 
     brush = alt.selection_interval()
     select = alt.selection_point(name="select", on="click")
     highlight = alt.selection_point(name="highlight", on="pointerover", empty=False)
@@ -172,6 +180,23 @@ def update_charts(selected_year):
     )
 
 
+
+    # create a pyramid with the school age population per sex and race 
+    
+    selection = alt.selection_point(fields=['site'], bind='legend')
+    fig_pyramid = alt.Chart(dff).mark_bar().transform_calculate(
+    site_order=f"if({selection.name}.site && indexof({selection.name}.site, datum.site) !== -1, 0, 1)"
+).encode(
+    x='sum(yield):Q',
+    y='variety:N',
+    color='site:N',
+    order='site_order:N',
+    opacity=alt.when(selection).then(alt.value(0.9)).otherwise(alt.value(0.2))
+).add_params(
+    selection
+)
+
+s
 
 
     # Create the scatter plot with a brush selection

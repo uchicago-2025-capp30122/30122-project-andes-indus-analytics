@@ -12,11 +12,12 @@ import pandas as pd
 from quadtree import Quadtree
 import os
 from sodapy import Socrata
-from crime_utils import get_crime_data, Crime
+from crime_utils import get_all_crime_data, Crime, load_crime_data
 from pathlib import Path
 from education import get_all_school_ids, fetch_school_profiles, save_to_csv
 from census_utils import process_multiple_years
 import geopandas as gpd
+import numpy as np
 
 
 def assign_puma_to_list(
@@ -72,19 +73,31 @@ def grouped_data_by(
     data = data_list_to_dataframe(new_data_lst)
 
     if type(data_lst[0]) is Crime:
+        data.to_csv(f'data/crime_by_{group}.csv')
+
+        mask1_1 = data["primary_type"] == 'HOMICIDE' 
+        mask1_2 = data["primary_type"] == 'ROBBERY'
+        mask1_3 = data["primary_type"] == 'CRIMINAL SEXUAL ASSAULT'
+        mask2 = data["primary_type"] == "ASSAULT"
+        mask3 = data["description"].str.startswith("AGGRAVATED")
+        data['crime_type'] = np.where((mask1_1  | mask1_2 | mask1_3) | (mask2 & mask3), "Violent", "Non-violent")
+        
         final_data = (
-            data.groupby([group, "year", "primary_type"])
+            data.groupby([group, "year", "crime_type"])
             .size()
             .reset_index(name="Count")
         )
         final_data = final_data.pivot_table(
-            index=[group, "year"], columns="primary_type", values="Count", fill_value=0
+            index=[group, "year"], columns="crime_type", values="Count", fill_value=0,
+            aggfunc = "sum"
         )
         final_data = final_data.reset_index()
         final_data["total_crimes"] = final_data.drop(columns=[group, "year"]).sum(
             axis=1
         )
+        
     else:
+        data.to_csv(f'data/schools_by_{group}.csv')
         numeric_cols = ["student_count", "graduation_rate"]
         boolean_cols = [
             "is_high_school",
@@ -130,24 +143,7 @@ def lower_colnames(data: pd.DataFrame) -> pd.DataFrame:
     return data
 
 
-def gen_final_data():
-    # Creating the APP Key for the data sources.
-    try:
-        CHICAGO_APP_TOKEN = os.environ["CHICAGO_APP_TOKEN"]
-    except KeyError:
-        raise Exception(
-            "Make sure that you have set the APP Token environment variable as described in the README."
-        )
-
-    # Gathering the crime data from the City of Chicago Data web
-    client = Socrata("data.cityofchicago.org", CHICAGO_APP_TOKEN, timeout=10)
-    crime_code = "ijzp-q8t2"
-    homicides_code = "gumc-mgzr"
-    lst_years = list(range(2021, 2024))
-
-    # Creating the pd.Dataframes for crime and homicides_data
-    crime_data = get_crime_data(client, crime_code, lst_years)
-    homicides_data = get_crime_data(client, homicides_code, lst_years)
+def gen_final_data(full_fetch = False):
 
     # Gathering education data
     path_schools = Path("data/cps_school_profiles.csv")
@@ -174,13 +170,21 @@ def gen_final_data():
     path_pumas = Path("data/shapefiles/pumas/pumas2022")
     pumas = load_pumas_shp(path_pumas)
     quadtree_chi_pumas = gen_quadtree(pumas, gen_chi_bbox(pumas))
-    crimes_by_puma = lower_colnames(
-        grouped_data_by(crime_data, quadtree_chi_pumas, "puma")
-    )
-    schools_by_puma = lower_colnames(
-        grouped_data_by(schools_data, quadtree_chi_pumas, "puma")
-    )
 
+    # Creating the pd.Dataframes for crime
+    if full_fetch:
+        crime_data, _ = get_all_crime_data()
+        crimes_by_puma = lower_colnames(
+            grouped_data_by(crime_data, quadtree_chi_pumas, "puma")
+        )
+    else:
+        crimes_by_puma = load_crime_data()[0]
+        crimes_by_puma["puma"] = crimes_by_puma["puma"].astype(dtype=str).str.zfill(5)
+
+    schools_by_puma = lower_colnames(
+            grouped_data_by(schools_data, quadtree_chi_pumas, "puma")
+        )
+    
     pumas_shp = gpd.read_file("data/shapefiles/pumas/pumas2022.shp")
     pumas_shp = pumas_shp.rename(columns={"PUMACE20": "puma"})
     pumas_shp["puma"] = pumas_shp["puma"].astype(dtype=str).str.zfill(5)
@@ -201,16 +205,22 @@ def gen_final_data():
     quadtree_chi_neighborhoods = gen_quadtree(
         neighborhoods, gen_chi_bbox(neighborhoods)
     )
-    crimes_by_neighborhood = lower_colnames(
-        grouped_data_by(crime_data, quadtree_chi_neighborhoods, "neighborhood")
-    )
+
+    if full_fetch:
+        crime_data, _ = get_all_crime_data()
+        crimes_by_neighborhood = lower_colnames(
+            grouped_data_by(crime_data, quadtree_chi_pumas, "neighborhood")
+        )
+    else:
+        crimes_by_neighborhood = load_crime_data()[1]
+        crimes_by_neighborhood["neighborhood"] = crimes_by_neighborhood["neighborhood"].astype(dtype=str).str.zfill(5)
+        
     schools_by_neighborhood = lower_colnames(
         grouped_data_by(schools_data, quadtree_chi_neighborhoods, "neighborhood")
     )
 
     neighborhoods_shp = gpd.read_file("data/shapefiles/chicomm/chicomm.shp")
     neighborhoods_shp = neighborhoods_shp.rename(columns={"CHICOMNO": "neighborhood"})
-
     data_neighborhoods = pd.merge(
         crimes_by_neighborhood,
         schools_by_neighborhood,
@@ -225,7 +235,7 @@ def gen_final_data():
 
 def transform_to_long_format(
     input_csv: str = "data/census_df.csv",
-    id_vars: list = ["PUMA","year"],
+    id_vars: list = ["PUMA","year","puma_label","cut_name"],
     var_name: str = 'indicator',
     value_name: str = 'value'
 ) -> pd.DataFrame:
