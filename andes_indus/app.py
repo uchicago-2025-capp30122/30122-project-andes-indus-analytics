@@ -4,9 +4,16 @@ import plotly.express as px
 import altair as alt
 import pandas as pd
 import geopandas as gpd
+from figures import create_crime_map
 
 # Load data
 pumas_shp = gpd.read_file('data/shapefiles/data_pumas.shp')
+neighborhood_shp = gpd.read_file('data/shapefiles/data_neighborhoods.shp')
+
+# Create the crime map by puma and neighborhood
+for var in ['total_crim', 'Violent', 'Non-violen']: 
+    pumas_shp[f'{var}_pc'] = pumas_shp[f'{var}'] / pumas_shp['pwgtp'] * 1000
+
 pumas_df = pd.read_csv('data/data_pumas.csv')
 pumas_df = pumas_df.rename(columns={'total_crimes': 'total_crim',
                                     'Violent': 'Violent',
@@ -14,7 +21,8 @@ pumas_df = pumas_df.rename(columns={'total_crimes': 'total_crim',
 for var in ['total_crim', 'Violent', 'Non-violen']: 
     pumas_df[f'{var}_pc'] = pumas_df[f'{var}'] / pumas_df['pwgtp'] * 1000
 
-#neighborhood_shp = gpd.read_file('data/shapefiles/data_neighborhoods.shp')
+
+
 df_c = pd.read_csv("data/census_df.csv")
 df_c_long = pd.read_csv("data/census_df_long.csv")
 
@@ -30,7 +38,7 @@ colors = {
     'background': '#111188',
     'text': '#7FDBFF'
 }
-
+s
 # Layout with two columns
 app.layout = html.Div([
     # "Header" section
@@ -70,75 +78,89 @@ dbc.Row(
         [
             # Card 1
             dbc.Col(
-                dbc.Card(
-                    dbc.CardBody([
-                        # Top row: number + icon
-                        html.Div([
-                            html.H4("18", className="card-title", style={"margin": 0, "textAlign": "center"}),
-                            html.I(className="fas fa-chart-bar", style={"fontSize": "1.8rem"})
-                        ], style={"display": "flex", "justifyContent": "space-between", "alignItems": "center","textAlign": "center"}),
+            dbc.Card(
+                dbc.CardBody([
+                    html.Div([
+                        html.H4("18", className="card-title", style={"margin": 0}),
+                        html.I(className="fas fa-chart-bar", style={"fontSize": "1.8rem"})
+                    ], style={"display": "flex", "alignItems": "center", "gap": "10px", "justifyContent": "center"}),
 
-                        html.P("PUMAS", className="card-text", style={"marginTop": "10px"})
-                    ]),
-                    style={"textAlign": "center"}
-                ),
-                width=2  # adjust column width as needed
+                    html.P("Pumas", className="card-text", style={"marginTop": "10px"})
+                ]),
+                style={"textAlign": "center", "borderLeft": "10px solid #37526f"}
             ),
+            md=2
+        ),
 
             # Card 2
             dbc.Col(
-                dbc.Card(
-                    dbc.CardBody([
-                        html.Div([
-                            html.H4("178", className="card-title", style={"margin": 0}),
-                            html.I(className="fas fa-file-alt", style={"fontSize": "1.8rem"})
-                        ], style={"display": "flex", "justifyContent": "space-between", "alignItems": "center"}),
+            dbc.Card(
+                dbc.CardBody([
+                    html.Div([
+                        html.H4("178", className="card-title", style={"margin": 0}),
+                        html.I(className="fas fa-file-alt", style={"fontSize": "1.8rem"})
+                    ], style={"display": "flex", "alignItems": "center", "gap": "10px", "justifyContent": "center"}),
 
-                        html.P("Neighborhoods", className="card-text", style={"marginTop": "10px"}),
-                    ]),
-                    style={"textAlign": "center"}
-                ),
-                width=2
+                    html.P("Neighborhoods", className="card-text", style={"marginTop": "10px"})
+                ]),
+                style={"textAlign": "center", "borderLeft": "10px solid #3b6d92"}
             ),
+            md=2
+        ),
 
             # Card 3
             dbc.Col(
-                dbc.Card(
-                    dbc.CardBody([
-                        html.Div([
-                            html.H4("644", className="card-title", style={"margin": 0}),
-                            html.I(className="fas fa-calendar-check", style={"fontSize": "1.8rem"})
-                        ], style={"display": "flex", "justifyContent": "space-between", "alignItems": "center"}),
+            dbc.Card(
+                dbc.CardBody([
+                    html.Div([
+                        html.H4("644", className="card-title", style={"margin": 0}),
+                        html.I(className="fas fa-calendar-check", style={"fontSize": "1.8rem"})
+                    ], style={"display": "flex", "alignItems": "center", "gap": "10px", "justifyContent": "center"}),
 
-                        html.P("Public Schools in 2023", className="card-text", style={"marginTop": "10px"}),
-                    ]),
-                    style={"textAlign": "center"}
-                ),
-                width=2
+                    html.P("Public Schools in 2023", className="card-text", style={"marginTop": "10px"})
+                ]),
+                style={"textAlign": "center", "borderLeft": "10px solid #3f88b4"}
             ),
+            md=2
+        ),
 
             # Card 4
             dbc.Col(
-                dbc.Card(
-                    dbc.CardBody([
-                        html.Div([
-                            html.H4("391K", className="card-title", style={"margin": 0}),
-                            html.I(className="fas fa-download", style={"fontSize": "1.8rem"})
-                        ], style={"display": "flex", "justifyContent": "space-between", "alignItems": "center"}),
+            dbc.Card(
+                dbc.CardBody([
+                    html.Div([
+                        html.H4("391K", className="card-title", style={"margin": 0}),
+                        html.I(className="fas fa-download", style={"fontSize": "1.8rem"})
+                    ], style={"display": "flex", "alignItems": "center", "gap": "10px", "justifyContent": "center"}),
 
-                        html.P("School-age population", className="card-text", style={"marginTop": "10px"}),
-                    ]),
-                    style={"textAlign": "center"}
-                ),
-                width=2
+                    html.P("School-age population", className="card-text", style={"marginTop": "10px"})
+                ]),
+                style={"textAlign": "center", "borderLeft": "10px solid #eb9b44"}
             ),
+            md=2
+        ),
+        # Card 5
+        dbc.Col(
+            dbc.Card(
+                dbc.CardBody([
+                    html.Div([
+                        html.H4("260K", className="card-title", style={"margin": 0}),
+                        html.I(className="fas fa-download", style={"fontSize": "1.8rem"})
+                    ], style={"display": "flex", "alignItems": "center", "gap": "10px", "justifyContent": "center"}),
+
+                    html.P("Total crimes in 2023", className="card-text", style={"marginTop": "10px"})
+                ]),
+                style={"textAlign": "center", "borderLeft": "10px solid #ba9873"}
+            ),
+            md=2
+        ),
         ],
         justify="center",  # horizontally center the row
-        style={"marginBottom": "10px"}
+        style={"marginBottom": "10px", "fontFamily": "Times New Roman, serif"}
     ),
 
     html.Div(
-        style={'display': 'flex'},
+        style={'display': 'flex', "fontFamily": "Times New Roman, serif"},
         children=[
             # Left column: text and controls
             html.Div(
@@ -251,13 +273,15 @@ def update_charts(selected_year, selected_crime):
         title=f"Attendance Rate for Year {selected_year} - High School (self reported)"
     ).add_params(select, highlight)
 
+    # Creating a map
+    crime_map = create_crime_map(pumas_shp, selected_crime, selected_year, crime_labels)
+    
     # Return iframes that embed the Altair charts via their HTML representation
     return (
         html.Iframe(srcDoc=fig_stacked.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
         html.Iframe(srcDoc=fig_bar.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
         html.Iframe(srcDoc=fig_scatter.to_html(), style={'width': '100%', 'height': '400px', 'border': '0'}),
-        html.Div()
-        #html.Iframe(srcDoc=crime_map.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
+        html.Iframe(srcDoc=crime_map.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
         
     )
 
