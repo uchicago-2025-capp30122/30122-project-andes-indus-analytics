@@ -202,7 +202,7 @@ if __name__ == "__main__":
     print(f"Cleaned dropout data saved to {dropout_csv_path}")
     
     # Merge the dropout data with the API education data
-    merged_csv_path = "merged_school_data.csv"
+    merged_csv_path = "data/merged_school_data.csv"
     try:
         merged_data = merge_school_data(dropout_csv_path, api_csv_path, merged_csv_path)
         print("\nMerged DataFrame preview:")

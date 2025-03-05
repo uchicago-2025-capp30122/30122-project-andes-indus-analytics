@@ -37,7 +37,7 @@ colors = {
     'background': '#111188',
     'text': '#7FDBFF'
 }
-s
+
 # Layout with two columns
 app.layout = html.Div([
     # "Header" section
