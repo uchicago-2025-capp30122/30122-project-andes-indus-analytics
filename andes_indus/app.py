@@ -4,7 +4,7 @@ import plotly.express as px
 import altair as alt
 import pandas as pd
 import geopandas as gpd
-from figures import create_crime_map
+from figures import create_crime_map, create_interactive_bar
 
 # Load data
 pumas_shp = gpd.read_file('data/shapefiles/data_pumas.shp')
@@ -184,6 +184,7 @@ dbc.Row(
                 style={'width': '50%', 'padding': '20px'},
                 children=[
                     html.Div(id='stacked-graph-container'),
+                    html.Div(id='stacked2-graph-container'),
                     html.Div(id='scatter-graph-container'),
                     html.Div(id='bar-graph-container'),
                     html.Div(id='crime_map')
@@ -205,6 +206,7 @@ dbc.Row(
 # Callback updates the containers with iframes that embed the Altair charts.
 @callback(
     Output('stacked-graph-container','children'),
+    Output('stacked2-graph-container','children'),
     Output('scatter-graph-container', 'children'),
     Output('bar-graph-container', 'children'),
     Output('crime_map', 'children'),
@@ -225,24 +227,57 @@ def update_charts(selected_year, selected_crime):
     .otherwise(alt.value(0))
     )
 
-    # Create the staxked plot with 
+    
+    indicator_map = {
+        'elementary_w': 'Elementary',
+        'middle_w': 'Middle',
+        'high_school_w': 'High School'
+    }
+    
+    color_scale = alt.Scale(
+        domain=['men', 'women'],        # The categories in cut_name
+        range=['#1f77b4', '#eb9b44']    # The colors you want for each
+    )
+
+    color_scale2 = alt.Scale(
+        domain=['afroamerican', 'nonafroamerican'],        # The categories in cut_name
+        range=['#1f77b4', '#eb9b44']    # The colors you want for each
+    )
+    # Create a new column 'indicator_label' using the mapping
+    df_c_long['indicator_label'] = df_c_long['indicator'].map(indicator_map).fillna(df_c_long['indicator'])
+
+    # Then filter the DataFrame
     df_filtered = df_c_long[
     (df_c_long['PUMA'] == 9999) &
-    (df_c_long['indicator'].isin(['high_school_w','middle_w','elementary_w'])) &
-    (df_c_long['cut_name'].isin(['women', 'men']))
-    
-]
-    print(df_filtered)
+    (df_c_long['indicator_label'].isin(['High School', 'Middle', 'Elementary'])) &
+    (df_c_long['cut_name'].isin(['women', 'men']))]
+
+    # Then filter using the updated column
+    df_filtered2 = df_c_long[
+        (df_c_long['PUMA'] == 9999) &
+        (df_c_long['indicator_label'].isin(['High School', 'Middle', 'Elementary'])) &
+        (df_c_long['cut_name'].isin(['afroamerican', 'nonafroamerican']))    ]
+ 
+    indicator_order = ['Elementary', 'Middle', 'High School']
     # Define selection
     selection = alt.selection_point(fields=['cut_name'], bind='legend')
     # Create stacked bar chart
     fig_stacked = alt.Chart(df_filtered).mark_bar().encode(
-    x='sum(value)',
-    y='indicator',
-    color='cut_name',
-    opacity=alt.condition(selection, alt.value(0.9), alt.value(0.2))
+    x=alt.X('sum(value):Q', stack='zero', axis=alt.Axis(title='Population')),
+    y=alt.Y('indicator_label:N', sort=indicator_order, axis=alt.Axis(title='Education level')),
+    color=alt.Color('cut_name:N', scale=color_scale),
+    opacity=alt.condition(selection, alt.value(0.9), alt.value(0.2)),
+    tooltip=[alt.Tooltip('year', title='Year'), alt.Tooltip('puma_label', title='Puma'), alt.Tooltip('value', title='population number') ]
     ).add_params(selection)
-
+    
+    fig_stacked2 = alt.Chart(df_filtered2).mark_bar().encode(
+    x=alt.X('sum(value):Q', stack='zero', axis=alt.Axis(title='Population')),
+    y=alt.Y('indicator_label:N', sort=indicator_order, axis=alt.Axis(title='Education level')),
+    color=alt.Color('cut_name:N', scale=color_scale2),
+    opacity=alt.condition(selection, alt.value(0.9), alt.value(0.2)),
+    tooltip=[alt.Tooltip('year', title='Year'), alt.Tooltip('value', title='Population number')]
+    ).add_params(selection)
+    
    # Create the scatter plot with a brush selection
     brush = alt.selection_interval()
     df_scatter = pumas_df[pumas_df['year'] == selected_year]
@@ -266,21 +301,15 @@ def update_charts(selected_year, selected_crime):
         title=f"Scatter Plot for Year {selected_year}")
 
     # Create the bar chart sorted descending by attendance_rate_high
-    fig_bar = alt.Chart(dff).mark_bar(fill="#0099cc", stroke="black", cursor="pointer").encode(
-        x=alt.X('puma_label',axis=alt.Axis(title='PUMA name'), sort=alt.EncodingSortField(field='attendance_rate_high', op='sum', order='descending')),
-        y=alt.Y('attendance_rate_high', axis=alt.Axis(title='Attendance rate - high school')),
-        fillOpacity=alt.when(select).then(alt.value(1)).otherwise(alt.value(0.3)),
-        strokeWidth=stroke_width,
-    ).properties(
-        title=f"Attendance Rate for Year {selected_year} - High School (self reported)"
-    ).add_params(select, highlight)
+    fig_bar = create_interactive_bar(dff, select, stroke_width, selected_year,highlight)
 
     # Creating a map
     crime_map = create_crime_map(pumas_shp, selected_crime, selected_year, crime_labels)
     
     # Return iframes that embed the Altair charts via their HTML representation
     return (
-        html.Iframe(srcDoc=fig_stacked.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
+        html.Iframe(srcDoc=fig_stacked.to_html(), style={'width': '100%', 'height': '140px', 'border': '0'}),
+        html.Iframe(srcDoc=fig_stacked2.to_html(), style={'width': '100%', 'height': '140px', 'border': '0'}),
         html.Iframe(srcDoc=fig_bar.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
         html.Iframe(srcDoc=fig_scatter.to_html(), style={'width': '100%', 'height': '400px', 'border': '0'}),
         html.Iframe(srcDoc=crime_map.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),

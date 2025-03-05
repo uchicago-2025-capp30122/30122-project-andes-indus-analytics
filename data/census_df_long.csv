@@ -1,1027 +1,1027 @@
-PUMA,PWGTP,year,indicator,value,cut_name
-3151.0,140700.0,2023,atten_elementary_w,12327.0,Total
-3152.0,147168.0,2023,atten_elementary_w,10458.0,Total
-3153.0,165603.0,2023,atten_elementary_w,6397.0,Total
-3154.0,169636.0,2023,atten_elementary_w,6503.0,Total
-3155.0,153886.0,2023,atten_elementary_w,7192.0,Total
-3156.0,126318.0,2023,atten_elementary_w,7625.0,Total
-3157.0,162743.0,2023,atten_elementary_w,13201.0,Total
-3158.0,149036.0,2023,atten_elementary_w,10521.0,Total
-3159.0,156539.0,2023,atten_elementary_w,5547.0,Total
-3160.0,176191.0,2023,atten_elementary_w,5202.0,Total
-3161.0,129874.0,2023,atten_elementary_w,8054.0,Total
-3162.0,137561.0,2023,atten_elementary_w,9369.0,Total
-3163.0,129536.0,2023,atten_elementary_w,8058.0,Total
-3164.0,154620.0,2023,atten_elementary_w,10669.0,Total
-3165.0,130375.0,2023,atten_elementary_w,9211.0,Total
-3166.0,128932.0,2023,atten_elementary_w,9785.0,Total
-3167.0,122670.0,2023,atten_elementary_w,8926.0,Total
-3168.0,132266.0,2023,atten_elementary_w,11059.0,Total
-9999.0,2613654.0,2023,atten_elementary_w,160104.0,Total
-3151.0,140700.0,2023,atten_elementary_w,4602.0,women
-3152.0,147168.0,2023,atten_elementary_w,6050.0,women
-3153.0,165603.0,2023,atten_elementary_w,2722.0,women
-3154.0,169636.0,2023,atten_elementary_w,3120.0,women
-3155.0,153886.0,2023,atten_elementary_w,4217.0,women
-3156.0,126318.0,2023,atten_elementary_w,4524.0,women
-3157.0,162743.0,2023,atten_elementary_w,5894.0,women
-3158.0,149036.0,2023,atten_elementary_w,7342.0,women
-3159.0,156539.0,2023,atten_elementary_w,3368.0,women
-3160.0,176191.0,2023,atten_elementary_w,1925.0,women
-3161.0,129874.0,2023,atten_elementary_w,3125.0,women
-3162.0,137561.0,2023,atten_elementary_w,5686.0,women
-3163.0,129536.0,2023,atten_elementary_w,4152.0,women
-3164.0,154620.0,2023,atten_elementary_w,4840.0,women
-3165.0,130375.0,2023,atten_elementary_w,5085.0,women
-3166.0,128932.0,2023,atten_elementary_w,6234.0,women
-3167.0,122670.0,2023,atten_elementary_w,2905.0,women
-3168.0,132266.0,2023,atten_elementary_w,4565.0,women
-9999.0,2613654.0,2023,atten_elementary_w,80356.0,women
-3151.0,140700.0,2023,atten_elementary_w,7725.0,men
-3152.0,147168.0,2023,atten_elementary_w,4408.0,men
-3153.0,165603.0,2023,atten_elementary_w,3675.0,men
-3154.0,169636.0,2023,atten_elementary_w,3383.0,men
-3155.0,153886.0,2023,atten_elementary_w,2975.0,men
-3156.0,126318.0,2023,atten_elementary_w,3101.0,men
-3157.0,162743.0,2023,atten_elementary_w,7307.0,men
-3158.0,149036.0,2023,atten_elementary_w,3179.0,men
-3159.0,156539.0,2023,atten_elementary_w,2179.0,men
-3160.0,176191.0,2023,atten_elementary_w,3277.0,men
-3161.0,129874.0,2023,atten_elementary_w,4929.0,men
-3162.0,137561.0,2023,atten_elementary_w,3683.0,men
-3163.0,129536.0,2023,atten_elementary_w,3906.0,men
-3164.0,154620.0,2023,atten_elementary_w,5829.0,men
-3165.0,130375.0,2023,atten_elementary_w,4126.0,men
-3166.0,128932.0,2023,atten_elementary_w,3551.0,men
-3167.0,122670.0,2023,atten_elementary_w,6021.0,men
-3168.0,132266.0,2023,atten_elementary_w,6494.0,men
-9999.0,2613654.0,2023,atten_elementary_w,79748.0,men
-3151.0,140700.0,2023,atten_elementary_w,1909.0,afroamerican
-3152.0,147168.0,2023,atten_elementary_w,1033.0,afroamerican
-3153.0,165603.0,2023,atten_elementary_w,2500.0,afroamerican
-3154.0,169636.0,2023,atten_elementary_w,578.0,afroamerican
-3155.0,153886.0,2023,atten_elementary_w,631.0,afroamerican
-3156.0,126318.0,2023,atten_elementary_w,372.0,afroamerican
-3157.0,162743.0,2023,atten_elementary_w,1160.0,afroamerican
-3158.0,149036.0,2023,atten_elementary_w,7047.0,afroamerican
-3159.0,156539.0,2023,atten_elementary_w,2267.0,afroamerican
-3160.0,176191.0,2023,atten_elementary_w,1904.0,afroamerican
-3161.0,129874.0,2023,atten_elementary_w,6906.0,afroamerican
-3162.0,137561.0,2023,atten_elementary_w,2268.0,afroamerican
-3163.0,129536.0,2023,atten_elementary_w,595.0,afroamerican
-3164.0,154620.0,2023,atten_elementary_w,449.0,afroamerican
-3165.0,130375.0,2023,atten_elementary_w,6058.0,afroamerican
-3166.0,128932.0,2023,atten_elementary_w,7342.0,afroamerican
-3167.0,122670.0,2023,atten_elementary_w,7349.0,afroamerican
-3168.0,132266.0,2023,atten_elementary_w,7834.0,afroamerican
-9999.0,2613654.0,2023,atten_elementary_w,58202.0,afroamerican
-3151.0,140700.0,2023,atten_elementary_w,10418.0,afroamerican
-3152.0,147168.0,2023,atten_elementary_w,9425.0,afroamerican
-3153.0,165603.0,2023,atten_elementary_w,3897.0,afroamerican
-3154.0,169636.0,2023,atten_elementary_w,5925.0,afroamerican
-3155.0,153886.0,2023,atten_elementary_w,6561.0,afroamerican
-3156.0,126318.0,2023,atten_elementary_w,7253.0,afroamerican
-3157.0,162743.0,2023,atten_elementary_w,12041.0,afroamerican
-3158.0,149036.0,2023,atten_elementary_w,3474.0,afroamerican
-3159.0,156539.0,2023,atten_elementary_w,3280.0,afroamerican
-3160.0,176191.0,2023,atten_elementary_w,3298.0,afroamerican
-3161.0,129874.0,2023,atten_elementary_w,1148.0,afroamerican
-3162.0,137561.0,2023,atten_elementary_w,7101.0,afroamerican
-3163.0,129536.0,2023,atten_elementary_w,7463.0,afroamerican
-3164.0,154620.0,2023,atten_elementary_w,10220.0,afroamerican
-3165.0,130375.0,2023,atten_elementary_w,3153.0,afroamerican
-3166.0,128932.0,2023,atten_elementary_w,2443.0,afroamerican
-3167.0,122670.0,2023,atten_elementary_w,1577.0,afroamerican
-3168.0,132266.0,2023,atten_elementary_w,3225.0,afroamerican
-9999.0,2613654.0,2023,atten_elementary_w,101902.0,afroamerican
-3151.0,140700.0,2023,elementary_w,12327.0,Total
-3152.0,147168.0,2023,elementary_w,10539.0,Total
-3153.0,165603.0,2023,elementary_w,6536.0,Total
-3154.0,169636.0,2023,elementary_w,6896.0,Total
-3155.0,153886.0,2023,elementary_w,7280.0,Total
-3156.0,126318.0,2023,elementary_w,7625.0,Total
-3157.0,162743.0,2023,elementary_w,13652.0,Total
-3158.0,149036.0,2023,elementary_w,11442.0,Total
-3159.0,156539.0,2023,elementary_w,5547.0,Total
-3160.0,176191.0,2023,elementary_w,5404.0,Total
-3161.0,129874.0,2023,elementary_w,8054.0,Total
-3162.0,137561.0,2023,elementary_w,10134.0,Total
-3163.0,129536.0,2023,elementary_w,8393.0,Total
-3164.0,154620.0,2023,elementary_w,11263.0,Total
-3165.0,130375.0,2023,elementary_w,9505.0,Total
-3166.0,128932.0,2023,elementary_w,10094.0,Total
-3167.0,122670.0,2023,elementary_w,9247.0,Total
-3168.0,132266.0,2023,elementary_w,11836.0,Total
-9999.0,2613654.0,2023,elementary_w,165774.0,Total
-3151.0,140700.0,2023,elementary_w,7725.0,men
-3152.0,147168.0,2023,elementary_w,4489.0,men
-3153.0,165603.0,2023,elementary_w,3814.0,men
-3154.0,169636.0,2023,elementary_w,3548.0,men
-3155.0,153886.0,2023,elementary_w,3063.0,men
-3156.0,126318.0,2023,elementary_w,3101.0,men
-3157.0,162743.0,2023,elementary_w,7567.0,men
-3158.0,149036.0,2023,elementary_w,3179.0,men
-3159.0,156539.0,2023,elementary_w,2179.0,men
-3160.0,176191.0,2023,elementary_w,3356.0,men
-3161.0,129874.0,2023,elementary_w,4929.0,men
-3162.0,137561.0,2023,elementary_w,4007.0,men
-3163.0,129536.0,2023,elementary_w,3906.0,men
-3164.0,154620.0,2023,elementary_w,6423.0,men
-3165.0,130375.0,2023,elementary_w,4420.0,men
-3166.0,128932.0,2023,elementary_w,3763.0,men
-3167.0,122670.0,2023,elementary_w,6021.0,men
-3168.0,132266.0,2023,elementary_w,6985.0,men
-9999.0,2613654.0,2023,elementary_w,82475.0,men
-3151.0,140700.0,2023,elementary_w,4602.0,women
-3152.0,147168.0,2023,elementary_w,6050.0,women
-3153.0,165603.0,2023,elementary_w,2722.0,women
-3154.0,169636.0,2023,elementary_w,3348.0,women
-3155.0,153886.0,2023,elementary_w,4217.0,women
-3156.0,126318.0,2023,elementary_w,4524.0,women
-3157.0,162743.0,2023,elementary_w,6085.0,women
-3158.0,149036.0,2023,elementary_w,8263.0,women
-3159.0,156539.0,2023,elementary_w,3368.0,women
-3160.0,176191.0,2023,elementary_w,2048.0,women
-3161.0,129874.0,2023,elementary_w,3125.0,women
-3162.0,137561.0,2023,elementary_w,6127.0,women
-3163.0,129536.0,2023,elementary_w,4487.0,women
-3164.0,154620.0,2023,elementary_w,4840.0,women
-3165.0,130375.0,2023,elementary_w,5085.0,women
-3166.0,128932.0,2023,elementary_w,6331.0,women
-3167.0,122670.0,2023,elementary_w,3226.0,women
-3168.0,132266.0,2023,elementary_w,4851.0,women
-9999.0,2613654.0,2023,elementary_w,83299.0,women
-3151.0,140700.0,2023,elementary_w,1909.0,afroamerican
-3152.0,147168.0,2023,elementary_w,1033.0,afroamerican
-3153.0,165603.0,2023,elementary_w,2500.0,afroamerican
-3154.0,169636.0,2023,elementary_w,578.0,afroamerican
-3155.0,153886.0,2023,elementary_w,631.0,afroamerican
-3156.0,126318.0,2023,elementary_w,372.0,afroamerican
-3157.0,162743.0,2023,elementary_w,1160.0,afroamerican
-3158.0,149036.0,2023,elementary_w,7968.0,afroamerican
-3159.0,156539.0,2023,elementary_w,2267.0,afroamerican
-3160.0,176191.0,2023,elementary_w,1904.0,afroamerican
-3161.0,129874.0,2023,elementary_w,6906.0,afroamerican
-3162.0,137561.0,2023,elementary_w,2592.0,afroamerican
-3163.0,129536.0,2023,elementary_w,595.0,afroamerican
-3164.0,154620.0,2023,elementary_w,719.0,afroamerican
-3165.0,130375.0,2023,elementary_w,6352.0,afroamerican
-3166.0,128932.0,2023,elementary_w,7554.0,afroamerican
-3167.0,122670.0,2023,elementary_w,7670.0,afroamerican
-3168.0,132266.0,2023,elementary_w,8611.0,afroamerican
-9999.0,2613654.0,2023,elementary_w,61321.0,afroamerican
-3151.0,140700.0,2023,elementary_w,10418.0,afroamerican
-3152.0,147168.0,2023,elementary_w,9506.0,afroamerican
-3153.0,165603.0,2023,elementary_w,4036.0,afroamerican
-3154.0,169636.0,2023,elementary_w,6318.0,afroamerican
-3155.0,153886.0,2023,elementary_w,6649.0,afroamerican
-3156.0,126318.0,2023,elementary_w,7253.0,afroamerican
-3157.0,162743.0,2023,elementary_w,12492.0,afroamerican
-3158.0,149036.0,2023,elementary_w,3474.0,afroamerican
-3159.0,156539.0,2023,elementary_w,3280.0,afroamerican
-3160.0,176191.0,2023,elementary_w,3500.0,afroamerican
-3161.0,129874.0,2023,elementary_w,1148.0,afroamerican
-3162.0,137561.0,2023,elementary_w,7542.0,afroamerican
-3163.0,129536.0,2023,elementary_w,7798.0,afroamerican
-3164.0,154620.0,2023,elementary_w,10544.0,afroamerican
-3165.0,130375.0,2023,elementary_w,3153.0,afroamerican
-3166.0,128932.0,2023,elementary_w,2540.0,afroamerican
-3167.0,122670.0,2023,elementary_w,1577.0,afroamerican
-3168.0,132266.0,2023,elementary_w,3225.0,afroamerican
-9999.0,2613654.0,2023,elementary_w,104453.0,afroamerican
-3151.0,140700.0,2023,atten_middle_w,3622.0,Total
-3152.0,147168.0,2023,atten_middle_w,3089.0,Total
-3153.0,165603.0,2023,atten_middle_w,902.0,Total
-3154.0,169636.0,2023,atten_middle_w,1480.0,Total
-3155.0,153886.0,2023,atten_middle_w,4494.0,Total
-3156.0,126318.0,2023,atten_middle_w,4304.0,Total
-3157.0,162743.0,2023,atten_middle_w,3672.0,Total
-3158.0,149036.0,2023,atten_middle_w,3833.0,Total
-3159.0,156539.0,2023,atten_middle_w,2183.0,Total
-3160.0,176191.0,2023,atten_middle_w,1547.0,Total
-3161.0,129874.0,2023,atten_middle_w,3458.0,Total
-3162.0,137561.0,2023,atten_middle_w,3211.0,Total
-3163.0,129536.0,2023,atten_middle_w,3614.0,Total
-3164.0,154620.0,2023,atten_middle_w,4592.0,Total
-3165.0,130375.0,2023,atten_middle_w,2689.0,Total
-3166.0,128932.0,2023,atten_middle_w,4014.0,Total
-3167.0,122670.0,2023,atten_middle_w,4837.0,Total
-3168.0,132266.0,2023,atten_middle_w,4163.0,Total
-9999.0,2613654.0,2023,atten_middle_w,59704.0,Total
-3151.0,140700.0,2023,atten_middle_w,1582.0,women
-3152.0,147168.0,2023,atten_middle_w,976.0,women
-3153.0,165603.0,2023,atten_middle_w,441.0,women
-3154.0,169636.0,2023,atten_middle_w,513.0,women
-3155.0,153886.0,2023,atten_middle_w,2285.0,women
-3156.0,126318.0,2023,atten_middle_w,2141.0,women
-3157.0,162743.0,2023,atten_middle_w,1902.0,women
-3158.0,149036.0,2023,atten_middle_w,2161.0,women
-3159.0,156539.0,2023,atten_middle_w,802.0,women
-3160.0,176191.0,2023,atten_middle_w,1029.0,women
-3161.0,129874.0,2023,atten_middle_w,2530.0,women
-3162.0,137561.0,2023,atten_middle_w,843.0,women
-3163.0,129536.0,2023,atten_middle_w,1306.0,women
-3164.0,154620.0,2023,atten_middle_w,2378.0,women
-3165.0,130375.0,2023,atten_middle_w,1761.0,women
-3166.0,128932.0,2023,atten_middle_w,2408.0,women
-3167.0,122670.0,2023,atten_middle_w,3160.0,women
-3168.0,132266.0,2023,atten_middle_w,1876.0,women
-9999.0,2613654.0,2023,atten_middle_w,30094.0,women
-3151.0,140700.0,2023,atten_middle_w,2040.0,men
-3152.0,147168.0,2023,atten_middle_w,2113.0,men
-3153.0,165603.0,2023,atten_middle_w,461.0,men
-3154.0,169636.0,2023,atten_middle_w,967.0,men
-3155.0,153886.0,2023,atten_middle_w,2209.0,men
-3156.0,126318.0,2023,atten_middle_w,2163.0,men
-3157.0,162743.0,2023,atten_middle_w,1770.0,men
-3158.0,149036.0,2023,atten_middle_w,1672.0,men
-3159.0,156539.0,2023,atten_middle_w,1381.0,men
-3160.0,176191.0,2023,atten_middle_w,518.0,men
-3161.0,129874.0,2023,atten_middle_w,928.0,men
-3162.0,137561.0,2023,atten_middle_w,2368.0,men
-3163.0,129536.0,2023,atten_middle_w,2308.0,men
-3164.0,154620.0,2023,atten_middle_w,2214.0,men
-3165.0,130375.0,2023,atten_middle_w,928.0,men
-3166.0,128932.0,2023,atten_middle_w,1606.0,men
-3167.0,122670.0,2023,atten_middle_w,1677.0,men
-3168.0,132266.0,2023,atten_middle_w,2287.0,men
-9999.0,2613654.0,2023,atten_middle_w,29610.0,men
-3151.0,140700.0,2023,atten_middle_w,87.0,afroamerican
-3152.0,147168.0,2023,atten_middle_w,599.0,afroamerican
-3153.0,165603.0,2023,atten_middle_w,479.0,afroamerican
-3154.0,169636.0,2023,atten_middle_w,0.0,afroamerican
-3155.0,153886.0,2023,atten_middle_w,195.0,afroamerican
-3156.0,126318.0,2023,atten_middle_w,741.0,afroamerican
-3157.0,162743.0,2023,atten_middle_w,321.0,afroamerican
-3158.0,149036.0,2023,atten_middle_w,2777.0,afroamerican
-3159.0,156539.0,2023,atten_middle_w,167.0,afroamerican
-3160.0,176191.0,2023,atten_middle_w,0.0,afroamerican
-3161.0,129874.0,2023,atten_middle_w,3046.0,afroamerican
-3162.0,137561.0,2023,atten_middle_w,63.0,afroamerican
-3163.0,129536.0,2023,atten_middle_w,0.0,afroamerican
-3164.0,154620.0,2023,atten_middle_w,659.0,afroamerican
-3165.0,130375.0,2023,atten_middle_w,1530.0,afroamerican
-3166.0,128932.0,2023,atten_middle_w,2554.0,afroamerican
-3167.0,122670.0,2023,atten_middle_w,4837.0,afroamerican
-3168.0,132266.0,2023,atten_middle_w,1965.0,afroamerican
-9999.0,2613654.0,2023,atten_middle_w,20020.0,afroamerican
-3151.0,140700.0,2023,atten_middle_w,3535.0,afroamerican
-3152.0,147168.0,2023,atten_middle_w,2490.0,afroamerican
-3153.0,165603.0,2023,atten_middle_w,423.0,afroamerican
-3154.0,169636.0,2023,atten_middle_w,1480.0,afroamerican
-3155.0,153886.0,2023,atten_middle_w,4299.0,afroamerican
-3156.0,126318.0,2023,atten_middle_w,3563.0,afroamerican
-3157.0,162743.0,2023,atten_middle_w,3351.0,afroamerican
-3158.0,149036.0,2023,atten_middle_w,1056.0,afroamerican
-3159.0,156539.0,2023,atten_middle_w,2016.0,afroamerican
-3160.0,176191.0,2023,atten_middle_w,1547.0,afroamerican
-3161.0,129874.0,2023,atten_middle_w,412.0,afroamerican
-3162.0,137561.0,2023,atten_middle_w,3148.0,afroamerican
-3163.0,129536.0,2023,atten_middle_w,3614.0,afroamerican
-3164.0,154620.0,2023,atten_middle_w,3933.0,afroamerican
-3165.0,130375.0,2023,atten_middle_w,1159.0,afroamerican
-3166.0,128932.0,2023,atten_middle_w,1460.0,afroamerican
-3167.0,122670.0,2023,atten_middle_w,0.0,afroamerican
-3168.0,132266.0,2023,atten_middle_w,2198.0,afroamerican
-9999.0,2613654.0,2023,atten_middle_w,39684.0,afroamerican
-3151.0,140700.0,2023,middle_w,3011.0,men
-3152.0,147168.0,2023,middle_w,3172.0,men
-3153.0,165603.0,2023,middle_w,593.0,men
-3154.0,169636.0,2023,middle_w,1216.0,men
-3155.0,153886.0,2023,middle_w,2307.0,men
-3156.0,126318.0,2023,middle_w,2982.0,men
-3157.0,162743.0,2023,middle_w,3033.0,men
-3158.0,149036.0,2023,middle_w,2269.0,men
-3159.0,156539.0,2023,middle_w,1434.0,men
-3160.0,176191.0,2023,middle_w,518.0,men
-3161.0,129874.0,2023,middle_w,1822.0,men
-3162.0,137561.0,2023,middle_w,2675.0,men
-3163.0,129536.0,2023,middle_w,2308.0,men
-3164.0,154620.0,2023,middle_w,2499.0,men
-3165.0,130375.0,2023,middle_w,1819.0,men
-3166.0,128932.0,2023,middle_w,1606.0,men
-3167.0,122670.0,2023,middle_w,1887.0,men
-3168.0,132266.0,2023,middle_w,2915.0,men
-9999.0,2613654.0,2023,middle_w,38066.0,men
-3151.0,140700.0,2023,middle_w,2065.0,women
-3152.0,147168.0,2023,middle_w,1471.0,women
-3153.0,165603.0,2023,middle_w,676.0,women
-3154.0,169636.0,2023,middle_w,513.0,women
-3155.0,153886.0,2023,middle_w,2467.0,women
-3156.0,126318.0,2023,middle_w,2141.0,women
-3157.0,162743.0,2023,middle_w,2938.0,women
-3158.0,149036.0,2023,middle_w,2325.0,women
-3159.0,156539.0,2023,middle_w,802.0,women
-3160.0,176191.0,2023,middle_w,1029.0,women
-3161.0,129874.0,2023,middle_w,2914.0,women
-3162.0,137561.0,2023,middle_w,1292.0,women
-3163.0,129536.0,2023,middle_w,1542.0,women
-3164.0,154620.0,2023,middle_w,3288.0,women
-3165.0,130375.0,2023,middle_w,2198.0,women
-3166.0,128932.0,2023,middle_w,2576.0,women
-3167.0,122670.0,2023,middle_w,3160.0,women
-3168.0,132266.0,2023,middle_w,1876.0,women
-9999.0,2613654.0,2023,middle_w,35273.0,women
-3151.0,140700.0,2023,middle_w,87.0,afroamerican
-3152.0,147168.0,2023,middle_w,599.0,afroamerican
-3153.0,165603.0,2023,middle_w,611.0,afroamerican
-3154.0,169636.0,2023,middle_w,0.0,afroamerican
-3155.0,153886.0,2023,middle_w,195.0,afroamerican
-3156.0,126318.0,2023,middle_w,741.0,afroamerican
-3157.0,162743.0,2023,middle_w,1049.0,afroamerican
-3158.0,149036.0,2023,middle_w,3215.0,afroamerican
-3159.0,156539.0,2023,middle_w,167.0,afroamerican
-3160.0,176191.0,2023,middle_w,0.0,afroamerican
-3161.0,129874.0,2023,middle_w,4246.0,afroamerican
-3162.0,137561.0,2023,middle_w,63.0,afroamerican
-3163.0,129536.0,2023,middle_w,0.0,afroamerican
-3164.0,154620.0,2023,middle_w,659.0,afroamerican
-3165.0,130375.0,2023,middle_w,2567.0,afroamerican
-3166.0,128932.0,2023,middle_w,2554.0,afroamerican
-3167.0,122670.0,2023,middle_w,5047.0,afroamerican
-3168.0,132266.0,2023,middle_w,2337.0,afroamerican
-9999.0,2613654.0,2023,middle_w,24137.0,afroamerican
-3151.0,140700.0,2023,middle_w,4989.0,afroamerican
-3152.0,147168.0,2023,middle_w,4044.0,afroamerican
-3153.0,165603.0,2023,middle_w,658.0,afroamerican
-3154.0,169636.0,2023,middle_w,1729.0,afroamerican
-3155.0,153886.0,2023,middle_w,4579.0,afroamerican
-3156.0,126318.0,2023,middle_w,4382.0,afroamerican
-3157.0,162743.0,2023,middle_w,4922.0,afroamerican
-3158.0,149036.0,2023,middle_w,1379.0,afroamerican
-3159.0,156539.0,2023,middle_w,2069.0,afroamerican
-3160.0,176191.0,2023,middle_w,1547.0,afroamerican
-3161.0,129874.0,2023,middle_w,490.0,afroamerican
-3162.0,137561.0,2023,middle_w,3904.0,afroamerican
-3163.0,129536.0,2023,middle_w,3850.0,afroamerican
-3164.0,154620.0,2023,middle_w,5128.0,afroamerican
-3165.0,130375.0,2023,middle_w,1450.0,afroamerican
-3166.0,128932.0,2023,middle_w,1628.0,afroamerican
-3167.0,122670.0,2023,middle_w,0.0,afroamerican
-3168.0,132266.0,2023,middle_w,2454.0,afroamerican
-9999.0,2613654.0,2023,middle_w,49202.0,afroamerican
-3151.0,140700.0,2023,middle_w,5076.0,Total
-3152.0,147168.0,2023,middle_w,4643.0,Total
-3153.0,165603.0,2023,middle_w,1269.0,Total
-3154.0,169636.0,2023,middle_w,1729.0,Total
-3155.0,153886.0,2023,middle_w,4774.0,Total
-3156.0,126318.0,2023,middle_w,5123.0,Total
-3157.0,162743.0,2023,middle_w,5971.0,Total
-3158.0,149036.0,2023,middle_w,4594.0,Total
-3159.0,156539.0,2023,middle_w,2236.0,Total
-3160.0,176191.0,2023,middle_w,1547.0,Total
-3161.0,129874.0,2023,middle_w,4736.0,Total
-3162.0,137561.0,2023,middle_w,3967.0,Total
-3163.0,129536.0,2023,middle_w,3850.0,Total
-3164.0,154620.0,2023,middle_w,5787.0,Total
-3165.0,130375.0,2023,middle_w,4017.0,Total
-3166.0,128932.0,2023,middle_w,4182.0,Total
-3167.0,122670.0,2023,middle_w,5047.0,Total
-3168.0,132266.0,2023,middle_w,4791.0,Total
-9999.0,2613654.0,2023,middle_w,73339.0,Total
-3151.0,140700.0,2023,atten_high_school_w,5644.0,Total
-3152.0,147168.0,2023,atten_high_school_w,8343.0,Total
-3153.0,165603.0,2023,atten_high_school_w,5295.0,Total
-3154.0,169636.0,2023,atten_high_school_w,2271.0,Total
-3155.0,153886.0,2023,atten_high_school_w,4431.0,Total
-3156.0,126318.0,2023,atten_high_school_w,6666.0,Total
-3157.0,162743.0,2023,atten_high_school_w,7789.0,Total
-3158.0,149036.0,2023,atten_high_school_w,9536.0,Total
-3159.0,156539.0,2023,atten_high_school_w,2886.0,Total
-3160.0,176191.0,2023,atten_high_school_w,3162.0,Total
-3161.0,129874.0,2023,atten_high_school_w,5095.0,Total
-3162.0,137561.0,2023,atten_high_school_w,7439.0,Total
-3163.0,129536.0,2023,atten_high_school_w,7653.0,Total
-3164.0,154620.0,2023,atten_high_school_w,7835.0,Total
-3165.0,130375.0,2023,atten_high_school_w,6916.0,Total
-3166.0,128932.0,2023,atten_high_school_w,8107.0,Total
-3167.0,122670.0,2023,atten_high_school_w,7832.0,Total
-3168.0,132266.0,2023,atten_high_school_w,8644.0,Total
-9999.0,2613654.0,2023,atten_high_school_w,115544.0,Total
-3151.0,140700.0,2023,atten_high_school_w,5644.0,afroamerican
-3152.0,147168.0,2023,atten_high_school_w,6960.0,afroamerican
-3153.0,165603.0,2023,atten_high_school_w,3233.0,afroamerican
-3154.0,169636.0,2023,atten_high_school_w,2230.0,afroamerican
-3155.0,153886.0,2023,atten_high_school_w,4167.0,afroamerican
-3156.0,126318.0,2023,atten_high_school_w,6177.0,afroamerican
-3157.0,162743.0,2023,atten_high_school_w,5243.0,afroamerican
-3158.0,149036.0,2023,atten_high_school_w,2293.0,afroamerican
-3159.0,156539.0,2023,atten_high_school_w,2189.0,afroamerican
-3160.0,176191.0,2023,atten_high_school_w,1149.0,afroamerican
-3161.0,129874.0,2023,atten_high_school_w,1322.0,afroamerican
-3162.0,137561.0,2023,atten_high_school_w,6709.0,afroamerican
-3163.0,129536.0,2023,atten_high_school_w,7653.0,afroamerican
-3164.0,154620.0,2023,atten_high_school_w,6745.0,afroamerican
-3165.0,130375.0,2023,atten_high_school_w,3294.0,afroamerican
-3166.0,128932.0,2023,atten_high_school_w,1425.0,afroamerican
-3167.0,122670.0,2023,atten_high_school_w,305.0,afroamerican
-3168.0,132266.0,2023,atten_high_school_w,3515.0,afroamerican
-9999.0,2613654.0,2023,atten_high_school_w,70253.0,afroamerican
-3151.0,140700.0,2023,atten_high_school_w,0.0,afroamerican
-3152.0,147168.0,2023,atten_high_school_w,1383.0,afroamerican
-3153.0,165603.0,2023,atten_high_school_w,2062.0,afroamerican
-3154.0,169636.0,2023,atten_high_school_w,41.0,afroamerican
-3155.0,153886.0,2023,atten_high_school_w,264.0,afroamerican
-3156.0,126318.0,2023,atten_high_school_w,489.0,afroamerican
-3157.0,162743.0,2023,atten_high_school_w,2546.0,afroamerican
-3158.0,149036.0,2023,atten_high_school_w,7243.0,afroamerican
-3159.0,156539.0,2023,atten_high_school_w,697.0,afroamerican
-3160.0,176191.0,2023,atten_high_school_w,2013.0,afroamerican
-3161.0,129874.0,2023,atten_high_school_w,3773.0,afroamerican
-3162.0,137561.0,2023,atten_high_school_w,730.0,afroamerican
-3163.0,129536.0,2023,atten_high_school_w,0.0,afroamerican
-3164.0,154620.0,2023,atten_high_school_w,1090.0,afroamerican
-3165.0,130375.0,2023,atten_high_school_w,3622.0,afroamerican
-3166.0,128932.0,2023,atten_high_school_w,6682.0,afroamerican
-3167.0,122670.0,2023,atten_high_school_w,7527.0,afroamerican
-3168.0,132266.0,2023,atten_high_school_w,5129.0,afroamerican
-9999.0,2613654.0,2023,atten_high_school_w,45291.0,afroamerican
-3151.0,140700.0,2023,atten_high_school_w,2392.0,men
-3152.0,147168.0,2023,atten_high_school_w,4208.0,men
-3153.0,165603.0,2023,atten_high_school_w,4088.0,men
-3154.0,169636.0,2023,atten_high_school_w,753.0,men
-3155.0,153886.0,2023,atten_high_school_w,2159.0,men
-3156.0,126318.0,2023,atten_high_school_w,3736.0,men
-3157.0,162743.0,2023,atten_high_school_w,3770.0,men
-3158.0,149036.0,2023,atten_high_school_w,4959.0,men
-3159.0,156539.0,2023,atten_high_school_w,1911.0,men
-3160.0,176191.0,2023,atten_high_school_w,602.0,men
-3161.0,129874.0,2023,atten_high_school_w,2778.0,men
-3162.0,137561.0,2023,atten_high_school_w,4006.0,men
-3163.0,129536.0,2023,atten_high_school_w,4178.0,men
-3164.0,154620.0,2023,atten_high_school_w,3308.0,men
-3165.0,130375.0,2023,atten_high_school_w,3400.0,men
-3166.0,128932.0,2023,atten_high_school_w,4605.0,men
-3167.0,122670.0,2023,atten_high_school_w,4002.0,men
-3168.0,132266.0,2023,atten_high_school_w,6144.0,men
-9999.0,2613654.0,2023,atten_high_school_w,60999.0,men
-3151.0,140700.0,2023,atten_high_school_w,3252.0,women
-3152.0,147168.0,2023,atten_high_school_w,4135.0,women
-3153.0,165603.0,2023,atten_high_school_w,1207.0,women
-3154.0,169636.0,2023,atten_high_school_w,1518.0,women
-3155.0,153886.0,2023,atten_high_school_w,2272.0,women
-3156.0,126318.0,2023,atten_high_school_w,2930.0,women
-3157.0,162743.0,2023,atten_high_school_w,4019.0,women
-3158.0,149036.0,2023,atten_high_school_w,4577.0,women
-3159.0,156539.0,2023,atten_high_school_w,975.0,women
-3160.0,176191.0,2023,atten_high_school_w,2560.0,women
-3161.0,129874.0,2023,atten_high_school_w,2317.0,women
-3162.0,137561.0,2023,atten_high_school_w,3433.0,women
-3163.0,129536.0,2023,atten_high_school_w,3475.0,women
-3164.0,154620.0,2023,atten_high_school_w,4527.0,women
-3165.0,130375.0,2023,atten_high_school_w,3516.0,women
-3166.0,128932.0,2023,atten_high_school_w,3502.0,women
-3167.0,122670.0,2023,atten_high_school_w,3830.0,women
-3168.0,132266.0,2023,atten_high_school_w,2500.0,women
-9999.0,2613654.0,2023,atten_high_school_w,54545.0,women
-3151.0,140700.0,2023,high_school_w,7228.0,Total
-3152.0,147168.0,2023,high_school_w,9861.0,Total
-3153.0,165603.0,2023,high_school_w,6959.0,Total
-3154.0,169636.0,2023,high_school_w,2738.0,Total
-3155.0,153886.0,2023,high_school_w,6089.0,Total
-3156.0,126318.0,2023,high_school_w,8007.0,Total
-3157.0,162743.0,2023,high_school_w,10539.0,Total
-3158.0,149036.0,2023,high_school_w,12269.0,Total
-3159.0,156539.0,2023,high_school_w,3564.0,Total
-3160.0,176191.0,2023,high_school_w,3844.0,Total
-3161.0,129874.0,2023,high_school_w,7050.0,Total
-3162.0,137561.0,2023,high_school_w,10677.0,Total
-3163.0,129536.0,2023,high_school_w,11917.0,Total
-3164.0,154620.0,2023,high_school_w,11470.0,Total
-3165.0,130375.0,2023,high_school_w,8512.0,Total
-3166.0,128932.0,2023,high_school_w,10208.0,Total
-3167.0,122670.0,2023,high_school_w,8887.0,Total
-3168.0,132266.0,2023,high_school_w,12328.0,Total
-9999.0,2613654.0,2023,high_school_w,152147.0,Total
-3151.0,140700.0,2023,high_school_w,3524.0,men
-3152.0,147168.0,2023,high_school_w,5386.0,men
-3153.0,165603.0,2023,high_school_w,4514.0,men
-3154.0,169636.0,2023,high_school_w,1046.0,men
-3155.0,153886.0,2023,high_school_w,3076.0,men
-3156.0,126318.0,2023,high_school_w,4037.0,men
-3157.0,162743.0,2023,high_school_w,4820.0,men
-3158.0,149036.0,2023,high_school_w,6989.0,men
-3159.0,156539.0,2023,high_school_w,2368.0,men
-3160.0,176191.0,2023,high_school_w,781.0,men
-3161.0,129874.0,2023,high_school_w,3378.0,men
-3162.0,137561.0,2023,high_school_w,5258.0,men
-3163.0,129536.0,2023,high_school_w,7041.0,men
-3164.0,154620.0,2023,high_school_w,5520.0,men
-3165.0,130375.0,2023,high_school_w,4679.0,men
-3166.0,128932.0,2023,high_school_w,5658.0,men
-3167.0,122670.0,2023,high_school_w,4384.0,men
-3168.0,132266.0,2023,high_school_w,7745.0,men
-9999.0,2613654.0,2023,high_school_w,80204.0,men
-3151.0,140700.0,2023,high_school_w,3704.0,women
-3152.0,147168.0,2023,high_school_w,4475.0,women
-3153.0,165603.0,2023,high_school_w,2445.0,women
-3154.0,169636.0,2023,high_school_w,1692.0,women
-3155.0,153886.0,2023,high_school_w,3013.0,women
-3156.0,126318.0,2023,high_school_w,3970.0,women
-3157.0,162743.0,2023,high_school_w,5719.0,women
-3158.0,149036.0,2023,high_school_w,5280.0,women
-3159.0,156539.0,2023,high_school_w,1196.0,women
-3160.0,176191.0,2023,high_school_w,3063.0,women
-3161.0,129874.0,2023,high_school_w,3672.0,women
-3162.0,137561.0,2023,high_school_w,5419.0,women
-3163.0,129536.0,2023,high_school_w,4876.0,women
-3164.0,154620.0,2023,high_school_w,5950.0,women
-3165.0,130375.0,2023,high_school_w,3833.0,women
-3166.0,128932.0,2023,high_school_w,4550.0,women
-3167.0,122670.0,2023,high_school_w,4503.0,women
-3168.0,132266.0,2023,high_school_w,4583.0,women
-9999.0,2613654.0,2023,high_school_w,71943.0,women
-3151.0,140700.0,2023,high_school_w,0.0,afroamerican
-3152.0,147168.0,2023,high_school_w,1383.0,afroamerican
-3153.0,165603.0,2023,high_school_w,2993.0,afroamerican
-3154.0,169636.0,2023,high_school_w,41.0,afroamerican
-3155.0,153886.0,2023,high_school_w,264.0,afroamerican
-3156.0,126318.0,2023,high_school_w,879.0,afroamerican
-3157.0,162743.0,2023,high_school_w,2690.0,afroamerican
-3158.0,149036.0,2023,high_school_w,9162.0,afroamerican
-3159.0,156539.0,2023,high_school_w,907.0,afroamerican
-3160.0,176191.0,2023,high_school_w,2516.0,afroamerican
-3161.0,129874.0,2023,high_school_w,5728.0,afroamerican
-3162.0,137561.0,2023,high_school_w,1317.0,afroamerican
-3163.0,129536.0,2023,high_school_w,690.0,afroamerican
-3164.0,154620.0,2023,high_school_w,1185.0,afroamerican
-3165.0,130375.0,2023,high_school_w,4643.0,afroamerican
-3166.0,128932.0,2023,high_school_w,8458.0,afroamerican
-3167.0,122670.0,2023,high_school_w,8582.0,afroamerican
-3168.0,132266.0,2023,high_school_w,7593.0,afroamerican
-9999.0,2613654.0,2023,high_school_w,59031.0,afroamerican
-3151.0,140700.0,2023,high_school_w,7228.0,afroamerican
-3152.0,147168.0,2023,high_school_w,8478.0,afroamerican
-3153.0,165603.0,2023,high_school_w,3966.0,afroamerican
-3154.0,169636.0,2023,high_school_w,2697.0,afroamerican
-3155.0,153886.0,2023,high_school_w,5825.0,afroamerican
-3156.0,126318.0,2023,high_school_w,7128.0,afroamerican
-3157.0,162743.0,2023,high_school_w,7849.0,afroamerican
-3158.0,149036.0,2023,high_school_w,3107.0,afroamerican
-3159.0,156539.0,2023,high_school_w,2657.0,afroamerican
-3160.0,176191.0,2023,high_school_w,1328.0,afroamerican
-3161.0,129874.0,2023,high_school_w,1322.0,afroamerican
-3162.0,137561.0,2023,high_school_w,9360.0,afroamerican
-3163.0,129536.0,2023,high_school_w,11227.0,afroamerican
-3164.0,154620.0,2023,high_school_w,10285.0,afroamerican
-3165.0,130375.0,2023,high_school_w,3869.0,afroamerican
-3166.0,128932.0,2023,high_school_w,1750.0,afroamerican
-3167.0,122670.0,2023,high_school_w,305.0,afroamerican
-3168.0,132266.0,2023,high_school_w,4735.0,afroamerican
-9999.0,2613654.0,2023,high_school_w,93116.0,afroamerican
-3151.0,140700.0,2023,HINCP_w,19048543880.0,Total
-3152.0,147168.0,2023,HINCP_w,22105711550.0,Total
-3153.0,165603.0,2023,HINCP_w,18426827580.0,Total
-3154.0,169636.0,2023,HINCP_w,39114332700.0,Total
-3155.0,153886.0,2023,HINCP_w,22790694224.0,Total
-3156.0,126318.0,2023,HINCP_w,14825417822.0,Total
-3157.0,162743.0,2023,HINCP_w,17279382710.0,Total
-3158.0,149036.0,2023,HINCP_w,13808590490.0,Total
-3159.0,156539.0,2023,HINCP_w,29106621350.0,Total
-3160.0,176191.0,2023,HINCP_w,33609586860.0,Total
-3161.0,129874.0,2023,HINCP_w,12172316740.0,Total
-3162.0,137561.0,2023,HINCP_w,12468687930.0,Total
-3163.0,129536.0,2023,HINCP_w,11464405820.0,Total
-3164.0,154620.0,2023,HINCP_w,16419322430.0,Total
-3165.0,130375.0,2023,HINCP_w,9467791530.0,Total
-3166.0,128932.0,2023,HINCP_w,15250207970.0,Total
-3167.0,122670.0,2023,HINCP_w,8914130490.0,Total
-3168.0,132266.0,2023,HINCP_w,10664147960.0,Total
-9999.0,2613654.0,2023,HINCP_w,326936720036.0,Total
-3151.0,140700.0,2023,men_w,70831.0,Total
-3152.0,147168.0,2023,men_w,71687.0,Total
-3153.0,165603.0,2023,men_w,85336.0,Total
-3154.0,169636.0,2023,men_w,80905.0,Total
-3155.0,153886.0,2023,men_w,75220.0,Total
-3156.0,126318.0,2023,men_w,61192.0,Total
-3157.0,162743.0,2023,men_w,81830.0,Total
-3158.0,149036.0,2023,men_w,70126.0,Total
-3159.0,156539.0,2023,men_w,79033.0,Total
-3160.0,176191.0,2023,men_w,80660.0,Total
-3161.0,129874.0,2023,men_w,55987.0,Total
-3162.0,137561.0,2023,men_w,72165.0,Total
-3163.0,129536.0,2023,men_w,68420.0,Total
-3164.0,154620.0,2023,men_w,76636.0,Total
-3165.0,130375.0,2023,men_w,60586.0,Total
-3166.0,128932.0,2023,men_w,58699.0,Total
-3167.0,122670.0,2023,men_w,50793.0,Total
-3168.0,132266.0,2023,men_w,63972.0,Total
-9999.0,2613654.0,2023,men_w,1264078.0,Total
-3151.0,140700.0,2023,woman_w,69869.0,Total
-3152.0,147168.0,2023,woman_w,75481.0,Total
-3153.0,165603.0,2023,woman_w,80267.0,Total
-3154.0,169636.0,2023,woman_w,88731.0,Total
-3155.0,153886.0,2023,woman_w,78666.0,Total
-3156.0,126318.0,2023,woman_w,65126.0,Total
-3157.0,162743.0,2023,woman_w,80913.0,Total
-3158.0,149036.0,2023,woman_w,78910.0,Total
-3159.0,156539.0,2023,woman_w,77506.0,Total
-3160.0,176191.0,2023,woman_w,95531.0,Total
-3161.0,129874.0,2023,woman_w,73887.0,Total
-3162.0,137561.0,2023,woman_w,65396.0,Total
-3163.0,129536.0,2023,woman_w,61116.0,Total
-3164.0,154620.0,2023,woman_w,77984.0,Total
-3165.0,130375.0,2023,woman_w,69789.0,Total
-3166.0,128932.0,2023,woman_w,70233.0,Total
-3167.0,122670.0,2023,woman_w,71877.0,Total
-3168.0,132266.0,2023,woman_w,68294.0,Total
-9999.0,2613654.0,2023,woman_w,1349576.0,Total
-3151.0,140700.0,2023,black_w,6638.0,afroamerican
-3152.0,147168.0,2023,black_w,14730.0,afroamerican
-3153.0,165603.0,2023,black_w,35860.0,afroamerican
-3154.0,169636.0,2023,black_w,10925.0,afroamerican
-3155.0,153886.0,2023,black_w,9721.0,afroamerican
-3156.0,126318.0,2023,black_w,5688.0,afroamerican
-3157.0,162743.0,2023,black_w,27783.0,afroamerican
-3158.0,149036.0,2023,black_w,105969.0,afroamerican
-3159.0,156539.0,2023,black_w,28148.0,afroamerican
-3160.0,176191.0,2023,black_w,28611.0,afroamerican
-3161.0,129874.0,2023,black_w,97142.0,afroamerican
-3162.0,137561.0,2023,black_w,18955.0,afroamerican
-3163.0,129536.0,2023,black_w,8313.0,afroamerican
-3164.0,154620.0,2023,black_w,21207.0,afroamerican
-3165.0,130375.0,2023,black_w,83704.0,afroamerican
-3166.0,128932.0,2023,black_w,89254.0,afroamerican
-3167.0,122670.0,2023,black_w,113034.0,afroamerican
-3168.0,132266.0,2023,black_w,89326.0,afroamerican
-9999.0,2613654.0,2023,black_w,795008.0,afroamerican
-3151.0,140700.0,2023,non_w,134062.0,afroamerican
-3152.0,147168.0,2023,non_w,132438.0,afroamerican
-3153.0,165603.0,2023,non_w,129743.0,afroamerican
-3154.0,169636.0,2023,non_w,158711.0,afroamerican
-3155.0,153886.0,2023,non_w,144165.0,afroamerican
-3156.0,126318.0,2023,non_w,120630.0,afroamerican
-3157.0,162743.0,2023,non_w,134960.0,afroamerican
-3158.0,149036.0,2023,non_w,43067.0,afroamerican
-3159.0,156539.0,2023,non_w,128391.0,afroamerican
-3160.0,176191.0,2023,non_w,147580.0,afroamerican
-3161.0,129874.0,2023,non_w,32732.0,afroamerican
-3162.0,137561.0,2023,non_w,118606.0,afroamerican
-3163.0,129536.0,2023,non_w,121223.0,afroamerican
-3164.0,154620.0,2023,non_w,133413.0,afroamerican
-3165.0,130375.0,2023,non_w,46671.0,afroamerican
-3166.0,128932.0,2023,non_w,39678.0,afroamerican
-3167.0,122670.0,2023,non_w,9636.0,afroamerican
-3168.0,132266.0,2023,non_w,42940.0,afroamerican
-9999.0,2613654.0,2023,non_w,1818646.0,afroamerican
-3151.0,140700.0,2023,attendance_rate_elementary,100.0,Total
-3152.0,147168.0,2023,attendance_rate_elementary,99.23142613151153,Total
-3153.0,165603.0,2023,attendance_rate_elementary,97.87331701346389,Total
-3154.0,169636.0,2023,attendance_rate_elementary,94.30104408352669,Total
-3155.0,153886.0,2023,attendance_rate_elementary,98.79120879120879,Total
-3156.0,126318.0,2023,attendance_rate_elementary,100.0,Total
-3157.0,162743.0,2023,attendance_rate_elementary,96.69645473190741,Total
-3158.0,149036.0,2023,attendance_rate_elementary,91.95070791819612,Total
-3159.0,156539.0,2023,attendance_rate_elementary,100.0,Total
-3160.0,176191.0,2023,attendance_rate_elementary,96.2620281273131,Total
-3161.0,129874.0,2023,attendance_rate_elementary,100.0,Total
-3162.0,137561.0,2023,attendance_rate_elementary,92.45115452930727,Total
-3163.0,129536.0,2023,attendance_rate_elementary,96.00857857738592,Total
-3164.0,154620.0,2023,attendance_rate_elementary,94.72609429104146,Total
-3165.0,130375.0,2023,attendance_rate_elementary,96.90689110994214,Total
-3166.0,128932.0,2023,attendance_rate_elementary,96.93877551020408,Total
-3167.0,122670.0,2023,attendance_rate_elementary,96.5286038715259,Total
-3168.0,132266.0,2023,attendance_rate_elementary,93.43528218992903,Total
-9999.0,2613654.0,2023,attendance_rate_elementary,96.57968077020523,Total
-3151.0,140700.0,2023,attendance_rate_middle,71.35539795114263,Total
-3152.0,147168.0,2023,attendance_rate_middle,66.53026060736593,Total
-3153.0,165603.0,2023,attendance_rate_middle,71.0795902285264,Total
-3154.0,169636.0,2023,attendance_rate_middle,85.59861191440139,Total
-3155.0,153886.0,2023,attendance_rate_middle,94.13489736070382,Total
-3156.0,126318.0,2023,attendance_rate_middle,84.01327347257467,Total
-3157.0,162743.0,2023,attendance_rate_middle,61.497236643778265,Total
-3158.0,149036.0,2023,attendance_rate_middle,83.43491510666087,Total
-3159.0,156539.0,2023,attendance_rate_middle,97.62969588550983,Total
-3160.0,176191.0,2023,attendance_rate_middle,100.0,Total
-3161.0,129874.0,2023,attendance_rate_middle,73.0152027027027,Total
-3162.0,137561.0,2023,attendance_rate_middle,80.94277791782203,Total
-3163.0,129536.0,2023,attendance_rate_middle,93.87012987012987,Total
-3164.0,154620.0,2023,attendance_rate_middle,79.35026784171419,Total
-3165.0,130375.0,2023,attendance_rate_middle,66.94050286283296,Total
-3166.0,128932.0,2023,attendance_rate_middle,95.98278335724534,Total
-3167.0,122670.0,2023,attendance_rate_middle,95.83911234396672,Total
-3168.0,132266.0,2023,attendance_rate_middle,86.89208933416823,Total
-9999.0,2613654.0,2023,attendance_rate_middle,81.40825481667325,Total
-3151.0,140700.0,2023,attendance_rate_high,78.0852241283896,Total
-3152.0,147168.0,2023,attendance_rate_high,84.60602372984485,Total
-3153.0,165603.0,2023,attendance_rate_high,76.08851846529674,Total
-3154.0,169636.0,2023,attendance_rate_high,82.94375456537618,Total
-3155.0,153886.0,2023,attendance_rate_high,72.77056988011168,Total
-3156.0,126318.0,2023,attendance_rate_high,83.25215436493069,Total
-3157.0,162743.0,2023,attendance_rate_high,73.90644273650251,Total
-3158.0,149036.0,2023,attendance_rate_high,77.7243459124623,Total
-3159.0,156539.0,2023,attendance_rate_high,80.97643097643098,Total
-3160.0,176191.0,2023,attendance_rate_high,82.25806451612904,Total
-3161.0,129874.0,2023,attendance_rate_high,72.26950354609929,Total
-3162.0,137561.0,2023,attendance_rate_high,69.67312915613,Total
-3163.0,129536.0,2023,attendance_rate_high,64.21918268020474,Total
-3164.0,154620.0,2023,attendance_rate_high,68.30863121185702,Total
-3165.0,130375.0,2023,attendance_rate_high,81.25,Total
-3166.0,128932.0,2023,attendance_rate_high,79.41810344827587,Total
-3167.0,122670.0,2023,attendance_rate_high,88.12872735456284,Total
-3168.0,132266.0,2023,attendance_rate_high,70.11680726800779,Total
-9999.0,2613654.0,2023,attendance_rate_high,75.94234523191388,Total
-3151.0,140700.0,2023,attendance_rate_elementary,100.0,men
-3152.0,147168.0,2023,attendance_rate_elementary,98.19558921808866,men
-3153.0,165603.0,2023,attendance_rate_elementary,96.35553224960671,men
-3154.0,169636.0,2023,attendance_rate_elementary,95.34949267192785,men
-3155.0,153886.0,2023,attendance_rate_elementary,97.12699967352269,men
-3156.0,126318.0,2023,attendance_rate_elementary,100.0,men
-3157.0,162743.0,2023,attendance_rate_elementary,96.56402801638694,men
-3158.0,149036.0,2023,attendance_rate_elementary,100.0,men
-3159.0,156539.0,2023,attendance_rate_elementary,100.0,men
-3160.0,176191.0,2023,attendance_rate_elementary,97.64600715137068,men
-3161.0,129874.0,2023,attendance_rate_elementary,100.0,men
-3162.0,137561.0,2023,attendance_rate_elementary,91.9141502370851,men
-3163.0,129536.0,2023,attendance_rate_elementary,100.0,men
-3164.0,154620.0,2023,attendance_rate_elementary,90.75198505371321,men
-3165.0,130375.0,2023,attendance_rate_elementary,93.34841628959276,men
-3166.0,128932.0,2023,attendance_rate_elementary,94.36619718309859,men
-3167.0,122670.0,2023,attendance_rate_elementary,100.0,men
-3168.0,132266.0,2023,attendance_rate_elementary,92.97065139584825,men
-9999.0,2613654.0,2023,attendance_rate_elementary,96.69354349802971,men
-3151.0,140700.0,2023,attendance_rate_middle,67.75157754898706,men
-3152.0,147168.0,2023,attendance_rate_middle,66.6141235813367,men
-3153.0,165603.0,2023,attendance_rate_middle,77.74030354131534,men
-3154.0,169636.0,2023,attendance_rate_middle,79.52302631578947,men
-3155.0,153886.0,2023,attendance_rate_middle,95.75205895101864,men
-3156.0,126318.0,2023,attendance_rate_middle,72.53521126760563,men
-3157.0,162743.0,2023,attendance_rate_middle,58.35806132542037,men
-3158.0,149036.0,2023,attendance_rate_middle,73.68884971353019,men
-3159.0,156539.0,2023,attendance_rate_middle,96.30404463040446,men
-3160.0,176191.0,2023,attendance_rate_middle,100.0,men
-3161.0,129874.0,2023,attendance_rate_middle,50.933040614709114,men
-3162.0,137561.0,2023,attendance_rate_middle,88.5233644859813,men
-3163.0,129536.0,2023,attendance_rate_middle,100.0,men
-3164.0,154620.0,2023,attendance_rate_middle,88.5954381752701,men
-3165.0,130375.0,2023,attendance_rate_middle,51.01704233095107,men
-3166.0,128932.0,2023,attendance_rate_middle,100.0,men
-3167.0,122670.0,2023,attendance_rate_middle,88.87122416534181,men
-3168.0,132266.0,2023,attendance_rate_middle,78.45626072041166,men
-9999.0,2613654.0,2023,attendance_rate_middle,77.78595071717544,men
-3151.0,140700.0,2023,attendance_rate_high,67.87741203178207,men
-3152.0,147168.0,2023,attendance_rate_high,78.12848124767918,men
-3153.0,165603.0,2023,attendance_rate_high,90.56269384138237,men
-3154.0,169636.0,2023,attendance_rate_high,71.9885277246654,men
-3155.0,153886.0,2023,attendance_rate_high,70.18855656697009,men
-3156.0,126318.0,2023,attendance_rate_high,92.5439682932871,men
-3157.0,162743.0,2023,attendance_rate_high,78.21576763485477,men
-3158.0,149036.0,2023,attendance_rate_high,70.95435684647303,men
-3159.0,156539.0,2023,attendance_rate_high,80.70101351351352,men
-3160.0,176191.0,2023,attendance_rate_high,77.08066581306018,men
-3161.0,129874.0,2023,attendance_rate_high,82.2380106571936,men
-3162.0,137561.0,2023,attendance_rate_high,76.18866489159376,men
-3163.0,129536.0,2023,attendance_rate_high,59.338162192870335,men
-3164.0,154620.0,2023,attendance_rate_high,59.92753623188406,men
-3165.0,130375.0,2023,attendance_rate_high,72.66509938020944,men
-3166.0,128932.0,2023,attendance_rate_high,81.38918345705196,men
-3167.0,122670.0,2023,attendance_rate_high,91.28649635036497,men
-3168.0,132266.0,2023,attendance_rate_high,79.32859909619108,men
-9999.0,2613654.0,2023,attendance_rate_high,76.05481023390355,men
-3151.0,140700.0,2023,attendance_rate_elementary,100.0,women
-3152.0,147168.0,2023,attendance_rate_elementary,100.0,women
-3153.0,165603.0,2023,attendance_rate_elementary,100.0,women
-3154.0,169636.0,2023,attendance_rate_elementary,93.1899641577061,women
-3155.0,153886.0,2023,attendance_rate_elementary,100.0,women
-3156.0,126318.0,2023,attendance_rate_elementary,100.0,women
-3157.0,162743.0,2023,attendance_rate_elementary,96.86113393590797,women
-3158.0,149036.0,2023,attendance_rate_elementary,88.85392714510468,women
-3159.0,156539.0,2023,attendance_rate_elementary,100.0,women
-3160.0,176191.0,2023,attendance_rate_elementary,93.994140625,women
-3161.0,129874.0,2023,attendance_rate_elementary,100.0,women
-3162.0,137561.0,2023,attendance_rate_elementary,92.80235025297861,women
-3163.0,129536.0,2023,attendance_rate_elementary,92.53398707376867,women
-3164.0,154620.0,2023,attendance_rate_elementary,100.0,women
-3165.0,130375.0,2023,attendance_rate_elementary,100.0,women
-3166.0,128932.0,2023,attendance_rate_elementary,98.46785657873953,women
-3167.0,122670.0,2023,attendance_rate_elementary,90.04959702417855,women
-3168.0,132266.0,2023,attendance_rate_elementary,94.10430839002267,women
-9999.0,2613654.0,2023,attendance_rate_elementary,96.466944381085,women
-3151.0,140700.0,2023,attendance_rate_middle,76.61016949152543,women
-3152.0,147168.0,2023,attendance_rate_middle,66.3494221617947,women
-3153.0,165603.0,2023,attendance_rate_middle,65.23668639053254,women
-3154.0,169636.0,2023,attendance_rate_middle,100.0,women
-3155.0,153886.0,2023,attendance_rate_middle,92.62261856505877,women
-3156.0,126318.0,2023,attendance_rate_middle,100.0,women
-3157.0,162743.0,2023,attendance_rate_middle,64.73791695030633,women
-3158.0,149036.0,2023,attendance_rate_middle,92.94623655913978,women
-3159.0,156539.0,2023,attendance_rate_middle,100.0,women
-3160.0,176191.0,2023,attendance_rate_middle,100.0,women
-3161.0,129874.0,2023,attendance_rate_middle,86.82223747426218,women
-3162.0,137561.0,2023,attendance_rate_middle,65.24767801857585,women
-3163.0,129536.0,2023,attendance_rate_middle,84.69520103761349,women
-3164.0,154620.0,2023,attendance_rate_middle,72.32360097323601,women
-3165.0,130375.0,2023,attendance_rate_middle,80.11828935395813,women
-3166.0,128932.0,2023,attendance_rate_middle,93.47826086956522,women
-3167.0,122670.0,2023,attendance_rate_middle,100.0,women
-3168.0,132266.0,2023,attendance_rate_middle,100.0,women
-9999.0,2613654.0,2023,attendance_rate_middle,85.31738156663738,women
-3151.0,140700.0,2023,attendance_rate_high,87.79697624190065,women
-3152.0,147168.0,2023,attendance_rate_high,92.40223463687151,women
-3153.0,165603.0,2023,attendance_rate_high,49.36605316973415,women
-3154.0,169636.0,2023,attendance_rate_high,89.71631205673759,women
-3155.0,153886.0,2023,attendance_rate_high,75.4065715233986,women
-3156.0,126318.0,2023,attendance_rate_high,73.80352644836272,women
-3157.0,162743.0,2023,attendance_rate_high,70.27452351809757,women
-3158.0,149036.0,2023,attendance_rate_high,86.68560606060606,women
-3159.0,156539.0,2023,attendance_rate_high,81.52173913043478,women
-3160.0,176191.0,2023,attendance_rate_high,83.57819131570355,women
-3161.0,129874.0,2023,attendance_rate_high,63.09912854030502,women
-3162.0,137561.0,2023,attendance_rate_high,63.351171802915665,women
-3163.0,129536.0,2023,attendance_rate_high,71.26743232157506,women
-3164.0,154620.0,2023,attendance_rate_high,76.08403361344538,women
-3165.0,130375.0,2023,attendance_rate_high,91.72971562744586,women
-3166.0,128932.0,2023,attendance_rate_high,76.96703296703296,women
-3167.0,122670.0,2023,attendance_rate_high,85.05440817232956,women
-3168.0,132266.0,2023,attendance_rate_high,54.54942177612917,women
-9999.0,2613654.0,2023,attendance_rate_high,75.81696620936019,women
-3151.0,140700.0,2023,attendance_rate_elementary,100.0,afroamerican
-3152.0,147168.0,2023,attendance_rate_elementary,100.0,afroamerican
-3153.0,165603.0,2023,attendance_rate_elementary,100.0,afroamerican
-3154.0,169636.0,2023,attendance_rate_elementary,100.0,afroamerican
-3155.0,153886.0,2023,attendance_rate_elementary,100.0,afroamerican
-3156.0,126318.0,2023,attendance_rate_elementary,100.0,afroamerican
-3157.0,162743.0,2023,attendance_rate_elementary,100.0,afroamerican
-3158.0,149036.0,2023,attendance_rate_elementary,88.44126506024097,afroamerican
-3159.0,156539.0,2023,attendance_rate_elementary,100.0,afroamerican
-3160.0,176191.0,2023,attendance_rate_elementary,100.0,afroamerican
-3161.0,129874.0,2023,attendance_rate_elementary,100.0,afroamerican
-3162.0,137561.0,2023,attendance_rate_elementary,87.5,afroamerican
-3163.0,129536.0,2023,attendance_rate_elementary,100.0,afroamerican
-3164.0,154620.0,2023,attendance_rate_elementary,62.447844228094574,afroamerican
-3165.0,130375.0,2023,attendance_rate_elementary,95.37153652392946,afroamerican
-3166.0,128932.0,2023,attendance_rate_elementary,97.19353984643897,afroamerican
-3167.0,122670.0,2023,attendance_rate_elementary,95.81486310299869,afroamerican
-3168.0,132266.0,2023,attendance_rate_elementary,90.97665776332597,afroamerican
-9999.0,2613654.0,2023,attendance_rate_elementary,94.9136511146263,afroamerican
-3151.0,140700.0,2023,attendance_rate_middle,100.0,afroamerican
-3152.0,147168.0,2023,attendance_rate_middle,100.0,afroamerican
-3153.0,165603.0,2023,attendance_rate_middle,78.39607201309329,afroamerican
-3154.0,169636.0,2023,attendance_rate_middle,,afroamerican
-3155.0,153886.0,2023,attendance_rate_middle,100.0,afroamerican
-3156.0,126318.0,2023,attendance_rate_middle,100.0,afroamerican
-3157.0,162743.0,2023,attendance_rate_middle,30.60057197330791,afroamerican
-3158.0,149036.0,2023,attendance_rate_middle,86.37636080870918,afroamerican
-3159.0,156539.0,2023,attendance_rate_middle,100.0,afroamerican
-3160.0,176191.0,2023,attendance_rate_middle,,afroamerican
-3161.0,129874.0,2023,attendance_rate_middle,71.73810645313236,afroamerican
-3162.0,137561.0,2023,attendance_rate_middle,100.0,afroamerican
-3163.0,129536.0,2023,attendance_rate_middle,,afroamerican
-3164.0,154620.0,2023,attendance_rate_middle,100.0,afroamerican
-3165.0,130375.0,2023,attendance_rate_middle,59.60264900662252,afroamerican
-3166.0,128932.0,2023,attendance_rate_middle,100.0,afroamerican
-3167.0,122670.0,2023,attendance_rate_middle,95.83911234396672,afroamerican
-3168.0,132266.0,2023,attendance_rate_middle,84.08215661103979,afroamerican
-9999.0,2613654.0,2023,attendance_rate_middle,82.94319923768488,afroamerican
-3151.0,140700.0,2023,attendance_rate_high,,afroamerican
-3152.0,147168.0,2023,attendance_rate_high,100.0,afroamerican
-3153.0,165603.0,2023,attendance_rate_high,68.89408620113599,afroamerican
-3154.0,169636.0,2023,attendance_rate_high,100.0,afroamerican
-3155.0,153886.0,2023,attendance_rate_high,100.0,afroamerican
-3156.0,126318.0,2023,attendance_rate_high,55.631399317406135,afroamerican
-3157.0,162743.0,2023,attendance_rate_high,94.64684014869889,afroamerican
-3158.0,149036.0,2023,attendance_rate_high,79.05479153023357,afroamerican
-3159.0,156539.0,2023,attendance_rate_high,76.84674751929438,afroamerican
-3160.0,176191.0,2023,attendance_rate_high,80.00794912559618,afroamerican
-3161.0,129874.0,2023,attendance_rate_high,65.86941340782123,afroamerican
-3162.0,137561.0,2023,attendance_rate_high,55.4290053151101,afroamerican
-3163.0,129536.0,2023,attendance_rate_high,0.0,afroamerican
-3164.0,154620.0,2023,attendance_rate_high,91.9831223628692,afroamerican
-3165.0,130375.0,2023,attendance_rate_high,78.009907387465,afroamerican
-3166.0,128932.0,2023,attendance_rate_high,79.00212816268622,afroamerican
-3167.0,122670.0,2023,attendance_rate_high,87.70682824516429,afroamerican
-3168.0,132266.0,2023,attendance_rate_high,67.54905834321086,afroamerican
-9999.0,2613654.0,2023,attendance_rate_high,76.72409412003861,afroamerican
-3151.0,140700.0,2023,attendance_rate_elementary,100.0,afroamerican
-3152.0,147168.0,2023,attendance_rate_elementary,99.14790658531454,afroamerican
-3153.0,165603.0,2023,attendance_rate_elementary,96.55599603567889,afroamerican
-3154.0,169636.0,2023,attendance_rate_elementary,93.77967711301045,afroamerican
-3155.0,153886.0,2023,attendance_rate_elementary,98.67649270567003,afroamerican
-3156.0,126318.0,2023,attendance_rate_elementary,100.0,afroamerican
-3157.0,162743.0,2023,attendance_rate_elementary,96.38968940121678,afroamerican
-3158.0,149036.0,2023,attendance_rate_elementary,100.0,afroamerican
-3159.0,156539.0,2023,attendance_rate_elementary,100.0,afroamerican
-3160.0,176191.0,2023,attendance_rate_elementary,94.22857142857143,afroamerican
-3161.0,129874.0,2023,attendance_rate_elementary,100.0,afroamerican
-3162.0,137561.0,2023,attendance_rate_elementary,94.1527446300716,afroamerican
-3163.0,129536.0,2023,attendance_rate_elementary,95.70402667350602,afroamerican
-3164.0,154620.0,2023,attendance_rate_elementary,96.92716236722306,afroamerican
-3165.0,130375.0,2023,attendance_rate_elementary,100.0,afroamerican
-3166.0,128932.0,2023,attendance_rate_elementary,96.18110236220473,afroamerican
-3167.0,122670.0,2023,attendance_rate_elementary,100.0,afroamerican
-3168.0,132266.0,2023,attendance_rate_elementary,100.0,afroamerican
-9999.0,2613654.0,2023,attendance_rate_elementary,97.55775324787224,afroamerican
-3151.0,140700.0,2023,attendance_rate_middle,70.85588294247344,afroamerican
-3152.0,147168.0,2023,attendance_rate_middle,61.5727002967359,afroamerican
-3153.0,165603.0,2023,attendance_rate_middle,64.28571428571429,afroamerican
-3154.0,169636.0,2023,attendance_rate_middle,85.59861191440139,afroamerican
-3155.0,153886.0,2023,attendance_rate_middle,93.88512775715222,afroamerican
-3156.0,126318.0,2023,attendance_rate_middle,81.30990415335462,afroamerican
-3157.0,162743.0,2023,attendance_rate_middle,68.08208045509956,afroamerican
-3158.0,149036.0,2023,attendance_rate_middle,76.57722987672227,afroamerican
-3159.0,156539.0,2023,attendance_rate_middle,97.43837602706623,afroamerican
-3160.0,176191.0,2023,attendance_rate_middle,100.0,afroamerican
-3161.0,129874.0,2023,attendance_rate_middle,84.08163265306122,afroamerican
-3162.0,137561.0,2023,attendance_rate_middle,80.63524590163934,afroamerican
-3163.0,129536.0,2023,attendance_rate_middle,93.87012987012987,afroamerican
-3164.0,154620.0,2023,attendance_rate_middle,76.6965678627145,afroamerican
-3165.0,130375.0,2023,attendance_rate_middle,79.93103448275862,afroamerican
-3166.0,128932.0,2023,attendance_rate_middle,89.68058968058969,afroamerican
-3167.0,122670.0,2023,attendance_rate_middle,,afroamerican
-3168.0,132266.0,2023,attendance_rate_middle,89.5680521597392,afroamerican
-9999.0,2613654.0,2023,attendance_rate_middle,80.65525791634487,afroamerican
-3151.0,140700.0,2023,attendance_rate_high,78.0852241283896,afroamerican
-3152.0,147168.0,2023,attendance_rate_high,82.09483368719037,afroamerican
-3153.0,165603.0,2023,attendance_rate_high,81.51790216843166,afroamerican
-3154.0,169636.0,2023,attendance_rate_high,82.68446421950316,afroamerican
-3155.0,153886.0,2023,attendance_rate_high,71.53648068669528,afroamerican
-3156.0,126318.0,2023,attendance_rate_high,86.65824915824916,afroamerican
-3157.0,162743.0,2023,attendance_rate_high,66.79831825710282,afroamerican
-3158.0,149036.0,2023,attendance_rate_high,73.80109430318636,afroamerican
-3159.0,156539.0,2023,attendance_rate_high,82.38614979299962,afroamerican
-3160.0,176191.0,2023,attendance_rate_high,86.5210843373494,afroamerican
-3161.0,129874.0,2023,attendance_rate_high,100.0,afroamerican
-3162.0,137561.0,2023,attendance_rate_high,71.67735042735043,afroamerican
-3163.0,129536.0,2023,attendance_rate_high,68.1660283245747,afroamerican
-3164.0,154620.0,2023,attendance_rate_high,65.58094312105007,afroamerican
-3165.0,130375.0,2023,attendance_rate_high,85.13827862496768,afroamerican
-3166.0,128932.0,2023,attendance_rate_high,81.42857142857143,afroamerican
-3167.0,122670.0,2023,attendance_rate_high,100.0,afroamerican
-3168.0,132266.0,2023,attendance_rate_high,74.23442449841605,afroamerican
-9999.0,2613654.0,2023,attendance_rate_high,75.44675458567808,afroamerican
-3151.0,140700.0,2023,elementary_percentage,8.761194029850747,Total
-3152.0,147168.0,2023,elementary_percentage,7.161203522504893,Total
-3153.0,165603.0,2023,elementary_percentage,3.9467884035917224,Total
-3154.0,169636.0,2023,elementary_percentage,4.065174844962154,Total
-3155.0,153886.0,2023,elementary_percentage,4.7307747293451,Total
-3156.0,126318.0,2023,elementary_percentage,6.036352697161132,Total
-3157.0,162743.0,2023,elementary_percentage,8.388686456560343,Total
-3158.0,149036.0,2023,elementary_percentage,7.677339703158968,Total
-3159.0,156539.0,2023,elementary_percentage,3.543525894505523,Total
-3160.0,176191.0,2023,elementary_percentage,3.0671260166523826,Total
-3161.0,129874.0,2023,elementary_percentage,6.201395198423087,Total
-3162.0,137561.0,2023,elementary_percentage,7.3669135874266685,Total
-3163.0,129536.0,2023,elementary_percentage,6.479279891304348,Total
-3164.0,154620.0,2023,elementary_percentage,7.284309921096882,Total
-3165.0,130375.0,2023,elementary_percentage,7.290508149568551,Total
-3166.0,128932.0,2023,elementary_percentage,7.82893308100394,Total
-3167.0,122670.0,2023,elementary_percentage,7.538110377435396,Total
-3168.0,132266.0,2023,elementary_percentage,8.948633813678496,Total
-9999.0,2613654.0,2023,elementary_percentage,6.342614592444142,Total
-3151.0,140700.0,2023,middle_percentage,3.607675906183369,Total
-3152.0,147168.0,2023,middle_percentage,3.1548978038704067,Total
-3153.0,165603.0,2023,middle_percentage,0.7662904657524321,Total
-3154.0,169636.0,2023,middle_percentage,1.019241198802141,Total
-3155.0,153886.0,2023,middle_percentage,3.102296505205152,Total
-3156.0,126318.0,2023,middle_percentage,4.055637359679539,Total
-3157.0,162743.0,2023,middle_percentage,3.6689750096778355,Total
-3158.0,149036.0,2023,middle_percentage,3.0824767170348104,Total
-3159.0,156539.0,2023,middle_percentage,1.428398034994474,Total
-3160.0,176191.0,2023,middle_percentage,0.8780244166841666,Total
-3161.0,129874.0,2023,middle_percentage,3.646611330982337,Total
-3162.0,137561.0,2023,middle_percentage,2.8838115454234847,Total
-3163.0,129536.0,2023,middle_percentage,2.9721467391304346,Total
-3164.0,154620.0,2023,middle_percentage,3.7427240977881255,Total
-3165.0,130375.0,2023,middle_percentage,3.08111217641419,Total
-3166.0,128932.0,2023,middle_percentage,3.243570254087426,Total
-3167.0,122670.0,2023,middle_percentage,4.114290372544224,Total
-3168.0,132266.0,2023,middle_percentage,3.622246079869354,Total
-9999.0,2613654.0,2023,middle_percentage,2.805994978677361,Total
-3151.0,140700.0,2023,high_percentage,5.137171286425017,Total
-3152.0,147168.0,2023,high_percentage,6.700505544683627,Total
-3153.0,165603.0,2023,high_percentage,4.202218558842533,Total
-3154.0,169636.0,2023,high_percentage,1.6140441887335235,Total
-3155.0,153886.0,2023,high_percentage,3.95682518227779,Total
-3156.0,126318.0,2023,high_percentage,6.338764071628747,Total
-3157.0,162743.0,2023,high_percentage,6.475854568245638,Total
-3158.0,149036.0,2023,high_percentage,8.232239190531148,Total
-3159.0,156539.0,2023,high_percentage,2.2767489251879724,Total
-3160.0,176191.0,2023,high_percentage,2.181723243525492,Total
-3161.0,129874.0,2023,high_percentage,5.428338235520582,Total
-3162.0,137561.0,2023,high_percentage,7.761647559991568,Total
-3163.0,129536.0,2023,high_percentage,9.199759140316205,Total
-3164.0,154620.0,2023,high_percentage,7.41818652179537,Total
-3165.0,130375.0,2023,high_percentage,6.528859060402685,Total
-3166.0,128932.0,2023,high_percentage,7.917351782334873,Total
-3167.0,122670.0,2023,high_percentage,7.244640091301867,Total
-3168.0,132266.0,2023,high_percentage,9.320611495017616,Total
-9999.0,2613654.0,2023,high_percentage,5.821237241042617,Total
-3151.0,140700.0,2023,puma_label,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",Total
-3152.0,147168.0,2023,puma_label,"(North) - West Ridge, Lincoln Square & North Center",Total
-3153.0,165603.0,2023,puma_label,"(North) - Uptown, Edgewater & Rogers Park",Total
-3154.0,169636.0,2023,puma_label,(North) - Lake View & Lincoln Park,Total
-3155.0,153886.0,2023,puma_label,"(Northwest) - Logan Square, Irving Park & Avondale",Total
-3156.0,126318.0,2023,puma_label,"(Northwest) - Portage Park, Dunning & Jefferson Park",Total
-3157.0,162743.0,2023,puma_label,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",Total
-3158.0,149036.0,2023,puma_label,"(West) - Austin, North Lawndale & East/West Garfield Park",Total
-3159.0,156539.0,2023,puma_label,(West) - West Town & Near West Side,Total
-3160.0,176191.0,2023,puma_label,"(Central) - Near North Side, Loop & Near South Side",Total
-3161.0,129874.0,2023,puma_label,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",Total
-3162.0,137561.0,2023,puma_label,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",Total
-3163.0,129536.0,2023,puma_label,"(Southwest) - South Lawndale, Brighton Park & Gage Park",Total
-3164.0,154620.0,2023,puma_label,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",Total
-3165.0,130375.0,2023,puma_label,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",Total
-3166.0,128932.0,2023,puma_label,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",Total
-3167.0,122670.0,2023,puma_label,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",Total
-3168.0,132266.0,2023,puma_label,"(South) - South Shore, South Chicago, East Side & South Deering",Total
-9999.0,2613654.0,2023,puma_label,Chicago Area,Total
+PUMA,puma_label,year,indicator,value,cut_name
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_elementary_w,12327.0,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_elementary_w,10458.0,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_elementary_w,6397.0,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,atten_elementary_w,6503.0,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,atten_elementary_w,7192.0,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,atten_elementary_w,7625.0,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,atten_elementary_w,13201.0,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,atten_elementary_w,10521.0,Total
+3159.0,(West) - West Town & Near West Side,2023,atten_elementary_w,5547.0,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,atten_elementary_w,5202.0,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,atten_elementary_w,8054.0,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,atten_elementary_w,9369.0,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,atten_elementary_w,8058.0,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,atten_elementary_w,10669.0,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_elementary_w,9211.0,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_elementary_w,9785.0,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_elementary_w,8926.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_elementary_w,11059.0,Total
+9999.0,Chicago Area,2023,atten_elementary_w,160104.0,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_elementary_w,4602.0,women
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_elementary_w,6050.0,women
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_elementary_w,2722.0,women
+3154.0,(North) - Lake View & Lincoln Park,2023,atten_elementary_w,3120.0,women
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,atten_elementary_w,4217.0,women
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,atten_elementary_w,4524.0,women
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,atten_elementary_w,5894.0,women
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,atten_elementary_w,7342.0,women
+3159.0,(West) - West Town & Near West Side,2023,atten_elementary_w,3368.0,women
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,atten_elementary_w,1925.0,women
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,atten_elementary_w,3125.0,women
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,atten_elementary_w,5686.0,women
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,atten_elementary_w,4152.0,women
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,atten_elementary_w,4840.0,women
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_elementary_w,5085.0,women
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_elementary_w,6234.0,women
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_elementary_w,2905.0,women
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_elementary_w,4565.0,women
+9999.0,Chicago Area,2023,atten_elementary_w,80356.0,women
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_elementary_w,7725.0,men
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_elementary_w,4408.0,men
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_elementary_w,3675.0,men
+3154.0,(North) - Lake View & Lincoln Park,2023,atten_elementary_w,3383.0,men
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,atten_elementary_w,2975.0,men
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,atten_elementary_w,3101.0,men
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,atten_elementary_w,7307.0,men
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,atten_elementary_w,3179.0,men
+3159.0,(West) - West Town & Near West Side,2023,atten_elementary_w,2179.0,men
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,atten_elementary_w,3277.0,men
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,atten_elementary_w,4929.0,men
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,atten_elementary_w,3683.0,men
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,atten_elementary_w,3906.0,men
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,atten_elementary_w,5829.0,men
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_elementary_w,4126.0,men
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_elementary_w,3551.0,men
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_elementary_w,6021.0,men
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_elementary_w,6494.0,men
+9999.0,Chicago Area,2023,atten_elementary_w,79748.0,men
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_elementary_w,1909.0,nonafroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_elementary_w,1033.0,nonafroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_elementary_w,2500.0,nonafroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,atten_elementary_w,578.0,nonafroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,atten_elementary_w,631.0,nonafroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,atten_elementary_w,372.0,nonafroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,atten_elementary_w,1160.0,nonafroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,atten_elementary_w,7047.0,nonafroamerican
+3159.0,(West) - West Town & Near West Side,2023,atten_elementary_w,2267.0,nonafroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,atten_elementary_w,1904.0,nonafroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,atten_elementary_w,6906.0,nonafroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,atten_elementary_w,2268.0,nonafroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,atten_elementary_w,595.0,nonafroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,atten_elementary_w,449.0,nonafroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_elementary_w,6058.0,nonafroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_elementary_w,7342.0,nonafroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_elementary_w,7349.0,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_elementary_w,7834.0,nonafroamerican
+9999.0,Chicago Area,2023,atten_elementary_w,58202.0,nonafroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_elementary_w,10418.0,afroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_elementary_w,9425.0,afroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_elementary_w,3897.0,afroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,atten_elementary_w,5925.0,afroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,atten_elementary_w,6561.0,afroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,atten_elementary_w,7253.0,afroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,atten_elementary_w,12041.0,afroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,atten_elementary_w,3474.0,afroamerican
+3159.0,(West) - West Town & Near West Side,2023,atten_elementary_w,3280.0,afroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,atten_elementary_w,3298.0,afroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,atten_elementary_w,1148.0,afroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,atten_elementary_w,7101.0,afroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,atten_elementary_w,7463.0,afroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,atten_elementary_w,10220.0,afroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_elementary_w,3153.0,afroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_elementary_w,2443.0,afroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_elementary_w,1577.0,afroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_elementary_w,3225.0,afroamerican
+9999.0,Chicago Area,2023,atten_elementary_w,101902.0,afroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,elementary_w,12327.0,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,elementary_w,10539.0,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,elementary_w,6536.0,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,elementary_w,6896.0,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,elementary_w,7280.0,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,elementary_w,7625.0,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,elementary_w,13652.0,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,elementary_w,11442.0,Total
+3159.0,(West) - West Town & Near West Side,2023,elementary_w,5547.0,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,elementary_w,5404.0,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,elementary_w,8054.0,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,elementary_w,10134.0,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,elementary_w,8393.0,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,elementary_w,11263.0,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,elementary_w,9505.0,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,elementary_w,10094.0,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,elementary_w,9247.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_w,11836.0,Total
+9999.0,Chicago Area,2023,elementary_w,165774.0,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,elementary_w,7725.0,men
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,elementary_w,4489.0,men
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,elementary_w,3814.0,men
+3154.0,(North) - Lake View & Lincoln Park,2023,elementary_w,3548.0,men
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,elementary_w,3063.0,men
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,elementary_w,3101.0,men
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,elementary_w,7567.0,men
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,elementary_w,3179.0,men
+3159.0,(West) - West Town & Near West Side,2023,elementary_w,2179.0,men
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,elementary_w,3356.0,men
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,elementary_w,4929.0,men
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,elementary_w,4007.0,men
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,elementary_w,3906.0,men
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,elementary_w,6423.0,men
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,elementary_w,4420.0,men
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,elementary_w,3763.0,men
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,elementary_w,6021.0,men
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_w,6985.0,men
+9999.0,Chicago Area,2023,elementary_w,82475.0,men
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,elementary_w,4602.0,women
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,elementary_w,6050.0,women
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,elementary_w,2722.0,women
+3154.0,(North) - Lake View & Lincoln Park,2023,elementary_w,3348.0,women
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,elementary_w,4217.0,women
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,elementary_w,4524.0,women
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,elementary_w,6085.0,women
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,elementary_w,8263.0,women
+3159.0,(West) - West Town & Near West Side,2023,elementary_w,3368.0,women
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,elementary_w,2048.0,women
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,elementary_w,3125.0,women
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,elementary_w,6127.0,women
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,elementary_w,4487.0,women
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,elementary_w,4840.0,women
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,elementary_w,5085.0,women
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,elementary_w,6331.0,women
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,elementary_w,3226.0,women
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_w,4851.0,women
+9999.0,Chicago Area,2023,elementary_w,83299.0,women
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,elementary_w,1909.0,nonafroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,elementary_w,1033.0,nonafroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,elementary_w,2500.0,nonafroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,elementary_w,578.0,nonafroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,elementary_w,631.0,nonafroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,elementary_w,372.0,nonafroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,elementary_w,1160.0,nonafroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,elementary_w,7968.0,nonafroamerican
+3159.0,(West) - West Town & Near West Side,2023,elementary_w,2267.0,nonafroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,elementary_w,1904.0,nonafroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,elementary_w,6906.0,nonafroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,elementary_w,2592.0,nonafroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,elementary_w,595.0,nonafroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,elementary_w,719.0,nonafroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,elementary_w,6352.0,nonafroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,elementary_w,7554.0,nonafroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,elementary_w,7670.0,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_w,8611.0,nonafroamerican
+9999.0,Chicago Area,2023,elementary_w,61321.0,nonafroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,elementary_w,10418.0,afroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,elementary_w,9506.0,afroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,elementary_w,4036.0,afroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,elementary_w,6318.0,afroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,elementary_w,6649.0,afroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,elementary_w,7253.0,afroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,elementary_w,12492.0,afroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,elementary_w,3474.0,afroamerican
+3159.0,(West) - West Town & Near West Side,2023,elementary_w,3280.0,afroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,elementary_w,3500.0,afroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,elementary_w,1148.0,afroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,elementary_w,7542.0,afroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,elementary_w,7798.0,afroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,elementary_w,10544.0,afroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,elementary_w,3153.0,afroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,elementary_w,2540.0,afroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,elementary_w,1577.0,afroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_w,3225.0,afroamerican
+9999.0,Chicago Area,2023,elementary_w,104453.0,afroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_middle_w,3622.0,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_middle_w,3089.0,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_middle_w,902.0,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,atten_middle_w,1480.0,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,atten_middle_w,4494.0,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,atten_middle_w,4304.0,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,atten_middle_w,3672.0,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,atten_middle_w,3833.0,Total
+3159.0,(West) - West Town & Near West Side,2023,atten_middle_w,2183.0,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,atten_middle_w,1547.0,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,atten_middle_w,3458.0,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,atten_middle_w,3211.0,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,atten_middle_w,3614.0,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,atten_middle_w,4592.0,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_middle_w,2689.0,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_middle_w,4014.0,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_middle_w,4837.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_middle_w,4163.0,Total
+9999.0,Chicago Area,2023,atten_middle_w,59704.0,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_middle_w,1582.0,women
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_middle_w,976.0,women
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_middle_w,441.0,women
+3154.0,(North) - Lake View & Lincoln Park,2023,atten_middle_w,513.0,women
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,atten_middle_w,2285.0,women
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,atten_middle_w,2141.0,women
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,atten_middle_w,1902.0,women
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,atten_middle_w,2161.0,women
+3159.0,(West) - West Town & Near West Side,2023,atten_middle_w,802.0,women
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,atten_middle_w,1029.0,women
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,atten_middle_w,2530.0,women
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,atten_middle_w,843.0,women
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,atten_middle_w,1306.0,women
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,atten_middle_w,2378.0,women
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_middle_w,1761.0,women
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_middle_w,2408.0,women
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_middle_w,3160.0,women
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_middle_w,1876.0,women
+9999.0,Chicago Area,2023,atten_middle_w,30094.0,women
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_middle_w,2040.0,men
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_middle_w,2113.0,men
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_middle_w,461.0,men
+3154.0,(North) - Lake View & Lincoln Park,2023,atten_middle_w,967.0,men
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,atten_middle_w,2209.0,men
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,atten_middle_w,2163.0,men
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,atten_middle_w,1770.0,men
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,atten_middle_w,1672.0,men
+3159.0,(West) - West Town & Near West Side,2023,atten_middle_w,1381.0,men
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,atten_middle_w,518.0,men
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,atten_middle_w,928.0,men
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,atten_middle_w,2368.0,men
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,atten_middle_w,2308.0,men
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,atten_middle_w,2214.0,men
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_middle_w,928.0,men
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_middle_w,1606.0,men
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_middle_w,1677.0,men
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_middle_w,2287.0,men
+9999.0,Chicago Area,2023,atten_middle_w,29610.0,men
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_middle_w,87.0,nonafroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_middle_w,599.0,nonafroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_middle_w,479.0,nonafroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,atten_middle_w,0.0,nonafroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,atten_middle_w,195.0,nonafroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,atten_middle_w,741.0,nonafroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,atten_middle_w,321.0,nonafroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,atten_middle_w,2777.0,nonafroamerican
+3159.0,(West) - West Town & Near West Side,2023,atten_middle_w,167.0,nonafroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,atten_middle_w,0.0,nonafroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,atten_middle_w,3046.0,nonafroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,atten_middle_w,63.0,nonafroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,atten_middle_w,0.0,nonafroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,atten_middle_w,659.0,nonafroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_middle_w,1530.0,nonafroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_middle_w,2554.0,nonafroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_middle_w,4837.0,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_middle_w,1965.0,nonafroamerican
+9999.0,Chicago Area,2023,atten_middle_w,20020.0,nonafroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_middle_w,3535.0,afroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_middle_w,2490.0,afroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_middle_w,423.0,afroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,atten_middle_w,1480.0,afroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,atten_middle_w,4299.0,afroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,atten_middle_w,3563.0,afroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,atten_middle_w,3351.0,afroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,atten_middle_w,1056.0,afroamerican
+3159.0,(West) - West Town & Near West Side,2023,atten_middle_w,2016.0,afroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,atten_middle_w,1547.0,afroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,atten_middle_w,412.0,afroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,atten_middle_w,3148.0,afroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,atten_middle_w,3614.0,afroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,atten_middle_w,3933.0,afroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_middle_w,1159.0,afroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_middle_w,1460.0,afroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_middle_w,0.0,afroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_middle_w,2198.0,afroamerican
+9999.0,Chicago Area,2023,atten_middle_w,39684.0,afroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,middle_w,3011.0,men
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,middle_w,3172.0,men
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,middle_w,593.0,men
+3154.0,(North) - Lake View & Lincoln Park,2023,middle_w,1216.0,men
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,middle_w,2307.0,men
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,middle_w,2982.0,men
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,middle_w,3033.0,men
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,middle_w,2269.0,men
+3159.0,(West) - West Town & Near West Side,2023,middle_w,1434.0,men
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,middle_w,518.0,men
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,middle_w,1822.0,men
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,middle_w,2675.0,men
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,middle_w,2308.0,men
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,middle_w,2499.0,men
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,middle_w,1819.0,men
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,middle_w,1606.0,men
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,middle_w,1887.0,men
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_w,2915.0,men
+9999.0,Chicago Area,2023,middle_w,38066.0,men
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,middle_w,2065.0,women
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,middle_w,1471.0,women
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,middle_w,676.0,women
+3154.0,(North) - Lake View & Lincoln Park,2023,middle_w,513.0,women
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,middle_w,2467.0,women
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,middle_w,2141.0,women
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,middle_w,2938.0,women
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,middle_w,2325.0,women
+3159.0,(West) - West Town & Near West Side,2023,middle_w,802.0,women
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,middle_w,1029.0,women
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,middle_w,2914.0,women
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,middle_w,1292.0,women
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,middle_w,1542.0,women
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,middle_w,3288.0,women
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,middle_w,2198.0,women
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,middle_w,2576.0,women
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,middle_w,3160.0,women
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_w,1876.0,women
+9999.0,Chicago Area,2023,middle_w,35273.0,women
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,middle_w,87.0,nonafroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,middle_w,599.0,nonafroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,middle_w,611.0,nonafroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,middle_w,0.0,nonafroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,middle_w,195.0,nonafroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,middle_w,741.0,nonafroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,middle_w,1049.0,nonafroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,middle_w,3215.0,nonafroamerican
+3159.0,(West) - West Town & Near West Side,2023,middle_w,167.0,nonafroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,middle_w,0.0,nonafroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,middle_w,4246.0,nonafroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,middle_w,63.0,nonafroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,middle_w,0.0,nonafroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,middle_w,659.0,nonafroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,middle_w,2567.0,nonafroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,middle_w,2554.0,nonafroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,middle_w,5047.0,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_w,2337.0,nonafroamerican
+9999.0,Chicago Area,2023,middle_w,24137.0,nonafroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,middle_w,4989.0,afroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,middle_w,4044.0,afroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,middle_w,658.0,afroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,middle_w,1729.0,afroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,middle_w,4579.0,afroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,middle_w,4382.0,afroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,middle_w,4922.0,afroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,middle_w,1379.0,afroamerican
+3159.0,(West) - West Town & Near West Side,2023,middle_w,2069.0,afroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,middle_w,1547.0,afroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,middle_w,490.0,afroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,middle_w,3904.0,afroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,middle_w,3850.0,afroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,middle_w,5128.0,afroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,middle_w,1450.0,afroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,middle_w,1628.0,afroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,middle_w,0.0,afroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_w,2454.0,afroamerican
+9999.0,Chicago Area,2023,middle_w,49202.0,afroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,middle_w,5076.0,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,middle_w,4643.0,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,middle_w,1269.0,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,middle_w,1729.0,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,middle_w,4774.0,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,middle_w,5123.0,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,middle_w,5971.0,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,middle_w,4594.0,Total
+3159.0,(West) - West Town & Near West Side,2023,middle_w,2236.0,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,middle_w,1547.0,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,middle_w,4736.0,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,middle_w,3967.0,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,middle_w,3850.0,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,middle_w,5787.0,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,middle_w,4017.0,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,middle_w,4182.0,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,middle_w,5047.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_w,4791.0,Total
+9999.0,Chicago Area,2023,middle_w,73339.0,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_high_school_w,5644.0,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_high_school_w,8343.0,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_high_school_w,5295.0,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,atten_high_school_w,2271.0,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,atten_high_school_w,4431.0,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,atten_high_school_w,6666.0,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,atten_high_school_w,7789.0,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,atten_high_school_w,9536.0,Total
+3159.0,(West) - West Town & Near West Side,2023,atten_high_school_w,2886.0,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,atten_high_school_w,3162.0,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,atten_high_school_w,5095.0,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,atten_high_school_w,7439.0,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,atten_high_school_w,7653.0,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,atten_high_school_w,7835.0,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_high_school_w,6916.0,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_high_school_w,8107.0,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_high_school_w,7832.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_high_school_w,8644.0,Total
+9999.0,Chicago Area,2023,atten_high_school_w,115544.0,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_high_school_w,5644.0,afroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_high_school_w,6960.0,afroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_high_school_w,3233.0,afroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,atten_high_school_w,2230.0,afroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,atten_high_school_w,4167.0,afroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,atten_high_school_w,6177.0,afroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,atten_high_school_w,5243.0,afroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,atten_high_school_w,2293.0,afroamerican
+3159.0,(West) - West Town & Near West Side,2023,atten_high_school_w,2189.0,afroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,atten_high_school_w,1149.0,afroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,atten_high_school_w,1322.0,afroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,atten_high_school_w,6709.0,afroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,atten_high_school_w,7653.0,afroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,atten_high_school_w,6745.0,afroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_high_school_w,3294.0,afroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_high_school_w,1425.0,afroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_high_school_w,305.0,afroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_high_school_w,3515.0,afroamerican
+9999.0,Chicago Area,2023,atten_high_school_w,70253.0,afroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_high_school_w,0.0,nonafroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_high_school_w,1383.0,nonafroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_high_school_w,2062.0,nonafroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,atten_high_school_w,41.0,nonafroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,atten_high_school_w,264.0,nonafroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,atten_high_school_w,489.0,nonafroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,atten_high_school_w,2546.0,nonafroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,atten_high_school_w,7243.0,nonafroamerican
+3159.0,(West) - West Town & Near West Side,2023,atten_high_school_w,697.0,nonafroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,atten_high_school_w,2013.0,nonafroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,atten_high_school_w,3773.0,nonafroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,atten_high_school_w,730.0,nonafroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,atten_high_school_w,0.0,nonafroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,atten_high_school_w,1090.0,nonafroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_high_school_w,3622.0,nonafroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_high_school_w,6682.0,nonafroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_high_school_w,7527.0,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_high_school_w,5129.0,nonafroamerican
+9999.0,Chicago Area,2023,atten_high_school_w,45291.0,nonafroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_high_school_w,2392.0,men
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_high_school_w,4208.0,men
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_high_school_w,4088.0,men
+3154.0,(North) - Lake View & Lincoln Park,2023,atten_high_school_w,753.0,men
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,atten_high_school_w,2159.0,men
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,atten_high_school_w,3736.0,men
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,atten_high_school_w,3770.0,men
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,atten_high_school_w,4959.0,men
+3159.0,(West) - West Town & Near West Side,2023,atten_high_school_w,1911.0,men
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,atten_high_school_w,602.0,men
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,atten_high_school_w,2778.0,men
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,atten_high_school_w,4006.0,men
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,atten_high_school_w,4178.0,men
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,atten_high_school_w,3308.0,men
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_high_school_w,3400.0,men
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_high_school_w,4605.0,men
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_high_school_w,4002.0,men
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_high_school_w,6144.0,men
+9999.0,Chicago Area,2023,atten_high_school_w,60999.0,men
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_high_school_w,3252.0,women
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_high_school_w,4135.0,women
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_high_school_w,1207.0,women
+3154.0,(North) - Lake View & Lincoln Park,2023,atten_high_school_w,1518.0,women
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,atten_high_school_w,2272.0,women
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,atten_high_school_w,2930.0,women
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,atten_high_school_w,4019.0,women
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,atten_high_school_w,4577.0,women
+3159.0,(West) - West Town & Near West Side,2023,atten_high_school_w,975.0,women
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,atten_high_school_w,2560.0,women
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,atten_high_school_w,2317.0,women
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,atten_high_school_w,3433.0,women
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,atten_high_school_w,3475.0,women
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,atten_high_school_w,4527.0,women
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_high_school_w,3516.0,women
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_high_school_w,3502.0,women
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_high_school_w,3830.0,women
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_high_school_w,2500.0,women
+9999.0,Chicago Area,2023,atten_high_school_w,54545.0,women
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,high_school_w,7228.0,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,high_school_w,9861.0,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,high_school_w,6959.0,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,high_school_w,2738.0,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,high_school_w,6089.0,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,high_school_w,8007.0,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,high_school_w,10539.0,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,high_school_w,12269.0,Total
+3159.0,(West) - West Town & Near West Side,2023,high_school_w,3564.0,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,high_school_w,3844.0,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,high_school_w,7050.0,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,high_school_w,10677.0,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,high_school_w,11917.0,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,high_school_w,11470.0,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,high_school_w,8512.0,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,high_school_w,10208.0,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,high_school_w,8887.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,high_school_w,12328.0,Total
+9999.0,Chicago Area,2023,high_school_w,152147.0,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,high_school_w,3524.0,men
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,high_school_w,5386.0,men
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,high_school_w,4514.0,men
+3154.0,(North) - Lake View & Lincoln Park,2023,high_school_w,1046.0,men
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,high_school_w,3076.0,men
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,high_school_w,4037.0,men
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,high_school_w,4820.0,men
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,high_school_w,6989.0,men
+3159.0,(West) - West Town & Near West Side,2023,high_school_w,2368.0,men
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,high_school_w,781.0,men
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,high_school_w,3378.0,men
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,high_school_w,5258.0,men
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,high_school_w,7041.0,men
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,high_school_w,5520.0,men
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,high_school_w,4679.0,men
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,high_school_w,5658.0,men
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,high_school_w,4384.0,men
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,high_school_w,7745.0,men
+9999.0,Chicago Area,2023,high_school_w,80204.0,men
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,high_school_w,3704.0,women
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,high_school_w,4475.0,women
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,high_school_w,2445.0,women
+3154.0,(North) - Lake View & Lincoln Park,2023,high_school_w,1692.0,women
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,high_school_w,3013.0,women
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,high_school_w,3970.0,women
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,high_school_w,5719.0,women
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,high_school_w,5280.0,women
+3159.0,(West) - West Town & Near West Side,2023,high_school_w,1196.0,women
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,high_school_w,3063.0,women
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,high_school_w,3672.0,women
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,high_school_w,5419.0,women
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,high_school_w,4876.0,women
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,high_school_w,5950.0,women
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,high_school_w,3833.0,women
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,high_school_w,4550.0,women
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,high_school_w,4503.0,women
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,high_school_w,4583.0,women
+9999.0,Chicago Area,2023,high_school_w,71943.0,women
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,high_school_w,0.0,nonafroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,high_school_w,1383.0,nonafroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,high_school_w,2993.0,nonafroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,high_school_w,41.0,nonafroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,high_school_w,264.0,nonafroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,high_school_w,879.0,nonafroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,high_school_w,2690.0,nonafroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,high_school_w,9162.0,nonafroamerican
+3159.0,(West) - West Town & Near West Side,2023,high_school_w,907.0,nonafroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,high_school_w,2516.0,nonafroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,high_school_w,5728.0,nonafroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,high_school_w,1317.0,nonafroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,high_school_w,690.0,nonafroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,high_school_w,1185.0,nonafroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,high_school_w,4643.0,nonafroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,high_school_w,8458.0,nonafroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,high_school_w,8582.0,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,high_school_w,7593.0,nonafroamerican
+9999.0,Chicago Area,2023,high_school_w,59031.0,nonafroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,high_school_w,7228.0,afroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,high_school_w,8478.0,afroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,high_school_w,3966.0,afroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,high_school_w,2697.0,afroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,high_school_w,5825.0,afroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,high_school_w,7128.0,afroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,high_school_w,7849.0,afroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,high_school_w,3107.0,afroamerican
+3159.0,(West) - West Town & Near West Side,2023,high_school_w,2657.0,afroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,high_school_w,1328.0,afroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,high_school_w,1322.0,afroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,high_school_w,9360.0,afroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,high_school_w,11227.0,afroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,high_school_w,10285.0,afroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,high_school_w,3869.0,afroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,high_school_w,1750.0,afroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,high_school_w,305.0,afroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,high_school_w,4735.0,afroamerican
+9999.0,Chicago Area,2023,high_school_w,93116.0,afroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,PWGTP,140700.0,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,PWGTP,147168.0,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,PWGTP,165603.0,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,PWGTP,169636.0,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,PWGTP,153886.0,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,PWGTP,126318.0,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,PWGTP,162743.0,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,PWGTP,149036.0,Total
+3159.0,(West) - West Town & Near West Side,2023,PWGTP,156539.0,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,PWGTP,176191.0,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,PWGTP,129874.0,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,PWGTP,137561.0,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,PWGTP,129536.0,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,PWGTP,154620.0,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,PWGTP,130375.0,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,PWGTP,128932.0,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,PWGTP,122670.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,PWGTP,132266.0,Total
+9999.0,Chicago Area,2023,PWGTP,2613654.0,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,HINCP_w,19048543880.0,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,HINCP_w,22105711550.0,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,HINCP_w,18426827580.0,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,HINCP_w,39114332700.0,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,HINCP_w,22790694224.0,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,HINCP_w,14825417822.0,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,HINCP_w,17279382710.0,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,HINCP_w,13808590490.0,Total
+3159.0,(West) - West Town & Near West Side,2023,HINCP_w,29106621350.0,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,HINCP_w,33609586860.0,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,HINCP_w,12172316740.0,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,HINCP_w,12468687930.0,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,HINCP_w,11464405820.0,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,HINCP_w,16419322430.0,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,HINCP_w,9467791530.0,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,HINCP_w,15250207970.0,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,HINCP_w,8914130490.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,HINCP_w,10664147960.0,Total
+9999.0,Chicago Area,2023,HINCP_w,326936720036.0,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,men_w,70831.0,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,men_w,71687.0,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,men_w,85336.0,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,men_w,80905.0,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,men_w,75220.0,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,men_w,61192.0,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,men_w,81830.0,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,men_w,70126.0,Total
+3159.0,(West) - West Town & Near West Side,2023,men_w,79033.0,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,men_w,80660.0,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,men_w,55987.0,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,men_w,72165.0,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,men_w,68420.0,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,men_w,76636.0,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,men_w,60586.0,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,men_w,58699.0,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,men_w,50793.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,men_w,63972.0,Total
+9999.0,Chicago Area,2023,men_w,1264078.0,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,woman_w,69869.0,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,woman_w,75481.0,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,woman_w,80267.0,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,woman_w,88731.0,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,woman_w,78666.0,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,woman_w,65126.0,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,woman_w,80913.0,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,woman_w,78910.0,Total
+3159.0,(West) - West Town & Near West Side,2023,woman_w,77506.0,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,woman_w,95531.0,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,woman_w,73887.0,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,woman_w,65396.0,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,woman_w,61116.0,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,woman_w,77984.0,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,woman_w,69789.0,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,woman_w,70233.0,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,woman_w,71877.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,woman_w,68294.0,Total
+9999.0,Chicago Area,2023,woman_w,1349576.0,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,black_w,6638.0,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,black_w,14730.0,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,black_w,35860.0,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,black_w,10925.0,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,black_w,9721.0,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,black_w,5688.0,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,black_w,27783.0,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,black_w,105969.0,Total
+3159.0,(West) - West Town & Near West Side,2023,black_w,28148.0,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,black_w,28611.0,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,black_w,97142.0,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,black_w,18955.0,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,black_w,8313.0,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,black_w,21207.0,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,black_w,83704.0,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,black_w,89254.0,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,black_w,113034.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,black_w,89326.0,Total
+9999.0,Chicago Area,2023,black_w,795008.0,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,non_w,134062.0,nonafroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,non_w,132438.0,nonafroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,non_w,129743.0,nonafroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,non_w,158711.0,nonafroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,non_w,144165.0,nonafroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,non_w,120630.0,nonafroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,non_w,134960.0,nonafroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,non_w,43067.0,nonafroamerican
+3159.0,(West) - West Town & Near West Side,2023,non_w,128391.0,nonafroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,non_w,147580.0,nonafroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,non_w,32732.0,nonafroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,non_w,118606.0,nonafroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,non_w,121223.0,nonafroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,non_w,133413.0,nonafroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,non_w,46671.0,nonafroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,non_w,39678.0,nonafroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,non_w,9636.0,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,non_w,42940.0,nonafroamerican
+9999.0,Chicago Area,2023,non_w,1818646.0,nonafroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_elementary,100.0,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_elementary,99.23142613151153,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_elementary,97.87331701346389,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_elementary,94.30104408352669,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_elementary,98.79120879120879,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_elementary,100.0,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_elementary,96.69645473190741,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_elementary,91.95070791819612,Total
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_elementary,100.0,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_elementary,96.2620281273131,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_elementary,100.0,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_elementary,92.45115452930727,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_elementary,96.00857857738592,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_elementary,94.72609429104146,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_elementary,96.90689110994214,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_elementary,96.93877551020408,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_elementary,96.5286038715259,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_elementary,93.43528218992903,Total
+9999.0,Chicago Area,2023,attendance_rate_elementary,96.57968077020523,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_middle,71.35539795114263,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_middle,66.53026060736593,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_middle,71.0795902285264,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_middle,85.59861191440139,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_middle,94.13489736070382,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_middle,84.01327347257467,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_middle,61.497236643778265,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_middle,83.43491510666087,Total
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_middle,97.62969588550983,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_middle,100.0,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_middle,73.0152027027027,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_middle,80.94277791782203,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_middle,93.87012987012987,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_middle,79.35026784171419,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_middle,66.94050286283296,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_middle,95.98278335724534,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_middle,95.83911234396672,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_middle,86.89208933416823,Total
+9999.0,Chicago Area,2023,attendance_rate_middle,81.40825481667325,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_high,78.0852241283896,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_high,84.60602372984485,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_high,76.08851846529674,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_high,82.94375456537618,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_high,72.77056988011168,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_high,83.25215436493069,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_high,73.90644273650251,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_high,77.7243459124623,Total
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_high,80.97643097643098,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_high,82.25806451612904,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_high,72.26950354609929,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_high,69.67312915613,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_high,64.21918268020474,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_high,68.30863121185702,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_high,81.25,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_high,79.41810344827587,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_high,88.12872735456284,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_high,70.11680726800779,Total
+9999.0,Chicago Area,2023,attendance_rate_high,75.94234523191388,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_elementary,100.0,men
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_elementary,98.19558921808866,men
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_elementary,96.35553224960671,men
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_elementary,95.34949267192785,men
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_elementary,97.12699967352269,men
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_elementary,100.0,men
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_elementary,96.56402801638694,men
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_elementary,100.0,men
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_elementary,100.0,men
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_elementary,97.64600715137068,men
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_elementary,100.0,men
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_elementary,91.9141502370851,men
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_elementary,100.0,men
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_elementary,90.75198505371321,men
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_elementary,93.34841628959276,men
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_elementary,94.36619718309859,men
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_elementary,100.0,men
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_elementary,92.97065139584825,men
+9999.0,Chicago Area,2023,attendance_rate_elementary,96.69354349802971,men
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_middle,67.75157754898706,men
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_middle,66.6141235813367,men
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_middle,77.74030354131534,men
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_middle,79.52302631578947,men
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_middle,95.75205895101864,men
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_middle,72.53521126760563,men
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_middle,58.35806132542037,men
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_middle,73.68884971353019,men
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_middle,96.30404463040446,men
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_middle,100.0,men
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_middle,50.933040614709114,men
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_middle,88.5233644859813,men
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_middle,100.0,men
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_middle,88.5954381752701,men
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_middle,51.01704233095107,men
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_middle,100.0,men
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_middle,88.87122416534181,men
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_middle,78.45626072041166,men
+9999.0,Chicago Area,2023,attendance_rate_middle,77.78595071717544,men
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_high,67.87741203178207,men
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_high,78.12848124767918,men
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_high,90.56269384138237,men
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_high,71.9885277246654,men
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_high,70.18855656697009,men
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_high,92.5439682932871,men
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_high,78.21576763485477,men
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_high,70.95435684647303,men
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_high,80.70101351351352,men
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_high,77.08066581306018,men
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_high,82.2380106571936,men
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_high,76.18866489159376,men
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_high,59.338162192870335,men
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_high,59.92753623188406,men
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_high,72.66509938020944,men
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_high,81.38918345705196,men
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_high,91.28649635036497,men
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_high,79.32859909619108,men
+9999.0,Chicago Area,2023,attendance_rate_high,76.05481023390355,men
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_elementary,100.0,women
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_elementary,100.0,women
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_elementary,100.0,women
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_elementary,93.1899641577061,women
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_elementary,100.0,women
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_elementary,100.0,women
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_elementary,96.86113393590797,women
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_elementary,88.85392714510468,women
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_elementary,100.0,women
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_elementary,93.994140625,women
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_elementary,100.0,women
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_elementary,92.80235025297861,women
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_elementary,92.53398707376867,women
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_elementary,100.0,women
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_elementary,100.0,women
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_elementary,98.46785657873953,women
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_elementary,90.04959702417855,women
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_elementary,94.10430839002267,women
+9999.0,Chicago Area,2023,attendance_rate_elementary,96.466944381085,women
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_middle,76.61016949152543,women
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_middle,66.3494221617947,women
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_middle,65.23668639053254,women
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_middle,100.0,women
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_middle,92.62261856505877,women
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_middle,100.0,women
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_middle,64.73791695030633,women
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_middle,92.94623655913978,women
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_middle,100.0,women
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_middle,100.0,women
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_middle,86.82223747426218,women
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_middle,65.24767801857585,women
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_middle,84.69520103761349,women
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_middle,72.32360097323601,women
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_middle,80.11828935395813,women
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_middle,93.47826086956522,women
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_middle,100.0,women
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_middle,100.0,women
+9999.0,Chicago Area,2023,attendance_rate_middle,85.31738156663738,women
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_high,87.79697624190065,women
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_high,92.40223463687151,women
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_high,49.36605316973415,women
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_high,89.71631205673759,women
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_high,75.4065715233986,women
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_high,73.80352644836272,women
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_high,70.27452351809757,women
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_high,86.68560606060606,women
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_high,81.52173913043478,women
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_high,83.57819131570355,women
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_high,63.09912854030502,women
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_high,63.351171802915665,women
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_high,71.26743232157506,women
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_high,76.08403361344538,women
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_high,91.72971562744586,women
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_high,76.96703296703296,women
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_high,85.05440817232956,women
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_high,54.54942177612917,women
+9999.0,Chicago Area,2023,attendance_rate_high,75.81696620936019,women
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_elementary,100.0,nonafroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_elementary,100.0,nonafroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_elementary,100.0,nonafroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_elementary,100.0,nonafroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_elementary,100.0,nonafroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_elementary,100.0,nonafroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_elementary,100.0,nonafroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_elementary,88.44126506024097,nonafroamerican
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_elementary,100.0,nonafroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_elementary,100.0,nonafroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_elementary,100.0,nonafroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_elementary,87.5,nonafroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_elementary,100.0,nonafroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_elementary,62.447844228094574,nonafroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_elementary,95.37153652392946,nonafroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_elementary,97.19353984643897,nonafroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_elementary,95.81486310299869,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_elementary,90.97665776332597,nonafroamerican
+9999.0,Chicago Area,2023,attendance_rate_elementary,94.9136511146263,nonafroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_middle,100.0,nonafroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_middle,100.0,nonafroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_middle,78.39607201309329,nonafroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_middle,,nonafroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_middle,100.0,nonafroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_middle,100.0,nonafroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_middle,30.60057197330791,nonafroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_middle,86.37636080870918,nonafroamerican
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_middle,100.0,nonafroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_middle,,nonafroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_middle,71.73810645313236,nonafroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_middle,100.0,nonafroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_middle,,nonafroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_middle,100.0,nonafroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_middle,59.60264900662252,nonafroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_middle,100.0,nonafroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_middle,95.83911234396672,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_middle,84.08215661103979,nonafroamerican
+9999.0,Chicago Area,2023,attendance_rate_middle,82.94319923768488,nonafroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_high,,nonafroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_high,100.0,nonafroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_high,68.89408620113599,nonafroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_high,100.0,nonafroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_high,100.0,nonafroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_high,55.631399317406135,nonafroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_high,94.64684014869889,nonafroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_high,79.05479153023357,nonafroamerican
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_high,76.84674751929438,nonafroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_high,80.00794912559618,nonafroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_high,65.86941340782123,nonafroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_high,55.4290053151101,nonafroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_high,0.0,nonafroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_high,91.9831223628692,nonafroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_high,78.009907387465,nonafroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_high,79.00212816268622,nonafroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_high,87.70682824516429,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_high,67.54905834321086,nonafroamerican
+9999.0,Chicago Area,2023,attendance_rate_high,76.72409412003861,nonafroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_elementary,100.0,afroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_elementary,99.14790658531454,afroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_elementary,96.55599603567889,afroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_elementary,93.77967711301045,afroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_elementary,98.67649270567003,afroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_elementary,100.0,afroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_elementary,96.38968940121678,afroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_elementary,100.0,afroamerican
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_elementary,100.0,afroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_elementary,94.22857142857143,afroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_elementary,100.0,afroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_elementary,94.1527446300716,afroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_elementary,95.70402667350602,afroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_elementary,96.92716236722306,afroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_elementary,100.0,afroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_elementary,96.18110236220473,afroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_elementary,100.0,afroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_elementary,100.0,afroamerican
+9999.0,Chicago Area,2023,attendance_rate_elementary,97.55775324787224,afroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_middle,70.85588294247344,afroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_middle,61.5727002967359,afroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_middle,64.28571428571429,afroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_middle,85.59861191440139,afroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_middle,93.88512775715222,afroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_middle,81.30990415335462,afroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_middle,68.08208045509956,afroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_middle,76.57722987672227,afroamerican
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_middle,97.43837602706623,afroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_middle,100.0,afroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_middle,84.08163265306122,afroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_middle,80.63524590163934,afroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_middle,93.87012987012987,afroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_middle,76.6965678627145,afroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_middle,79.93103448275862,afroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_middle,89.68058968058969,afroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_middle,,afroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_middle,89.5680521597392,afroamerican
+9999.0,Chicago Area,2023,attendance_rate_middle,80.65525791634487,afroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_high,78.0852241283896,afroamerican
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_high,82.09483368719037,afroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_high,81.51790216843166,afroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_high,82.68446421950316,afroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_high,71.53648068669528,afroamerican
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_high,86.65824915824916,afroamerican
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_high,66.79831825710282,afroamerican
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_high,73.80109430318636,afroamerican
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_high,82.38614979299962,afroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_high,86.5210843373494,afroamerican
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_high,100.0,afroamerican
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_high,71.67735042735043,afroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_high,68.1660283245747,afroamerican
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_high,65.58094312105007,afroamerican
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_high,85.13827862496768,afroamerican
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_high,81.42857142857143,afroamerican
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_high,100.0,afroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_high,74.23442449841605,afroamerican
+9999.0,Chicago Area,2023,attendance_rate_high,75.44675458567808,afroamerican
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,elementary_percentage,8.761194029850747,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,elementary_percentage,7.161203522504893,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,elementary_percentage,3.9467884035917224,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,elementary_percentage,4.065174844962154,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,elementary_percentage,4.7307747293451,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,elementary_percentage,6.036352697161132,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,elementary_percentage,8.388686456560343,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,elementary_percentage,7.677339703158968,Total
+3159.0,(West) - West Town & Near West Side,2023,elementary_percentage,3.543525894505523,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,elementary_percentage,3.0671260166523826,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,elementary_percentage,6.201395198423087,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,elementary_percentage,7.3669135874266685,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,elementary_percentage,6.479279891304348,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,elementary_percentage,7.284309921096882,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,elementary_percentage,7.290508149568551,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,elementary_percentage,7.82893308100394,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,elementary_percentage,7.538110377435396,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_percentage,8.948633813678496,Total
+9999.0,Chicago Area,2023,elementary_percentage,6.342614592444142,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,middle_percentage,3.607675906183369,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,middle_percentage,3.1548978038704067,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,middle_percentage,0.7662904657524321,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,middle_percentage,1.019241198802141,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,middle_percentage,3.102296505205152,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,middle_percentage,4.055637359679539,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,middle_percentage,3.6689750096778355,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,middle_percentage,3.0824767170348104,Total
+3159.0,(West) - West Town & Near West Side,2023,middle_percentage,1.428398034994474,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,middle_percentage,0.8780244166841666,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,middle_percentage,3.646611330982337,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,middle_percentage,2.8838115454234847,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,middle_percentage,2.9721467391304346,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,middle_percentage,3.7427240977881255,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,middle_percentage,3.08111217641419,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,middle_percentage,3.243570254087426,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,middle_percentage,4.114290372544224,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_percentage,3.622246079869354,Total
+9999.0,Chicago Area,2023,middle_percentage,2.805994978677361,Total
+3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,high_percentage,5.137171286425017,Total
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,high_percentage,6.700505544683627,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,high_percentage,4.202218558842533,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,high_percentage,1.6140441887335235,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,high_percentage,3.95682518227779,Total
+3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,high_percentage,6.338764071628747,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,high_percentage,6.475854568245638,Total
+3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,high_percentage,8.232239190531148,Total
+3159.0,(West) - West Town & Near West Side,2023,high_percentage,2.2767489251879724,Total
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,high_percentage,2.181723243525492,Total
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,high_percentage,5.428338235520582,Total
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,high_percentage,7.761647559991568,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,high_percentage,9.199759140316205,Total
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,high_percentage,7.41818652179537,Total
+3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,high_percentage,6.528859060402685,Total
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,high_percentage,7.917351782334873,Total
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,high_percentage,7.244640091301867,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,high_percentage,9.320611495017616,Total
+9999.0,Chicago Area,2023,high_percentage,5.821237241042617,Total

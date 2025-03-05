@@ -7,9 +7,9 @@ import pandas as pd
 import httpx
 import time
 
-YEAR = [2021, 2022, 2023]
+YEAR = [2023]
 params = {
-    "get": "SEX,PUMA,RACBLK,AGEP,HISP,FHISP,PWGTP,SCH,ESR,HINCP,ADJINC,SCHG,SCHL"
+    "get": "SEX,PUMA,RACBLK,AGEP,HISP,FHISP,PWGTP,SCH,ESR,HINCP,ADJINC,SCHG,SCHL,NP"
 }  # variables to get
 
 

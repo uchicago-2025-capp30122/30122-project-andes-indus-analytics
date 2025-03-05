@@ -320,7 +320,7 @@ def aggregate_puma_data(full_fetch=False):
     return df_with_aggregated
 
 
-def reshape_long_format(df, id_vars=["PUMA", "PWGTP", "year"]):
+def reshape_long_format(df, id_vars=["PUMA", "puma_label", "year"]):
     """
     Reshapes a wide-format dataframe into long format.
 
@@ -334,47 +334,28 @@ def reshape_long_format(df, id_vars=["PUMA", "PWGTP", "year"]):
             - 'value': The value of the indicator.
             - 'cut_name': Subgroup identifier derived from the original indicator name.
     
-    The function assigns:
-      - 'women' if the indicator ends with _women or _women_w,
-      - 'men' if it ends with _men or _men_w,
-      - 'afroamerican' if it ends with _black or black_w,
-      - 'non_africanamerican' if it ends with _non_black or non_black_w.
     """
     # Identify columns to be melted (all columns not in id_vars)
     
     df_long = df.melt(id_vars=id_vars, var_name="indicator", value_name="value")
     
-    # Create the 'cut_name' column using vectorized string matching
-    conditions = [
-        df_long["indicator"].str.endswith("_women") | df_long["indicator"].str.endswith("_women_w"),
-        df_long["indicator"].str.endswith("_men") | df_long["indicator"].str.endswith("_men_w"),
-        df_long["indicator"].str.endswith("_black") | df_long["indicator"].str.endswith("black_w"),
-        df_long["indicator"].str.endswith("_non_black") | df_long["indicator"].str.endswith("non_black_w")
-    ]
-    choices = ["women", "men", "afroamerican", "non_africanamerican"]
-    df_long["cut_name"] = np.select(conditions, choices, default="")
-    
-    # Remove subgroup suffix from the indicator name using the standalone remove_suffix function
-    df_long["indicator"] = df_long["indicator"]
-    
     return df_long
 
 def rename_functions(year,output_file="data/census_df_long.csv", full_fetch=False):
     df = variable_labels(year, full_fetch=False)
-    df_long = reshape_long_format(df, id_vars=["PUMA", "PWGTP", "year"])
+    df_long = reshape_long_format(df, id_vars=["PUMA", "puma_label", "year"])
     # Create cut_name column based on indicator suffixes
     conditions = [
-        df_long["indicator"].str.endswith("_women") | df_long["indicator"].str.endswith("_women_w"),
-        df_long["indicator"].str.endswith("_men") | df_long["indicator"].str.endswith("_men_w"),
-        df_long["indicator"].str.endswith("_black") | df_long["indicator"].str.endswith("black_w"),
-        df_long["indicator"].str.endswith("_non_black") | df_long["indicator"].str.endswith("non_black_w")
+    df_long["indicator"].str.endswith("_women") | df_long["indicator"].str.endswith("_women_w"),
+    df_long["indicator"].str.endswith("_men")   | df_long["indicator"].str.endswith("_men_w"),
+    df_long["indicator"].str.endswith("_non_black") | df_long["indicator"].str.endswith("_non_black_w"),
+    df_long["indicator"].str.endswith("_black") | df_long["indicator"].str.endswith("_black_w")
     ]
-    choices = ["women", "men", "afroamerican", "non_africanamerican"]
+    choices = ["women", "men", "afroamerican", "nonafroamerican"]
     df_long["cut_name"] = np.select(conditions, choices, default="Total")
 
     df_long["indicator"] = df_long["indicator"]
 
-   
     pattern = re.compile(r'(\_men|\_women|\_black|\_non\_black)')
     df_long['indicator'] = df_long['indicator'].str.replace(pattern, '', regex=True)
 
