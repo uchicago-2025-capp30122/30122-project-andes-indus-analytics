@@ -180,6 +180,7 @@ dbc.Row(
 
 # Callback updates the containers with iframes that embed the Altair charts.
 @callback(
+    Output('pyramid-graph-container','children'),
     Output('scatter-graph-container', 'children'),
     Output('bar-graph-container', 'children'),
     Output('crime_map', 'children'),
@@ -189,6 +190,14 @@ dbc.Row(
 def update_charts(selected_year, selected_crime):
     # Filter data for the selected year
     dff = df_c[df_c['year'] == selected_year]
+
+    # for the pyramid 
+    slider = alt.binding_range(min=1850, max=2000, step=10)
+    select_year = alt.selection_point(name='year', fields=['year'],
+                                   bind=slider, value=2023)
+    
+    # for the interactive barchart 
+    brush = alt.selection_interval()
     select = alt.selection_point(name="select", on="click")
     highlight = alt.selection_point(name="highlight", on="pointerover", empty=False)
     stroke_width = (
@@ -196,6 +205,23 @@ def update_charts(selected_year, selected_crime):
     .when(highlight).then(alt.value(1))
     .otherwise(alt.value(0))
     )
+
+
+
+    # create a pyramid with the school age population per sex and race 
+    
+    selection = alt.selection_point(fields=['site'], bind='legend')
+    fig_pyramid = alt.Chart(dff).mark_bar().transform_calculate(
+    site_order=f"if({selection.name}.site && indexof({selection.name}.site, datum.site) !== -1, 0, 1)"
+).encode(
+    x='sum(yield):Q',
+    y='variety:N',
+    color='site:N',
+    order='site_order:N',
+    opacity=alt.when(selection).then(alt.value(0.9)).otherwise(alt.value(0.2))
+).add_params(
+    selection
+)
 
    # Create the scatter plot with a brush selection
     brush = alt.selection_interval()
@@ -229,28 +255,11 @@ def update_charts(selected_year, selected_crime):
         title=f"Attendance Rate for Year {selected_year} - High School (self reported)"
     ).add_params(select, highlight)
 
-    # Create the crime map by puma and neighborhood
-    df_map = pumas_shp[pumas_shp['year'] == selected_year].copy()
-    for var in ['total_crim', 'Violent', 'Non-violen']: 
-        df_map[f'{var}_pc'] = df_map[f'{var}'] / df_map['pwgtp'] * 1000
-
-    crime_map = alt.Chart(df_map).mark_geoshape(
-        stroke = 'white', strokeWidth = 0.5
-        ).encode(color=alt.Color(selected_crime, type="quantitative", title="Crime Rate"),
-                 tooltip=['puma_label', 'year', alt.Tooltip(selected_crime, title="Crime per 1000 hab.")]
-        ).project(
-            type='mercator'
-        ).properties(
-            width=500,
-            height=500,
-            title=f"{crime_labels[selected_crime]} ocurrances per 1000 hab. for Year {selected_year}"
-        )
-
     # Return iframes that embed the Altair charts via their HTML representation
     return (
         html.Iframe(srcDoc=fig_bar.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
-        html.Iframe(srcDoc=fig_scatter.to_html(), style={'width': '100%', 'height': '400px', 'border': '0'}),
-        html.Iframe(srcDoc=crime_map.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'})   
+        html.Iframe(srcDoc=fig_scatter.to_html(), style={'width': '100%', 'height': '400px', 'border': '0'})
+        
     )
 
 if __name__ == '__main__':

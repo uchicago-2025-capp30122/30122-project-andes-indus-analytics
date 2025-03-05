@@ -3,6 +3,7 @@ import numpy as np
 import httpx
 from api_get import build_census_csv
 import io
+import re
 
 
 def chicago_dataframe(full_fetch=False):
@@ -295,13 +296,11 @@ def education_vars(full_fetch=False):
     )
     return selected_columns_df
 
+
+
 def aggregate_puma_data(full_fetch=False):
     """
-    Aggregates all PUMA information into a single row while keeping the original data.
-    
-    Parameters:
-    df (pd.DataFrame): Original dataset with multiple PUMA entries.
-    
+    Aggregates all PUMA information into a single row while keeping the original data.   
     Returns:
     pd.DataFrame: The dataset with an additional aggregated PUMA row.
     """
@@ -319,6 +318,67 @@ def aggregate_puma_data(full_fetch=False):
     df_with_aggregated = pd.concat([df, aggregated_puma_df], ignore_index=True)
 
     return df_with_aggregated
+
+
+def reshape_long_format(df, id_vars=["PUMA", "PWGTP", "year"]):
+    """
+    Reshapes a wide-format dataframe into long format.
+
+    Parameters:
+        df (pd.DataFrame): The wide-format dataframe.
+        id_vars (list): List of columns to retain as identifier variables.
+
+    Returns:
+        pd.DataFrame: A long-format dataframe with columns:
+            - 'indicator': The base indicator name with subgroup suffix removed.
+            - 'value': The value of the indicator.
+            - 'cut_name': Subgroup identifier derived from the original indicator name.
+    
+    The function assigns:
+      - 'women' if the indicator ends with _women or _women_w,
+      - 'men' if it ends with _men or _men_w,
+      - 'afroamerican' if it ends with _black or black_w,
+      - 'non_africanamerican' if it ends with _non_black or non_black_w.
+    """
+    # Identify columns to be melted (all columns not in id_vars)
+    
+    df_long = df.melt(id_vars=id_vars, var_name="indicator", value_name="value")
+    
+    # Create the 'cut_name' column using vectorized string matching
+    conditions = [
+        df_long["indicator"].str.endswith("_women") | df_long["indicator"].str.endswith("_women_w"),
+        df_long["indicator"].str.endswith("_men") | df_long["indicator"].str.endswith("_men_w"),
+        df_long["indicator"].str.endswith("_black") | df_long["indicator"].str.endswith("black_w"),
+        df_long["indicator"].str.endswith("_non_black") | df_long["indicator"].str.endswith("non_black_w")
+    ]
+    choices = ["women", "men", "afroamerican", "non_africanamerican"]
+    df_long["cut_name"] = np.select(conditions, choices, default="")
+    
+    # Remove subgroup suffix from the indicator name using the standalone remove_suffix function
+    df_long["indicator"] = df_long["indicator"]
+    
+    return df_long
+
+def rename_functions(year,output_file="data/census_df_long.csv", full_fetch=False):
+    df = variable_labels(year, full_fetch=False)
+    df_long = reshape_long_format(df, id_vars=["PUMA", "PWGTP", "year"])
+    # Create cut_name column based on indicator suffixes
+    conditions = [
+        df_long["indicator"].str.endswith("_women") | df_long["indicator"].str.endswith("_women_w"),
+        df_long["indicator"].str.endswith("_men") | df_long["indicator"].str.endswith("_men_w"),
+        df_long["indicator"].str.endswith("_black") | df_long["indicator"].str.endswith("black_w"),
+        df_long["indicator"].str.endswith("_non_black") | df_long["indicator"].str.endswith("non_black_w")
+    ]
+    choices = ["women", "men", "afroamerican", "non_africanamerican"]
+    df_long["cut_name"] = np.select(conditions, choices, default="Total")
+
+    df_long["indicator"] = df_long["indicator"]
+
+   
+    pattern = re.compile(r'(\_men|\_women|\_black|\_non\_black)')
+    df_long['indicator'] = df_long['indicator'].str.replace(pattern, '', regex=True)
+
+    df_long.to_csv(output_file, index=False)
 
 def education_indicators(year: int, full_fetch=False):
     """
@@ -368,70 +428,34 @@ def education_indicators(year: int, full_fetch=False):
 
     # Add a new column for the year
     df["year"] = year
-    
-   
+     
     return df
 
-"""
-def chicago_totals(df):
-    var_lst =  [
-                "atten_elementary_w",
-                "atten_elementary_women_w",
-                     "atten_elementary_men_w",
-                "atten_elementary_black_w",
-                "atten_elementary_non_black_w"
-                "elementary_w",
-                "atten_middle_w",
-                "atten_middle_women_W",
-                "atten_middle_men_w",
-                "atten_middle_black_w",
-                "atten_middle_non_black_w",
-                "middle_w",
-                "atten_high_school_w",
-                "atten_high_school_non_black_w",
-                "atten_high_school_black_w",
-                "atten_high_school_men_w",
-                "atten_high_school_women_w",
-                "high_school_w",
-                "PWGTP",
-                "HINCP_w",
-                "men_w",
-                "woman_w",
-                "black_w",
-                "non_black_w",
-            ]
-    
-    for pop in var_lst:
-        df.loc[df[pop].sum, "PUMA"] = "CHICAGO"
-        df[pop] 
-"""
 def variable_labels(year, full_fetch=False):
-    df = education_indicators(year, full_fetch=False)
-     # PUMAS labels
-    df.loc[(df["PUMA"] == 3151), "puma_label"] = "(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare"
-    df.loc[(df["PUMA"] == 3152), "puma_label"] = "(North) - West Ridge, Lincoln Square & North Center"  
-    df.loc[(df["PUMA"] == 3153), "puma_label"] = "(North) - Uptown, Edgewater & Rogers Park"  
-    df.loc[(df["PUMA"] == 3154), "puma_label"] = "(North) - Lake View & Lincoln Park" 
-    df.loc[(df["PUMA"] == 3155), "puma_label"] = "(Northwest) - Logan Square, Irving Park & Avondale" 
-    df.loc[(df["PUMA"] == 3156), "puma_label"] = "(Northwest) - Portage Park, Dunning & Jefferson Park" 
-    df.loc[(df["PUMA"] == 3157), "puma_label"] = "(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare" 
-    df.loc[(df["PUMA"] == 3158), "puma_label"] = "(West) - Austin, North Lawndale & East/West Garfield Park" 
-    df.loc[(df["PUMA"] == 3159), "puma_label"] = "(West) - West Town & Near West Side" 
-    df.loc[(df["PUMA"] == 3160), "puma_label"] = "(Central) - Near North Side, Loop & Near South Side" 
-    df.loc[(df["PUMA"] == 3161), "puma_label"] = "(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood" 
-    df.loc[(df["PUMA"] == 3162), "puma_label"] = "(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park" 
-    df.loc[(df["PUMA"] == 3163), "puma_label"] = "(Southwest) - South Lawndale, Brighton Park & Gage Park"
-    df.loc[(df["PUMA"] == 3164), "puma_label"] = "(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon" 
-    df.loc[(df["PUMA"] == 3165), "puma_label"] = "(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood" 
-    df.loc[(df["PUMA"] == 3166), "puma_label"] = "(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly" 
-    df.loc[(df["PUMA"] == 3167), "puma_label"] = "(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park" 
-    df.loc[(df["PUMA"] == 3168), "puma_label"] = "(South) - South Shore, South Chicago, East Side & South Deering" 
-    df.loc[(df["PUMA"] == 9999), "puma_label"] = "Chicago Area"
-
-   
-
-
-    return df 
+    df = education_indicators(year, full_fetch=full_fetch)
+    label_map = {
+    3151: "(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",
+    3152: "(North) - West Ridge, Lincoln Square & North Center",
+    3153: "(North) - Uptown, Edgewater & Rogers Park",
+    3154: "(North) - Lake View & Lincoln Park",
+    3155: "(Northwest) - Logan Square, Irving Park & Avondale",
+    3156: "(Northwest) - Portage Park, Dunning & Jefferson Park",
+    3157: "(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",
+    3158: "(West) - Austin, North Lawndale & East/West Garfield Park",
+    3159: "(West) - West Town & Near West Side",
+    3160: "(Central) - Near North Side, Loop & Near South Side",
+    3161: "(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",
+    3162: "(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",
+    3163: "(Southwest) - South Lawndale, Brighton Park & Gage Park",
+    3164: "(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",
+    3165: "(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",
+    3166: "(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",
+    3167: "(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",
+    3168: "(South) - South Shore, South Chicago, East Side & South Deering",
+    9999: "Chicago Area"
+    }
+    df["puma_label"] = df["PUMA"].map(label_map)
+    return df
 
 def process_multiple_years(output_file="data/census_df.csv", full_fetch=False):
     """
@@ -454,3 +478,4 @@ def process_multiple_years(output_file="data/census_df.csv", full_fetch=False):
 
 if __name__ == "__main__":
     process_multiple_years("data/census_df.csv", full_fetch=False)
+    rename_functions(2023,"data/census_df_long.csv", full_fetch=False)
