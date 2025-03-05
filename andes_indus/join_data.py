@@ -236,7 +236,7 @@ def gen_final_data(full_fetch = False):
 
 def transform_to_long_format(
     input_csv: str = "data/census_df.csv",
-    id_vars: list = ["PUMA","year"],
+    id_vars: list = ["PUMA","year","puma_label","cut_name"],
     var_name: str = 'indicator',
     value_name: str = 'value'
 ) -> pd.DataFrame:
