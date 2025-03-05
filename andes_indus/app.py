@@ -200,7 +200,6 @@ def update_charts(selected_year, selected_crime):
     .otherwise(alt.value(0))
     )
 
-<<<<<<< HEAD
 
 
     # create a pyramid with the school age population per sex and race 
@@ -218,13 +217,7 @@ def update_charts(selected_year, selected_crime):
     selection
 )
 
-s
-
-
     # Create the scatter plot with a brush selection
-=======
-   # Create the scatter plot with a brush selection
->>>>>>> 82fb50f1f9434e488196439ed75d87dd287a2f0a
     fig_scatter = alt.Chart(dff).mark_point().encode(
         x='attendance_rate_high',
         y='atten_middle_women_w',
@@ -243,28 +236,11 @@ s
         title=f"Attendance Rate for Year {selected_year} - High School (self reported)"
     ).add_params(select, highlight)
 
-    # Create the crime map by puma and neighborhood
-    df_map = pumas_shp[pumas_shp['year'] == selected_year].copy()
-    for var in ['total_crim', 'Violent', 'Non-violen']: 
-        df_map[f'{var}_pc'] = df_map[f'{var}'] / df_map['pwgtp'] * 1000
-
-    crime_map = alt.Chart(df_map).mark_geoshape(
-        stroke = 'white', strokeWidth = 0.5
-        ).encode(color=alt.Color(selected_crime, type="quantitative", title="Crime Rate"),
-                 tooltip=['puma_label', 'year', alt.Tooltip(selected_crime, title="Crime per 1000 hab.")]
-        ).project(
-            type='mercator'
-        ).properties(
-            width=500,
-            height=500,
-            title=f"{crime_labels[selected_crime]} ocurrances per 1000 hab. for Year {selected_year}"
-        )
-
     # Return iframes that embed the Altair charts via their HTML representation
     return (
         html.Iframe(srcDoc=fig_bar.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
-        html.Iframe(srcDoc=fig_scatter.to_html(), style={'width': '100%', 'height': '400px', 'border': '0'}),
-        html.Iframe(srcDoc=crime_map.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'})   
+        html.Iframe(srcDoc=fig_scatter.to_html(), style={'width': '100%', 'height': '400px', 'border': '0'})
+        
     )
 
 if __name__ == '__main__':
