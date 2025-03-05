@@ -84,7 +84,7 @@ def load_schools(path: pathlib.Path) -> list[School]:
             schools.append(
                 School(
                     row["School ID"],
-                    row["School Name"],
+                    row["School Name_x"],
                     row["Latitude"],
                     row["Longitude"],
                     row["Student Count"],

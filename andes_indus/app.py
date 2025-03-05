@@ -4,7 +4,8 @@ import plotly.express as px
 import altair as alt
 import pandas as pd
 import geopandas as gpd
-from figures import create_crime_map
+import pathlib
+from figures import create_crime_map , create_geo_chart
 
 # Load data
 pumas_shp = gpd.read_file('data/shapefiles/data_pumas.shp')
@@ -21,10 +22,20 @@ pumas_df = pumas_df.rename(columns={'total_crimes': 'total_crim',
 for var in ['total_crim', 'Violent', 'Non-violen']: 
     pumas_df[f'{var}_pc'] = pumas_df[f'{var}'] / pumas_df['pwgtp'] * 1000
 
+pumas_path = pathlib.Path("data/shapefiles/pumas/pumas2022.shp")  # update with your shapefile path
+pumas = gpd.read_file(pumas_path)
+
+schools_csv_path = pathlib.Path("merged_school_data.csv")  # update with your CSV path
+schools_df = gpd.GeoDataFrame(pd.read_csv(schools_csv_path))
+
 
 
 df_c = pd.read_csv("data/census_df.csv")
+<<<<<<< HEAD
 df_c_long = pd.read_csv("data/census_df_long.csv")
+=======
+df_e = pd.read_csv("merged_school_data.csv")
+>>>>>>> d8cf0220c1af4926b81d1d59490054317bada47d
 
 crime_labels = {
     'total_crim_pc': 'Total Crime',
@@ -39,6 +50,10 @@ colors = {
     'text': '#7FDBFF'
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d8cf0220c1af4926b81d1d59490054317bada47d
 # Layout with two columns
 app.layout = html.Div([
     # "Header" section
@@ -186,7 +201,8 @@ dbc.Row(
                     html.Div(id='stacked-graph-container'),
                     html.Div(id='scatter-graph-container'),
                     html.Div(id='bar-graph-container'),
-                    html.Div(id='crime_map')
+                    html.Div(id='crime_map'),
+                    html.Div(id='schools_locations')
                 ]
             ),
             dcc.RadioItems(
@@ -208,6 +224,7 @@ dbc.Row(
     Output('scatter-graph-container', 'children'),
     Output('bar-graph-container', 'children'),
     Output('crime_map', 'children'),
+    Output('schools_locations', 'schools'),
     Input('dropdown-year', 'value'),
     Input('crime-type', 'value')
 )
@@ -278,14 +295,28 @@ def update_charts(selected_year, selected_crime):
     # Creating a map
     crime_map = create_crime_map(pumas_shp, selected_crime, selected_year, crime_labels)
     
+    # Creating a school map
+    school_map = create_geo_chart(
+    points_data=schools_df,
+    geo_data=pumas,
+    longitude_field='Longitude',       # Use the column name from your DataFrame for longitude
+    latitude_field='Latitude',        # Use the column name for latitude
+    tooltip_fields=['School Name_x', 'Student Count']  # Customize tooltips as needed
+)
+
     # Return iframes that embed the Altair charts via their HTML representation
     return (
         html.Iframe(srcDoc=fig_stacked.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
         html.Iframe(srcDoc=fig_bar.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
         html.Iframe(srcDoc=fig_scatter.to_html(), style={'width': '100%', 'height': '400px', 'border': '0'}),
         html.Iframe(srcDoc=crime_map.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
+<<<<<<< HEAD
         
+=======
+        html.Iframe(srcDoc=school_map.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'})
+>>>>>>> d8cf0220c1af4926b81d1d59490054317bada47d
     )
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)

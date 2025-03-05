@@ -1,5 +1,9 @@
 import altair as alt
 import geopandas as gpd
+import pathlib
+import json
+import pandas as pd
+from merge_shp import load_pumas_shp, load_schools
 
 def create_crime_map(gdf: gpd.GeoDataFrame, 
                      selected_crime: str, 
@@ -20,3 +24,32 @@ def create_crime_map(gdf: gpd.GeoDataFrame,
         )
     
     return map
+
+def create_geo_chart(points_data, geo_data,
+                     width=500, height=300,
+                     background_fill='lightgray', background_stroke='white',
+                     circle_size=10, circle_color='steelblue',
+                     longitude_field='longitude', latitude_field='latitude',
+                     tooltip_fields=None, projection='mercator'):
+    if tooltip_fields is None:
+        tooltip_fields = [longitude_field, latitude_field]
+    
+    background_chart = alt.Chart(geo_data).mark_geoshape(
+        fill=background_fill,
+        stroke=background_stroke
+    ).properties(
+        width=width,
+        height=height
+    ).project(projection)
+    
+    points_chart = alt.Chart(points_data).mark_circle(
+        size=circle_size,
+        color=circle_color
+    ).encode(
+        longitude=f'{longitude_field}:Q',
+        latitude=f'{latitude_field}:Q',
+        tooltip=tooltip_fields
+    )
+    
+    final_chart = background_chart + points_chart
+    return final_chart
