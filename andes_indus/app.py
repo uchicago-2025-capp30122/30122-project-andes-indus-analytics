@@ -8,6 +8,12 @@ import geopandas as gpd
 # Load data
 pumas_shp = gpd.read_file('data/shapefiles/data_pumas.shp')
 pumas_df = pd.read_csv('data/data_pumas.csv')
+pumas_df = pumas_df.rename(columns={'total_crimes': 'total_crim',
+                                    'Violent': 'Violent',
+                                    'Non-violent': 'Non-violen'})
+for var in ['total_crim', 'Violent', 'Non-violen']: 
+    pumas_df[f'{var}_pc'] = pumas_df[f'{var}'] / pumas_df['pwgtp'] * 1000
+
 #neighborhood_shp = gpd.read_file('data/shapefiles/data_neighborhoods.shp')
 df_c = pd.read_csv("data/census_df.csv")
 
@@ -194,13 +200,24 @@ def update_charts(selected_year, selected_crime):
    # Create the scatter plot with a brush selection
     brush = alt.selection_interval()
     df_scatter = pumas_df[pumas_df['year'] == selected_year]
-    fig_scatter = alt.Chart(df_scatter).mark_point().encode(
-        x='total_crimes',
-        y='attendance_rate_high',
+    scatter = alt.Chart(df_scatter).mark_point().encode(
+        x=alt.X(f'{selected_crime}:Q', title=crime_labels[selected_crime]).scale(zero=False, domainMid=10),
+        y=alt.X('attendance_rate_high_black:Q', title = "Attendance Rate - High School").scale(zero=False, domainMid=10),
         color=alt.condition(brush, alt.value("steelblue"), alt.value("grey"))
     ).add_params(brush).properties(
         title=f"Scatter Plot for Year {selected_year}"
     )
+
+    regression_line = alt.Chart(df_scatter).transform_regression(
+        selected_crime, 'attendance_rate_high_black'
+        ).mark_line(color='red'
+        ).encode(
+            x=alt.X(f"{selected_crime}:Q"),
+            y=alt.Y("attendance_rate_high_black:Q")
+)
+
+    fig_scatter = (scatter + regression_line).properties(
+        title=f"Scatter Plot for Year {selected_year}")
 
     # Create the bar chart sorted descending by attendance_rate_high
     fig_bar = alt.Chart(dff).mark_bar(fill="#0099cc", stroke="black", cursor="pointer").encode(
