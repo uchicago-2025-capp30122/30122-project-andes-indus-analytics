@@ -12,7 +12,7 @@ import pandas as pd
 from quadtree import Quadtree
 from crime_utils import get_all_crime_data, Crime, load_crime_data
 from pathlib import Path
-from education import get_all_school_ids, fetch_school_profiles, save_to_csv
+from education import main_education
 from census_utils import process_multiple_years
 import geopandas as gpd
 import numpy as np
@@ -129,8 +129,7 @@ def group_school_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
         )
         .reset_index(name="weighted_hs_grad_rate")
     )
-    final_data = final_data.merge(grad_rate, on=group, how="left")
-
+    final_data = final_data.merge(grad_rate, on=[group,'year'], how="left")
     return final_data
 
 def lower_colnames(data: pd.DataFrame) -> pd.DataFrame | gpd.GeoDataFrame:
@@ -147,12 +146,7 @@ def gen_final_data(full_fetch = False):
     if path_schools.exists():
         schools_data = load_schools(path_schools)
     else:
-        school_ids = get_all_school_ids()  # Fetch School IDs
-        if school_ids:
-            school_profiles_df = fetch_school_profiles(
-                school_ids
-            )  # Fetch selected school details
-            save_to_csv(school_profiles_df)
+        main_education()
         schools_data = load_schools(path_schools)
     
     # Gathering census data
@@ -189,10 +183,11 @@ def gen_final_data(full_fetch = False):
     pumas_shp = lower_colnames(pumas_shp)
 
     census_data["puma"] = census_data["puma"].astype(float).astype(int).astype(dtype=str).str.zfill(5)
+    schools_by_puma["year"] = schools_by_puma["year"].astype(int)
 
     data_pumas = pumas_shp.merge(crimes_by_puma, how="inner", on=["puma"])
+
     data_pumas = data_pumas.merge(schools_by_puma, how="inner", on=["puma", "year"])
-    breakpoint()
     data_pumas = data_pumas.merge(census_data, how="inner", on=["puma", "year"])
 
     data_pumas.to_csv("data/data_pumas.csv")
@@ -221,7 +216,7 @@ def gen_final_data(full_fetch = False):
 
     neighborhoods_shp = gpd.read_file("data/shapefiles/chicomm/chicomm.shp")
     neighborhoods_shp = neighborhoods_shp.rename(columns={"CHICOMNO": "neighborhood"})
-
+    schools_by_neighborhood["year"] = schools_by_neighborhood["year"].astype(int)
     data_neighborhoods = neighborhoods_shp.merge(
         crimes_by_neighborhood, 
         how="inner",

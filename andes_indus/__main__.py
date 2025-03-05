@@ -11,7 +11,7 @@ def main():
     path_neighborhood = Path("data/data_neighborhoods.csv")
 
     if not path_puma.exists() or not path_neighborhood.exists():
-        gen_final_data(full_fetch = True)
+        gen_final_data(full_fetch = False)
 
     data_pumas = pd.read_csv(path_puma)
     data_neighborhoos = pd.read_csv(path_neighborhood)
