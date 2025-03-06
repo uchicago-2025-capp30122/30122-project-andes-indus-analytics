@@ -31,11 +31,8 @@ schools_df = gpd.GeoDataFrame(pd.read_csv(schools_csv_path))
 
 
 df_c = pd.read_csv("data/census_df.csv")
-<<<<<<< HEAD
-df_c_long = pd.read_csv("data/census_df_long.csv")
-=======
+# df_c_long = pd.read_csv("data/census_df_long.csv")
 df_e = pd.read_csv("merged_school_data.csv")
->>>>>>> d8cf0220c1af4926b81d1d59490054317bada47d
 
 crime_labels = {
     'total_crim_pc': 'Total Crime',
@@ -50,10 +47,7 @@ colors = {
     'text': '#7FDBFF'
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> d8cf0220c1af4926b81d1d59490054317bada47d
 # Layout with two columns
 app.layout = html.Div([
     # "Header" section
@@ -310,11 +304,8 @@ def update_charts(selected_year, selected_crime):
         html.Iframe(srcDoc=fig_bar.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
         html.Iframe(srcDoc=fig_scatter.to_html(), style={'width': '100%', 'height': '400px', 'border': '0'}),
         html.Iframe(srcDoc=crime_map.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
-<<<<<<< HEAD
         
-=======
         html.Iframe(srcDoc=school_map.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'})
->>>>>>> d8cf0220c1af4926b81d1d59490054317bada47d
     )
 
 
