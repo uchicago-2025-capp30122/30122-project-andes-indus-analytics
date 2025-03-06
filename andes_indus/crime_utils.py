@@ -114,7 +114,7 @@ def load_crime_data():
 
     # Original Google Drive share link (VIEW link)
     dict_paths = {'crime_by_puma' : 'https://drive.usercontent.google.com/download?id=1JUDBpR3ot26PW-2F93pLGkIbZy7dFpF7&export=download&authuser=0&confirm=t&uuid=26c3238d-a65a-449f-a6c0-9195dec5f1b8&at=AEz70l6g5TH5Nh_sh4o71wbuDkur:1741115211114',
-                    'crime_by_neighborhood': 'https://drive.usercontent.google.com/download?id=1dUEmZnPna1hQv55Czi38KYIv4Z6oHcZy&export=download&authuser=0&confirm=t&uuid=47ca72e8-6681-453e-8eae-0f6e4730a14d&at=AEz70l5OzlGvfrEsZ2JLIPiaY653:1741115182166'}
+                  'crime_by_neighborhood': 'https://drive.usercontent.google.com/download?id=1dUEmZnPna1hQv55Czi38KYIv4Z6oHcZy&export=download&authuser=0&confirm=t&uuid=47ca72e8-6681-453e-8eae-0f6e4730a14d&at=AEz70l5OzlGvfrEsZ2JLIPiaY653:1741115182166'}
     
     data_lst = []
     for type, path in dict_paths.items():
@@ -136,6 +136,31 @@ def load_crime_data():
         data_lst.append(df)
 
     return data_lst[0] , data_lst[1]
+
+def load_crimes_shp():
+    path = 'https://drive.usercontent.google.com/download?id=17lrQgaXcTAQTM4kMqt19RYvC4gtF9wCn&export=download&authuser=0&confirm=t&uuid=f69248de-b684-4c5f-976b-63576e8c9741&at=AEz70l53DiY7nTnR_fRZmhZYPvOx:1741223440221'
+    # Fetch the raw CSV data from Google Drive
+    response = httpx.get(path, follow_redirects=True)
+
+    # Check that we got a valid 200 OK
+    if response.status_code != 200:
+        # Debug: print the first part of the error text
+        print("Response text (first 500 chars):", response.text[:500])
+        raise RuntimeError(f"Error fetching file (status={response.status_code}).")
+
+    # Convert the response text into a file-like object
+    text_buffer = io.StringIO(response.text)
+
+    # Saved to a DataFrame
+    data = pd.read_csv(text_buffer)
+    
+    block_data = data.groupby(['block', 'year','crime_type']).agg(
+            latitude=("latitude", "mean"),
+            longitude=("longitude", "mean"),
+            count=("case_number", "count")
+        ).reset_index()
+    
+    return block_data
     
 if __name__ == '__main__':
     get_all_crime_data()

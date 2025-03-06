@@ -4,13 +4,15 @@ import plotly.express as px
 import altair as alt
 import pandas as pd
 import geopandas as gpd
-from figures import create_crime_map, create_interactive_bar
+from figures import create_crime_map, create_interactive_bar, create_crime_heat_map
 from join_data import lower_colnames
+from crime_utils import load_crimes_shp
 
 # Load data
 pumas_shp = lower_colnames(gpd.read_file('data/shapefiles/data_pumas.shp'))
 neighborhood_shp = gpd.read_file('data/shapefiles/data_neighborhoods.shp')
 
+crimes_shp = gpd.GeoDataFrame(load_crimes_shp())
 # Create the crime map by puma and neighborhood
 
 for var in ['total_crim', 'violent', 'non-violen']: 
@@ -30,8 +32,10 @@ df_c_long = pd.read_csv("data/census_df_long.csv")
 
 crime_labels = {
     'total_crim_pc': 'Total Crime',
-    'Violent_pc': 'Violent Crime',
-    'Non-violen_pc': 'Non Violent Crime'
+    'violent_pc': 'Violent Crime',
+    'non-violen_pc': 'Non Violent Crime',
+    'Violent': 'Violent Crime',
+    'Non-violent': 'Non Violent Crime'
 }
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
@@ -189,15 +193,16 @@ dbc.Row(
                     html.Div(id='stacked2-graph-container'),
                     html.Div(id='scatter-graph-container'),
                     html.Div(id='bar-graph-container'),
-                    html.Div(id='crime_map')
+                    html.Div(id='crime_map'),
+                    html.Div(id='crime_heatmap')
                 ]
             ),
             dcc.RadioItems(
                     id='crime-type',
                     options=[
                         {'label': 'Total Crime', 'value': 'total_crim_pc'},
-                        {'label': 'Violent Crime', 'value': 'Violent_pc'},
-                        {'label': 'Non Violent Crime', 'value': 'Non-violen_pc'}
+                        {'label': 'Violent Crime', 'value': 'violent_pc'},
+                        {'label': 'Non Violent Crime', 'value': 'non-violen_pc'}
                         ],
                         value='total_crim_pc',
                         inline=True)
@@ -212,6 +217,7 @@ dbc.Row(
     Output('scatter-graph-container', 'children'),
     Output('bar-graph-container', 'children'),
     Output('crime_map', 'children'),
+    Output('crime_heatmap', 'children'),
     Input('dropdown-year', 'value'),
     Input('crime-type', 'value')
 )
@@ -308,6 +314,12 @@ def update_charts(selected_year, selected_crime):
     # Creating a map
     crime_map = create_crime_map(pumas_shp, selected_crime, selected_year, crime_labels)
     
+    # Creating a heatmap
+    helper_dict = {'violent_pc' :'Violent',
+                   'non-violen_pc' :'Non-violent',
+                   'total_crim_pc' : 'total_crim_pc'}
+    crime_heatmap = create_crime_heat_map(crimes_shp, helper_dict[selected_crime], selected_year, crime_labels)
+
     # Return iframes that embed the Altair charts via their HTML representation
     return (
         html.Iframe(srcDoc=fig_stacked.to_html(), style={'width': '100%', 'height': '140px', 'border': '0'}),
@@ -315,6 +327,7 @@ def update_charts(selected_year, selected_crime):
         html.Iframe(srcDoc=fig_bar.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
         html.Iframe(srcDoc=fig_scatter.to_html(), style={'width': '100%', 'height': '400px', 'border': '0'}),
         html.Iframe(srcDoc=crime_map.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
+        html.Iframe(srcDoc=crime_heatmap.to_html(), style={'width': '100%', 'height': '600px', 'border': '0'}),
         
     )
 
