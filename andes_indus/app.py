@@ -5,20 +5,22 @@ import altair as alt
 import pandas as pd
 import geopandas as gpd
 from figures import create_crime_map, create_interactive_bar
+from join_data import lower_colnames
 
 # Load data
-pumas_shp = gpd.read_file('data/shapefiles/data_pumas.shp')
+pumas_shp = lower_colnames(gpd.read_file('data/shapefiles/data_pumas.shp'))
 neighborhood_shp = gpd.read_file('data/shapefiles/data_neighborhoods.shp')
 
 # Create the crime map by puma and neighborhood
-for var in ['total_crim', 'Violent', 'Non-violen']: 
+
+for var in ['total_crim', 'violent', 'non-violen']: 
     pumas_shp[f'{var}_pc'] = pumas_shp[f'{var}'] / pumas_shp['pwgtp'] * 1000
 
 pumas_df = pd.read_csv('data/data_pumas.csv')
 pumas_df = pumas_df.rename(columns={'total_crimes': 'total_crim',
-                                    'Violent': 'Violent',
-                                    'Non-violent': 'Non-violen'})
-for var in ['total_crim', 'Violent', 'Non-violen']: 
+                                    'Violent': 'violent',
+                                    'Non-violent': 'non-violen'})
+for var in ['total_crim', 'violent', 'non-violen']: 
     pumas_df[f'{var}_pc'] = pumas_df[f'{var}'] / pumas_df['pwgtp'] * 1000
 
 

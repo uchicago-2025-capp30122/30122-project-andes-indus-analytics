@@ -132,7 +132,7 @@ def group_school_data_by(new_data_lst:pd.DataFrame, group: str) -> pd.DataFrame:
     final_data = final_data.merge(grad_rate, on=[group,'year'], how="left")
     return final_data
 
-def lower_colnames(data: pd.DataFrame) -> pd.DataFrame | gpd.GeoDataFrame:
+def lower_colnames(data: pd.DataFrame | gpd.GeoDataFrame) -> pd.DataFrame | gpd.GeoDataFrame:
     """
     Helper function to lower all columns of a dataframe before merging
     """
