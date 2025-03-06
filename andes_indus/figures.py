@@ -38,7 +38,7 @@ def create_interactive_bar(dff, select, stroke_width, selected_year,highlight):
 def create_crime_heat_map(gdf: gpd.GeoDataFrame,
                           selected_crime: str, 
                           selected_year: int,
-                          label_dict: dict) -> alt.Chart:
+                          label_dict: dict):
     
     gdf = gdf[gdf['year'] == selected_year].copy()
 
