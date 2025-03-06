@@ -183,9 +183,7 @@ def merge_school_data(dropout_csv_path: str, api_csv_path: str, output_csv_path:
     return merged_df
 
 # Main execution block
-
-if __name__ == "__main__":
-    # Fetch and save education data from API
+def main_education():
     school_ids = get_all_school_ids()
     if school_ids:
         school_profiles_df = fetch_school_profiles(school_ids)
@@ -202,10 +200,15 @@ if __name__ == "__main__":
     print(f"Cleaned dropout data saved to {dropout_csv_path}")
     
     # Merge the dropout data with the API education data
-    merged_csv_path = "merged_school_data.csv"
+    merged_csv_path = "data/merged_school_data.csv"
     try:
         merged_data = merge_school_data(dropout_csv_path, api_csv_path, merged_csv_path)
         print("\nMerged DataFrame preview:")
         print(merged_data.head())
     except FileNotFoundError as e:
         print(f"Error: {e}\nPlease ensure the dropout CSV path is correct.")
+
+
+if __name__ == "__main__":
+    # Fetch and save education data from API
+    main_education()

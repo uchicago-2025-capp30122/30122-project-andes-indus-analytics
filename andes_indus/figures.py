@@ -4,6 +4,7 @@ import pathlib
 import json
 import pandas as pd
 from merge_shp import load_pumas_shp, load_schools
+import plotly.express as px
 
 def create_crime_map(gdf: gpd.GeoDataFrame, 
                      selected_crime: str, 
@@ -145,3 +146,42 @@ chart = create_geo_chart(
 
 # Display the chart (in Jupyter Notebook or another supported environment)
 chart.display()
+    
+def create_interactive_bar(dff, select, stroke_width, selected_year,highlight):
+        # Create the bar chart sorted descending by attendance_rate_high
+    bar = alt.Chart(dff).mark_bar(fill="#0099cc", stroke="black", cursor="pointer").encode(
+        x=alt.X('puma_label',axis=alt.Axis(title='PUMA name'), sort=alt.EncodingSortField(field='attendance_rate_high', op='sum', order='descending')),
+        y=alt.Y('attendance_rate_high', axis=alt.Axis(title='Attendance rate - high school')),
+        fillOpacity=alt.when(select).then(alt.value(1)).otherwise(alt.value(0.3)),
+        strokeWidth=stroke_width,
+    ).properties(
+        title=f"Attendance Rate for Year {selected_year} - High School (self reported)"
+    ).add_params(select, highlight)
+
+    return bar
+
+def create_crime_heat_map(gdf: gpd.GeoDataFrame,
+                          selected_crime: str, 
+                          selected_year: int,
+                          label_dict: dict):
+    
+    gdf = gdf[gdf['year'] == selected_year].copy()
+
+    # Heatmap (Plotly)
+    fig = px.density_mapbox(
+        gdf, 
+        lat='latitude', 
+        lon='longitude', 
+        z=selected_crime,
+        radius=25,
+        center={"lat": gdf['latitude'].mean(), "lon": gdf['longitude'].mean()},
+        zoom=10,
+        mapbox_style="carto-positron",
+        color_continuous_scale="Reds"
+    )
+
+    fig.update_layout(
+        title=f"Heatmap of {label_dict[selected_crime]} (per 1000 inhabitants) for Year {selected_year}",
+        margin={"r":0,"t":50,"l":0,"b":0}
+    )
+    return fig
