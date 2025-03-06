@@ -769,7 +769,7 @@ PUMA,year,indicator,value
 3158.0,2023,attendance_rate_middle_men,73.68884971353019
 3159.0,2023,attendance_rate_middle_men,96.30404463040446
 3160.0,2023,attendance_rate_middle_men,100.0
-3161.0,2023,attendance_rate_middle_men,50.93304061470912
+3161.0,2023,attendance_rate_middle_men,50.933040614709114
 3162.0,2023,attendance_rate_middle_men,88.5233644859813
 3163.0,2023,attendance_rate_middle_men,100.0
 3164.0,2023,attendance_rate_middle_men,88.5954381752701
@@ -846,7 +846,7 @@ PUMA,year,indicator,value
 3159.0,2023,attendance_rate_high_women,81.52173913043478
 3160.0,2023,attendance_rate_high_women,83.57819131570355
 3161.0,2023,attendance_rate_high_women,63.09912854030502
-3162.0,2023,attendance_rate_high_women,63.35117180291567
+3162.0,2023,attendance_rate_high_women,63.351171802915665
 3163.0,2023,attendance_rate_high_women,71.26743232157506
 3164.0,2023,attendance_rate_high_women,76.08403361344538
 3165.0,2023,attendance_rate_high_women,91.72971562744586
@@ -970,7 +970,7 @@ PUMA,year,indicator,value
 9999.0,2023,attendance_rate_high_non_black,75.44675458567808
 3151.0,2023,elementary_percentage,8.761194029850747
 3152.0,2023,elementary_percentage,7.161203522504893
-3153.0,2023,elementary_percentage,3.9467884035917216
+3153.0,2023,elementary_percentage,3.9467884035917224
 3154.0,2023,elementary_percentage,4.065174844962154
 3155.0,2023,elementary_percentage,4.7307747293451
 3156.0,2023,elementary_percentage,6.036352697161132
@@ -993,7 +993,7 @@ PUMA,year,indicator,value
 3154.0,2023,middle_percentage,1.019241198802141
 3155.0,2023,middle_percentage,3.102296505205152
 3156.0,2023,middle_percentage,4.055637359679539
-3157.0,2023,middle_percentage,3.668975009677836
+3157.0,2023,middle_percentage,3.668975009677835
 3158.0,2023,middle_percentage,3.0824767170348104
 3159.0,2023,middle_percentage,1.428398034994474
 3160.0,2023,middle_percentage,0.8780244166841666
