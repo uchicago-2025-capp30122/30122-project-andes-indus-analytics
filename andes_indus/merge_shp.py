@@ -46,6 +46,9 @@ class School(NamedTuple):
 
 
 def load_pumas_shp(path: pathlib.Path) -> list[Puma]:
+    '''
+    Creates a list of Pumas objects to 
+    '''
     pumas = []
     with shapefile.Reader(path) as sf:
         for shape_rec in sf.shapeRecords():
