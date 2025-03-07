@@ -1,4 +1,22 @@
 PUMA,puma_label,year,indicator,value,cut_name
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,atten_elementary_w,8265.0,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,atten_elementary_w,5911.0,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,atten_elementary_w,11204.0,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,atten_elementary_w,13640.0,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,atten_elementary_w,9634.0,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,atten_elementary_w,16516.0,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,atten_elementary_w,10355.0,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,atten_elementary_w,19262.0,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,atten_elementary_w,8999.0,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,atten_elementary_w,4546.0,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,atten_elementary_w,13250.0,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,atten_elementary_w,14006.0,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,atten_elementary_w,12372.0,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,atten_elementary_w,13226.0,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,atten_elementary_w,10455.0,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,atten_elementary_w,8735.0,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,atten_elementary_w,12012.0,Total
+9999.0,Chicago Area,2013,atten_elementary_w,192388.0,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_elementary_w,12327.0,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_elementary_w,10458.0,Total
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_elementary_w,6397.0,Total
@@ -16,8 +34,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_elementary_w,9211.0,Total
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_elementary_w,9785.0,Total
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_elementary_w,8926.0,Total
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_elementary_w,11059.0,Total
-9999.0,Chicago Area,2023,atten_elementary_w,160104.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_elementary_w,10547.0,Total
+9999.0,Chicago Area,2023,atten_elementary_w,159592.0,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,atten_elementary_w,4064.0,women
+3502.0,(North) - Lake View & Lincoln Park,2013,atten_elementary_w,2870.0,women
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,atten_elementary_w,5007.0,women
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,atten_elementary_w,6796.0,women
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,atten_elementary_w,4239.0,women
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,atten_elementary_w,9122.0,women
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,atten_elementary_w,5320.0,women
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,atten_elementary_w,8449.0,women
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,atten_elementary_w,4392.0,women
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,atten_elementary_w,1652.0,women
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,atten_elementary_w,7077.0,women
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,atten_elementary_w,7422.0,women
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,atten_elementary_w,6205.0,women
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,atten_elementary_w,7092.0,women
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,atten_elementary_w,4260.0,women
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,atten_elementary_w,4712.0,women
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,atten_elementary_w,4974.0,women
+9999.0,Chicago Area,2013,atten_elementary_w,93653.0,women
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_elementary_w,4602.0,women
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_elementary_w,6050.0,women
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_elementary_w,2722.0,women
@@ -37,6 +73,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_elementary_w,2905.0,women
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_elementary_w,4565.0,women
 9999.0,Chicago Area,2023,atten_elementary_w,80356.0,women
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,atten_elementary_w,4201.0,men
+3502.0,(North) - Lake View & Lincoln Park,2013,atten_elementary_w,3041.0,men
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,atten_elementary_w,6197.0,men
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,atten_elementary_w,6844.0,men
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,atten_elementary_w,5395.0,men
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,atten_elementary_w,7394.0,men
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,atten_elementary_w,5035.0,men
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,atten_elementary_w,10813.0,men
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,atten_elementary_w,4607.0,men
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,atten_elementary_w,2894.0,men
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,atten_elementary_w,6173.0,men
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,atten_elementary_w,6584.0,men
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,atten_elementary_w,6167.0,men
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,atten_elementary_w,6134.0,men
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,atten_elementary_w,6195.0,men
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,atten_elementary_w,4023.0,men
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,atten_elementary_w,7038.0,men
+9999.0,Chicago Area,2013,atten_elementary_w,98735.0,men
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_elementary_w,7725.0,men
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_elementary_w,4408.0,men
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_elementary_w,3675.0,men
@@ -54,8 +108,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_elementary_w,4126.0,men
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_elementary_w,3551.0,men
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_elementary_w,6021.0,men
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_elementary_w,6494.0,men
-9999.0,Chicago Area,2023,atten_elementary_w,79748.0,men
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_elementary_w,5982.0,men
+9999.0,Chicago Area,2023,atten_elementary_w,79236.0,men
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,atten_elementary_w,1949.0,nonafroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,atten_elementary_w,93.0,nonafroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,atten_elementary_w,870.0,nonafroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,atten_elementary_w,1151.0,nonafroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,atten_elementary_w,0.0,nonafroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,atten_elementary_w,7168.0,nonafroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,atten_elementary_w,489.0,nonafroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,atten_elementary_w,9109.0,nonafroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,atten_elementary_w,2367.0,nonafroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,atten_elementary_w,1888.0,nonafroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,atten_elementary_w,1142.0,nonafroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,atten_elementary_w,977.0,nonafroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,atten_elementary_w,8901.0,nonafroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,atten_elementary_w,12458.0,nonafroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,atten_elementary_w,5285.0,nonafroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,atten_elementary_w,8735.0,nonafroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,atten_elementary_w,8307.0,nonafroamerican
+9999.0,Chicago Area,2013,atten_elementary_w,70889.0,nonafroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_elementary_w,1909.0,nonafroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_elementary_w,1033.0,nonafroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_elementary_w,2500.0,nonafroamerican
@@ -73,8 +145,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_elementary_w,6058.0,nonafroamerican
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_elementary_w,7342.0,nonafroamerican
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_elementary_w,7349.0,nonafroamerican
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_elementary_w,7834.0,nonafroamerican
-9999.0,Chicago Area,2023,atten_elementary_w,58202.0,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_elementary_w,7322.0,nonafroamerican
+9999.0,Chicago Area,2023,atten_elementary_w,57690.0,nonafroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,atten_elementary_w,6316.0,afroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,atten_elementary_w,5818.0,afroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,atten_elementary_w,10334.0,afroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,atten_elementary_w,12489.0,afroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,atten_elementary_w,9634.0,afroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,atten_elementary_w,9348.0,afroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,atten_elementary_w,9866.0,afroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,atten_elementary_w,10153.0,afroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,atten_elementary_w,6632.0,afroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,atten_elementary_w,2658.0,afroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,atten_elementary_w,12108.0,afroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,atten_elementary_w,13029.0,afroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,atten_elementary_w,3471.0,afroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,atten_elementary_w,768.0,afroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,atten_elementary_w,5170.0,afroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,atten_elementary_w,0.0,afroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,atten_elementary_w,3705.0,afroamerican
+9999.0,Chicago Area,2013,atten_elementary_w,121499.0,afroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_elementary_w,10418.0,afroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_elementary_w,9425.0,afroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_elementary_w,3897.0,afroamerican
@@ -94,6 +184,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_elementary_w,1577.0,afroamerican
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_elementary_w,3225.0,afroamerican
 9999.0,Chicago Area,2023,atten_elementary_w,101902.0,afroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,elementary_w,8380.0,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,elementary_w,6291.0,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,elementary_w,11687.0,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,elementary_w,13792.0,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,elementary_w,9634.0,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,elementary_w,16516.0,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,elementary_w,10591.0,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,elementary_w,19474.0,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,elementary_w,9295.0,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,elementary_w,4546.0,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,elementary_w,13919.0,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,elementary_w,14510.0,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,elementary_w,12591.0,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,elementary_w,13442.0,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,elementary_w,10497.0,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,elementary_w,9380.0,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,elementary_w,12651.0,Total
+9999.0,Chicago Area,2013,elementary_w,197196.0,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,elementary_w,12327.0,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,elementary_w,10539.0,Total
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,elementary_w,6536.0,Total
@@ -111,8 +219,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,elementary_w,9505.0,Total
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,elementary_w,10094.0,Total
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,elementary_w,9247.0,Total
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_w,11836.0,Total
-9999.0,Chicago Area,2023,elementary_w,165774.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_w,11324.0,Total
+9999.0,Chicago Area,2023,elementary_w,165262.0,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,elementary_w,4316.0,men
+3502.0,(North) - Lake View & Lincoln Park,2013,elementary_w,3232.0,men
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,elementary_w,6680.0,men
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,elementary_w,6844.0,men
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,elementary_w,5395.0,men
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,elementary_w,7394.0,men
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,elementary_w,5271.0,men
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,elementary_w,10938.0,men
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,elementary_w,4607.0,men
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,elementary_w,2894.0,men
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,elementary_w,6590.0,men
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,elementary_w,6844.0,men
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,elementary_w,6296.0,men
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,elementary_w,6350.0,men
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,elementary_w,6195.0,men
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,elementary_w,4400.0,men
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,elementary_w,7265.0,men
+9999.0,Chicago Area,2013,elementary_w,101511.0,men
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,elementary_w,7725.0,men
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,elementary_w,4489.0,men
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,elementary_w,3814.0,men
@@ -130,8 +256,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,elementary_w,4420.0,men
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,elementary_w,3763.0,men
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,elementary_w,6021.0,men
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_w,6985.0,men
-9999.0,Chicago Area,2023,elementary_w,82475.0,men
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_w,6473.0,men
+9999.0,Chicago Area,2023,elementary_w,81963.0,men
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,elementary_w,4064.0,women
+3502.0,(North) - Lake View & Lincoln Park,2013,elementary_w,3059.0,women
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,elementary_w,5007.0,women
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,elementary_w,6948.0,women
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,elementary_w,4239.0,women
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,elementary_w,9122.0,women
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,elementary_w,5320.0,women
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,elementary_w,8536.0,women
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,elementary_w,4688.0,women
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,elementary_w,1652.0,women
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,elementary_w,7329.0,women
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,elementary_w,7666.0,women
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,elementary_w,6295.0,women
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,elementary_w,7092.0,women
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,elementary_w,4302.0,women
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,elementary_w,4980.0,women
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,elementary_w,5386.0,women
+9999.0,Chicago Area,2013,elementary_w,95685.0,women
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,elementary_w,4602.0,women
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,elementary_w,6050.0,women
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,elementary_w,2722.0,women
@@ -151,6 +295,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,elementary_w,3226.0,women
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_w,4851.0,women
 9999.0,Chicago Area,2023,elementary_w,83299.0,women
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,elementary_w,2064.0,nonafroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,elementary_w,93.0,nonafroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,elementary_w,870.0,nonafroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,elementary_w,1151.0,nonafroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,elementary_w,0.0,nonafroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,elementary_w,7168.0,nonafroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,elementary_w,489.0,nonafroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,elementary_w,9234.0,nonafroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,elementary_w,2482.0,nonafroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,elementary_w,1888.0,nonafroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,elementary_w,1180.0,nonafroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,elementary_w,977.0,nonafroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,elementary_w,8991.0,nonafroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,elementary_w,12619.0,nonafroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,elementary_w,5327.0,nonafroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,elementary_w,9380.0,nonafroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,elementary_w,8855.0,nonafroamerican
+9999.0,Chicago Area,2013,elementary_w,72768.0,nonafroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,elementary_w,1909.0,nonafroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,elementary_w,1033.0,nonafroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,elementary_w,2500.0,nonafroamerican
@@ -168,8 +330,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,elementary_w,6352.0,nonafroamerican
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,elementary_w,7554.0,nonafroamerican
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,elementary_w,7670.0,nonafroamerican
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_w,8611.0,nonafroamerican
-9999.0,Chicago Area,2023,elementary_w,61321.0,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_w,8099.0,nonafroamerican
+9999.0,Chicago Area,2023,elementary_w,60809.0,nonafroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,elementary_w,6316.0,afroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,elementary_w,6198.0,afroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,elementary_w,10817.0,afroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,elementary_w,12641.0,afroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,elementary_w,9634.0,afroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,elementary_w,9348.0,afroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,elementary_w,10102.0,afroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,elementary_w,10240.0,afroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,elementary_w,6813.0,afroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,elementary_w,2658.0,afroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,elementary_w,12739.0,afroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,elementary_w,13533.0,afroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,elementary_w,3600.0,afroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,elementary_w,823.0,afroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,elementary_w,5170.0,afroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,elementary_w,0.0,afroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,elementary_w,3796.0,afroamerican
+9999.0,Chicago Area,2013,elementary_w,124428.0,afroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,elementary_w,10418.0,afroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,elementary_w,9506.0,afroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,elementary_w,4036.0,afroamerican
@@ -189,6 +369,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,elementary_w,1577.0,afroamerican
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_w,3225.0,afroamerican
 9999.0,Chicago Area,2023,elementary_w,104453.0,afroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,atten_middle_w,2573.0,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,atten_middle_w,1386.0,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,atten_middle_w,3624.0,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,atten_middle_w,4676.0,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,atten_middle_w,3119.0,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,atten_middle_w,4821.0,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,atten_middle_w,3319.0,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,atten_middle_w,6802.0,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,atten_middle_w,4489.0,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,atten_middle_w,1474.0,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,atten_middle_w,7707.0,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,atten_middle_w,7406.0,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,atten_middle_w,6222.0,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,atten_middle_w,4368.0,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,atten_middle_w,4011.0,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,atten_middle_w,3951.0,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,atten_middle_w,4794.0,Total
+9999.0,Chicago Area,2013,atten_middle_w,74742.0,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_middle_w,3622.0,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_middle_w,3089.0,Total
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_middle_w,902.0,Total
@@ -206,8 +404,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_middle_w,2689.0,Total
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_middle_w,4014.0,Total
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_middle_w,4837.0,Total
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_middle_w,4163.0,Total
-9999.0,Chicago Area,2023,atten_middle_w,59704.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_middle_w,3907.0,Total
+9999.0,Chicago Area,2023,atten_middle_w,59448.0,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,atten_middle_w,921.0,women
+3502.0,(North) - Lake View & Lincoln Park,2013,atten_middle_w,689.0,women
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,atten_middle_w,2212.0,women
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,atten_middle_w,2552.0,women
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,atten_middle_w,1532.0,women
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,atten_middle_w,2604.0,women
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,atten_middle_w,1854.0,women
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,atten_middle_w,3114.0,women
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,atten_middle_w,2346.0,women
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,atten_middle_w,587.0,women
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,atten_middle_w,2769.0,women
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,atten_middle_w,3086.0,women
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,atten_middle_w,3379.0,women
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,atten_middle_w,2421.0,women
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,atten_middle_w,2359.0,women
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,atten_middle_w,2359.0,women
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,atten_middle_w,2601.0,women
+9999.0,Chicago Area,2013,atten_middle_w,37385.0,women
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_middle_w,1582.0,women
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_middle_w,976.0,women
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_middle_w,441.0,women
@@ -225,8 +441,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_middle_w,1761.0,women
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_middle_w,2408.0,women
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_middle_w,3160.0,women
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_middle_w,1876.0,women
-9999.0,Chicago Area,2023,atten_middle_w,30094.0,women
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_middle_w,1620.0,women
+9999.0,Chicago Area,2023,atten_middle_w,29838.0,women
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,atten_middle_w,1652.0,men
+3502.0,(North) - Lake View & Lincoln Park,2013,atten_middle_w,697.0,men
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,atten_middle_w,1412.0,men
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,atten_middle_w,2124.0,men
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,atten_middle_w,1587.0,men
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,atten_middle_w,2217.0,men
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,atten_middle_w,1465.0,men
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,atten_middle_w,3688.0,men
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,atten_middle_w,2143.0,men
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,atten_middle_w,887.0,men
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,atten_middle_w,4938.0,men
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,atten_middle_w,4320.0,men
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,atten_middle_w,2843.0,men
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,atten_middle_w,1947.0,men
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,atten_middle_w,1652.0,men
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,atten_middle_w,1592.0,men
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,atten_middle_w,2193.0,men
+9999.0,Chicago Area,2013,atten_middle_w,37357.0,men
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_middle_w,2040.0,men
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_middle_w,2113.0,men
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_middle_w,461.0,men
@@ -246,6 +480,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_middle_w,1677.0,men
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_middle_w,2287.0,men
 9999.0,Chicago Area,2023,atten_middle_w,29610.0,men
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,atten_middle_w,603.0,nonafroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,atten_middle_w,246.0,nonafroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,atten_middle_w,0.0,nonafroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,atten_middle_w,72.0,nonafroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,atten_middle_w,0.0,nonafroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,atten_middle_w,2573.0,nonafroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,atten_middle_w,403.0,nonafroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,atten_middle_w,2700.0,nonafroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,atten_middle_w,1544.0,nonafroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,atten_middle_w,725.0,nonafroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,atten_middle_w,165.0,nonafroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,atten_middle_w,392.0,nonafroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,atten_middle_w,4287.0,nonafroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,atten_middle_w,3742.0,nonafroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,atten_middle_w,2360.0,nonafroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,atten_middle_w,3493.0,nonafroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,atten_middle_w,3801.0,nonafroamerican
+9999.0,Chicago Area,2013,atten_middle_w,27106.0,nonafroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_middle_w,87.0,nonafroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_middle_w,599.0,nonafroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_middle_w,479.0,nonafroamerican
@@ -263,8 +515,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,atten_middle_w,1530.0,nonafroamerican
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,atten_middle_w,2554.0,nonafroamerican
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_middle_w,4837.0,nonafroamerican
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_middle_w,1965.0,nonafroamerican
-9999.0,Chicago Area,2023,atten_middle_w,20020.0,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_middle_w,1709.0,nonafroamerican
+9999.0,Chicago Area,2023,atten_middle_w,19764.0,nonafroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,atten_middle_w,1970.0,afroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,atten_middle_w,1140.0,afroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,atten_middle_w,3624.0,afroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,atten_middle_w,4604.0,afroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,atten_middle_w,3119.0,afroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,atten_middle_w,2248.0,afroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,atten_middle_w,2916.0,afroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,atten_middle_w,4102.0,afroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,atten_middle_w,2945.0,afroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,atten_middle_w,749.0,afroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,atten_middle_w,7542.0,afroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,atten_middle_w,7014.0,afroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,atten_middle_w,1935.0,afroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,atten_middle_w,626.0,afroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,atten_middle_w,1651.0,afroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,atten_middle_w,458.0,afroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,atten_middle_w,993.0,afroamerican
+9999.0,Chicago Area,2013,atten_middle_w,47636.0,afroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_middle_w,3535.0,afroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_middle_w,2490.0,afroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_middle_w,423.0,afroamerican
@@ -284,6 +554,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_middle_w,0.0,afroamerican
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_middle_w,2198.0,afroamerican
 9999.0,Chicago Area,2023,atten_middle_w,39684.0,afroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,middle_w,1772.0,men
+3502.0,(North) - Lake View & Lincoln Park,2013,middle_w,875.0,men
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,middle_w,1689.0,men
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,middle_w,2341.0,men
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,middle_w,1845.0,men
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,middle_w,3590.0,men
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,middle_w,1640.0,men
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,middle_w,4771.0,men
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,middle_w,2375.0,men
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,middle_w,887.0,men
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,middle_w,5467.0,men
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,middle_w,4897.0,men
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,middle_w,3191.0,men
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,middle_w,2223.0,men
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,middle_w,2038.0,men
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,middle_w,1977.0,men
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,middle_w,3210.0,men
+9999.0,Chicago Area,2013,middle_w,44788.0,men
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,middle_w,3011.0,men
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,middle_w,3172.0,men
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,middle_w,593.0,men
@@ -303,6 +591,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,middle_w,1887.0,men
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_w,2915.0,men
 9999.0,Chicago Area,2023,middle_w,38066.0,men
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,middle_w,1032.0,women
+3502.0,(North) - Lake View & Lincoln Park,2013,middle_w,689.0,women
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,middle_w,2476.0,women
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,middle_w,2793.0,women
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,middle_w,1910.0,women
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,middle_w,2934.0,women
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,middle_w,2425.0,women
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,middle_w,4501.0,women
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,middle_w,3120.0,women
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,middle_w,587.0,women
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,middle_w,2926.0,women
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,middle_w,4327.0,women
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,middle_w,3536.0,women
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,middle_w,3109.0,women
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,middle_w,2864.0,women
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,middle_w,2743.0,women
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,middle_w,2660.0,women
+9999.0,Chicago Area,2013,middle_w,44632.0,women
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,middle_w,2065.0,women
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,middle_w,1471.0,women
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,middle_w,676.0,women
@@ -320,8 +626,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,middle_w,2198.0,women
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,middle_w,2576.0,women
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,middle_w,3160.0,women
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_w,1876.0,women
-9999.0,Chicago Area,2023,middle_w,35273.0,women
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_w,1620.0,women
+9999.0,Chicago Area,2023,middle_w,35017.0,women
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,middle_w,834.0,nonafroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,middle_w,246.0,nonafroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,middle_w,0.0,nonafroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,middle_w,72.0,nonafroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,middle_w,0.0,nonafroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,middle_w,3421.0,nonafroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,middle_w,403.0,nonafroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,middle_w,3942.0,nonafroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,middle_w,1630.0,nonafroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,middle_w,725.0,nonafroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,middle_w,165.0,nonafroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,middle_w,939.0,nonafroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,middle_w,4750.0,nonafroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,middle_w,4706.0,nonafroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,middle_w,2742.0,nonafroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,middle_w,4262.0,nonafroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,middle_w,4624.0,nonafroamerican
+9999.0,Chicago Area,2013,middle_w,33461.0,nonafroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,middle_w,87.0,nonafroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,middle_w,599.0,nonafroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,middle_w,611.0,nonafroamerican
@@ -339,8 +663,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,middle_w,2567.0,nonafroamerican
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,middle_w,2554.0,nonafroamerican
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,middle_w,5047.0,nonafroamerican
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_w,2337.0,nonafroamerican
-9999.0,Chicago Area,2023,middle_w,24137.0,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_w,2081.0,nonafroamerican
+9999.0,Chicago Area,2023,middle_w,23881.0,nonafroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,middle_w,1970.0,afroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,middle_w,1318.0,afroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,middle_w,4165.0,afroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,middle_w,5062.0,afroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,middle_w,3755.0,afroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,middle_w,3103.0,afroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,middle_w,3662.0,afroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,middle_w,5330.0,afroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,middle_w,3865.0,afroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,middle_w,749.0,afroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,middle_w,8228.0,afroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,middle_w,8285.0,afroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,middle_w,1977.0,afroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,middle_w,626.0,afroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,middle_w,2160.0,afroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,middle_w,458.0,afroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,middle_w,1246.0,afroamerican
+9999.0,Chicago Area,2013,middle_w,55959.0,afroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,middle_w,4989.0,afroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,middle_w,4044.0,afroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,middle_w,658.0,afroamerican
@@ -360,6 +702,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,middle_w,0.0,afroamerican
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_w,2454.0,afroamerican
 9999.0,Chicago Area,2023,middle_w,49202.0,afroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,middle_w,2804.0,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,middle_w,1564.0,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,middle_w,4165.0,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,middle_w,5134.0,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,middle_w,3755.0,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,middle_w,6524.0,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,middle_w,4065.0,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,middle_w,9272.0,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,middle_w,5495.0,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,middle_w,1474.0,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,middle_w,8393.0,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,middle_w,9224.0,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,middle_w,6727.0,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,middle_w,5332.0,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,middle_w,4902.0,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,middle_w,4720.0,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,middle_w,5870.0,Total
+9999.0,Chicago Area,2013,middle_w,89420.0,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,middle_w,5076.0,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,middle_w,4643.0,Total
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,middle_w,1269.0,Total
@@ -377,8 +737,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,middle_w,4017.0,Total
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,middle_w,4182.0,Total
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,middle_w,5047.0,Total
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_w,4791.0,Total
-9999.0,Chicago Area,2023,middle_w,73339.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_w,4535.0,Total
+9999.0,Chicago Area,2023,middle_w,73083.0,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,atten_high_school_w,2578.0,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,atten_high_school_w,3515.0,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,atten_high_school_w,4359.0,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,atten_high_school_w,6993.0,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,atten_high_school_w,5131.0,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,atten_high_school_w,11950.0,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,atten_high_school_w,6002.0,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,atten_high_school_w,13832.0,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,atten_high_school_w,5685.0,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,atten_high_school_w,599.0,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,atten_high_school_w,10582.0,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,atten_high_school_w,8485.0,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,atten_high_school_w,11025.0,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,atten_high_school_w,7941.0,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,atten_high_school_w,8295.0,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,atten_high_school_w,6600.0,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,atten_high_school_w,7274.0,Total
+9999.0,Chicago Area,2013,atten_high_school_w,120846.0,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_high_school_w,5644.0,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_high_school_w,8343.0,Total
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_high_school_w,5295.0,Total
@@ -398,6 +776,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_high_school_w,7832.0,Total
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_high_school_w,8644.0,Total
 9999.0,Chicago Area,2023,atten_high_school_w,115544.0,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,atten_high_school_w,1750.0,afroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,atten_high_school_w,3349.0,afroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,atten_high_school_w,3873.0,afroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,atten_high_school_w,6377.0,afroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,atten_high_school_w,5018.0,afroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,atten_high_school_w,6125.0,afroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,atten_high_school_w,5718.0,afroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,atten_high_school_w,7084.0,afroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,atten_high_school_w,3122.0,afroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,atten_high_school_w,523.0,afroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,atten_high_school_w,9618.0,afroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,atten_high_school_w,8309.0,afroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,atten_high_school_w,2429.0,afroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,atten_high_school_w,531.0,afroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,atten_high_school_w,4151.0,afroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,atten_high_school_w,0.0,afroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,atten_high_school_w,1822.0,afroamerican
+9999.0,Chicago Area,2013,atten_high_school_w,69799.0,afroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_high_school_w,5644.0,afroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_high_school_w,6960.0,afroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_high_school_w,3233.0,afroamerican
@@ -417,6 +813,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_high_school_w,305.0,afroamerican
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_high_school_w,3515.0,afroamerican
 9999.0,Chicago Area,2023,atten_high_school_w,70253.0,afroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,atten_high_school_w,828.0,nonafroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,atten_high_school_w,166.0,nonafroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,atten_high_school_w,486.0,nonafroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,atten_high_school_w,616.0,nonafroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,atten_high_school_w,113.0,nonafroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,atten_high_school_w,5825.0,nonafroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,atten_high_school_w,284.0,nonafroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,atten_high_school_w,6748.0,nonafroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,atten_high_school_w,2563.0,nonafroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,atten_high_school_w,76.0,nonafroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,atten_high_school_w,964.0,nonafroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,atten_high_school_w,176.0,nonafroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,atten_high_school_w,8596.0,nonafroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,atten_high_school_w,7410.0,nonafroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,atten_high_school_w,4144.0,nonafroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,atten_high_school_w,6600.0,nonafroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,atten_high_school_w,5452.0,nonafroamerican
+9999.0,Chicago Area,2013,atten_high_school_w,51047.0,nonafroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_high_school_w,0.0,nonafroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_high_school_w,1383.0,nonafroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_high_school_w,2062.0,nonafroamerican
@@ -436,6 +850,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_high_school_w,7527.0,nonafroamerican
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_high_school_w,5129.0,nonafroamerican
 9999.0,Chicago Area,2023,atten_high_school_w,45291.0,nonafroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,atten_high_school_w,1478.0,men
+3502.0,(North) - Lake View & Lincoln Park,2013,atten_high_school_w,2468.0,men
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,atten_high_school_w,2005.0,men
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,atten_high_school_w,3852.0,men
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,atten_high_school_w,2729.0,men
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,atten_high_school_w,6752.0,men
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,atten_high_school_w,2711.0,men
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,atten_high_school_w,6803.0,men
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,atten_high_school_w,3420.0,men
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,atten_high_school_w,270.0,men
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,atten_high_school_w,6172.0,men
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,atten_high_school_w,3748.0,men
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,atten_high_school_w,5430.0,men
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,atten_high_school_w,3742.0,men
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,atten_high_school_w,4680.0,men
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,atten_high_school_w,3726.0,men
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,atten_high_school_w,4001.0,men
+9999.0,Chicago Area,2013,atten_high_school_w,63987.0,men
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_high_school_w,2392.0,men
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_high_school_w,4208.0,men
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_high_school_w,4088.0,men
@@ -455,6 +887,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_high_school_w,4002.0,men
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_high_school_w,6144.0,men
 9999.0,Chicago Area,2023,atten_high_school_w,60999.0,men
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,atten_high_school_w,1100.0,women
+3502.0,(North) - Lake View & Lincoln Park,2013,atten_high_school_w,1047.0,women
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,atten_high_school_w,2354.0,women
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,atten_high_school_w,3141.0,women
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,atten_high_school_w,2402.0,women
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,atten_high_school_w,5198.0,women
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,atten_high_school_w,3291.0,women
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,atten_high_school_w,7029.0,women
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,atten_high_school_w,2265.0,women
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,atten_high_school_w,329.0,women
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,atten_high_school_w,4410.0,women
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,atten_high_school_w,4737.0,women
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,atten_high_school_w,5595.0,women
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,atten_high_school_w,4199.0,women
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,atten_high_school_w,3615.0,women
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,atten_high_school_w,2874.0,women
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,atten_high_school_w,3273.0,women
+9999.0,Chicago Area,2013,atten_high_school_w,56859.0,women
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,atten_high_school_w,3252.0,women
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,atten_high_school_w,4135.0,women
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,atten_high_school_w,1207.0,women
@@ -474,6 +924,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,atten_high_school_w,3830.0,women
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,atten_high_school_w,2500.0,women
 9999.0,Chicago Area,2023,atten_high_school_w,54545.0,women
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,high_school_w,3736.0,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,high_school_w,3705.0,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,high_school_w,5476.0,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,high_school_w,8800.0,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,high_school_w,8351.0,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,high_school_w,15904.0,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,high_school_w,7065.0,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,high_school_w,17991.0,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,high_school_w,7049.0,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,high_school_w,599.0,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,high_school_w,12395.0,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,high_school_w,11557.0,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,high_school_w,12833.0,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,high_school_w,10956.0,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,high_school_w,9570.0,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,high_school_w,8674.0,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,high_school_w,8863.0,Total
+9999.0,Chicago Area,2013,high_school_w,153524.0,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,high_school_w,7228.0,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,high_school_w,9861.0,Total
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,high_school_w,6959.0,Total
@@ -493,6 +961,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,high_school_w,8887.0,Total
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,high_school_w,12328.0,Total
 9999.0,Chicago Area,2023,high_school_w,152147.0,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,high_school_w,2551.0,men
+3502.0,(North) - Lake View & Lincoln Park,2013,high_school_w,2506.0,men
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,high_school_w,2713.0,men
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,high_school_w,4927.0,men
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,high_school_w,3638.0,men
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,high_school_w,9068.0,men
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,high_school_w,3288.0,men
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,high_school_w,8368.0,men
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,high_school_w,3538.0,men
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,high_school_w,270.0,men
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,high_school_w,7107.0,men
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,high_school_w,5051.0,men
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,high_school_w,5941.0,men
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,high_school_w,4841.0,men
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,high_school_w,5485.0,men
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,high_school_w,5340.0,men
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,high_school_w,4906.0,men
+9999.0,Chicago Area,2013,high_school_w,79538.0,men
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,high_school_w,3524.0,men
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,high_school_w,5386.0,men
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,high_school_w,4514.0,men
@@ -512,6 +998,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,high_school_w,4384.0,men
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,high_school_w,7745.0,men
 9999.0,Chicago Area,2023,high_school_w,80204.0,men
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,high_school_w,1185.0,women
+3502.0,(North) - Lake View & Lincoln Park,2013,high_school_w,1199.0,women
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,high_school_w,2763.0,women
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,high_school_w,3873.0,women
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,high_school_w,4713.0,women
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,high_school_w,6836.0,women
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,high_school_w,3777.0,women
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,high_school_w,9623.0,women
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,high_school_w,3511.0,women
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,high_school_w,329.0,women
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,high_school_w,5288.0,women
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,high_school_w,6506.0,women
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,high_school_w,6892.0,women
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,high_school_w,6115.0,women
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,high_school_w,4085.0,women
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,high_school_w,3334.0,women
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,high_school_w,3957.0,women
+9999.0,Chicago Area,2013,high_school_w,73986.0,women
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,high_school_w,3704.0,women
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,high_school_w,4475.0,women
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,high_school_w,2445.0,women
@@ -531,6 +1035,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,high_school_w,4503.0,women
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,high_school_w,4583.0,women
 9999.0,Chicago Area,2023,high_school_w,71943.0,women
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,high_school_w,1807.0,nonafroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,high_school_w,212.0,nonafroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,high_school_w,907.0,nonafroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,high_school_w,616.0,nonafroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,high_school_w,311.0,nonafroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,high_school_w,7649.0,nonafroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,high_school_w,512.0,nonafroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,high_school_w,9456.0,nonafroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,high_school_w,2777.0,nonafroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,high_school_w,76.0,nonafroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,high_school_w,1256.0,nonafroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,high_school_w,176.0,nonafroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,high_school_w,9697.0,nonafroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,high_school_w,10055.0,nonafroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,high_school_w,4961.0,nonafroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,high_school_w,8674.0,nonafroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,high_school_w,6458.0,nonafroamerican
+9999.0,Chicago Area,2013,high_school_w,65600.0,nonafroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,high_school_w,0.0,nonafroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,high_school_w,1383.0,nonafroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,high_school_w,2993.0,nonafroamerican
@@ -550,6 +1072,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,high_school_w,8582.0,nonafroamerican
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,high_school_w,7593.0,nonafroamerican
 9999.0,Chicago Area,2023,high_school_w,59031.0,nonafroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,high_school_w,1929.0,afroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,high_school_w,3493.0,afroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,high_school_w,4569.0,afroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,high_school_w,8184.0,afroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,high_school_w,8040.0,afroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,high_school_w,8255.0,afroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,high_school_w,6553.0,afroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,high_school_w,8535.0,afroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,high_school_w,4272.0,afroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,high_school_w,523.0,afroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,high_school_w,11139.0,afroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,high_school_w,11381.0,afroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,high_school_w,3136.0,afroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,high_school_w,901.0,afroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,high_school_w,4609.0,afroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,high_school_w,0.0,afroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,high_school_w,2405.0,afroamerican
+9999.0,Chicago Area,2013,high_school_w,87924.0,afroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,high_school_w,7228.0,afroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,high_school_w,8478.0,afroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,high_school_w,3966.0,afroamerican
@@ -569,9 +1109,27 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,high_school_w,305.0,afroamerican
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,high_school_w,4735.0,afroamerican
 9999.0,Chicago Area,2023,high_school_w,93116.0,afroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,PWGTP,152741.0,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,PWGTP,165445.0,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,PWGTP,145873.0,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,PWGTP,151087.0,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,PWGTP,132640.0,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,PWGTP,183287.0,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,PWGTP,137294.0,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,PWGTP,193067.0,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,PWGTP,174273.0,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,PWGTP,136370.0,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,PWGTP,158678.0,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,PWGTP,160779.0,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,PWGTP,146105.0,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,PWGTP,175443.0,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,PWGTP,131930.0,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,PWGTP,129693.0,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,PWGTP,127478.0,Total
+9999.0,Chicago Area,2013,PWGTP,2602183.0,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,PWGTP,140700.0,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,PWGTP,147168.0,Total
-3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,PWGTP,165603.0,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,PWGTP,165492.0,Total
 3154.0,(North) - Lake View & Lincoln Park,2023,PWGTP,169636.0,Total
 3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,PWGTP,153886.0,Total
 3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,PWGTP,126318.0,Total
@@ -581,16 +1139,34 @@ PUMA,puma_label,year,indicator,value,cut_name
 3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,PWGTP,176191.0,Total
 3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,PWGTP,129874.0,Total
 3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,PWGTP,137561.0,Total
-3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,PWGTP,129536.0,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,PWGTP,129186.0,Total
 3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,PWGTP,154620.0,Total
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,PWGTP,130375.0,Total
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,PWGTP,128932.0,Total
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,PWGTP,122670.0,Total
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,PWGTP,132266.0,Total
-9999.0,Chicago Area,2023,PWGTP,2613654.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,PWGTP,131067.0,Total
+9999.0,Chicago Area,2023,PWGTP,2611994.0,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,HINCP_w,10672186632.0,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,HINCP_w,26617623433.0,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,HINCP_w,14600931272.0,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,HINCP_w,12392509437.0,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,HINCP_w,10694817074.0,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,HINCP_w,9792595264.0,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,HINCP_w,10072119797.0,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,HINCP_w,8281154861.0,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,HINCP_w,17406274533.0,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,HINCP_w,22286304955.0,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,HINCP_w,8913433887.0,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,HINCP_w,11415103302.0,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,HINCP_w,6084753042.0,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,HINCP_w,9666852694.0,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,HINCP_w,10870294249.0,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,HINCP_w,6416485564.0,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,HINCP_w,6031018582.0,Total
+9999.0,Chicago Area,2013,HINCP_w,202214458578.0,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,HINCP_w,19048543880.0,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,HINCP_w,22105711550.0,Total
-3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,HINCP_w,18426827580.0,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,HINCP_w,18426975210.0,Total
 3154.0,(North) - Lake View & Lincoln Park,2023,HINCP_w,39114332700.0,Total
 3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,HINCP_w,22790694224.0,Total
 3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,HINCP_w,14825417822.0,Total
@@ -600,16 +1176,34 @@ PUMA,puma_label,year,indicator,value,cut_name
 3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,HINCP_w,33609586860.0,Total
 3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,HINCP_w,12172316740.0,Total
 3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,HINCP_w,12468687930.0,Total
-3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,HINCP_w,11464405820.0,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,HINCP_w,11464594820.0,Total
 3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,HINCP_w,16419322430.0,Total
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,HINCP_w,9467791530.0,Total
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,HINCP_w,15250207970.0,Total
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,HINCP_w,8914130490.0,Total
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,HINCP_w,10664147960.0,Total
-9999.0,Chicago Area,2023,HINCP_w,326936720036.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,HINCP_w,10665586760.0,Total
+9999.0,Chicago Area,2023,HINCP_w,326938495466.0,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,men_w,79215.0,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,men_w,85017.0,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,men_w,72981.0,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,men_w,75217.0,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,men_w,64023.0,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,men_w,85473.0,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,men_w,69127.0,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,men_w,96735.0,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,men_w,87705.0,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,men_w,65616.0,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,men_w,82651.0,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,men_w,81987.0,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,men_w,65664.0,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,men_w,75262.0,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,men_w,63737.0,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,men_w,55810.0,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,men_w,58827.0,Total
+9999.0,Chicago Area,2013,men_w,1265047.0,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,men_w,70831.0,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,men_w,71687.0,Total
-3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,men_w,85336.0,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,men_w,85225.0,Total
 3154.0,(North) - Lake View & Lincoln Park,2023,men_w,80905.0,Total
 3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,men_w,75220.0,Total
 3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,men_w,61192.0,Total
@@ -624,8 +1218,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,men_w,60586.0,Total
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,men_w,58699.0,Total
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,men_w,50793.0,Total
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,men_w,63972.0,Total
-9999.0,Chicago Area,2023,men_w,1264078.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,men_w,63460.0,Total
+9999.0,Chicago Area,2023,men_w,1263455.0,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,woman_w,73526.0,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,woman_w,80428.0,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,woman_w,72892.0,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,woman_w,75870.0,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,woman_w,68617.0,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,woman_w,97814.0,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,woman_w,68167.0,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,woman_w,96332.0,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,woman_w,86568.0,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,woman_w,70754.0,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,woman_w,76027.0,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,woman_w,78792.0,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,woman_w,80441.0,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,woman_w,100181.0,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,woman_w,68193.0,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,woman_w,73883.0,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,woman_w,68651.0,Total
+9999.0,Chicago Area,2013,woman_w,1337136.0,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,woman_w,69869.0,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,woman_w,75481.0,Total
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,woman_w,80267.0,Total
@@ -638,13 +1250,31 @@ PUMA,puma_label,year,indicator,value,cut_name
 3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,woman_w,95531.0,Total
 3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,woman_w,73887.0,Total
 3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,woman_w,65396.0,Total
-3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,woman_w,61116.0,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,woman_w,60766.0,Total
 3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,woman_w,77984.0,Total
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,woman_w,69789.0,Total
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,woman_w,70233.0,Total
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,woman_w,71877.0,Total
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,woman_w,68294.0,Total
-9999.0,Chicago Area,2023,woman_w,1349576.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,woman_w,67607.0,Total
+9999.0,Chicago Area,2023,woman_w,1348539.0,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,black_w,35541.0,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,black_w,6866.0,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,black_w,9922.0,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,black_w,5889.0,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,black_w,1958.0,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,black_w,87015.0,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,black_w,6305.0,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,black_w,94929.0,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,black_w,31863.0,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,black_w,21376.0,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,black_w,14148.0,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,black_w,8458.0,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,black_w,114858.0,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,black_w,146348.0,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,black_w,72007.0,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,black_w,128020.0,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,black_w,84908.0,Total
+9999.0,Chicago Area,2013,black_w,870411.0,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,black_w,6638.0,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,black_w,14730.0,Total
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,black_w,35860.0,Total
@@ -657,16 +1287,34 @@ PUMA,puma_label,year,indicator,value,cut_name
 3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,black_w,28611.0,Total
 3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,black_w,97142.0,Total
 3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,black_w,18955.0,Total
-3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,black_w,8313.0,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,black_w,7963.0,Total
 3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,black_w,21207.0,Total
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,black_w,83704.0,Total
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,black_w,89254.0,Total
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,black_w,113034.0,Total
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,black_w,89326.0,Total
-9999.0,Chicago Area,2023,black_w,795008.0,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,black_w,88315.0,Total
+9999.0,Chicago Area,2023,black_w,793647.0,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,non_w,117200.0,nonafroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,non_w,158579.0,nonafroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,non_w,135951.0,nonafroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,non_w,145198.0,nonafroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,non_w,130682.0,nonafroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,non_w,96272.0,nonafroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,non_w,130989.0,nonafroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,non_w,98138.0,nonafroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,non_w,142410.0,nonafroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,non_w,114994.0,nonafroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,non_w,144530.0,nonafroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,non_w,152321.0,nonafroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,non_w,31247.0,nonafroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,non_w,29095.0,nonafroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,non_w,59923.0,nonafroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,non_w,1673.0,nonafroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,non_w,42570.0,nonafroamerican
+9999.0,Chicago Area,2013,non_w,1731772.0,nonafroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,non_w,134062.0,nonafroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,non_w,132438.0,nonafroamerican
-3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,non_w,129743.0,nonafroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,non_w,129632.0,nonafroamerican
 3154.0,(North) - Lake View & Lincoln Park,2023,non_w,158711.0,nonafroamerican
 3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,non_w,144165.0,nonafroamerican
 3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,non_w,120630.0,nonafroamerican
@@ -681,15 +1329,33 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,non_w,46671.0,nonafroamerican
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,non_w,39678.0,nonafroamerican
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,non_w,9636.0,nonafroamerican
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,non_w,42940.0,nonafroamerican
-9999.0,Chicago Area,2023,non_w,1818646.0,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,non_w,42752.0,nonafroamerican
+9999.0,Chicago Area,2023,non_w,1818347.0,nonafroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,attendance_rate_elementary,98.62768496420048,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,attendance_rate_elementary,93.9596248609124,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,attendance_rate_elementary,95.8672028749893,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,attendance_rate_elementary,98.89791183294663,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,attendance_rate_elementary,100.0,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,attendance_rate_elementary,100.0,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,attendance_rate_elementary,97.77169294684164,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,attendance_rate_elementary,98.91136900482694,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,attendance_rate_elementary,96.81549220010758,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,attendance_rate_elementary,100.0,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,attendance_rate_elementary,95.19362023133846,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,attendance_rate_elementary,96.526533425224,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,attendance_rate_elementary,98.26066237788896,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,attendance_rate_elementary,98.39309626543668,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,attendance_rate_elementary,99.59988568162332,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,attendance_rate_elementary,93.12366737739872,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,attendance_rate_elementary,94.94901588807208,Total
+9999.0,Chicago Area,2013,attendance_rate_elementary,97.56181666970932,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_elementary,100.0,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_elementary,99.23142613151153,Total
-3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_elementary,97.87331701346389,Total
-3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_elementary,94.30104408352669,Total
-3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_elementary,98.79120879120879,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_elementary,97.87331701346388,Total
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_elementary,94.30104408352668,Total
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_elementary,98.7912087912088,Total
 3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_elementary,100.0,Total
-3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_elementary,96.69645473190741,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_elementary,96.6964547319074,Total
 3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_elementary,91.95070791819612,Total
 3159.0,(West) - West Town & Near West Side,2023,attendance_rate_elementary,100.0,Total
 3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_elementary,96.2620281273131,Total
@@ -700,8 +1366,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_elementary,96.90689110994214,Total
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_elementary,96.93877551020408,Total
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_elementary,96.5286038715259,Total
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_elementary,93.43528218992903,Total
-9999.0,Chicago Area,2023,attendance_rate_elementary,96.57968077020523,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_elementary,93.13846697280113,Total
+9999.0,Chicago Area,2023,attendance_rate_elementary,96.5690842419915,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,attendance_rate_middle,91.76176890156918,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,attendance_rate_middle,88.61892583120205,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,attendance_rate_middle,87.0108043217287,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,attendance_rate_middle,91.07908063887808,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,attendance_rate_middle,83.06258322237017,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,attendance_rate_middle,73.89638258736971,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,attendance_rate_middle,81.64821648216483,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,attendance_rate_middle,73.36065573770492,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,attendance_rate_middle,81.69244767970882,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,attendance_rate_middle,100.0,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,attendance_rate_middle,91.82652210175146,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,attendance_rate_middle,80.29054640069384,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,attendance_rate_middle,92.4929389029285,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,attendance_rate_middle,81.92048012003,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,attendance_rate_middle,81.82374541003672,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,attendance_rate_middle,83.70762711864407,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,attendance_rate_middle,81.6695059625213,Total
+9999.0,Chicago Area,2013,attendance_rate_middle,83.58532766718855,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_middle,71.35539795114263,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_middle,66.53026060736593,Total
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_middle,71.0795902285264,Total
@@ -710,17 +1394,35 @@ PUMA,puma_label,year,indicator,value,cut_name
 3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_middle,84.01327347257467,Total
 3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_middle,61.497236643778265,Total
 3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_middle,83.43491510666087,Total
-3159.0,(West) - West Town & Near West Side,2023,attendance_rate_middle,97.62969588550983,Total
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_middle,97.62969588550985,Total
 3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_middle,100.0,Total
 3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_middle,73.0152027027027,Total
 3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_middle,80.94277791782203,Total
-3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_middle,93.87012987012987,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_middle,93.87012987012989,Total
 3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_middle,79.35026784171419,Total
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_middle,66.94050286283296,Total
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_middle,95.98278335724534,Total
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_middle,95.83911234396672,Total
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_middle,86.89208933416823,Total
-9999.0,Chicago Area,2023,attendance_rate_middle,81.40825481667325,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_middle,86.15214994487322,Total
+9999.0,Chicago Area,2023,attendance_rate_middle,81.34313041336563,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,attendance_rate_high,69.00428265524626,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,attendance_rate_high,94.87179487179486,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,attendance_rate_high,79.60189919649379,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,attendance_rate_high,79.4659090909091,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,attendance_rate_high,61.441743503772,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,attendance_rate_high,75.13832997987927,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,attendance_rate_high,84.95399858457183,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,attendance_rate_high,76.88288588738814,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,attendance_rate_high,80.64973755142574,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,attendance_rate_high,100.0,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,attendance_rate_high,85.37313432835822,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,attendance_rate_high,73.418707276975,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,attendance_rate_high,85.91132237200966,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,attendance_rate_high,72.48083242059145,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,attendance_rate_high,86.67711598746082,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,attendance_rate_high,76.08946276227807,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,attendance_rate_high,82.07153334085524,Total
+9999.0,Chicago Area,2013,attendance_rate_high,78.71472864177588,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_high,78.0852241283896,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_high,84.60602372984485,Total
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_high,76.08851846529674,Total
@@ -740,11 +1442,29 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_high,88.12872735456284,Total
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_high,70.11680726800779,Total
 9999.0,Chicago Area,2023,attendance_rate_high,75.94234523191388,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,attendance_rate_elementary,97.33549582947172,men
+3502.0,(North) - Lake View & Lincoln Park,2013,attendance_rate_elementary,94.09034653465346,men
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,attendance_rate_elementary,92.76946107784433,men
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,attendance_rate_elementary,100.0,men
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,attendance_rate_elementary,100.0,men
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,attendance_rate_elementary,100.0,men
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,attendance_rate_elementary,95.52267121988235,men
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,attendance_rate_elementary,98.8571950996526,men
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,attendance_rate_elementary,100.0,men
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,attendance_rate_elementary,100.0,men
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,attendance_rate_elementary,93.6722306525038,men
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,attendance_rate_elementary,96.2010520163647,men
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,attendance_rate_elementary,97.95108005082592,men
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,attendance_rate_elementary,96.5984251968504,men
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,attendance_rate_elementary,100.0,men
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,attendance_rate_elementary,91.4318181818182,men
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,attendance_rate_elementary,96.87543014452856,men
+9999.0,Chicago Area,2013,attendance_rate_elementary,97.2653209996946,men
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_elementary,100.0,men
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_elementary,98.19558921808866,men
-3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_elementary,96.35553224960671,men
-3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_elementary,95.34949267192785,men
-3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_elementary,97.12699967352269,men
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_elementary,96.35553224960672,men
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_elementary,95.34949267192783,men
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_elementary,97.12699967352268,men
 3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_elementary,100.0,men
 3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_elementary,96.56402801638694,men
 3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_elementary,100.0,men
@@ -753,12 +1473,30 @@ PUMA,puma_label,year,indicator,value,cut_name
 3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_elementary,100.0,men
 3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_elementary,91.9141502370851,men
 3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_elementary,100.0,men
-3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_elementary,90.75198505371321,men
+3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_elementary,90.7519850537132,men
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_elementary,93.34841628959276,men
-3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_elementary,94.36619718309859,men
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_elementary,94.3661971830986,men
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_elementary,100.0,men
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_elementary,92.97065139584825,men
-9999.0,Chicago Area,2023,attendance_rate_elementary,96.69354349802971,men
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_elementary,92.41464545033216,men
+9999.0,Chicago Area,2023,attendance_rate_elementary,96.67288898649392,men
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,attendance_rate_middle,93.22799097065464,men
+3502.0,(North) - Lake View & Lincoln Park,2013,attendance_rate_middle,79.65714285714286,men
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,attendance_rate_middle,83.59976317347542,men
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,attendance_rate_middle,90.73045706962836,men
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,attendance_rate_middle,86.01626016260163,men
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,attendance_rate_middle,61.75487465181059,men
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,attendance_rate_middle,89.32926829268293,men
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,attendance_rate_middle,77.30035631942988,men
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,attendance_rate_middle,90.23157894736842,men
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,attendance_rate_middle,100.0,men
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,attendance_rate_middle,90.32376074629596,men
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,attendance_rate_middle,88.21727588319379,men
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,attendance_rate_middle,89.09432779692887,men
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,attendance_rate_middle,87.58434547908233,men
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,attendance_rate_middle,81.05986261040236,men
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,attendance_rate_middle,80.52604957005563,men
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,attendance_rate_middle,68.3177570093458,men
+9999.0,Chicago Area,2013,attendance_rate_middle,83.40850227739574,men
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_middle,67.75157754898706,men
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_middle,66.6141235813367,men
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_middle,77.74030354131534,men
@@ -769,7 +1507,7 @@ PUMA,puma_label,year,indicator,value,cut_name
 3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_middle,73.68884971353019,men
 3159.0,(West) - West Town & Near West Side,2023,attendance_rate_middle,96.30404463040446,men
 3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_middle,100.0,men
-3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_middle,50.933040614709114,men
+3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_middle,50.93304061470912,men
 3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_middle,88.5233644859813,men
 3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_middle,100.0,men
 3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_middle,88.5954381752701,men
@@ -778,9 +1516,27 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_middle,88.87122416534181,men
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_middle,78.45626072041166,men
 9999.0,Chicago Area,2023,attendance_rate_middle,77.78595071717544,men
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,attendance_rate_high,57.93806350450803,men
+3502.0,(North) - Lake View & Lincoln Park,2013,attendance_rate_high,98.48363926576216,men
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,attendance_rate_high,73.90342793955031,men
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,attendance_rate_high,78.18144915770246,men
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,attendance_rate_high,75.01374381528312,men
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,attendance_rate_high,74.45963828848699,men
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,attendance_rate_high,82.45133819951337,men
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,attendance_rate_high,81.29780114722753,men
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,attendance_rate_high,96.6647823629169,men
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,attendance_rate_high,100.0,men
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,attendance_rate_high,86.84395666244548,men
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,attendance_rate_high,74.20312809344685,men
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,attendance_rate_high,91.39875441844806,men
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,attendance_rate_high,77.29807890931626,men
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,attendance_rate_high,85.3236098450319,men
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,attendance_rate_high,69.7752808988764,men
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,attendance_rate_high,81.55320016306563,men
+9999.0,Chicago Area,2013,attendance_rate_high,80.44833915864116,men
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_high,67.87741203178207,men
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_high,78.12848124767918,men
-3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_high,90.56269384138237,men
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_high,90.56269384138236,men
 3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_high,71.9885277246654,men
 3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_high,70.18855656697009,men
 3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_high,92.5439682932871,men
@@ -794,33 +1550,69 @@ PUMA,puma_label,year,indicator,value,cut_name
 3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_high,59.92753623188406,men
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_high,72.66509938020944,men
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_high,81.38918345705196,men
-3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_high,91.28649635036497,men
+3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_high,91.28649635036496,men
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_high,79.32859909619108,men
 9999.0,Chicago Area,2023,attendance_rate_high,76.05481023390355,men
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,attendance_rate_elementary,100.0,women
+3502.0,(North) - Lake View & Lincoln Park,2013,attendance_rate_elementary,93.82151029748285,women
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,attendance_rate_elementary,100.0,women
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,attendance_rate_elementary,97.81232009211284,women
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,attendance_rate_elementary,100.0,women
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,attendance_rate_elementary,100.0,women
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,attendance_rate_elementary,100.0,women
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,attendance_rate_elementary,98.98078725398312,women
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,attendance_rate_elementary,93.68600682593856,women
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,attendance_rate_elementary,100.0,women
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,attendance_rate_elementary,96.56160458452722,women
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,attendance_rate_elementary,96.8171145316984,women
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,attendance_rate_elementary,98.57029388403494,women
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,attendance_rate_elementary,100.0,women
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,attendance_rate_elementary,99.023709902371,women
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,attendance_rate_elementary,94.61847389558233,women
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,attendance_rate_elementary,92.3505384329744,women
+9999.0,Chicago Area,2013,attendance_rate_elementary,97.87636515650313,women
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_elementary,100.0,women
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_elementary,100.0,women
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_elementary,100.0,women
 3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_elementary,93.1899641577061,women
 3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_elementary,100.0,women
 3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_elementary,100.0,women
-3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_elementary,96.86113393590797,women
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_elementary,96.86113393590796,women
 3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_elementary,88.85392714510468,women
 3159.0,(West) - West Town & Near West Side,2023,attendance_rate_elementary,100.0,women
 3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_elementary,93.994140625,women
 3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_elementary,100.0,women
-3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_elementary,92.80235025297861,women
-3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_elementary,92.53398707376867,women
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_elementary,92.8023502529786,women
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_elementary,92.53398707376869,women
 3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_elementary,100.0,women
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_elementary,100.0,women
-3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_elementary,98.46785657873953,women
+3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_elementary,98.46785657873951,women
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_elementary,90.04959702417855,women
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_elementary,94.10430839002267,women
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_elementary,94.10430839002268,women
 9999.0,Chicago Area,2023,attendance_rate_elementary,96.466944381085,women
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,attendance_rate_middle,89.24418604651163,women
+3502.0,(North) - Lake View & Lincoln Park,2013,attendance_rate_middle,100.0,women
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,attendance_rate_middle,89.33764135702747,women
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,attendance_rate_middle,91.37128535624775,women
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,attendance_rate_middle,80.20942408376963,women
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,attendance_rate_middle,88.75255623721881,women
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,attendance_rate_middle,76.45360824742268,women
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,attendance_rate_middle,69.18462563874695,women
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,attendance_rate_middle,75.1923076923077,women
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,attendance_rate_middle,100.0,women
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,attendance_rate_middle,94.63431305536568,women
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,attendance_rate_middle,71.31962098451584,women
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,attendance_rate_middle,95.55995475113124,women
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,attendance_rate_middle,77.87069797362496,women
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,attendance_rate_middle,82.36731843575419,women
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,attendance_rate_middle,86.0007291286912,women
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,attendance_rate_middle,97.78195488721803,women
+9999.0,Chicago Area,2013,attendance_rate_middle,83.76277110593297,women
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_middle,76.61016949152543,women
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_middle,66.3494221617947,women
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_middle,65.23668639053254,women
 3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_middle,100.0,women
-3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_middle,92.62261856505877,women
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_middle,92.62261856505876,women
 3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_middle,100.0,women
 3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_middle,64.73791695030633,women
 3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_middle,92.94623655913978,women
@@ -834,9 +1626,27 @@ PUMA,puma_label,year,indicator,value,cut_name
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_middle,93.47826086956522,women
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_middle,100.0,women
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_middle,100.0,women
-9999.0,Chicago Area,2023,attendance_rate_middle,85.31738156663738,women
+9999.0,Chicago Area,2023,attendance_rate_middle,85.21004083730759,women
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,attendance_rate_high,92.82700421940928,women
+3502.0,(North) - Lake View & Lincoln Park,2013,attendance_rate_high,87.32276897414512,women
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,attendance_rate_high,85.19724936663047,women
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,attendance_rate_high,81.09992254066614,women
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,attendance_rate_high,50.96541481009973,women
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,attendance_rate_high,76.03861907548274,women
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,attendance_rate_high,87.13264495631454,women
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,attendance_rate_high,73.0437493505144,women
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,attendance_rate_high,64.51153517516377,women
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,attendance_rate_high,100.0,women
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,attendance_rate_high,83.3963691376702,women
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,attendance_rate_high,72.80971411005225,women
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,attendance_rate_high,81.18107951247823,women
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,attendance_rate_high,68.66721177432544,women
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,attendance_rate_high,88.49449204406365,women
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,attendance_rate_high,86.20275944811038,women
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,attendance_rate_high,82.71417740712661,women
+9999.0,Chicago Area,2013,attendance_rate_high,76.85102586975916,women
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_high,87.79697624190065,women
-3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_high,92.40223463687151,women
+3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_high,92.40223463687153,women
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_high,49.36605316973415,women
 3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_high,89.71631205673759,women
 3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_high,75.4065715233986,women
@@ -846,7 +1656,7 @@ PUMA,puma_label,year,indicator,value,cut_name
 3159.0,(West) - West Town & Near West Side,2023,attendance_rate_high,81.52173913043478,women
 3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_high,83.57819131570355,women
 3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_high,63.09912854030502,women
-3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_high,63.351171802915665,women
+3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_high,63.35117180291567,women
 3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_high,71.26743232157506,women
 3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_high,76.08403361344538,women
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_high,91.72971562744586,women
@@ -854,6 +1664,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_high,85.05440817232956,women
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_high,54.54942177612917,women
 9999.0,Chicago Area,2023,attendance_rate_high,75.81696620936019,women
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,attendance_rate_elementary,94.4282945736434,nonafroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,attendance_rate_elementary,100.0,nonafroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,attendance_rate_elementary,100.0,nonafroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,attendance_rate_elementary,100.0,nonafroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,attendance_rate_elementary,,nonafroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,attendance_rate_elementary,100.0,nonafroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,attendance_rate_elementary,100.0,nonafroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,attendance_rate_elementary,98.6463071258393,nonafroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,attendance_rate_elementary,95.36663980660758,nonafroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,attendance_rate_elementary,100.0,nonafroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,attendance_rate_elementary,96.77966101694916,nonafroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,attendance_rate_elementary,100.0,nonafroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,attendance_rate_elementary,98.998998998999,nonafroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,attendance_rate_elementary,98.72414612885332,nonafroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,attendance_rate_elementary,99.21156373193168,nonafroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,attendance_rate_elementary,93.12366737739872,nonafroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,attendance_rate_elementary,93.81140598531904,nonafroamerican
+9999.0,Chicago Area,2013,attendance_rate_elementary,97.41782102022869,nonafroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_elementary,100.0,nonafroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_elementary,100.0,nonafroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_elementary,100.0,nonafroamerican
@@ -871,8 +1699,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_elementary,95.37153652392946,nonafroamerican
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_elementary,97.19353984643897,nonafroamerican
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_elementary,95.81486310299869,nonafroamerican
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_elementary,90.97665776332597,nonafroamerican
-9999.0,Chicago Area,2023,attendance_rate_elementary,94.9136511146263,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_elementary,90.40622299049264,nonafroamerican
+9999.0,Chicago Area,2023,attendance_rate_elementary,94.87082504234571,nonafroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,attendance_rate_middle,72.3021582733813,nonafroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,attendance_rate_middle,100.0,nonafroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,attendance_rate_middle,,nonafroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,attendance_rate_middle,100.0,nonafroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,attendance_rate_middle,,nonafroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,attendance_rate_middle,75.21192633732826,nonafroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,attendance_rate_middle,100.0,nonafroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,attendance_rate_middle,68.4931506849315,nonafroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,attendance_rate_middle,94.7239263803681,nonafroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,attendance_rate_middle,100.0,nonafroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,attendance_rate_middle,100.0,nonafroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,attendance_rate_middle,41.74653887113952,nonafroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,attendance_rate_middle,90.25263157894736,nonafroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,attendance_rate_middle,79.5155121121972,nonafroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,attendance_rate_middle,86.06856309263311,nonafroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,attendance_rate_middle,81.9568277803848,nonafroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,attendance_rate_middle,82.2015570934256,nonafroamerican
+9999.0,Chicago Area,2013,attendance_rate_middle,81.00774035444248,nonafroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_middle,100.0,nonafroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_middle,100.0,nonafroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_middle,78.39607201309329,nonafroamerican
@@ -890,8 +1736,26 @@ PUMA,puma_label,year,indicator,value,cut_name
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_middle,59.60264900662252,nonafroamerican
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_middle,100.0,nonafroamerican
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_middle,95.83911234396672,nonafroamerican
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_middle,84.08215661103979,nonafroamerican
-9999.0,Chicago Area,2023,attendance_rate_middle,82.94319923768488,nonafroamerican
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_middle,82.12397885631908,nonafroamerican
+9999.0,Chicago Area,2023,attendance_rate_middle,82.76035341903606,nonafroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,attendance_rate_high,45.82180409518539,nonafroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,attendance_rate_high,78.30188679245283,nonafroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,attendance_rate_high,53.5832414553473,nonafroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,attendance_rate_high,100.0,nonafroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,attendance_rate_high,36.33440514469453,nonafroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,attendance_rate_high,76.15374558765852,nonafroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,attendance_rate_high,55.46875,nonafroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,attendance_rate_high,71.36209813874788,nonafroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,attendance_rate_high,92.29384227583724,nonafroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,attendance_rate_high,100.0,nonafroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,attendance_rate_high,76.75159235668791,nonafroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,attendance_rate_high,100.0,nonafroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,attendance_rate_high,88.64597298133444,nonafroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,attendance_rate_high,73.69467926404774,nonafroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,attendance_rate_high,83.53154605926224,nonafroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,attendance_rate_high,76.08946276227807,nonafroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,attendance_rate_high,84.4224218024156,nonafroamerican
+9999.0,Chicago Area,2013,attendance_rate_high,77.8155487804878,nonafroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_high,,nonafroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_high,100.0,nonafroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_high,68.89408620113599,nonafroamerican
@@ -911,16 +1775,34 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_high,87.70682824516429,nonafroamerican
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_high,67.54905834321086,nonafroamerican
 9999.0,Chicago Area,2023,attendance_rate_high,76.72409412003861,nonafroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,attendance_rate_elementary,100.0,afroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,attendance_rate_elementary,93.86898999677317,afroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,attendance_rate_elementary,95.53480632337988,afroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,attendance_rate_elementary,98.79756348390158,afroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,attendance_rate_elementary,100.0,afroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,attendance_rate_elementary,100.0,afroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,attendance_rate_elementary,97.6638289447634,afroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,attendance_rate_elementary,99.150390625,afroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,attendance_rate_elementary,97.343314252165,afroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,attendance_rate_elementary,100.0,afroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,attendance_rate_elementary,95.04670696286992,afroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,attendance_rate_elementary,96.27577033917092,afroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,attendance_rate_elementary,96.41666666666666,afroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,attendance_rate_elementary,93.31713244228432,afroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,attendance_rate_elementary,100.0,afroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,attendance_rate_elementary,,afroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,attendance_rate_elementary,97.6027397260274,afroamerican
+9999.0,Chicago Area,2013,attendance_rate_elementary,97.64602822515832,afroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_elementary,100.0,afroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_elementary,99.14790658531454,afroamerican
-3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_elementary,96.55599603567889,afroamerican
-3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_elementary,93.77967711301045,afroamerican
-3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_elementary,98.67649270567003,afroamerican
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_elementary,96.55599603567887,afroamerican
+3154.0,(North) - Lake View & Lincoln Park,2023,attendance_rate_elementary,93.77967711301044,afroamerican
+3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,attendance_rate_elementary,98.67649270567004,afroamerican
 3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_elementary,100.0,afroamerican
 3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_elementary,96.38968940121678,afroamerican
 3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_elementary,100.0,afroamerican
 3159.0,(West) - West Town & Near West Side,2023,attendance_rate_elementary,100.0,afroamerican
-3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_elementary,94.22857142857143,afroamerican
+3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_elementary,94.22857142857144,afroamerican
 3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_elementary,100.0,afroamerican
 3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_elementary,94.1527446300716,afroamerican
 3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_elementary,95.70402667350602,afroamerican
@@ -930,6 +1812,24 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_elementary,100.0,afroamerican
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_elementary,100.0,afroamerican
 9999.0,Chicago Area,2023,attendance_rate_elementary,97.55775324787224,afroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,attendance_rate_middle,100.0,afroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,attendance_rate_middle,86.49468892261002,afroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,attendance_rate_middle,87.0108043217287,afroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,attendance_rate_middle,90.95219280916632,afroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,attendance_rate_middle,83.06258322237017,afroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,attendance_rate_middle,72.44601998066388,afroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,attendance_rate_middle,79.62861824139814,afroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,attendance_rate_middle,76.96060037523452,afroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,attendance_rate_middle,76.19663648124192,afroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,attendance_rate_middle,100.0,afroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,attendance_rate_middle,91.66261545940692,afroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,attendance_rate_middle,84.65902232951117,afroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,attendance_rate_middle,97.87556904400608,afroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,attendance_rate_middle,100.0,afroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,attendance_rate_middle,76.43518518518519,afroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,attendance_rate_middle,100.0,afroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,attendance_rate_middle,79.69502407704655,afroamerican
+9999.0,Chicago Area,2013,attendance_rate_middle,85.12661055415572,afroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_middle,70.85588294247344,afroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_middle,61.5727002967359,afroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_middle,64.28571428571429,afroamerican
@@ -938,17 +1838,35 @@ PUMA,puma_label,year,indicator,value,cut_name
 3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,attendance_rate_middle,81.30990415335462,afroamerican
 3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,attendance_rate_middle,68.08208045509956,afroamerican
 3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,attendance_rate_middle,76.57722987672227,afroamerican
-3159.0,(West) - West Town & Near West Side,2023,attendance_rate_middle,97.43837602706623,afroamerican
+3159.0,(West) - West Town & Near West Side,2023,attendance_rate_middle,97.43837602706624,afroamerican
 3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,attendance_rate_middle,100.0,afroamerican
 3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,attendance_rate_middle,84.08163265306122,afroamerican
 3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,attendance_rate_middle,80.63524590163934,afroamerican
-3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_middle,93.87012987012987,afroamerican
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,attendance_rate_middle,93.87012987012989,afroamerican
 3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,attendance_rate_middle,76.6965678627145,afroamerican
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,attendance_rate_middle,79.93103448275862,afroamerican
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,attendance_rate_middle,89.68058968058969,afroamerican
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_middle,,afroamerican
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_middle,89.5680521597392,afroamerican
 9999.0,Chicago Area,2023,attendance_rate_middle,80.65525791634487,afroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,attendance_rate_high,90.72058061171592,afroamerican
+3502.0,(North) - Lake View & Lincoln Park,2013,attendance_rate_high,95.8774692241626,afroamerican
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,attendance_rate_high,84.76690741956664,afroamerican
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,attendance_rate_high,77.92033235581623,afroamerican
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,attendance_rate_high,62.41293532338309,afroamerican
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,attendance_rate_high,74.19745608721988,afroamerican
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,attendance_rate_high,87.25774454448344,afroamerican
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,attendance_rate_high,82.99941417691858,afroamerican
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,attendance_rate_high,73.08052434456928,afroamerican
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,attendance_rate_high,100.0,afroamerican
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,attendance_rate_high,86.34527336385672,afroamerican
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,attendance_rate_high,73.00764431947984,afroamerican
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,attendance_rate_high,77.45535714285714,afroamerican
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,attendance_rate_high,58.93451720310766,afroamerican
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,attendance_rate_high,90.06292037318289,afroamerican
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,attendance_rate_high,,afroamerican
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,attendance_rate_high,75.75883575883576,afroamerican
+9999.0,Chicago Area,2013,attendance_rate_high,79.38560575042082,afroamerican
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,attendance_rate_high,78.0852241283896,afroamerican
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,attendance_rate_high,82.09483368719037,afroamerican
 3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,attendance_rate_high,81.51790216843166,afroamerican
@@ -968,9 +1886,27 @@ PUMA,puma_label,year,indicator,value,cut_name
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,attendance_rate_high,100.0,afroamerican
 3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,attendance_rate_high,74.23442449841605,afroamerican
 9999.0,Chicago Area,2023,attendance_rate_high,75.44675458567808,afroamerican
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,elementary_percentage,5.486411638001584,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,elementary_percentage,3.802472120644323,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,elementary_percentage,8.011763657428036,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,elementary_percentage,9.128515358700616,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,elementary_percentage,7.263268998793728,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,elementary_percentage,9.0110045993442,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,elementary_percentage,7.714102582778564,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,elementary_percentage,10.086653855915303,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,elementary_percentage,5.333585810768163,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,elementary_percentage,3.3335777663709028,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,elementary_percentage,8.77185243070873,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,elementary_percentage,9.024810454101592,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,elementary_percentage,8.61777488792307,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,elementary_percentage,7.6617476901329775,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,elementary_percentage,7.9564920791328735,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,elementary_percentage,7.232464358138064,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,elementary_percentage,9.9240653289195,Total
+9999.0,Chicago Area,2013,elementary_percentage,7.578098850080875,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,elementary_percentage,8.761194029850747,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,elementary_percentage,7.161203522504893,Total
-3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,elementary_percentage,3.9467884035917224,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,elementary_percentage,3.949435622265729,Total
 3154.0,(North) - Lake View & Lincoln Park,2023,elementary_percentage,4.065174844962154,Total
 3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,elementary_percentage,4.7307747293451,Total
 3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,elementary_percentage,6.036352697161132,Total
@@ -980,35 +1916,71 @@ PUMA,puma_label,year,indicator,value,cut_name
 3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,elementary_percentage,3.0671260166523826,Total
 3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,elementary_percentage,6.201395198423087,Total
 3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,elementary_percentage,7.3669135874266685,Total
-3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,elementary_percentage,6.479279891304348,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,elementary_percentage,6.496834022262473,Total
 3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,elementary_percentage,7.284309921096882,Total
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,elementary_percentage,7.290508149568551,Total
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,elementary_percentage,7.82893308100394,Total
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,elementary_percentage,7.538110377435396,Total
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_percentage,8.948633813678496,Total
-9999.0,Chicago Area,2023,elementary_percentage,6.342614592444142,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,elementary_percentage,8.639855951536237,Total
+9999.0,Chicago Area,2023,elementary_percentage,6.327043630268676,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,middle_percentage,1.8357873786344203,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,middle_percentage,0.9453292635014656,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,middle_percentage,2.8552233792408463,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,middle_percentage,3.398042187613759,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,middle_percentage,2.8309710494571774,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,middle_percentage,3.559445023378636,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,middle_percentage,2.9607994522703107,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,middle_percentage,4.80247789627435,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,middle_percentage,3.153098873606353,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,middle_percentage,1.0808828921317004,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,middle_percentage,5.289328073204856,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,middle_percentage,5.737067651869958,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,middle_percentage,4.604222990315185,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,middle_percentage,3.0391637169907035,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,middle_percentage,3.7156067611612222,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,middle_percentage,3.6393637281888767,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,middle_percentage,4.604716107877438,Total
+9999.0,Chicago Area,2013,middle_percentage,3.4363455606312083,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,middle_percentage,3.607675906183369,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,middle_percentage,3.1548978038704067,Total
-3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,middle_percentage,0.7662904657524321,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,middle_percentage,0.7668044376767458,Total
 3154.0,(North) - Lake View & Lincoln Park,2023,middle_percentage,1.019241198802141,Total
 3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,middle_percentage,3.102296505205152,Total
 3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,middle_percentage,4.055637359679539,Total
-3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,middle_percentage,3.6689750096778355,Total
+3157.0,"(West) - Belmont Cragin, Humboldt Park, Hermosa & Montclare",2023,middle_percentage,3.668975009677836,Total
 3158.0,"(West) - Austin, North Lawndale & East/West Garfield Park",2023,middle_percentage,3.0824767170348104,Total
 3159.0,(West) - West Town & Near West Side,2023,middle_percentage,1.428398034994474,Total
 3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,middle_percentage,0.8780244166841666,Total
 3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,middle_percentage,3.646611330982337,Total
 3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,middle_percentage,2.8838115454234847,Total
-3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,middle_percentage,2.9721467391304346,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,middle_percentage,2.980199092780951,Total
 3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,middle_percentage,3.7427240977881255,Total
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,middle_percentage,3.08111217641419,Total
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,middle_percentage,3.243570254087426,Total
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,middle_percentage,4.114290372544224,Total
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_percentage,3.622246079869354,Total
-9999.0,Chicago Area,2023,middle_percentage,2.805994978677361,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,middle_percentage,3.46006241082805,Total
+9999.0,Chicago Area,2023,middle_percentage,2.797977330728937,Total
+3501.0,"(North) - Edgewater, Uptown & Rogers Park",2013,high_percentage,2.445970630020754,Total
+3502.0,(North) - Lake View & Lincoln Park,2013,high_percentage,2.239414911299828,Total
+3503.0,"(North) - West Ridge, Lincoln Square & North Center",2013,high_percentage,3.753950354075121,Total
+3504.0,"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",2013,high_percentage,5.824458755551437,Total
+3520.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2013,high_percentage,6.295989143546442,Total
+3521.0,"(West) - Austin, Belmont Cragin & Montclare",2013,high_percentage,8.677102031240622,Total
+3522.0,"(Northwest) - Logan Square, Avondale & Hermosa",2013,high_percentage,5.145891298964266,Total
+3523.0,"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",2013,high_percentage,9.318526729062969,Total
+3524.0,"(West) - West Town, Near West Side & Lower West Side",2013,high_percentage,4.044803268435157,Total
+3525.0,"(Central) - Near North Side, Loop & Near South Side",2013,high_percentage,0.4392461685121361,Total
+3526.0,"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",2013,high_percentage,7.811416831570854,Total
+3527.0,"(Southwest) - Gage Park, Garfield Ridge & West Lawn",2013,high_percentage,7.18812780276031,Total
+3528.0,"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",2013,high_percentage,8.783409192019437,Total
+3529.0,"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",2013,high_percentage,6.244763256442263,Total
+3530.0,"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",2013,high_percentage,7.253846736905935,Total
+3531.0,"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",2013,high_percentage,6.688101902184389,Total
+3532.0,"(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",2013,high_percentage,6.952572208537944,Total
+9999.0,Chicago Area,2013,high_percentage,5.899815654779084,Total
 3151.0,"(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",2023,high_percentage,5.137171286425017,Total
 3152.0,"(North) - West Ridge, Lincoln Square & North Center",2023,high_percentage,6.700505544683627,Total
-3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,high_percentage,4.202218558842533,Total
+3153.0,"(North) - Uptown, Edgewater & Rogers Park",2023,high_percentage,4.205037101491311,Total
 3154.0,(North) - Lake View & Lincoln Park,2023,high_percentage,1.6140441887335235,Total
 3155.0,"(Northwest) - Logan Square, Irving Park & Avondale",2023,high_percentage,3.95682518227779,Total
 3156.0,"(Northwest) - Portage Park, Dunning & Jefferson Park",2023,high_percentage,6.338764071628747,Total
@@ -1018,10 +1990,10 @@ PUMA,puma_label,year,indicator,value,cut_name
 3160.0,"(Central) - Near North Side, Loop & Near South Side",2023,high_percentage,2.181723243525492,Total
 3161.0,"(South) - Hyde Park, Grand Boulevard, Woodlawn, Douglas & Kenwood",2023,high_percentage,5.428338235520582,Total
 3162.0,"(Southwest) - New City, Lower West Side, Bridgeport & McKinley Park",2023,high_percentage,7.761647559991568,Total
-3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,high_percentage,9.199759140316205,Total
+3163.0,"(Southwest) - South Lawndale, Brighton Park & Gage Park",2023,high_percentage,9.224683789265091,Total
 3164.0,"(Southwest) - Ashburn, Garfield Ridge, West Lawn, Clearing & West Elsdon",2023,high_percentage,7.41818652179537,Total
 3165.0,"(South) - Chicago Lawn, Greater Grand Crossing & West Englewood/Englewood",2023,high_percentage,6.528859060402685,Total
 3166.0,"(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",2023,high_percentage,7.917351782334873,Total
 3167.0,"(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",2023,high_percentage,7.244640091301867,Total
-3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,high_percentage,9.320611495017616,Total
-9999.0,Chicago Area,2023,high_percentage,5.821237241042617,Total
+3168.0,"(South) - South Shore, South Chicago, East Side & South Deering",2023,high_percentage,9.405876383834222,Total
+9999.0,Chicago Area,2023,high_percentage,5.824936810727743,Total

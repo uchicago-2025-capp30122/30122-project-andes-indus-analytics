@@ -141,7 +141,7 @@ def get_google_drive_files(path, year) -> pd.DataFrame:
 
     return df
 
-def chicago_dataframe(year, output_filename_ch, full_fetch=True):
+def chicago_dataframe(year, output_filename_ch, full_fetch=False):
     """
     Filters the PUMAS to only the Chicago city
     """
@@ -186,4 +186,4 @@ if __name__ == "__main__":
         output_filename_ch = Path(f"census_{yr}_ch.csv")
         build_census_csv(yr, output_filename)
         time.sleep(10)
-        chicago_dataframe(yr, output_filename_ch, full_fetch=True)
+       

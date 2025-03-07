@@ -275,26 +275,55 @@ def create_stacked_chart_gender(df_c_long):
     
     # Then filter the DataFrame
     df_filtered = df_c_long[
-    (df_c_long['PUMA'] == 9999) &
-    (df_c_long['indicator_label'].isin(['High School', 'Middle', 'Elementary'])) &
-    (df_c_long['cut_name'].isin(['women', 'men']))]
+        (df_c_long['PUMA'] == 9999)
+        & (df_c_long['indicator_label'].isin(['High School', 'Middle', 'Elementary']))
+        & (df_c_long['cut_name'].isin(['women', 'men']))
+    ]
 
     color_scale = alt.Scale(
-        domain=['men', 'women'],        # The categories in cut_name
-        range=['#1f77b4', '#eb9b44']    
+        domain=['men', 'women'],
+        range=['#1f77b4', '#eb9b44']
     )
- 
+
     indicator_order = ['Elementary', 'Middle', 'High School']
-    # Define selection
-    selection = alt.selection_point(fields=['cut_name'], bind='legend')
-    # Create stacked bar chart
-    bar = alt.Chart(df_filtered).mark_bar().encode(
-    x=alt.X('sum(value):Q', stack='zero', axis=alt.Axis(title='Population')),
-    y=alt.Y('indicator_label:N', sort=indicator_order, axis=alt.Axis(title='Education level')),
-    color=alt.Color('cut_name:N', scale=color_scale),
-    opacity=alt.condition(selection, alt.value(0.9), alt.value(0.2)),
-    tooltip=[alt.Tooltip('year', title='Year'), alt.Tooltip('puma_label', title='Puma'), alt.Tooltip('value', title='population number') ]
-    ).add_params(selection)
+
+    # -- Gender selection (bound to legend) --
+    gender_selection = alt.selection_point(
+        fields=['cut_name'],
+        bind='legend'
+    )
+
+    # -- Year selection (bound to a dropdown) --
+    unique_years = sorted(df_filtered['year'].unique())
+    #year_dropdown = alt.binding_select(options=unique_years, name='Select year')
+
+    # IMPORTANT: selection_point is valid in Altair 5+
+    year_selection = alt.selection_point(
+        fields=['year'],
+        #bind=year_dropdown,
+        #init={'year': unique_years[-1]}  # pick the last year initially
+    )
+
+    bar = (
+        alt.Chart(df_filtered)
+        .mark_bar()
+        .encode(
+            x=alt.X('sum(value):Q', stack='zero', title='Population'),
+            y=alt.Y('indicator_label:N', sort=indicator_order, title='Education level'),
+            color=alt.Color('cut_name:N', scale=color_scale),
+            # Opacity is based on whether 'cut_name' is selected
+            opacity=alt.condition(gender_selection, alt.value(0.9), alt.value(0.2)),
+            tooltip=[
+                alt.Tooltip('year', title='Year'),
+                alt.Tooltip('puma_label', title='Puma'),
+                alt.Tooltip('value', title='Population number')
+            ]
+        )
+        # Add both parameters to the chart
+        .add_params(gender_selection, year_selection)
+        # Filter the data by selected year
+        .transform_filter(year_selection)
+    )
 
     return bar
 

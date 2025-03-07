@@ -16,6 +16,13 @@ neighborhood_shp = gpd.read_file('data/shapefiles/data_neighborhoods.shp')
 df_c = pd.read_csv("data/census_df.csv")
 df_c_long = pd.read_csv("data/census_df_long.csv")
 crimes_shp = gpd.GeoDataFrame(load_crimes_shp())
+df_e = pd.read_csv("data/merged_school_data.csv")
+pumas_path = pathlib.Path("data/shapefiles/pumas/chicago_pumas.shp")
+pumas = gpd.read_file(pumas_path)
+schools_csv_path = pathlib.Path(
+    "data/merged_school_data.csv"
+)  # update with your CSV path
+schools_df = pd.read_csv(schools_csv_path)
 
 # Create the crime map by puma and neighborhood
 
@@ -33,19 +40,6 @@ pumas_df = pumas_df.rename(
 for var in ["total_crim", "violent", "non-violen"]:
     pumas_df[f"{var}_pc"] = pumas_df[f"{var}"] / pumas_df["pwgtp"] * 1000
 
-pumas_path = pathlib.Path("data/shapefiles/pumas/chicago_pumas.shp")
-pumas = gpd.read_file(pumas_path)
-
-
-schools_csv_path = pathlib.Path(
-    "data/merged_school_data.csv"
-)  # update with your CSV path
-schools_df = pd.read_csv(schools_csv_path)
-
-
-df_c = pd.read_csv("data/census_df.csv")
-df_c_long = pd.read_csv("data/census_df_long.csv")
-df_e = pd.read_csv("data/merged_school_data.csv")
 
 crime_labels = {
     "total_crim_pc": "Total Crime",
@@ -68,7 +62,7 @@ app.layout = html.Div(
             children=[
                 html.H1(
                     [
-                        # "Michelin Guide to France" in black
+                        # "text" in black
                         html.Span(
                             "Understanding School Attendance and Crime in",
                             style={"color": "#000000", "font-weight": "normal"},
@@ -361,8 +355,7 @@ app.layout = html.Div(
     Input("crime-type", "value"),
 )
 def update_charts(selected_year, selected_crime):
-    # Filter data for the selected year
-    dff = df_c[df_c["year"] == selected_year]
+   
 
     # for the interactive barchart
     brush = alt.selection_interval()
@@ -382,10 +375,6 @@ def update_charts(selected_year, selected_crime):
         "high_school_w": "High School",
     }
     
-    # Create a new column 'indicator_label' using the mapping
-    df_c_long["indicator_label"] = (
-        df_c_long["indicator"].map(indicator_map).fillna(df_c_long["indicator"])
-    )
 
     
 
@@ -419,6 +408,15 @@ def update_charts(selected_year, selected_crime):
     fig_scatter = (scatter + regression_line).properties(
         title=f"Scatter Plot for Year {selected_year}")
     
+
+        # Create a new column 'indicator_label' using the mapping
+    df_c_long["indicator_label"] = (
+        df_c_long["indicator"].map(indicator_map).fillna(df_c_long["indicator"])
+    )
+
+     # Filter data for the selected year
+    dff = df_c[df_c["year"] == selected_year]
+
     fig_stacked = create_stacked_chart_gender(df_c_long)
     fig_stacked2 = create_stacked_chart_race(df_c_long)
 

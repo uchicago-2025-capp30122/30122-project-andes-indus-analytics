@@ -459,7 +459,7 @@ def variable_labels(df, year):
         3522:	"(Northwest) - Logan Square, Avondale & Hermosa",
         3520:	"(Northwest) - Portage Park, Dunning & Jefferson Park",
         3521:	"(West) - Austin, Belmont Cragin & Montclare",
-        3522:	"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",
+        3523:	"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",
         3524:	"(West) - West Town, Near West Side & Lower West Side",
         3525:	"(Central) - Near North Side, Loop & Near South Side",
         3529:	"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",
