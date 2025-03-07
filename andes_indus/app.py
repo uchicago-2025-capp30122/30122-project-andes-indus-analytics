@@ -4,17 +4,19 @@ import plotly.express as px
 import altair as alt
 import pandas as pd
 import geopandas as gpd
-from figures import create_crime_map, create_interactive_bar, create_crime_heat_map
+from figures import create_crime_map, create_interactive_bar, create_crime_heat_map, create_stacked_chart_gender, create_stacked_chart_race
 from join_data import lower_colnames
 import pathlib
 from figures import create_crime_map, create_geo_chart, point_data_chart
 from crime_utils import load_crimes_shp
 
 # Load data
-pumas_shp = lower_colnames(gpd.read_file("data/shapefiles/data_pumas.shp"))
-neighborhood_shp = gpd.read_file("data/shapefiles/data_neighborhoods.shp")
-
+pumas_shp = lower_colnames(gpd.read_file('data/shapefiles/data_pumas.shp'))
+neighborhood_shp = gpd.read_file('data/shapefiles/data_neighborhoods.shp')
+df_c = pd.read_csv("data/census_df.csv")
+df_c_long = pd.read_csv("data/census_df_long.csv")
 crimes_shp = gpd.GeoDataFrame(load_crimes_shp())
+
 # Create the crime map by puma and neighborhood
 
 for var in ["total_crim", "violent", "non-violen"]:
@@ -379,81 +381,16 @@ def update_charts(selected_year, selected_crime):
         "middle_w": "Middle",
         "high_school_w": "High School",
     }
-
-    color_scale = alt.Scale(
-        domain=["men", "women"],  # The categories in cut_name
-        range=["#1f77b4", "#eb9b44"],  # The colors you want for each
-    )
-
-    color_scale2 = alt.Scale(
-        domain=["afroamerican", "nonafroamerican"],  # The categories in cut_name
-        range=["#1f77b4", "#eb9b44"],  # The colors you want for each
-    )
+    
     # Create a new column 'indicator_label' using the mapping
     df_c_long["indicator_label"] = (
         df_c_long["indicator"].map(indicator_map).fillna(df_c_long["indicator"])
     )
 
-    # Then filter the DataFrame
-    df_filtered = df_c_long[
-        (df_c_long["PUMA"] == 9999)
-        & (df_c_long["indicator_label"].isin(["High School", "Middle", "Elementary"]))
-        & (df_c_long["cut_name"].isin(["women", "men"]))
-    ]
+    
 
-    # Then filter using the updated column
-    df_filtered2 = df_c_long[
-        (df_c_long["PUMA"] == 9999)
-        & (df_c_long["indicator_label"].isin(["High School", "Middle", "Elementary"]))
-        & (df_c_long["cut_name"].isin(["afroamerican", "nonafroamerican"]))
-    ]
-
-    indicator_order = ["Elementary", "Middle", "High School"]
-    # Define selection
-    selection = alt.selection_point(fields=["cut_name"], bind="legend")
-    # Create stacked bar chart
-    fig_stacked = (
-        alt.Chart(df_filtered)
-        .mark_bar()
-        .encode(
-            x=alt.X("sum(value):Q", stack="zero", axis=alt.Axis(title="Population")),
-            y=alt.Y(
-                "indicator_label:N",
-                sort=indicator_order,
-                axis=alt.Axis(title="Education level"),
-            ),
-            color=alt.Color("cut_name:N", scale=color_scale),
-            opacity=alt.condition(selection, alt.value(0.9), alt.value(0.2)),
-            tooltip=[
-                alt.Tooltip("year", title="Year"),
-                alt.Tooltip("puma_label", title="Puma"),
-                alt.Tooltip("value", title="population number"),
-            ],
-        )
-        .add_params(selection)
-    )
-
-    fig_stacked2 = (
-        alt.Chart(df_filtered2)
-        .mark_bar()
-        .encode(
-            x=alt.X("sum(value):Q", stack="zero", axis=alt.Axis(title="Population")),
-            y=alt.Y(
-                "indicator_label:N",
-                sort=indicator_order,
-                axis=alt.Axis(title="Education level"),
-            ),
-            color=alt.Color("cut_name:N", scale=color_scale2),
-            opacity=alt.condition(selection, alt.value(0.9), alt.value(0.2)),
-            tooltip=[
-                alt.Tooltip("year", title="Year"),
-                alt.Tooltip("value", title="Population number"),
-            ],
-        )
-        .add_params(selection)
-    )
-
-    # Create the scatter plot with a brush selection
+    
+   # Create the scatter plot with a brush selection
     brush = alt.selection_interval()
     df_scatter = pumas_df[pumas_df["year"] == selected_year]
     scatter = (
@@ -480,8 +417,10 @@ def update_charts(selected_year, selected_crime):
     )
 
     fig_scatter = (scatter + regression_line).properties(
-        title=f"Scatter Plot for Year {selected_year}"
-    )
+        title=f"Scatter Plot for Year {selected_year}")
+    
+    fig_stacked = create_stacked_chart_gender(df_c_long)
+    fig_stacked2 = create_stacked_chart_race(df_c_long)
 
     # Create the bar chart sorted descending by attendance_rate_high
     fig_bar = create_interactive_bar(

@@ -1,76 +1,39 @@
 import pandas as pd
 import numpy as np
-import httpx
-from api_get import build_census_csv
-import io
+from api_get import chicago_dataframe
 import re
 
-
-def chicago_dataframe(full_fetch=False):
-    """
-    Filters the PUMAS to only the Chicago city
-    """
-    if full_fetch:
-        df = build_census_csv()
-        # Read the CSV file into a DataFrame
-        # df = pd.read_csv(csv_file)
-        # Filter the DataFrame for rows where PUMA is between 3151 and 3168
-    else:
-        # Original Google Drive share link (VIEW link)
-
-        path = "https://drive.usercontent.google.com/download?id=1KqviAJthq8RzZa9nVoBS5dp553ix55I7&export=download&authuser=0&confirm=t&uuid=abf16c04-2bbc-48ee-8a9b-9a501f2b315a&at=AEz70l6_lxclQ30xwZyTTaVqhBtR:1740868465146"
-
-        # Fetch the raw CSV data from Google Drive
-        response = httpx.get(path, follow_redirects=True)
-
-        # Check that we got a valid 200 OK
-        if response.status_code != 200:
-            # Debug: print the first part of the error text
-            print("Response text (first 500 chars):", response.text[:500])
-            raise RuntimeError(f"Error fetching file (status={response.status_code}).")
-
-        # Convert the response text into a file-like object
-        text_buffer = io.StringIO(response.text)
-
-        # Read the CSV contents
-        df = pd.read_csv(text_buffer)
-    chicago_df = df[(df["PUMA"].astype(int) >= 3151) & (df["PUMA"].astype(int) <= 3168)]
-
-    return chicago_df
-
-
-def cleaning_data(full_fetch=False):
+def cleaning_data(df):
     """
     load a cvs file and clean:
     - transform variables from string to numeric
     - drop observations with no income information
     """
-    df = chicago_dataframe(full_fetch=False)
     # convert to numeric
     cols = ["SCHL", "SCHG", "AGEP", "PUMA", "PWGTP", "HINCP", "SEX", "RACBLK"]
     df[cols] = df[cols].apply(pd.to_numeric)
     # we are assuming missing values are at random and droping them
-    df.loc[(df["HINCP"] == -60000), "HINCP"] = None
+    df.loc[(df["HINCP"] < 0)] = None
 
-    # race
+    df_clean = df.dropna(subset=["HINCP"])
+    return df_clean
 
+    
+def social_variables(df):
+    
     # dummy
     df["men"] = np.where((df["SEX"] == 1), 1, 0)
     df["woman"] = np.where((df["SEX"] == 2), 1, 0)
     df["black"] = np.where((df["RACBLK"] == 1), 1, 0)
     df["non_black"] = np.where((df["RACBLK"] == 0), 1, 0)
 
-    df_clean = df.dropna(subset=["HINCP"])
-    return df_clean
+    return df
 
 
-def education_vars(full_fetch=False):
+def education_vars(df):
     """creates the education variables to be used
     in the analysis
     """
-    df = cleaning_data(full_fetch=False)
-    # total population
-
     # years of education
     df.loc[df["SCHL"] <= 3, "years_education"] = 0
     df.loc[df["SCHL"] == 4, "years_education"] = 1
@@ -88,75 +51,45 @@ def education_vars(full_fetch=False):
     df.loc[df["SCHL"] >= 16, "years_education"] = 13
 
     # School age population
-    df["school_age"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 18)).astype(int)
+    df.loc[:,"school_age"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 18)).astype(int)
     # School levels theoretical age
-    df["elementary"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10)).astype(int)
-    df["middle"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13)).astype(int)
-    df["high_school"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18)).astype(int)
+    df.loc[:,"elementary"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10)).astype(int)
+    df.loc[:,"middle"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13)).astype(int)
+    df.loc[:,"high_school"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18)).astype(int)
 
     # School age population by sex and race
-    df["school_age_men"] = (
-        (df["AGEP"] >= 5) & (df["AGEP"] <= 18) & (df["SEX"] == 1)
-    ).astype(int)
-    df["school_age_women"] = (
-        (df["AGEP"] >= 5) & (df["AGEP"] <= 18) & (df["SEX"] == 2)
-    ).astype(int)
+    df.loc[:,"school_age_men"]   = ((df["AGEP"] >= 5) & (df["AGEP"] <= 18) & (df["SEX"] == 1)).astype(int)
+    df.loc[:,"school_age_women"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 18) & (df["SEX"] == 2)).astype(int)
 
-    df["school_age_black"] = (
-        (df["AGEP"] >= 5) & (df["AGEP"] <= 18) & (df["RACBLK"] == 1)
-    ).astype(int)
-    df["school_age_non_black"] = (
-        (df["AGEP"] >= 5) & (df["AGEP"] <= 18) & (df["RACBLK"] == 0)
-    ).astype(int)
+    df.loc[:,"school_age_black"]     = ((df["AGEP"] >= 5) & (df["AGEP"] <= 18) & (df["RACBLK"] == 1)).astype(int)
+    df.loc[:,"school_age_non_black"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 18) & (df["RACBLK"] == 0)).astype(int)
 
     # School levels theoretical age
-    df["elementary"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10)).astype(int)
-    df["middle"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13)).astype(int)
-    df["high_school"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18)).astype(int)
+    df.loc[:,"elementary"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10) ).astype(int)
+    df.loc[:,"middle"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13)).astype(int)
+    df.loc[:,"high_school"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18)).astype(int)
 
     # School levels theoretical age
-    df["elementary_men"] = (
-        (df["AGEP"] >= 5) & (df["AGEP"] <= 10) & (df["SEX"] == 1)
-    ).astype(int)
-    df["middle_men"] = (
-        (df["AGEP"] >= 11) & (df["AGEP"] <= 13) & (df["SEX"] == 1)
-    ).astype(int)
-    df["high_school_men"] = (
-        (df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["SEX"] == 1)
-    ).astype(int)
+    df.loc[:,"elementary_men"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10) & (df["SEX"] == 1)).astype(int)
+    df.loc[:,"middle_men"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13) & (df["SEX"] == 1)).astype(int)
+    df.loc[:,"high_school_men"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["SEX"] == 1)).astype(int)
 
-    # School levels theoretical age
-    df["elementary_women"] = (
-        (df["AGEP"] >= 5) & (df["AGEP"] <= 10) & (df["SEX"] == 2)
-    ).astype(int)
-    df["middle_women"] = (
-        (df["AGEP"] >= 11) & (df["AGEP"] <= 13) & (df["SEX"] == 2)
-    ).astype(int)
-    df["high_school_women"] = (
-        (df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["SEX"] == 2)
-    ).astype(int)
+# School levels theoretical age
+    df.loc[:,"elementary_women"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10) & (df["SEX"] == 2)).astype(int)
+    df.loc[:,"middle_women"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13) & (df["SEX"] == 2)).astype(int)
+    df.loc[:,"high_school_women"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["SEX"] == 2)).astype(int)
 
-    # School levels theoretical age
-    df["elementary_black"] = (
-        (df["AGEP"] >= 5) & (df["AGEP"] <= 10) & (df["RACBLK"] == 1)
-    ).astype(int)
-    df["middle_black"] = (
-        (df["AGEP"] >= 11) & (df["AGEP"] <= 13) & (df["RACBLK"] == 1)
-    ).astype(int)
-    df["high_school_black"] = (
-        (df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["RACBLK"] == 1)
-    ).astype(int)
+# School levels theoretical age
+    df.loc[:,"elementary_black"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10) & (df["RACBLK"] == 1)).astype(int)
+    df.loc[:,"middle_black"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13) & (df["RACBLK"] == 1)).astype(int)
+    df.loc[:,"high_school_black"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["RACBLK"] == 1)).astype(int)
 
-    # School levels theoretical age
-    df["elementary_non_black"] = (
-        (df["AGEP"] >= 5) & (df["AGEP"] <= 10) & (df["RACBLK"] == 0)
-    ).astype(int)
-    df["middle_non_black"] = (
-        (df["AGEP"] >= 11) & (df["AGEP"] <= 13) & (df["RACBLK"] == 0)
-    ).astype(int)
-    df["high_school_non_black"] = (
-        (df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["RACBLK"] == 0)
-    ).astype(int)
+# School levels theoretical age
+    df.loc[:,"elementary_non_black"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10) & (df["RACBLK"] == 0)).astype(int)
+    df.loc[:,"middle_non_black"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13) & (df["RACBLK"] == 0)).astype(int)
+    df.loc[:,"high_school_non_black"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["RACBLK"] == 0)).astype(int)
+
+
 
     # School attendance SCH
     #  "0": "N/A (less than 3 years old)",
@@ -386,14 +319,13 @@ def education_vars(full_fetch=False):
     )
     return selected_columns_df
 
-
-def aggregate_puma_data(full_fetch=False):
+def aggregate_puma_data(df):
     """
     Aggregates all PUMA information into a single row while keeping the original data.
     Returns:
     pd.DataFrame: The dataset with an additional aggregated PUMA row.
     """
-    df = education_vars(full_fetch=False)
+    
     # Drop non-numeric columns before summing
     aggregated_puma = df.drop(columns=["PUMA"]).sum()
 
@@ -431,37 +363,11 @@ def reshape_long_format(df, id_vars=["PUMA", "puma_label", "year"]):
     return df_long
 
 
-def rename_functions(year, output_file="data/census_df_long.csv", full_fetch=False):
-    df = variable_labels(year, full_fetch=False)
-    df_long = reshape_long_format(df, id_vars=["PUMA", "puma_label", "year"])
-    # Create cut_name column based on indicator suffixes
-    conditions = [
-        df_long["indicator"].str.endswith("_women")
-        | df_long["indicator"].str.endswith("_women_w"),
-        df_long["indicator"].str.endswith("_men")
-        | df_long["indicator"].str.endswith("_men_w"),
-        df_long["indicator"].str.endswith("_non_black")
-        | df_long["indicator"].str.endswith("_non_black_w"),
-        df_long["indicator"].str.endswith("_black")
-        | df_long["indicator"].str.endswith("_black_w"),
-    ]
-    choices = ["women", "men", "afroamerican", "nonafroamerican"]
-    df_long["cut_name"] = np.select(conditions, choices, default="Total")
-
-    df_long["indicator"] = df_long["indicator"]
-
-    pattern = re.compile(r"(\_men|\_women|\_black|\_non\_black)")
-    df_long["indicator"] = df_long["indicator"].str.replace(pattern, "", regex=True)
-
-    df_long.to_csv(output_file, index=False)
-
-
-def education_indicators(year: int, full_fetch=False):
+def education_indicators(df):
     """
     Creates education indicators, adds a 'year' column, and returns the aggregated DataFrame.
     """
-    df = aggregate_puma_data(full_fetch=False)
-
+    
     # Calculate attendance rates (as percentages)
     df["attendance_rate_elementary"] = (
         df["atten_elementary_w"] / df["elementary_w"]
@@ -517,16 +423,13 @@ def education_indicators(year: int, full_fetch=False):
     df["elementary_percentage"] = (df["elementary_w"] / df["PWGTP"]) * 100
     df["middle_percentage"] = (df["middle_w"] / df["PWGTP"]) * 100
     df["high_percentage"] = (df["high_school_w"] / df["PWGTP"]) * 100
-
-    # Add a new column for the year
-    df["year"] = year
-
+     
     return df
 
+def variable_labels(df, year):
 
-def variable_labels(year, full_fetch=False):
-    df = education_indicators(year, full_fetch=full_fetch)
-    label_map = {
+    if year == 2023:
+        label_map = {
         3151: "(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",
         3152: "(North) - West Ridge, Lincoln Square & North Center",
         3153: "(North) - Uptown, Edgewater & Rogers Park",
@@ -545,9 +448,33 @@ def variable_labels(year, full_fetch=False):
         3166: "(Southwest) - Auburn Gresham, Washington Heights, Morgan Park & Beverly",
         3167: "(South) - Roseland, Chatham, West Pullman, Calumet Heights & Avalon Park",
         3168: "(South) - South Shore, South Chicago, East Side & South Deering",
-        9999: "Chicago Area",
-    }
+        9999: "Chicago Area"
+        }
+    else:
+        label_map = {
+        3504:	"(Northwest) - Irving Park, Albany Park, Forest Glen & North Park",
+        3503:	"(North) - West Ridge, Lincoln Square & North Center",
+        3501:	"(North) - Edgewater, Uptown & Rogers Park",
+        3502:	"(North) - Lake View & Lincoln Park",
+        3522:	"(Northwest) - Logan Square, Avondale & Hermosa",
+        3520:	"(Northwest) - Portage Park, Dunning & Jefferson Park",
+        3521:	"(West) - Austin, Belmont Cragin & Montclare",
+        3522:	"(West) - North & South Lawndale, Humboldt Park, East & West Garfield Park",
+        3524:	"(West) - West Town, Near West Side & Lower West Side",
+        3525:	"(Central) - Near North Side, Loop & Near South Side",
+        3529:	"(South) - South Shore, Hyde Park, Woodlawn, Grand Boulevard & Douglas",
+        3526:	"(Southwest) - Brighton Park, New City, Bridgeport & McKinley Park",
+        3527:	"(Southwest) - Gage Park, Garfield Ridge & West Lawn",
+        3528:	"(South) - Chicago Lawn, Englewood/West Englewood & Greater Grand Crossing",
+        3530:	"(South) - Ashburn, Washington Heights, Morgan Park & Beverly",
+        3531:	"(South) - Auburn Gresham, Roseland, Chatham, Avalon Park & Burnside",
+        3532:   "(South) - South Chicago, Pullman, West Pullman, East Side & South Deering",
+        9999:   "Chicago Area"
+        }
+
     df["puma_label"] = df["PUMA"].map(label_map)
+    # Add a new column for the year
+    df["year"] = year
     return df
 
 
@@ -560,15 +487,46 @@ def process_multiple_years(output_file="data/census_df.csv", full_fetch=False):
         file_year_pairs: list of tuples (csv_file, year)
         output_file: path for the output CSV file
     """
+    
     dfs = []
-    for year in [2023]:
+    for year in [2013, 2023]:
         # for year in range(2021,2024):
-        dfs.append(variable_labels(year, full_fetch=False))
+        df = chicago_dataframe(year,"", full_fetch=False)
+        
+        dfs.append(
+            variable_labels(
+                education_indicators(
+                    aggregate_puma_data(
+                        education_vars(
+                            social_variables(
+                                cleaning_data(df))))),year))
 
     final_df = pd.concat(dfs, ignore_index=True)
     final_df.to_csv(output_file, index=False)
 
+def rename_functions(output_file="data/census_df_long.csv"):
+
+    df = pd.read_csv("data/census_df.csv")
+    df_long = reshape_long_format(df, id_vars=["PUMA", "puma_label", "year"])
+    # Create cut_name column based on indicator suffixes
+    conditions = [
+    df_long["indicator"].str.endswith("_women") | df_long["indicator"].str.endswith("_women_w"),
+    df_long["indicator"].str.endswith("_men")   | df_long["indicator"].str.endswith("_men_w"),
+    df_long["indicator"].str.endswith("_non_black") | df_long["indicator"].str.endswith("_non_black_w"),
+    df_long["indicator"].str.endswith("_black") | df_long["indicator"].str.endswith("_black_w")
+    ]
+    choices = ["women", "men", "afroamerican", "nonafroamerican"]
+    df_long["cut_name"] = np.select(conditions, choices, default="Total")
+
+    df_long["indicator"] = df_long["indicator"]
+
+    pattern = re.compile(r'(\_men|\_women|\_black|\_non\_black)')
+    df_long['indicator'] = df_long['indicator'].str.replace(pattern, '', regex=True)
+
+    df_long.to_csv(output_file, index=False)
+
+
 
 if __name__ == "__main__":
     process_multiple_years("data/census_df.csv", full_fetch=False)
-    rename_functions(2023, "data/census_df_long.csv", full_fetch=False)
+    rename_functions("data/census_df_long.csv")
