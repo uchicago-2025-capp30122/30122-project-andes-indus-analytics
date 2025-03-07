@@ -1,17 +1,10 @@
-import csv
-import json
-import os
-import sys
 from pathlib import Path
 import pandas as pd
 import httpx
 import time
+import io
 
-YEAR = [2023]
-params = {
-    "get": "SEX,PUMA,RACBLK,AGEP,HISP,FHISP,PWGTP,SCH,ESR,HINCP,ADJINC,SCHG,SCHL,NP"
-}  # variables to get
-
+YEAR = [2013,2023]
 
 class FetchException(Exception):
     """
@@ -23,15 +16,30 @@ class FetchException(Exception):
             f"{response.status_code} retrieving {response.url}: {response.text}"
         )
 
+def get_params_for_year(year: int) -> dict:
+    """
+    Returns the correct 'params' dictionary for the given ACS PUMS year.
+    """
+    if year == 2023:
+        return {
+            "get": "STATE,SEX,PUMA,RACBLK,AGEP,HISP,FHISP,PWGTP,SCH,ESR,"
+                   "HINCP,ADJINC,SCHG,SCHL,NP,WORKSTAT,HHT"
+        }
+    else:
+        # Default parameters for other years
+        return {
+            "get": "ST,SEX,PUMA,RACBLK,AGEP,HISP,FHISP,PWGTP,SCH,ESR,"
+                   "HINCP,ADJINC,SCHG,SCHL,NP,WORKSTAT,HHT"
+        }
 
-def combine_url_with_params(url, params):
+def combine_url_with_params(url, query_params):
     """
     Use httpx.URL to create a URL joined to its parameters, suitable for use.
     we dont need key for this query
 
     Parameters:
         - url: a URL with or without parameters already
-        - params: a dictionary of parameters to add
+        - query_params: a dictionary of parameters to add
 
     Returns:
         The URL with parameters added, for example:
@@ -43,18 +51,19 @@ def combine_url_with_params(url, params):
         "https://example.com/api/?api_key=abc&page=2"
     """
     url = httpx.URL(url)
-    merged_params = dict(url.params) | params  # merge the dictionaries
-    encoded_url = str(url.copy_with(params=merged_params))
-    return encoded_url.replace("%2C", ",")
+    merged = dict(url.params) | query_params  # merge
+    encoded_url = str(url.copy_with(params=merged))
+    return encoded_url.replace("%2C", ",") 
 
 
-def cached_get(url) -> dict:
+def cached_get(url, query_params) -> dict:
     """
     This function caches all GET requests it makes by writing
     the successful responses to disk.
     """
+    
     full_url = combine_url_with_params(
-        url, params
+        url, query_params
     )  # Ensure 'params' is defined in your context.
     try:
         response = httpx.get(full_url, follow_redirects=False, timeout=10000.0)
@@ -87,14 +96,17 @@ def build_census_csv(year, output_filename):
                 adjust HINCP to constant dollars)
     - `SCHG` -  Grade level attending
     - `SCHL` -  Education attainment
+    - `WORKSTAT' - work status householder
+    - `HHT  -   `Household type' 
 
     Parameters:
         output_filename: Path object representing location to write file.
     """
 
     START_URL = f"https://api.census.gov/data/{year}/acs/acs1/pums"
+    query_params = get_params_for_year(year)
 
-    data = cached_get(START_URL)
+    data = cached_get(START_URL, query_params)
     # Convert to DataFrame if data is available
     if data:
         df = pd.DataFrame(data[1:], columns=data[0])  # First row is headers
@@ -104,9 +116,74 @@ def build_census_csv(year, output_filename):
     else:
         print(f"No data available for {year}")
 
+def read_csv_census(text):
+    return [line.split(',') for line in text.split('\n')] # this is intended for 2018
+
+def get_google_drive_files(path, year) -> pd.DataFrame:
+     # Fetch the raw CSV data from Google Drive
+    response = httpx.get(path, follow_redirects=True)
+
+    # Check that we got a valid 200 OK
+    if response.status_code != 200:
+        # Debug: print the first part of the error text
+        print("Response text (first 500 chars):", response.text[:500])
+        raise RuntimeError(f"Error fetching file (status={response.status_code}).")
+    
+    text_buffer = io.StringIO(response.text)
+    #breakpoint()
+    # Read the CSV contents
+    if year == 2018:
+        df = pd.DataFrame(read_csv_census(response.text))
+        df.columns = df.iloc[0]
+        df = df[1:].reset_index(drop=True)
+    else:
+        df = pd.read_csv(text_buffer)
+
+    return df
+
+def chicago_dataframe(year, output_filename_ch, full_fetch=False):
+    """
+    Filters the PUMAS to only the Chicago city
+    """
+    if full_fetch:
+        df = build_census_csv(year, output_filename_ch)
+        # Read the CSV file into a DataFrame
+        df = pd.read_csv(output_filename_ch)  
+        # Filter the DataFrame for rows where PUMA is between 3151 and 3168
+    else:
+        # dict of paths 
+        if year == 2023:
+            path = "https://drive.usercontent.google.com/download?id=1KqviAJthq8RzZa9nVoBS5dp553ix55I7&export=download&authuser=0&confirm=t&uuid=abf16c04-2bbc-48ee-8a9b-9a501f2b315a&at=AEz70l6_lxclQ30xwZyTTaVqhBtR:1740868465146"
+        elif year == 2013:
+            path = "https://drive.usercontent.google.com/download?id=1h8D9WeDCCBe0F75ZNbKqyQ7078ca9HHO&export=download&authuser=0&confirm=t&uuid=580455ba-d495-4801-939f-313992f725dd&at=AEz70l7IHPdNQzGZwfDYNnRNRFEZ:1741292537535"
+        elif year == 2018:
+            path = "https://drive.usercontent.google.com/download?id=14uVPIW811_ZMsYo7qmC5hWiZ6ob1tjSu&export=download&authuser=0&confirm=t&uuid=308bf37a-9709-40c0-951b-7b50ca9f8f64&at=AEz70l40rnSShC2lpzwYyBN3-0_l:1741306863376"
+
+        df = get_google_drive_files(path, year)
+    #print(len(df))
+    #print(df.head())
+    if year == 2023:
+        chicago_df = df[(df["PUMA"].astype(int) >= 3151) & (df["PUMA"].astype(int) <= 3168)]
+    else:
+        chicago_df = df[
+            (df["ST"].astype(int) == 17) &
+            (
+            ((df["PUMA"].astype(int) >= 3501) & (df["PUMA"].astype(int) <= 3504)) |
+            ((df["PUMA"].astype(int) >= 3520) & (df["PUMA"].astype(int) <= 3532))
+            )
+        ]
+    
+    if full_fetch:
+        chicago_df.to_csv(output_filename_ch, index=False)
+    
+    return chicago_df
+
+  
 
 if __name__ == "__main__":
     for yr in YEAR:
         output_filename = Path(f"census_{yr}.csv")
+        output_filename_ch = Path(f"census_{yr}_ch.csv")
         build_census_csv(yr, output_filename)
         time.sleep(10)
+       

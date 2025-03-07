@@ -4,17 +4,26 @@ import plotly.express as px
 import altair as alt
 import pandas as pd
 import geopandas as gpd
-from figures import create_crime_map, create_interactive_bar, create_crime_heat_map
+from figures import create_crime_map, create_interactive_bar, create_crime_heat_map, create_stacked_chart_gender, create_stacked_chart_race
 from join_data import lower_colnames
 import pathlib
 from figures import create_crime_map, create_geo_chart, point_data_chart
 from crime_utils import load_crimes_shp
 
 # Load data
-pumas_shp = lower_colnames(gpd.read_file("data/shapefiles/data_pumas.shp"))
-neighborhood_shp = gpd.read_file("data/shapefiles/data_neighborhoods.shp")
-
+pumas_shp = lower_colnames(gpd.read_file('data/shapefiles/data_pumas.shp'))
+neighborhood_shp = gpd.read_file('data/shapefiles/data_neighborhoods.shp')
+df_c = pd.read_csv("data/census_df.csv")
+df_c_long = pd.read_csv("data/census_df_long.csv")
 crimes_shp = gpd.GeoDataFrame(load_crimes_shp())
+df_e = pd.read_csv("data/merged_school_data.csv")
+pumas_path = pathlib.Path("data/shapefiles/pumas/chicago_pumas.shp")
+pumas = gpd.read_file(pumas_path)
+schools_csv_path = pathlib.Path(
+    "data/merged_school_data.csv"
+)  # update with your CSV path
+schools_df = pd.read_csv(schools_csv_path)
+
 # Create the crime map by puma and neighborhood
 
 for var in ["total_crim", "violent", "non-violen"]:
@@ -31,19 +40,6 @@ pumas_df = pumas_df.rename(
 for var in ["total_crim", "violent", "non-violen"]:
     pumas_df[f"{var}_pc"] = pumas_df[f"{var}"] / pumas_df["pwgtp"] * 1000
 
-pumas_path = pathlib.Path("data/shapefiles/pumas/chicago_pumas.shp")
-pumas = gpd.read_file(pumas_path)
-
-
-schools_csv_path = pathlib.Path(
-    "data/merged_school_data.csv"
-)  # update with your CSV path
-schools_df = pd.read_csv(schools_csv_path)
-
-
-df_c = pd.read_csv("data/census_df.csv")
-df_c_long = pd.read_csv("data/census_df_long.csv")
-df_e = pd.read_csv("data/merged_school_data.csv")
 
 crime_labels = {
     "total_crim_pc": "Total Crime",
@@ -66,7 +62,7 @@ app.layout = html.Div(
             children=[
                 html.H1(
                     [
-                        # "Michelin Guide to France" in black
+                        # "text" in black
                         html.Span(
                             "Understanding School Attendance and Crime in",
                             style={"color": "#000000", "font-weight": "normal"},
@@ -108,7 +104,7 @@ app.layout = html.Div(
                                 html.Div(
                                     [
                                         html.H4(
-                                            "18",
+                                            id="pumas-text", # "18",
                                             className="card-title",
                                             style={"margin": 0},
                                         ),
@@ -128,6 +124,11 @@ app.layout = html.Div(
                                     "Pumas",
                                     className="card-text",
                                     style={"marginTop": "10px"},
+                                ),
+                                dbc.Tooltip(
+                                    "PUMAs refer to the Public Use Microdata Areas that are non-overlapping, statistical geographic areas that partition each state or equivalent entity into geographic areas containing no fewer than 100,000 people each.",
+                                    target = "pumas-text",
+                                    placement="top"
                                 ),
                             ]
                         ),
@@ -280,7 +281,7 @@ app.layout = html.Div(
                                     "Total crimes in 2023",
                                     className="card-text",
                                     style={"marginTop": "10px"},
-                                ),
+                                ), 
                             ]
                         ),
                         style={
@@ -315,6 +316,19 @@ app.layout = html.Div(
                             "Story or problem we are tackling. "
                             "Use this space for any narrative or instructions."
                         ),
+
+                        dcc.RadioItems(
+                                    id="crime-type",
+                                    options=[
+                                        {"label": "Total Crime", "value": "total_crim_pc"},
+                                        {"label": "Violent Crime", "value": "violent_pc"},
+                                        {"label": "Non Violent Crime", "value": "non-violen_pc"},
+                                    ],
+                                    value="total_crim_pc",
+                                    inline=True,
+                                 ),
+
+                        html.Div(id="schools_locations"), 
                     ],
                 ),
                 # Right column: the graphs
@@ -326,20 +340,12 @@ app.layout = html.Div(
                         html.Div(id="scatter-graph-container"),
                         html.Div(id="bar-graph-container"),
                         html.Div(id="crime_map"),
-                        html.Div(id="schools_locations"),
                         html.Div(id="crime_heatmap"),
+                        
+                        
                     ],
                 ),
-                dcc.RadioItems(
-                    id="crime-type",
-                    options=[
-                        {"label": "Total Crime", "value": "total_crim_pc"},
-                        {"label": "Violent Crime", "value": "violent_pc"},
-                        {"label": "Non Violent Crime", "value": "non-violen_pc"},
-                    ],
-                    value="total_crim_pc",
-                    inline=True,
-                ),
+                
             ],
         ),
     ]
@@ -355,12 +361,20 @@ app.layout = html.Div(
     Output("crime_map", "children"),
     Output("schools_locations", "children"),
     Output("crime_heatmap", "children"),
+    # for the cards
+    Output("pumas-text", "children"),
     Input("dropdown-year", "value"),
     Input("crime-type", "value"),
 )
 def update_charts(selected_year, selected_crime):
-    # Filter data for the selected year
-    dff = df_c[df_c["year"] == selected_year]
+   
+   # cards
+    pumas_count = len(
+        df_c_long[
+            (df_c_long["year"] == selected_year) 
+            & (df_c_long["PUMA"] != 9999)
+        ]["PUMA"].unique()
+    )
 
     # for the interactive barchart
     brush = alt.selection_interval()
@@ -379,81 +393,12 @@ def update_charts(selected_year, selected_crime):
         "middle_w": "Middle",
         "high_school_w": "High School",
     }
+    
 
-    color_scale = alt.Scale(
-        domain=["men", "women"],  # The categories in cut_name
-        range=["#1f77b4", "#eb9b44"],  # The colors you want for each
-    )
+    
 
-    color_scale2 = alt.Scale(
-        domain=["afroamerican", "nonafroamerican"],  # The categories in cut_name
-        range=["#1f77b4", "#eb9b44"],  # The colors you want for each
-    )
-    # Create a new column 'indicator_label' using the mapping
-    df_c_long["indicator_label"] = (
-        df_c_long["indicator"].map(indicator_map).fillna(df_c_long["indicator"])
-    )
-
-    # Then filter the DataFrame
-    df_filtered = df_c_long[
-        (df_c_long["PUMA"] == 9999)
-        & (df_c_long["indicator_label"].isin(["High School", "Middle", "Elementary"]))
-        & (df_c_long["cut_name"].isin(["women", "men"]))
-    ]
-
-    # Then filter using the updated column
-    df_filtered2 = df_c_long[
-        (df_c_long["PUMA"] == 9999)
-        & (df_c_long["indicator_label"].isin(["High School", "Middle", "Elementary"]))
-        & (df_c_long["cut_name"].isin(["afroamerican", "nonafroamerican"]))
-    ]
-
-    indicator_order = ["Elementary", "Middle", "High School"]
-    # Define selection
-    selection = alt.selection_point(fields=["cut_name"], bind="legend")
-    # Create stacked bar chart
-    fig_stacked = (
-        alt.Chart(df_filtered)
-        .mark_bar()
-        .encode(
-            x=alt.X("sum(value):Q", stack="zero", axis=alt.Axis(title="Population")),
-            y=alt.Y(
-                "indicator_label:N",
-                sort=indicator_order,
-                axis=alt.Axis(title="Education level"),
-            ),
-            color=alt.Color("cut_name:N", scale=color_scale),
-            opacity=alt.condition(selection, alt.value(0.9), alt.value(0.2)),
-            tooltip=[
-                alt.Tooltip("year", title="Year"),
-                alt.Tooltip("puma_label", title="Puma"),
-                alt.Tooltip("value", title="population number"),
-            ],
-        )
-        .add_params(selection)
-    )
-
-    fig_stacked2 = (
-        alt.Chart(df_filtered2)
-        .mark_bar()
-        .encode(
-            x=alt.X("sum(value):Q", stack="zero", axis=alt.Axis(title="Population")),
-            y=alt.Y(
-                "indicator_label:N",
-                sort=indicator_order,
-                axis=alt.Axis(title="Education level"),
-            ),
-            color=alt.Color("cut_name:N", scale=color_scale2),
-            opacity=alt.condition(selection, alt.value(0.9), alt.value(0.2)),
-            tooltip=[
-                alt.Tooltip("year", title="Year"),
-                alt.Tooltip("value", title="Population number"),
-            ],
-        )
-        .add_params(selection)
-    )
-
-    # Create the scatter plot with a brush selection
+    
+   # Create the scatter plot with a brush selection
     brush = alt.selection_interval()
     df_scatter = pumas_df[pumas_df["year"] == selected_year]
     scatter = (
@@ -480,8 +425,19 @@ def update_charts(selected_year, selected_crime):
     )
 
     fig_scatter = (scatter + regression_line).properties(
-        title=f"Scatter Plot for Year {selected_year}"
+        title=f"Scatter Plot for Year {selected_year}")
+    
+
+        # Create a new column 'indicator_label' using the mapping
+    df_c_long["indicator_label"] = (
+        df_c_long["indicator"].map(indicator_map).fillna(df_c_long["indicator"])
     )
+
+     # Filter data for the selected year
+    dff = df_c[df_c["year"] == selected_year]
+
+    fig_stacked = create_stacked_chart_gender(df_c_long)
+    fig_stacked2 = create_stacked_chart_race(df_c_long)
 
     # Create the bar chart sorted descending by attendance_rate_high
     fig_bar = create_interactive_bar(
@@ -551,6 +507,8 @@ def update_charts(selected_year, selected_crime):
             srcDoc=school_map.to_html(),
             style={"width": "100%", "height": "600px", "border": "0"},
         ),
+        # for the cards
+        str(pumas_count),
     )
 
 
