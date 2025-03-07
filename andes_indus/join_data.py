@@ -125,7 +125,7 @@ def gen_final_data(full_fetch=False):
 
     # Merging crime and school data to pumas
     path_pumas = Path("data/shapefiles/pumas/pumas2022")
-    pumas = load_pumas_shp(path_pumas)
+    pumas = load_pumas_shp(path_pumas,2020)
     quadtree_chi_pumas = gen_quadtree(pumas, gen_chi_bbox(pumas))
 
     # Creating the pd.Dataframes for crime
