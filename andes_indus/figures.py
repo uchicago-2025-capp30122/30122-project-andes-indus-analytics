@@ -6,8 +6,8 @@ import plotly.graph_objects as go
 from api_get import get_google_drive_files
 
 def create_crime_map(
-    gdf: gpd.GeoDataFrame, selected_crime: str, selected_year: int, label_dict: dict
-) -> alt.Chart:
+    gdf: gpd.GeoDataFrame, selected_crime: str, 
+    selected_year: int, label_dict: dict, selected_level:str, level_label:str) -> alt.Chart:
     gdf = gdf[gdf["year"] == selected_year].copy()
     map = (
         alt.Chart(gdf)
@@ -15,7 +15,7 @@ def create_crime_map(
         .encode(
             color=alt.Color(selected_crime, type="quantitative", title="Crime Rate"),
             tooltip=[
-                alt.Tooltip("puma_label", title="Puma"),
+                alt.Tooltip(level_label, title=selected_level),
                 alt.Tooltip("year", title="Year"),
                 alt.Tooltip(selected_crime, title="Crime per 1000 hab."),
             ],
@@ -24,7 +24,7 @@ def create_crime_map(
         .properties(
             width=500,
             height=500,
-            title=f"{label_dict[selected_crime]} ocurrances per 1000 hab. for Year {selected_year}",
+            title=f"{label_dict[selected_crime]} ocurrances per 1000 hab. for Year {selected_year} by {selected_level}",
         )
     )
 

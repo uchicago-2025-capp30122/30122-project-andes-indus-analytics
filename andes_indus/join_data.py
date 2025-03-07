@@ -107,6 +107,17 @@ def zero_fill_cols(df: pd.DataFrame | gpd.GeoDataFrame,
     df[colname] = df[colname].astype(dtype=str).str.zfill(n_zeros)
     return df
 
+def gen_pc_stats(df:pd.DataFrame, popvar:str) -> pd.DataFrame:
+    df = df.rename(columns={'Non-violent':"non-violen",
+                                            'Violent':"violent",
+                                            'total_crimes':"total_crim"})
+    
+    for var in ["total_crim", "violent", "non-violen"]:
+        df[f"{var}_pc"] = df[f"{var}"] / df[popvar] * 1000
+    
+    return df
+
+
 def gen_final_data(full_fetch=False):
     # Gathering education data
     path_schools = Path("data/merged_school_data.csv")
@@ -174,6 +185,8 @@ def gen_final_data(full_fetch=False):
     data_pumas = data_pumas.merge(schools_by_puma, how="inner", on=["puma", "year"])
     data_pumas = data_pumas.merge(census_data, how="inner", on=["puma", "year"])
 
+    data_pumas = gen_pc_stats(data_pumas, 'pwgtp')
+
     data_pumas.to_csv("data/data_pumas.csv")
     data_pumas.to_file("data/shapefiles/data_pumas.shp")
 
@@ -204,9 +217,14 @@ def gen_final_data(full_fetch=False):
 
     pop_neighborhoods = pd.read_csv('data/pop_neighborhood.csv', delimiter=";")
     pop_neighborhoods = zero_fill_cols(pop_neighborhoods, 'neighborhood', 4)
+    pop_neighborhoods["pop2020"] = pop_neighborhoods["pop2020"].str.replace(",", "").astype(int)
+
     data_neighborhoods = data_neighborhoods.merge(
         pop_neighborhoods, how="inner", on=["neighborhood"]
     )
+
+    data_neighborhoods = gen_pc_stats(data_neighborhoods, 'pop2020')
+
     data_neighborhoods.to_csv("data/data_neighborhoods.csv")
     data_neighborhoods.to_file("data/shapefiles/data_neighborhoods.shp")
 
