@@ -1,12 +1,9 @@
 import altair as alt
 import geopandas as gpd
-import pathlib
-import json
 import pandas as pd
-from merge_shp import load_pumas_shp, load_schools
 import plotly.express as px
 import plotly.graph_objects as go
-
+from api_get import get_google_drive_files
 
 def create_crime_map(
     gdf: gpd.GeoDataFrame, selected_crime: str, selected_year: int, label_dict: dict
@@ -147,11 +144,11 @@ def create_crime_heat_map(
         lat="latitude",
         lon="longitude",
         z="count",
-        radius=15,
+        radius=13,
         center={"lat": gdf["latitude"].mean(), "lon": gdf["longitude"].mean()},
         zoom=9,
         mapbox_style="carto-positron",
-        color_continuous_scale="rdbu",
+        color_continuous_scale="emrld",
     )
 
     fig.update_layout(
@@ -353,3 +350,18 @@ def create_stacked_chart_race(df_c_long):
     ).add_params(selection)
 
     return bar
+
+
+def load_crimes_shp():
+    path = 'https://drive.usercontent.google.com/download?id=17lrQgaXcTAQTM4kMqt19RYvC4gtF9wCn&export=download&authuser=0&confirm=t&uuid=f69248de-b684-4c5f-976b-63576e8c9741&at=AEz70l53DiY7nTnR_fRZmhZYPvOx:1741223440221'
+
+    # Saved to a DataFrame
+    data = get_google_drive_files(path,4)
+    
+    block_data = data.groupby(['block', 'year','crime_type']).agg(
+            latitude=("latitude", "mean"),
+            longitude=("longitude", "mean"),
+            count=("case_number", "count"),
+        ).reset_index()
+
+    return block_data

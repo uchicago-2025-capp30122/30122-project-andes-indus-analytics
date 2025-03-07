@@ -4,11 +4,16 @@ import plotly.express as px
 import altair as alt
 import pandas as pd
 import geopandas as gpd
-from figures import create_crime_map, create_interactive_bar, create_crime_heat_map, create_stacked_chart_gender, create_stacked_chart_race
+from figures import (create_crime_map, 
+                     create_interactive_bar, 
+                     create_crime_heat_map, 
+                     create_stacked_chart_gender, 
+                     create_stacked_chart_race,
+                     create_geo_chart,
+                     point_data_chart,
+                     load_crimes_shp)
 from join_data import lower_colnames
 import pathlib
-from figures import create_crime_map, create_geo_chart, point_data_chart
-from crime_utils import load_crimes_shp
 
 # Load data
 pumas_shp = lower_colnames(gpd.read_file('data/shapefiles/data_pumas.shp'))

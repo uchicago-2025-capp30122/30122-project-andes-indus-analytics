@@ -2,8 +2,6 @@ from typing import NamedTuple
 from sodapy import Socrata
 import os
 import pandas as pd
-import httpx
-import io
 import numpy as np
 from api_get import get_google_drive_files
 
@@ -128,25 +126,10 @@ def load_crime_data():
     for _, path in dict_paths.items():
 
         # Read the CSV contents
-        df = get_google_drive_files(path)
+        df = get_google_drive_files(path, 0)
         data_lst.append(df)
 
     return data_lst[0], data_lst[1]
-
-
-def load_crimes_shp():
-    path = 'https://drive.usercontent.google.com/download?id=17lrQgaXcTAQTM4kMqt19RYvC4gtF9wCn&export=download&authuser=0&confirm=t&uuid=f69248de-b684-4c5f-976b-63576e8c9741&at=AEz70l53DiY7nTnR_fRZmhZYPvOx:1741223440221'
-
-    # Saved to a DataFrame
-    data = get_google_drive_files(path,4)
-    
-    block_data = data.groupby(['block', 'year','crime_type']).agg(
-            latitude=("latitude", "mean"),
-            longitude=("longitude", "mean"),
-            count=("case_number", "count"),
-        ).reset_index()
-
-    return block_data
 
 
 if __name__ == "__main__":

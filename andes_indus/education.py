@@ -1,9 +1,7 @@
 import requests
 import pandas as pd
-import openpyxl
 
 # Step 1: Get All School IDs
-
 
 def get_all_school_ids(
     api_url="https://api.cps.edu/schoolprofile/CPS/TypeaheadSchoolSearch",
