@@ -104,7 +104,7 @@ app.layout = html.Div(
                                 html.Div(
                                     [
                                         html.H4(
-                                            "18",
+                                            id="pumas-text", # "18",
                                             className="card-title",
                                             style={"margin": 0},
                                         ),
@@ -124,6 +124,11 @@ app.layout = html.Div(
                                     "Pumas",
                                     className="card-text",
                                     style={"marginTop": "10px"},
+                                ),
+                                dbc.Tooltip(
+                                    "PUMAs refer to the Public Use Microdata Areas that are non-overlapping, statistical geographic areas that partition each state or equivalent entity into geographic areas containing no fewer than 100,000 people each.",
+                                    target = "pumas-text",
+                                    placement="top"
                                 ),
                             ]
                         ),
@@ -276,7 +281,7 @@ app.layout = html.Div(
                                     "Total crimes in 2023",
                                     className="card-text",
                                     style={"marginTop": "10px"},
-                                ),
+                                ), 
                             ]
                         ),
                         style={
@@ -311,6 +316,19 @@ app.layout = html.Div(
                             "Story or problem we are tackling. "
                             "Use this space for any narrative or instructions."
                         ),
+
+                        dcc.RadioItems(
+                                    id="crime-type",
+                                    options=[
+                                        {"label": "Total Crime", "value": "total_crim_pc"},
+                                        {"label": "Violent Crime", "value": "violent_pc"},
+                                        {"label": "Non Violent Crime", "value": "non-violen_pc"},
+                                    ],
+                                    value="total_crim_pc",
+                                    inline=True,
+                                 ),
+
+                        html.Div(id="schools_locations"), 
                     ],
                 ),
                 # Right column: the graphs
@@ -322,20 +340,12 @@ app.layout = html.Div(
                         html.Div(id="scatter-graph-container"),
                         html.Div(id="bar-graph-container"),
                         html.Div(id="crime_map"),
-                        html.Div(id="schools_locations"),
                         html.Div(id="crime_heatmap"),
+                        
+                        
                     ],
                 ),
-                dcc.RadioItems(
-                    id="crime-type",
-                    options=[
-                        {"label": "Total Crime", "value": "total_crim_pc"},
-                        {"label": "Violent Crime", "value": "violent_pc"},
-                        {"label": "Non Violent Crime", "value": "non-violen_pc"},
-                    ],
-                    value="total_crim_pc",
-                    inline=True,
-                ),
+                
             ],
         ),
     ]
@@ -351,11 +361,20 @@ app.layout = html.Div(
     Output("crime_map", "children"),
     Output("schools_locations", "children"),
     Output("crime_heatmap", "children"),
+    # for the cards
+    Output("pumas-text", "children"),
     Input("dropdown-year", "value"),
     Input("crime-type", "value"),
 )
 def update_charts(selected_year, selected_crime):
    
+   # cards
+    pumas_count = len(
+        df_c_long[
+            (df_c_long["year"] == selected_year) 
+            & (df_c_long["PUMA"] != 9999)
+        ]["PUMA"].unique()
+    )
 
     # for the interactive barchart
     brush = alt.selection_interval()
@@ -488,6 +507,8 @@ def update_charts(selected_year, selected_crime):
             srcDoc=school_map.to_html(),
             style={"width": "100%", "height": "600px", "border": "0"},
         ),
+        # for the cards
+        str(pumas_count),
     )
 
 
