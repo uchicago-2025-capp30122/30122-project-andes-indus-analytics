@@ -5,6 +5,7 @@ from typing import NamedTuple, Optional
 import pathlib
 import shapefile
 import csv
+import pandas as pd
 
 
 class Puma(NamedTuple):
@@ -42,6 +43,7 @@ class School(NamedTuple):
     adjusted_students: Optional[int]
     puma: None | str
     neighborhood: None | str
+
 
 def load_pumas_shp(path: pathlib.Path) -> list[Puma]:
     pumas = []
@@ -103,7 +105,7 @@ def load_schools(path: pathlib.Path) -> list[School]:
                     row["TotalStudents"],
                     row["AdjustedStudents"],
                     None,
-                    None
+                    None,
                 )
             )
     return schools
@@ -134,12 +136,59 @@ def gen_quadtree(division: list[Puma | Neighborhood], chi_bbox: BBox):
 
 
 def assign_division(quadtree: Quadtree, location: Crime | School) -> str:
-    if (location.longitude == '') or (location.latitude == ''):
+    if (location.longitude == "") or (location.latitude == ""):
         return None
-    else:    
+    else:
         loc_point = Point(float(location.longitude), float(location.latitude))
         match_lst = quadtree.match(loc_point)
         if len(match_lst) == 0:
             return None
         return match_lst[0]
-    
+
+
+def assign_puma_to_list(
+    data_lst: list[Crime | School], quadtree_chi: Quadtree
+) -> list[Crime | School]:
+    new_data_lst = []
+    for point in data_lst:
+        new_puma = assign_division(quadtree_chi, point)
+        if new_puma is None:
+            continue
+        else:
+            if type(point) == Crime:
+                new_data_lst.append(
+                    Crime(*point[:-2], puma=new_puma, neighborhood=point[-1])
+                )
+            elif type(point) == School:
+                new_data_lst.append(
+                    School(*point[:-2], puma=new_puma, neighborhood=point[-1])
+                )
+    return new_data_lst
+
+
+def assign_neighborhood_to_list(
+    data_lst: list[Crime | School], quadtree_chi: Quadtree
+) -> list[Crime | School]:
+    new_data_lst = []
+    for point in data_lst:
+        new_neighborhood = assign_division(quadtree_chi, point)
+        if new_neighborhood is None:
+            continue
+        else:
+            if type(point) == Crime:
+                new_data_lst.append(Crime(*point[:-1], neighborhood=new_neighborhood))
+            elif type(point) == School:
+                new_data_lst.append(School(*point[:-1], neighborhood=new_neighborhood))
+    return new_data_lst
+
+
+def assign_puma_neighborhood(
+    data_lst: list[Crime | School], quadtree_chi: Quadtree, group: str
+) -> pd.DataFrame:
+    assert group in ("puma", "neighborhood")
+    if group == "puma":
+        new_data_lst = assign_puma_to_list(data_lst, quadtree_chi)
+    else:
+        new_data_lst = assign_neighborhood_to_list(data_lst, quadtree_chi)
+
+    return pd.DataFrame(new_data_lst)
