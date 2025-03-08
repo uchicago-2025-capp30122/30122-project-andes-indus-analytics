@@ -52,7 +52,7 @@ def create_geo_chart(
         alt.Chart(geo_data)
         .mark_geoshape(fill="None", stroke="None")
         .properties(width=width, height=height)
-        .project("mercator")
+        .project(projection)
     )
 
     points_chart = (

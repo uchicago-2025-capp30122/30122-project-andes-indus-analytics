@@ -78,6 +78,16 @@ def process_results(results, lst_results, full_fetch=False) -> list:
                 )
     return lst_results
 
+def classify_violent_crimes(df: pd.DataFrame) -> pd.DataFrame:
+    mask1_1 = df["primary_type"] == "HOMICIDE"
+    mask1_2 = df["primary_type"] == "ROBBERY"
+    mask1_3 = df["primary_type"] == "CRIMINAL SEXUAL ASSAULT"
+    mask2 = df["primary_type"] == "ASSAULT"
+    mask3 = df["description"].str.startswith("AGGRAVATED")
+    df["crime_type"] = np.where(
+        (mask1_1 | mask1_2 | mask1_3) | (mask2 & mask3), "Violent", "Non-violent"
+    )
+    return df
 
 def get_all_crime_data():
     # Creating the APP Key for the data sources.
@@ -91,28 +101,18 @@ def get_all_crime_data():
     # Gathering the crime data from the City of Chicago Data web
     client = Socrata("data.cityofchicago.org", CHICAGO_APP_TOKEN)
     crime_code = "ijzp-q8t2"
-    homicides_code = "gumc-mgzr"
     lst_years = [2013, 2018, 2023]
 
-    crime_data = get_crime_data(client, crime_code, lst_years, True)
-    homicides_data = get_crime_data(client, homicides_code, lst_years, True)
+    crime_data_23 = get_crime_data(client, crime_code, [2023], True)
+    crime_data_1318 = get_crime_data(client, crime_code, lst_years[0:2], True)
 
-    crime_df = pd.DataFrame(crime_data)
-    mask1_1 = crime_df["primary_type"] == "HOMICIDE"
-    mask1_2 = crime_df["primary_type"] == "ROBBERY"
-    mask1_3 = crime_df["primary_type"] == "CRIMINAL SEXUAL ASSAULT"
-    mask2 = crime_df["primary_type"] == "ASSAULT"
-    mask3 = crime_df["description"].str.startswith("AGGRAVATED")
-    crime_df["crime_type"] = np.where(
-        (mask1_1 | mask1_2 | mask1_3) | (mask2 & mask3), "Violent", "Non-violent"
-    )
-
+    crime_df_23 = classify_violent_crimes(pd.DataFrame(crime_data_23))
+    crime_df_1318 = classify_violent_crimes(pd.DataFrame(crime_data_1318))
+    crime_df = pd.concat([crime_df_23, crime_df_1318])
+    
     crime_df.to_csv("data/crime_df.csv", index=False)
 
-    homicides_df = pd.DataFrame(homicides_data)
-    homicides_df.to_csv("data/homicides_df.csv", index=False)
-
-    return crime_data, homicides_data
+    return crime_data_23, crime_data_1318
 
 
 def load_crime_data():
@@ -124,7 +124,7 @@ def load_crime_data():
 
     data_lst = []
     for _, path in dict_paths.items():
-
+        
         # Read the CSV contents
         df = get_google_drive_files(path, 0)
         data_lst.append(df)
