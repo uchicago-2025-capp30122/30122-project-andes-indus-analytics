@@ -45,15 +45,21 @@ class School(NamedTuple):
     neighborhood: None | str
 
 
-def load_pumas_shp(path: pathlib.Path) -> list[Puma]:
+def load_pumas_shp(path: pathlib.Path, pumas_year: int) -> list[Puma]:
+    '''
+    Creates a list of Pumas objects to 
+    '''
+    name_dict = {2010 : 4,
+                 2020 : 3}
+
     pumas = []
     with shapefile.Reader(path) as sf:
         for shape_rec in sf.shapeRecords():
-            if shape_rec.record[3].startswith("Chicago City"):
+            if shape_rec.record[name_dict[pumas_year]].startswith("Chicago City"):
                 pumas.append(
                     Puma(
                         id=shape_rec.record[1],
-                        name=shape_rec.record[3],
+                        name=shape_rec.record[name_dict[pumas_year]],
                         polygon=Polygon(shape_rec.shape.points),
                     )
                 )

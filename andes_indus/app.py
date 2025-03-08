@@ -4,49 +4,42 @@ import plotly.express as px
 import altair as alt
 import pandas as pd
 import geopandas as gpd
-from figures import create_crime_map, create_interactive_bar, create_crime_heat_map, create_stacked_chart_gender, create_stacked_chart_race
+from figures import (create_crime_map, 
+                     create_interactive_bar, 
+                     create_crime_heat_map, 
+                     create_stacked_chart_gender, 
+                     create_stacked_chart_race,
+                     create_geo_chart,
+                     point_data_chart,
+                     load_crimes_shp,
+                     create_graph_multiple)
 from join_data import lower_colnames
-import pathlib
-from figures import create_crime_map, create_geo_chart, point_data_chart, create_graph_multiple
-from crime_utils import load_crimes_shp
+from pathlib import Path
 
-# Load data
-pumas_shp = lower_colnames(gpd.read_file('data/shapefiles/data_pumas.shp'))
-neighborhood_shp = gpd.read_file('data/shapefiles/data_neighborhoods.shp')
-df_c = pd.read_csv("data/census_df.csv")
-df_c_long = pd.read_csv("data/census_df_long.csv")
+# Loading data files - Puma level
+pumas_shp = lower_colnames(gpd.read_file(Path('data/shapefiles/data_pumas.shp')))
+pumas_shp = pumas_shp.rename(columns={'total_cr_1' : 'total_crim_pc', 
+                                      'non-viol_1' : 'non_violent_pc'})
+
+pumas_df = pd.read_csv(Path("data/data_pumas.csv"))
+df_c = pd.read_csv(Path("data/census_df.csv"))
+df_c_long = pd.read_csv(Path("data/census_df_long.csv"))
+
+# Loading maps shapefiles
+pumas = gpd.read_file(Path("data/shapefiles/pumas/chicago_pumas.shp"))
+neighborhood_shp = gpd.read_file(Path('data/shapefiles/data_neighborhoods.shp'))
+neighborhood_shp = neighborhood_shp.rename(columns={'total_cr_1' : 'total_crim_pc', 
+                                      'non-viol_1' : 'non_violent_pc'})
 crimes_shp = gpd.GeoDataFrame(load_crimes_shp())
-df_e = pd.read_csv("data/merged_school_data.csv")
-pumas_path = pathlib.Path("data/shapefiles/pumas/chicago_pumas.shp")
-pumas = gpd.read_file(pumas_path)
-schools_csv_path = pathlib.Path(
-    "data/merged_school_data.csv"
-)  # update with your CSV path
-schools_df = pd.read_csv(schools_csv_path)
 
-# Create the crime map by puma and neighborhood
+# Loading school locations
+schools_df = pd.read_csv(Path("data/merged_school_data.csv"))
 
-for var in ["total_crim", "violent", "non-violen"]:
-    pumas_shp[f"{var}_pc"] = pumas_shp[f"{var}"] / pumas_shp["pwgtp"] * 1000
-
-pumas_df = pd.read_csv("data/data_pumas.csv")
-pumas_df = pumas_df.rename(
-    columns={
-        "total_crimes": "total_crim",
-        "Violent": "violent",
-        "Non-violent": "non-violen",
-    }
-)
-for var in ["total_crim", "violent", "non-violen"]:
-    pumas_df[f"{var}_pc"] = pumas_df[f"{var}"] / pumas_df["pwgtp"] * 1000
-
-
+# Labels for graphs 
 crime_labels = {
     "total_crim_pc": "Total Crime",
     "violent_pc": "Violent Crime",
-    "non-violen_pc": "Non Violent Crime",
-    "Violent": "Violent Crime",
-    "Non-violent": "Non Violent Crime",
+    "non-violen_pc": "Non Violent Crime"
 }
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
@@ -118,15 +111,23 @@ app.layout = html.Div(
         ),
 
         #  Graphs ordered:
-        html.Div(id="crime_map", style={"marginBottom": "20px"}),  # 1️⃣ Crime Map
-       
+        html.Div(id="crime_heatmap", style={"marginBottom": "20px"}),  # 2️⃣ Crime Heatmap
         html.Div(id="stacked-graph-container", style={"marginBottom": "5px"}),  #  Stacked Chart (Gender)
         html.Div(id="stacked2-graph-container", style={"marginBottom": "20px"}),  # Stacked Chart (Race)
         html.Div(id="attendance_graph", style={"marginBottom": "20px"}),  # 5️⃣ Attendance Graph
-        html.Div(id="scatter-graph-container", style={"marginBottom": "20px"}),  # 6️⃣ Scatter Plot
         html.Div(id="bar-graph-container", style={"marginBottom": "20px"}),  # 7️⃣ Bar Chart
+        html.Div(id="scatter-graph-container", style={"marginBottom": "20px"}),  # 6️⃣ Scatter Plot
+        dcc.RadioItems(
+                                    id="level-map",
+                                    options=[
+                                        {"label": "Puma level", "value": "Puma"},
+                                        {"label": "Neighborhood level", "value": "Neighborhood"}
+                                        ],
+                                    value="Puma",
+                                    inline=True,
+                                 ),
+        html.Div(id="crime_map", style={"marginBottom": "20px"}),  # 1️⃣ Crime Map
         html.Div(id="schools_locations", style={"marginBottom": "20px"}),  # 8️⃣ Schools Locations
-        html.Div(id="crime_heatmap", style={"marginBottom": "20px"}),  # 2️⃣ Crime Heatmap
     ],
     width=9,  # Takes 75% of space
 ),
@@ -326,22 +327,22 @@ app.layout = html.Div(
 
 # Callback updates the containers with iframes that embed the Altair charts.
 @callback(
-    Output("crime_map", "children"),
+    Output("crime_heatmap", "children"),
     Output("stacked-graph-container", "children"),
     Output("stacked2-graph-container", "children"),
-    Output("scatter-graph-container", "children"),
     Output("attendance_graph", "children"),
     Output("bar-graph-container", "children"),
-
+    Output("scatter-graph-container", "children"),
+    Output("crime_map", "children"),    
     Output("schools_locations", "children"),
-    Output("crime_heatmap", "children"),
 
     # for the cards
     Output("pumas-text", "children"),
     Input("dropdown-year", "value"),
     Input("crime-type", "value"),
+    Input("level-map" , "value")
 )
-def update_charts(selected_year, selected_crime):
+def update_charts(selected_year, selected_crime, selected_level):
    
    # cards
     pumas_count = len(
@@ -373,9 +374,6 @@ def update_charts(selected_year, selected_crime):
     }
     
 
-    
-
-    
    # Create the scatter plot with a brush selection
     brush = alt.selection_interval()
     df_scatter = pumas_df[pumas_df["year"] == selected_year]
@@ -427,7 +425,10 @@ def update_charts(selected_year, selected_crime):
     )
 
     # Creating a map
-    crime_map = create_crime_map(pumas_shp, selected_crime, selected_year, crime_labels)
+    if selected_level == "Puma":
+        crime_map = create_crime_map(pumas_shp, selected_crime, selected_year, crime_labels, selected_level, "puma_label")
+    else:
+        crime_map = create_crime_map(neighborhood_shp, selected_crime, selected_year, crime_labels, selected_level, "DISTITLE")
 
     # Creating a school map
     school_map = create_geo_chart(
@@ -450,13 +451,8 @@ def update_charts(selected_year, selected_crime):
     )
 
     # Creating a heatmap
-    helper_dict = {
-        "violent_pc": "Violent",
-        "non-violen_pc": "Non-violent",
-        "total_crim_pc": "total_crim_pc",
-    }
     crime_heatmap = create_crime_heat_map(
-        crimes_shp, helper_dict[selected_crime], selected_year, crime_labels
+        crimes_shp, selected_crime, selected_year, crime_labels
     )
 
 

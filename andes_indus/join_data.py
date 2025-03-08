@@ -6,7 +6,7 @@ from merge_shp import (
     load_schools,
     assign_puma_neighborhood,
 )
-from crime_utils import get_all_crime_data, load_crime_data
+from crime_utils import get_all_crime_data, load_crime_data, classify_violent_crimes
 from education import main_education
 from census_utils import process_multiple_years
 from pathlib import Path
@@ -16,17 +16,11 @@ import numpy as np
 
 
 def group_crime_data_by(new_data_lst: pd.DataFrame, group: str) -> pd.DataFrame:
-    if not Path(f"data/crime_by_{group}.csv").exists():
-        new_data_lst.to_csv(f"data/crime_by_{group}.csv")
-
-    mask1_1 = new_data_lst["primary_type"] == "HOMICIDE"
-    mask1_2 = new_data_lst["primary_type"] == "ROBBERY"
-    mask1_3 = new_data_lst["primary_type"] == "CRIMINAL SEXUAL ASSAULT"
-    mask2 = new_data_lst["primary_type"] == "ASSAULT"
-    mask3 = new_data_lst["description"].str.startswith("AGGRAVATED")
-    new_data_lst["crime_type"] = np.where(
-        (mask1_1 | mask1_2 | mask1_3) | (mask2 & mask3), "Violent", "Non-violent"
-    )
+    path = Path(f'data/crime_by_{group}.csv')
+    if not path.exists():
+        new_data_lst.to_csv(path)
+    
+    new_data_lst = classify_violent_crimes(new_data_lst)
 
     final_data = (
         new_data_lst.groupby([group, "year", "crime_type"])
@@ -46,8 +40,9 @@ def group_crime_data_by(new_data_lst: pd.DataFrame, group: str) -> pd.DataFrame:
 
 
 def group_school_data_by(new_data_lst: pd.DataFrame, group: str) -> pd.DataFrame:
-    if not Path(f"data/schools_by_{group}.csv").exists():
-        new_data_lst.to_csv(f"data/schools_by_{group}.csv")
+    path = Path(f'data/schools_by_{group}.csv')
+    if not path.exists():
+        new_data_lst.to_csv(path)
 
     numeric_cols = [
         "student_count",
@@ -105,6 +100,21 @@ def lower_colnames(
     data.columns = data.columns.str.lower()
     return data
 
+def zero_fill_cols(df: pd.DataFrame | gpd.GeoDataFrame, 
+                   colname: str, 
+                   n_zeros: int) -> pd.DataFrame| gpd.GeoDataFrame:
+    df[colname] = df[colname].astype(dtype=str).str.zfill(n_zeros)
+    return df
+
+def gen_pc_stats(df:pd.DataFrame, popvar:str) -> pd.DataFrame:
+    df = df.rename(columns={'Non-violent':"non-violen",
+                                            'Violent':"violent",
+                                            'total_crimes':"total_crim"})
+    
+    for var in ["total_crim", "violent", "non-violen"]:
+        df[f"{var}_pc"] = df[f"{var}"] / df[popvar] * 1000
+    
+    return df
 
 def gen_final_data(full_fetch=False):
     # Gathering education data
@@ -124,70 +134,97 @@ def gen_final_data(full_fetch=False):
         census_data = lower_colnames(pd.read_csv(path_census))
 
     # Merging crime and school data to pumas
-    path_pumas = Path("data/shapefiles/pumas/pumas2022")
-    pumas = load_pumas_shp(path_pumas)
-    quadtree_chi_pumas = gen_quadtree(pumas, gen_chi_bbox(pumas))
+    path_pumas2020 = Path("data/shapefiles/pumas/pumas2022")
+    pumas2020 = load_pumas_shp(path_pumas2020,2020)
+    quadtree_chi_pumas2020 = gen_quadtree(pumas2020, gen_chi_bbox(pumas2020))
 
+    path_pumas2010 = Path("data/shapefiles/pumas2010/pumas2010")
+    pumas2010 = load_pumas_shp(path_pumas2010,2010)
+    quadtree_chi_pumas2010 = gen_quadtree(pumas2010, gen_chi_bbox(pumas2010))
+
+    path_neighborhoods = Path("data/shapefiles/chicomm/chicomm")
+    neighborhoods = load_neighborhood_shp(path_neighborhoods)
+    quadtree_chi_neighborhoods = gen_quadtree(
+        neighborhoods, gen_chi_bbox(neighborhoods)
+    )
     # Creating the pd.Dataframes for crime
-    if not full_fetch:
-        crime_data, _ = get_all_crime_data()
+    if full_fetch:
+        crime_data_23, crime_data_1318 = get_all_crime_data()
+
+        crimes_by_puma_23 = assign_puma_neighborhood(crime_data_23, 
+                                                     quadtree_chi_pumas2020,
+                                                     "puma")
+        crimes_by_puma_1318 = assign_puma_neighborhood(crime_data_1318, 
+                                                       quadtree_chi_pumas2010, 
+                                                       "puma")
+
+        crime_data = pd.concat([crimes_by_puma_23,crimes_by_puma_1318])
         crimes_by_puma = lower_colnames(
+            group_crime_data_by(crime_data, "puma"))
+        
+
+        crime_data_23.extend(crime_data_1318) 
+        crimes_by_neighborhood = lower_colnames(
             group_crime_data_by(
-                assign_puma_neighborhood(crime_data, quadtree_chi_pumas, "puma"), "puma"
+                assign_puma_neighborhood(
+                    crime_data_23, quadtree_chi_neighborhoods, "neighborhood"
+                ),
+                "neighborhood",
             )
         )
     else:
-        crime_df = load_crime_data()[0]
-        crimes_by_puma = group_crime_data_by(crime_df, "puma")
-        crimes_by_puma["puma"] = crimes_by_puma["puma"].astype(dtype=str).str.zfill(5)
+        crime_df_puma, crime_df_neighborhood = load_crime_data()
+        crimes_by_puma = group_crime_data_by(crime_df_puma, "puma")
+        crimes_by_puma = zero_fill_cols(crimes_by_puma, 'puma', 5)
+        crimes_by_neighborhood = group_crime_data_by(crime_df_neighborhood, "neighborhood")
+        crimes_by_neighborhood = zero_fill_cols(crimes_by_neighborhood, 'neighborhood', 4)
+    
 
-    schools_by_puma = lower_colnames(
+    school_data23, school_data1318 = [], []
+    for school in schools_data:
+        if school.year == '2023':
+            school_data23.append(school)
+        elif (school.year == '2013') or (school.year == '2018'):
+            school_data1318.append(school)
+
+    schools_by_puma23 = lower_colnames(
         group_school_data_by(
-            assign_puma_neighborhood(schools_data, quadtree_chi_pumas, "puma"), "puma"
+            assign_puma_neighborhood(school_data23, quadtree_chi_pumas2020, "puma"), "puma"
         )
     )
+    schools_by_puma1318 = lower_colnames(
+        group_school_data_by(
+            assign_puma_neighborhood(school_data1318, quadtree_chi_pumas2010, "puma"), "puma"
+        )
+    )
+    schools_by_puma = pd.concat([schools_by_puma23,schools_by_puma1318])
 
-    pumas_shp = gpd.read_file("data/shapefiles/pumas/pumas2022.shp")
-    pumas_shp = pumas_shp.rename(columns={"PUMACE20": "puma"})
-    pumas_shp["puma"] = pumas_shp["puma"].astype(dtype=str).str.zfill(5)
+    pumas_shp23 = gpd.read_file("data/shapefiles/pumas/pumas2022.shp",
+                                columns = ['PUMACE20', 'NAMELSAD20','geometry']
+                                ).rename(columns={"PUMACE20": "puma",
+                                                  'NAMELSAD20': 'name'})
+    pumas_shp1318 = gpd.read_file("data/shapefiles/pumas2010/pumas2010.shp",
+                                  columns = ['PUMACE10','NAME10','geometry']
+                                  ).rename(columns={"PUMACE10": "puma",
+                                                  'NAME10': 'name'})
+
+    pumas_shp = pd.concat([pumas_shp23,pumas_shp1318])
+    pumas_shp = zero_fill_cols(pumas_shp, 'puma', 5)
     pumas_shp = lower_colnames(pumas_shp)
 
     census_data["puma"] = (
         census_data["puma"].astype(float).astype(int).astype(dtype=str).str.zfill(5)
     )
     schools_by_puma["year"] = schools_by_puma["year"].astype(int)
-
+    
     data_pumas = pumas_shp.merge(crimes_by_puma, how="inner", on=["puma"])
-
     data_pumas = data_pumas.merge(schools_by_puma, how="inner", on=["puma", "year"])
     data_pumas = data_pumas.merge(census_data, how="inner", on=["puma", "year"])
-
+    data_pumas = gen_pc_stats(data_pumas, 'pwgtp')
     data_pumas.to_csv("data/data_pumas.csv")
     data_pumas.to_file("data/shapefiles/data_pumas.shp")
 
     # Merging crime and school data to neighborhoods
-    path_neighborhoods = Path("data/shapefiles/chicomm/chicomm")
-    neighborhoods = load_neighborhood_shp(path_neighborhoods)
-    quadtree_chi_neighborhoods = gen_quadtree(
-        neighborhoods, gen_chi_bbox(neighborhoods)
-    )
-
-    if full_fetch:
-        crime_data, _ = get_all_crime_data()
-        crimes_by_neighborhood = lower_colnames(
-            group_crime_data_by(
-                assign_puma_neighborhood(
-                    crime_data, quadtree_chi_pumas, "neighborhood"
-                ),
-                "neighborhood",
-            )
-        )
-    else:
-        crime_df = load_crime_data()[1]
-        crimes_by_neighborhood = group_crime_data_by(crime_df, "neighborhood")
-        crimes_by_neighborhood["neighborhood"] = (
-            crimes_by_neighborhood["neighborhood"].astype(dtype=str).str.zfill(4)
-        )
 
     schools_by_neighborhood = lower_colnames(
         group_school_data_by(
@@ -197,17 +234,26 @@ def gen_final_data(full_fetch=False):
             "neighborhood",
         )
     )
-
     neighborhoods_shp = gpd.read_file("data/shapefiles/chicomm/chicomm.shp")
     neighborhoods_shp = neighborhoods_shp.rename(columns={"CHICOMNO": "neighborhood"})
     schools_by_neighborhood["year"] = schools_by_neighborhood["year"].astype(int)
     data_neighborhoods = neighborhoods_shp.merge(
         crimes_by_neighborhood, how="inner", on=["neighborhood"]
     )
-
     data_neighborhoods = data_neighborhoods.merge(
         schools_by_neighborhood, how="inner", on=["neighborhood", "year"]
     )
+
+    pop_neighborhoods = pd.read_csv('data/pop_neighborhood.csv', delimiter=";")
+    pop_neighborhoods = zero_fill_cols(pop_neighborhoods, 'neighborhood', 4)
+    pop_neighborhoods["pop2020"] = pop_neighborhoods["pop2020"].str.replace(",", "").astype(int)
+
+    data_neighborhoods = data_neighborhoods.merge(
+        pop_neighborhoods, how="inner", on=["neighborhood"]
+    )
+
+    data_neighborhoods = gen_pc_stats(data_neighborhoods, 'pop2020')
+
     data_neighborhoods.to_csv("data/data_neighborhoods.csv")
     data_neighborhoods.to_file("data/shapefiles/data_neighborhoods.shp")
 

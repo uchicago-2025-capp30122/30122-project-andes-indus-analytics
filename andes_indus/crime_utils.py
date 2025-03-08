@@ -2,8 +2,6 @@ from typing import NamedTuple
 from sodapy import Socrata
 import os
 import pandas as pd
-import httpx
-import io
 import numpy as np
 from api_get import get_google_drive_files
 
@@ -80,6 +78,16 @@ def process_results(results, lst_results, full_fetch=False) -> list:
                 )
     return lst_results
 
+def classify_violent_crimes(df: pd.DataFrame) -> pd.DataFrame:
+    mask1_1 = df["primary_type"] == "HOMICIDE"
+    mask1_2 = df["primary_type"] == "ROBBERY"
+    mask1_3 = df["primary_type"] == "CRIMINAL SEXUAL ASSAULT"
+    mask2 = df["primary_type"] == "ASSAULT"
+    mask3 = df["description"].str.startswith("AGGRAVATED")
+    df["crime_type"] = np.where(
+        (mask1_1 | mask1_2 | mask1_3) | (mask2 & mask3), "Violent", "Non-violent"
+    )
+    return df
 
 def get_all_crime_data():
     # Creating the APP Key for the data sources.
@@ -93,28 +101,18 @@ def get_all_crime_data():
     # Gathering the crime data from the City of Chicago Data web
     client = Socrata("data.cityofchicago.org", CHICAGO_APP_TOKEN)
     crime_code = "ijzp-q8t2"
-    homicides_code = "gumc-mgzr"
     lst_years = [2013, 2018, 2023]
 
-    crime_data = get_crime_data(client, crime_code, lst_years, True)
-    homicides_data = get_crime_data(client, homicides_code, lst_years, True)
+    crime_data_23 = get_crime_data(client, crime_code, [2023], True)
+    crime_data_1318 = get_crime_data(client, crime_code, lst_years[0:2], True)
 
-    crime_df = pd.DataFrame(crime_data)
-    mask1_1 = crime_df["primary_type"] == "HOMICIDE"
-    mask1_2 = crime_df["primary_type"] == "ROBBERY"
-    mask1_3 = crime_df["primary_type"] == "CRIMINAL SEXUAL ASSAULT"
-    mask2 = crime_df["primary_type"] == "ASSAULT"
-    mask3 = crime_df["description"].str.startswith("AGGRAVATED")
-    crime_df["crime_type"] = np.where(
-        (mask1_1 | mask1_2 | mask1_3) | (mask2 & mask3), "Violent", "Non-violent"
-    )
-
+    crime_df_23 = classify_violent_crimes(pd.DataFrame(crime_data_23))
+    crime_df_1318 = classify_violent_crimes(pd.DataFrame(crime_data_1318))
+    crime_df = pd.concat([crime_df_23, crime_df_1318])
+    
     crime_df.to_csv("data/crime_df.csv", index=False)
 
-    homicides_df = pd.DataFrame(homicides_data)
-    homicides_df.to_csv("data/homicides_df.csv", index=False)
-
-    return crime_data, homicides_data
+    return crime_data_23, crime_data_1318
 
 
 def load_crime_data():
@@ -126,27 +124,12 @@ def load_crime_data():
 
     data_lst = []
     for _, path in dict_paths.items():
-
+        
         # Read the CSV contents
-        df = get_google_drive_files(path)
+        df = get_google_drive_files(path, 0)
         data_lst.append(df)
 
     return data_lst[0], data_lst[1]
-
-
-def load_crimes_shp():
-    path = 'https://drive.usercontent.google.com/download?id=17lrQgaXcTAQTM4kMqt19RYvC4gtF9wCn&export=download&authuser=0&confirm=t&uuid=f69248de-b684-4c5f-976b-63576e8c9741&at=AEz70l53DiY7nTnR_fRZmhZYPvOx:1741223440221'
-
-    # Saved to a DataFrame
-    data = get_google_drive_files(path,4)
-    
-    block_data = data.groupby(['block', 'year','crime_type']).agg(
-            latitude=("latitude", "mean"),
-            longitude=("longitude", "mean"),
-            count=("case_number", "count"),
-        ).reset_index()
-
-    return block_data
 
 
 if __name__ == "__main__":

@@ -1,16 +1,13 @@
 import altair as alt
 import geopandas as gpd
-import pathlib
-import json
 import pandas as pd
-from merge_shp import load_pumas_shp, load_schools
 import plotly.express as px
 import plotly.graph_objects as go
-
+from api_get import get_google_drive_files
 
 def create_crime_map(
-    gdf: gpd.GeoDataFrame, selected_crime: str, selected_year: int, label_dict: dict
-) -> alt.Chart:
+    gdf: gpd.GeoDataFrame, selected_crime: str, 
+    selected_year: int, label_dict: dict, selected_level:str, level_label:str) -> alt.Chart:
     gdf = gdf[gdf["year"] == selected_year].copy()
     map = (
         alt.Chart(gdf)
@@ -18,7 +15,7 @@ def create_crime_map(
         .encode(
             color=alt.Color(selected_crime, type="quantitative", title="Crime Rate"),
             tooltip=[
-                alt.Tooltip("puma_label", title="Puma"),
+                alt.Tooltip(level_label, title=selected_level),
                 alt.Tooltip("year", title="Year"),
                 alt.Tooltip(selected_crime, title="Crime per 1000 hab."),
             ],
@@ -27,7 +24,7 @@ def create_crime_map(
         .properties(
             width=500,
             height=500,
-            title=f"{label_dict[selected_crime]} ocurrances per 1000 hab. for Year {selected_year}",
+            title=f"{label_dict[selected_crime]} ocurrances per 1000 hab. for Year {selected_year} by {selected_level}",
         )
     )
 
@@ -55,7 +52,7 @@ def create_geo_chart(
         alt.Chart(geo_data)
         .mark_geoshape(fill="None", stroke="None")
         .properties(width=width, height=height)
-        .project("mercator")
+        .project(projection)
     )
 
     points_chart = (
@@ -147,11 +144,11 @@ def create_crime_heat_map(
         lat="latitude",
         lon="longitude",
         z="count",
-        radius=15,
+        radius=13,
         center={"lat": gdf["latitude"].mean(), "lon": gdf["longitude"].mean()},
         zoom=9,
         mapbox_style="carto-positron",
-        color_continuous_scale="rdbu",
+        color_continuous_scale="emrld",
     )
 
     fig.update_layout(
@@ -353,6 +350,22 @@ def create_stacked_chart_race(df_c_long):
     ).add_params(selection)
 
     return bar
+
+
+def load_crimes_shp():
+    path = 'https://drive.usercontent.google.com/download?id=17lrQgaXcTAQTM4kMqt19RYvC4gtF9wCn&export=download&authuser=0&confirm=t&uuid=f69248de-b684-4c5f-976b-63576e8c9741&at=AEz70l53DiY7nTnR_fRZmhZYPvOx:1741223440221'
+
+    # Saved to a DataFrame
+    data = get_google_drive_files(path,4)
+    
+    block_data = data.groupby(['block', 'year','crime_type']).agg(
+            latitude=("latitude", "mean"),
+            longitude=("longitude", "mean"),
+            count=("case_number", "count"),
+        ).reset_index()
+
+    return block_data
+
 
 def create_graph_multiple(df_c_long):
         
