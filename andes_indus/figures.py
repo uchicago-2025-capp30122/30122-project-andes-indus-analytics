@@ -282,7 +282,7 @@ def create_stacked_chart_gender(df_c_long):
 
     color_scale = alt.Scale(
         domain=['men', 'women'],
-        range=['#1f77b4', '#eb9b44']
+        range=['#005A9C', '#A8D0E6' ] 
     )
 
     indicator_order = ['Elementary', 'Middle', 'High School']
@@ -333,11 +333,11 @@ def create_stacked_chart_race(df_c_long):
     df_filtered2 = df_c_long[
         (df_c_long['PUMA'] == 9999) &
         (df_c_long['indicator_label'].isin(['High School', 'Middle', 'Elementary'])) &
-        (df_c_long['cut_name'].isin(['afroamerican', 'nonafroamerican']))    ]
+        (df_c_long['cut_name'].isin(['hispanic', 'afroamerican', 'nonafroamerican_hispanic']))    ]
 
     color_scale2 = alt.Scale(
-        domain=['afroamerican', 'nonafroamerican'],        # The categories in cut_name
-        range=['#1f77b4', '#eb9b44']    
+        domain=['afroamerican',"hispanic", 'nonafroamerican_hispanic'],        # The categories in cut_name
+        range=['#005A9C', '#A8D0E6', '#E57373' ]    
     )
  
     indicator_order = ['Elementary', 'Middle', 'High School']
@@ -353,3 +353,25 @@ def create_stacked_chart_race(df_c_long):
     ).add_params(selection)
 
     return bar
+
+def create_graph_multiple(df_c_long):
+        
+    # Then filter using the updated column
+    df_filtered2 = df_c_long[
+        (df_c_long['PUMA'] == 9999) &
+        (df_c_long['indicator'].isin(['attendance_rate_elementary', 'attendance_rate_middle', 'attendance_rate_high'])) &
+        (df_c_long['cut_name'].isin(['afroamerican', 'nonafroamerican_hispanic',"Total","hispanic"])) ]
+
+    graph = alt.Chart(df_filtered2).mark_point().encode(
+    alt.X("value", scale=alt.Scale(domain=[60,100],zero=False), axis=alt.Axis(title='Percentage') ),
+    y=alt.X("year:N",axis=alt.Axis(title='Year')),
+    color="cut_name:N",
+    facet=alt.Facet("indicator_label:O", columns=2, title="Education Level"),
+    ).properties(
+    width=200,
+    height=100,
+    title= "Attendance Rate by Education Level and Race/Ethnicity"
+    )
+    
+    return graph
+

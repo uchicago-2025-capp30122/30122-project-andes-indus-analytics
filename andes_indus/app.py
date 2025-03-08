@@ -7,7 +7,7 @@ import geopandas as gpd
 from figures import create_crime_map, create_interactive_bar, create_crime_heat_map, create_stacked_chart_gender, create_stacked_chart_race
 from join_data import lower_colnames
 import pathlib
-from figures import create_crime_map, create_geo_chart, point_data_chart
+from figures import create_crime_map, create_geo_chart, point_data_chart, create_graph_multiple
 from crime_utils import load_crimes_shp
 
 # Load data
@@ -57,18 +57,16 @@ colors = {"background": "#111188", "text": "#7FDBFF"}
 # Layout with two columns
 app.layout = html.Div(
     [
-        # "Header" section
+        # Header section
         html.Div(
             children=[
                 html.H1(
                     [
-                        # "text" in black
                         html.Span(
-                            "Understanding School Attendance and Crime in",
+                            "Understanding Crime and School Attendance in",
                             style={"color": "#000000", "font-weight": "normal"},
                         ),
                         " ",  # space
-                        # "chicago in blue"
                         html.Span(
                             "Chicago",
                             style={"color": "#00bfff", "font-weight": "normal"},
@@ -77,11 +75,10 @@ app.layout = html.Div(
                     style={
                         "font-family": "Times New Roman, serif",
                         "font-size": "36px",
-                        "margin": "0",  # remove default H1 margin
+                        "margin": "0",
                         "padding": "0",
                     },
                 ),
-                # A thin border line below the header
                 html.Div(
                     style={
                         "border-bottom": "1px solid #ccc",
@@ -90,277 +87,255 @@ app.layout = html.Div(
                     }
                 ),
             ],
-            style={
-                "padding": "10px"  # some padding around the "header"
-            },
+            style={"padding": "10px"},
         ),
+
+        # Main Content: Two columns (Left: Charts & Controls, Right: Cards)
         dbc.Row(
             [
-                # Card 1
+                # Left Column (75% Width) - Graphs and Controls
                 dbc.Col(
-                    dbc.Card(
-                        dbc.CardBody(
-                            [
-                                html.Div(
+    [
+        html.Label("Select Year:"),
+        dcc.Dropdown(
+            options=[
+                {"label": str(year), "value": year}
+                for year in sorted(df_c["year"].unique())
+            ],
+            value=sorted(df_c["year"].unique())[0],
+            id="dropdown-year",
+        ),
+        html.P(""),
+        dcc.RadioItems(
+            id="crime-type",
+            options=[
+                {"label": "Total Crime", "value": "total_crim_pc"},
+                {"label": "Violent Crime", "value": "violent_pc"},
+                {"label": "Non Violent Crime", "value": "non-violen_pc"},
+            ],
+            value="total_crim_pc",
+            inline=True,
+        ),
+
+        #  Graphs ordered:
+        html.Div(id="crime_map", style={"marginBottom": "20px"}),  # 1️⃣ Crime Map
+       
+        html.Div(id="stacked-graph-container", style={"marginBottom": "5px"}),  #  Stacked Chart (Gender)
+        html.Div(id="stacked2-graph-container", style={"marginBottom": "20px"}),  # Stacked Chart (Race)
+        html.Div(id="attendance_graph", style={"marginBottom": "20px"}),  # 5️⃣ Attendance Graph
+        html.Div(id="scatter-graph-container", style={"marginBottom": "20px"}),  # 6️⃣ Scatter Plot
+        html.Div(id="bar-graph-container", style={"marginBottom": "20px"}),  # 7️⃣ Bar Chart
+        html.Div(id="schools_locations", style={"marginBottom": "20px"}),  # 8️⃣ Schools Locations
+        html.Div(id="crime_heatmap", style={"marginBottom": "20px"}),  # 2️⃣ Crime Heatmap
+    ],
+    width=9,  # Takes 75% of space
+),
+
+                # Right Column (25% Width) - Cards inside Light Grey Box
+                dbc.Col(
+                    [
+                    html.Div(
+                        style={
+                            "width": "100%",
+                            "backgroundColor": "#f0f0f0",  # Light grey background
+                            "padding": "15px",
+                            "borderRadius": "10px",
+                            "display": "flex",
+                            "flexDirection": "column",
+                            "alignItems": "center",
+                            "marginBottom": "110px"
+                        },
+                        
+                        children=[
+                            html.Span("What are we analyzing?", style={"color": "#000000", 
+                                               "font-weight": "bold",
+                                               "font-family":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                                               "padding": "10px",}),
+                            
+                            dbc.Card(
+                                dbc.CardBody(
                                     [
-                                        html.H4(
-                                            id="pumas-text", # "18",
-                                            className="card-title",
-                                            style={"margin": 0},
+                                        html.Div(
+                                            [
+                                                html.H4(id="pumas-text", className="card-title", style={"margin": 0, "textAlign": "center"}),
+                                                html.I(className="fas fa-chart-bar", style={"fontSize": "1.5rem"}),
+                                            ],
+                                            style={"display": "flex", "alignItems": "center", "gap": "8px",  "justifyContent": "center"},
                                         ),
-                                        html.I(
-                                            className="fas fa-chart-bar",
-                                            style={"fontSize": "1.8rem"},
-                                        ),
-                                    ],
-                                    style={
-                                        "display": "flex",
-                                        "alignItems": "center",
-                                        "gap": "10px",
-                                        "justifyContent": "center",
-                                    },
-                                ),
-                                html.P(
-                                    "Pumas",
-                                    className="card-text",
-                                    style={"marginTop": "10px"},
-                                ),
-                                dbc.Tooltip(
+                                        html.P("Pumas", className="card-text"),
+                                        dbc.Tooltip(
                                     "PUMAs refer to the Public Use Microdata Areas that are non-overlapping, statistical geographic areas that partition each state or equivalent entity into geographic areas containing no fewer than 100,000 people each.",
                                     target = "pumas-text",
                                     placement="top"
                                 ),
-                            ]
-                        ),
-                        style={
-                            "textAlign": "center",
-                            "borderLeft": "10px solid #37526f",
-                        },
-                    ),
-                    md=2,
-                ),
-                # Card 2
-                dbc.Col(
-                    dbc.Card(
-                        dbc.CardBody(
-                            [
-                                html.Div(
+                                    ]
+                                ),
+                                style={"width": "90%", "textAlign": "center", "borderLeft": "6px solid #37526f", "marginBottom": "10px"},
+                            ),
+
+                            dbc.Card(
+                                dbc.CardBody(
                                     [
-                                        html.H4(
-                                            "178",
-                                            className="card-title",
-                                            style={"margin": 0},
+                                        html.Div(
+                                            [
+                                                html.H4("178", className="card-title", style={"margin": 0, "textAlign": "center"}),
+                                                html.I(className="fas fa-file-alt", style={"fontSize": "1.5rem", "textAlign": "center"}),
+                                            ],
+                                            style={"display": "flex", "alignItems": "center", "gap": "8px",  "justifyContent": "center"},
                                         ),
-                                        html.I(
-                                            className="fas fa-file-alt",
-                                            style={"fontSize": "1.8rem"},
-                                        ),
-                                    ],
-                                    style={
-                                        "display": "flex",
-                                        "alignItems": "center",
-                                        "gap": "10px",
-                                        "justifyContent": "center",
-                                    },
+                                        html.P("Neighborhoods", className="card-text"),
+                                    ]
                                 ),
-                                html.P(
-                                    "Neighborhoods",
-                                    className="card-text",
-                                    style={"marginTop": "10px"},
-                                ),
-                            ]
-                        ),
-                        style={
-                            "textAlign": "center",
-                            "borderLeft": "10px solid #3b6d92",
-                        },
-                    ),
-                    md=2,
-                ),
-                # Card 3
-                dbc.Col(
-                    dbc.Card(
-                        dbc.CardBody(
-                            [
-                                html.Div(
+                                style={"width": "90%", "textAlign": "center", "borderLeft": "6px solid #3b6d92", "marginBottom": "10px"},
+                            ),
+
+                            dbc.Card(
+                                dbc.CardBody(
                                     [
-                                        html.H4(
-                                            "644",
-                                            className="card-title",
-                                            style={"margin": 0},
+                                        html.Div(
+                                            [
+                                                html.H4("644", className="card-title", style={"margin": 0, "textAlign": "center"}),
+                                                html.I(className="fas fa-calendar-check", style={"fontSize": "1.5rem"}),
+                                            ],
+                                            style={"display": "flex", "alignItems": "center", "gap": "8px",  "justifyContent": "center"},
                                         ),
-                                        html.I(
-                                            className="fas fa-calendar-check",
-                                            style={"fontSize": "1.8rem"},
-                                        ),
-                                    ],
-                                    style={
-                                        "display": "flex",
-                                        "alignItems": "center",
-                                        "gap": "10px",
-                                        "justifyContent": "center",
-                                    },
+                                        html.P("Public Schools in 2023", className="card-text"),
+                                    ]
                                 ),
-                                html.P(
-                                    "Public Schools in 2023",
-                                    className="card-text",
-                                    style={"marginTop": "10px"},
-                                ),
-                            ]
-                        ),
-                        style={
-                            "textAlign": "center",
-                            "borderLeft": "10px solid #3f88b4",
-                        },
-                    ),
-                    md=2,
-                ),
-                # Card 4
-                dbc.Col(
-                    dbc.Card(
-                        dbc.CardBody(
-                            [
-                                html.Div(
+                                style={"width": "90%", "textAlign": "center", "borderLeft": "6px solid #3f88b4", "marginBottom": "10px"},
+                            ),
+
+                            dbc.Card(
+                                dbc.CardBody(
                                     [
-                                        html.H4(
-                                            "391K",
-                                            className="card-title",
-                                            style={"margin": 0},
+                                        html.Div(
+                                            [
+                                                html.H4("391K", className="card-title", style={"margin": 0, "textAlign": "center"}),
+                                                html.I(className="fas fa-download", style={"fontSize": "1.5rem"}),
+                                            ],
+                                            style={"display": "flex", "alignItems": "center", "gap": "8px",  "justifyContent": "center"},
                                         ),
-                                        html.I(
-                                            className="fas fa-download",
-                                            style={"fontSize": "1.8rem"},
-                                        ),
-                                    ],
-                                    style={
-                                        "display": "flex",
-                                        "alignItems": "center",
-                                        "gap": "10px",
-                                        "justifyContent": "center",
-                                    },
+                                        html.P("School-age population", className="card-text"),
+                                    ]
                                 ),
-                                html.P(
-                                    "School-age population",
-                                    className="card-text",
-                                    style={"marginTop": "10px"},
-                                ),
-                            ]
-                        ),
-                        style={
-                            "textAlign": "center",
-                            "borderLeft": "10px solid #eb9b44",
-                        },
-                    ),
-                    md=2,
-                ),
-                # Card 5
-                dbc.Col(
-                    dbc.Card(
-                        dbc.CardBody(
-                            [
-                                html.Div(
+                                style={"width": "90%", "textAlign": "center", "borderLeft": "6px solid #eb9b44", "marginBottom": "10px"},
+                            ),
+
+                            dbc.Card(
+                                dbc.CardBody(
                                     [
-                                        html.H4(
-                                            "260K",
-                                            className="card-title",
-                                            style={"margin": 0},
+                                        html.Div(
+                                            [
+                                                html.H4("260K", className="card-title", style={"margin": 0, "textAlign": "center"}),
+                                                html.I(className="fas fa-download", style={"fontSize": "1.5rem"}),
+                                            ],
+                                            style={"display": "flex", "alignItems": "center", "gap": "8px", "justifyContent": "center"},
                                         ),
-                                        html.I(
-                                            className="fas fa-download",
-                                            style={"fontSize": "1.8rem"},
-                                        ),
-                                    ],
-                                    style={
-                                        "display": "flex",
-                                        "alignItems": "center",
-                                        "gap": "10px",
-                                        "justifyContent": "center",
-                                    },
+                                        html.P("Total crimes in 2023", className="card-text"),
+                                    ]
                                 ),
-                                html.P(
-                                    "Total crimes in 2023",
-                                    className="card-text",
-                                    style={"marginTop": "10px"},
-                                ), 
-                            ]
-                        ),
-                        style={
-                            "textAlign": "center",
-                            "borderLeft": "10px solid #ba9873",
-                        },
+                                style={"width": "90%", "textAlign": "center", "borderLeft": "6px solid #ba9873", "marginBottom": "10px"},
+                            ),
+                        ],
                     ),
-                    md=2,
+                    html.Div(
+
+                        style={
+                            "width": "100%",
+                            "backgroundColor": "#f0f0f0",  # Light grey background
+                            "padding": "15px",
+                            "borderRadius": "8px",
+                            "display": "flex",
+                            "flexDirection": "column",
+                            "alignItems": "center",
+                            "marginBottom": "100px"
+                        },
+                        
+                        children=[
+                            html.Span("Who is impacted?", style={"color": "#000000", 
+                                               "font-weight": "bold",
+                                               "font-family":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                                               "padding": "10px",}),
+                            html.Div([
+                                "Living or studying in a violent neighborhood can influence the stress levels, "
+                                "community interactions and might generate cumulative educational disadvantage ",
+                                html.A(
+                                        "(Burdick-Will, 2017)",  # The text of the hyperlink
+                                            href="https://doi.org/10.1086/691424",  # The actual link
+                                            target="_blank",  # Opens the link in a new tab
+                                            style={"color": "#007BFF", "textDecoration": "none", "font-weight": "bold"},  # Blue link with no underline
+                                        ),
+                                         ".",
+                                         ],
+                                    style={
+                                        "color": "#000000",
+                                        "font-weight": "normal",
+                                        "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                                        "padding": "3px",
+                                    },),
+
+                        ],
+                    ),
+                                        html.Div(
+
+                        style={
+                            "width": "100%",
+                            "backgroundColor": "#f0f0f0",  # Light grey background
+                            "padding": "15px",
+                            "borderRadius": "8px",
+                            "display": "flex",
+                            "flexDirection": "column",
+                            "alignItems": "center",
+                        },
+                        
+                        children=[
+                            html.Span("How is Characterized School Attendance in the Chicago Area", style={"color": "#000000", 
+                                               "font-weight": "bold",
+                                               "font-family":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                                               "padding": "10px",}),
+                            html.Div([
+                                "Living or studying in a violent neighborhood can influence the stress levels, "
+                                "community interactions and might generate cumulative educational disadvantage ",
+                                html.A(
+                                        "(Burdick-Will, 2017)",  # The text of the hyperlink
+                                            href="https://doi.org/10.1086/691424",  # The actual link
+                                            target="_blank",  # Opens the link in a new tab
+                                            style={"color": "#007BFF", "textDecoration": "none", "font-weight": "bold"},  # Blue link with no underline
+                                        ),
+                                         ".",
+                                         ],
+                                    style={
+                                        "color": "#000000",
+                                        "font-weight": "normal",
+                                        "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                                        "padding": "3px",
+                                    },),
+
+                        ],
+                    ),
+                    ],
+                    width=3,  # Takes 25% of space
                 ),
             ],
-            justify="center",  # horizontally center the row
-            style={"marginBottom": "10px", "fontFamily": "Times New Roman, serif"},
-        ),
-        html.Div(
-            style={"display": "flex", "fontFamily": "Times New Roman, serif"},
-            children=[
-                # Left column: text and controls
-                html.Div(
-                    style={"width": "50%", "padding": "20px"},
-                    children=[
-                        html.P("This is a paragraph with background info."),
-                        html.Label("Select Year:"),
-                        dcc.Dropdown(
-                            options=[
-                                {"label": str(year), "value": year}
-                                for year in sorted(df_c["year"].unique())
-                            ],
-                            value=sorted(df_c["year"].unique())[0],
-                            id="dropdown-year",
-                        ),
-                        html.P(
-                            "Story or problem we are tackling. "
-                            "Use this space for any narrative or instructions."
-                        ),
-
-                        dcc.RadioItems(
-                                    id="crime-type",
-                                    options=[
-                                        {"label": "Total Crime", "value": "total_crim_pc"},
-                                        {"label": "Violent Crime", "value": "violent_pc"},
-                                        {"label": "Non Violent Crime", "value": "non-violen_pc"},
-                                    ],
-                                    value="total_crim_pc",
-                                    inline=True,
-                                 ),
-
-                        html.Div(id="schools_locations"), 
-                    ],
-                ),
-                # Right column: the graphs
-                html.Div(
-                    style={"width": "50%", "padding": "20px"},
-                    children=[
-                        html.Div(id="stacked-graph-container"),
-                        html.Div(id="stacked2-graph-container"),
-                        html.Div(id="scatter-graph-container"),
-                        html.Div(id="bar-graph-container"),
-                        html.Div(id="crime_map"),
-                        html.Div(id="crime_heatmap"),
-                        
-                        
-                    ],
-                ),
-                
-            ],
+            style={"marginBottom": "3px"},
         ),
     ]
 )
+      
 
 
 # Callback updates the containers with iframes that embed the Altair charts.
 @callback(
+    Output("crime_map", "children"),
     Output("stacked-graph-container", "children"),
     Output("stacked2-graph-container", "children"),
     Output("scatter-graph-container", "children"),
+    Output("attendance_graph", "children"),
     Output("bar-graph-container", "children"),
-    Output("crime_map", "children"),
+
     Output("schools_locations", "children"),
     Output("crime_heatmap", "children"),
+
     # for the cards
     Output("pumas-text", "children"),
     Input("dropdown-year", "value"),
@@ -390,7 +365,10 @@ def update_charts(selected_year, selected_crime):
 
     indicator_map = {
         "elementary_w": "Elementary",
+        "attendance_rate_elementary": "Elementary",
         "middle_w": "Middle",
+        "attendance_rate_middle": "Middle",
+        "attendance_rate_high": "High School",
         "high_school_w": "High School",
     }
     
@@ -439,6 +417,10 @@ def update_charts(selected_year, selected_crime):
     fig_stacked = create_stacked_chart_gender(df_c_long)
     fig_stacked2 = create_stacked_chart_race(df_c_long)
 
+        # multiple graph for attendance 
+    attendance_graph = create_graph_multiple(df_c_long)
+
+
     # Create the bar chart sorted descending by attendance_rate_high
     fig_bar = create_interactive_bar(
         dff, select, stroke_width, selected_year, highlight
@@ -477,16 +459,28 @@ def update_charts(selected_year, selected_crime):
         crimes_shp, helper_dict[selected_crime], selected_year, crime_labels
     )
 
+
     # Return iframes that embed the Altair charts via their HTML representation
     return (
         html.Iframe(
+            srcDoc=crime_heatmap.to_html(),
+            style={"width": "100%", "height": "500px", "border": "0"},
+        ),
+
+        html.Iframe(
             srcDoc=fig_stacked.to_html(),
-            style={"width": "100%", "height": "140px", "border": "0"},
+            style={"width": "100%", "height": "140px", "border": "5"},
         ),
         html.Iframe(
             srcDoc=fig_stacked2.to_html(),
-            style={"width": "100%", "height": "140px", "border": "0"},
+            style={"width": "100%", "height": "140px", "border": "5"},
         ),
+
+        html.Iframe(
+            srcDoc=attendance_graph.to_html(),
+            style={"width": "100%", "height": "600px", "border": "0"},
+        ),
+
         html.Iframe(
             srcDoc=fig_bar.to_html(),
             style={"width": "100%", "height": "600px", "border": "0"},
@@ -500,15 +494,12 @@ def update_charts(selected_year, selected_crime):
             style={"width": "100%", "height": "600px", "border": "0"},
         ),
         html.Iframe(
-            srcDoc=crime_heatmap.to_html(),
-            style={"width": "100%", "height": "600px", "border": "0"},
-        ),
-        html.Iframe(
             srcDoc=school_map.to_html(),
             style={"width": "100%", "height": "600px", "border": "0"},
         ),
         # for the cards
         str(pumas_count),
+        
     )
 
 

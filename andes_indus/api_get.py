@@ -4,7 +4,7 @@ import httpx
 import time
 import io
 
-YEAR = [2013,2023]
+YEAR = [2013, 2018, 2023]
 
 class FetchException(Exception):
     """
@@ -157,14 +157,13 @@ def chicago_dataframe(year, output_filename_ch, full_fetch=False):
         elif year == 2013:
             path = "https://drive.usercontent.google.com/download?id=1h8D9WeDCCBe0F75ZNbKqyQ7078ca9HHO&export=download&authuser=0&confirm=t&uuid=580455ba-d495-4801-939f-313992f725dd&at=AEz70l7IHPdNQzGZwfDYNnRNRFEZ:1741292537535"
         elif year == 2018:
-            path = "https://drive.usercontent.google.com/download?id=14uVPIW811_ZMsYo7qmC5hWiZ6ob1tjSu&export=download&authuser=0&confirm=t&uuid=308bf37a-9709-40c0-951b-7b50ca9f8f64&at=AEz70l40rnSShC2lpzwYyBN3-0_l:1741306863376"
+            path = "https://drive.usercontent.google.com/download?id=1zcP7YJyW5NemZ_FAF2r3Ub-dcAsjYVc7&export=download&authuser=0&confirm=t&uuid=0c52f97c-7003-4730-8862-30d8dd6adbfe&at=AEz70l6LJ7Wa-pZxpwZ8PmHb_a5Q:1741380345299"
 
         df = get_google_drive_files(path, year)
-    #print(len(df))
-    #print(df.head())
     if year == 2023:
         chicago_df = df[(df["PUMA"].astype(int) >= 3151) & (df["PUMA"].astype(int) <= 3168)]
     else:
+        df = df[df["ST"] != '']
         chicago_df = df[
             (df["ST"].astype(int) == 17) &
             (
@@ -184,6 +183,6 @@ if __name__ == "__main__":
     for yr in YEAR:
         output_filename = Path(f"census_{yr}.csv")
         output_filename_ch = Path(f"census_{yr}_ch.csv")
-        build_census_csv(yr, output_filename)
+        chicago_dataframe(yr, output_filename_ch, full_fetch=False)
         time.sleep(10)
        

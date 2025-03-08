@@ -25,7 +25,9 @@ def social_variables(df):
     df["men"] = np.where((df["SEX"] == 1), 1, 0)
     df["woman"] = np.where((df["SEX"] == 2), 1, 0)
     df["black"] = np.where((df["RACBLK"] == 1), 1, 0)
-    df["non_black"] = np.where((df["RACBLK"] == 0), 1, 0)
+    df["hispanic"] = np.where(((df["HISP"] != 1) & (df["RACBLK"] != 1)), 1, 0)
+    df["non_black_non_hispanic"] = np.where((((df["black"] == 0) & (df["hispanic"])==0))| ((df["black"] == 1) & (df["hispanic"])==1), 1, 0)
+    
 
     return df
 
@@ -85,9 +87,15 @@ def education_vars(df):
     df.loc[:,"high_school_black"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["RACBLK"] == 1)).astype(int)
 
 # School levels theoretical age
-    df.loc[:,"elementary_non_black"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10) & (df["RACBLK"] == 0)).astype(int)
-    df.loc[:,"middle_non_black"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13) & (df["RACBLK"] == 0)).astype(int)
-    df.loc[:,"high_school_non_black"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["RACBLK"] == 0)).astype(int)
+    df.loc[:,"elementary_hispanic"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10) & (df["hispanic"] == 1)).astype(int)
+    df.loc[:,"middle_hispanic"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13) & (df["hispanic"] == 1)).astype(int)
+    df.loc[:,"high_school_hispanic"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["hispanic"] == 1)).astype(int)
+
+
+# School levels theoretical age
+    df.loc[:,"elementary_non_black_non_hispanic"] = ((df["AGEP"] >= 5) & (df["AGEP"] <= 10) & (df["RACBLK"] == 0) & (df["hispanic"] == 0)).astype(int)
+    df.loc[:,"middle_non_black_non_hispanic"] = ((df["AGEP"] >= 11) & (df["AGEP"] <= 13) & (df["RACBLK"] == 0) & (df["hispanic"] == 0)).astype(int)
+    df.loc[:,"high_school_non_black_non_hispanic"] = ((df["AGEP"] >= 14) & (df["AGEP"] <= 18) & (df["RACBLK"] == 0) & (df["hispanic"] == 0)).astype(int)
 
 
 
@@ -141,11 +149,22 @@ def education_vars(df):
         1,
         0,
     )
-    df["atten_elementary_non_black"] = np.where(
+
+    df["atten_elementary_hispanic"] = np.where(
         mask
         & (df["years_education"] <= 4)
         & (df["elementary"] == 1)
-        & (df["RACBLK"] == 0),
+        & (df["hispanic"] == 1),
+        1,
+        0,
+    )
+
+
+    df["atten_elementary_non_black_non_hispanic"] = np.where(
+        mask
+        & (df["years_education"] <= 4)
+        & (df["elementary"] == 1)
+        & ((df["RACBLK"] == 0) & (df["hispanic"] == 0)),
         1,
         0,
     )
@@ -179,11 +198,20 @@ def education_vars(df):
         0,
     )
 
-    df["atten_middle_non_black"] = np.where(
+    df["atten_middle_hispanic"] = np.where(
         mask
         & df["years_education"].between(5, 7)
         & (df["middle"] == 1)
-        & (df["RACBLK"] == 0),
+        & (df["hispanic"] == 1),
+        1,
+        0,
+    )
+
+    df["atten_middle_non_black_non_hispanic"] = np.where(
+        mask
+        & df["years_education"].between(5, 7)
+        & (df["middle"] == 1)
+        & ((df["RACBLK"] == 0) & (df["hispanic"] == 0)),
         1,
         0,
     )
@@ -217,11 +245,20 @@ def education_vars(df):
         0,
     )
 
-    df["atten_high_school_non_black"] = np.where(
+    df["atten_high_school_hispanic"] = np.where(
         mask
         & df["years_education"].between(8, 11)
         & (df["high_school"] == 1)
-        & (df["RACBLK"] == 0),
+        & (df["hispanic"] == 1),
+        1,
+        0,
+    )
+
+    df["atten_high_school_non_black_non_hispanic"] = np.where(
+        mask
+        & df["years_education"].between(8, 11)
+        & (df["high_school"] == 1)
+        & ((df["RACBLK"] == 0) & (df["hispanic"] == 0)),
         1,
         0,
     )
@@ -233,14 +270,17 @@ def education_vars(df):
         "atten_elementary_women",
         "atten_elementary_men",
         "atten_elementary_black",
-        "atten_elementary_non_black",
+        "atten_elementary_hispanic",
+        "atten_elementary_non_black_non_hispanic",
         "atten_middle",
         "atten_middle_women",
         "atten_middle_men",
         "atten_middle_black",
-        "atten_middle_non_black",
+        "atten_middle_hispanic",
+        "atten_middle_non_black_non_hispanic",
         "atten_high_school",
-        "atten_high_school_non_black",
+        "atten_high_school_non_black_non_hispanic",
+        "atten_high_school_hispanic",
         "atten_high_school_black",
         "atten_high_school_men",
         "atten_high_school_women",
@@ -248,22 +288,26 @@ def education_vars(df):
         "elementary_men",
         "elementary_women",
         "elementary_black",
-        "elementary_non_black",
+        "elementary_hispanic",
+        "elementary_non_black_non_hispanic",
         "middle",
         "middle_men",
         "middle_women",
         "middle_black",
-        "middle_non_black",
+        "middle_hispanic",
+        "middle_non_black_non_hispanic",
         "high_school",
         "high_school_men",
         "high_school_women",
         "high_school_black",
-        "high_school_non_black",
+        "high_school_hispanic",
+        "high_school_non_black_non_hispanic",
         "HINCP",
         "men",
         "woman",
         "black",
-        "non_black",
+        "hispanic",
+        "non_black_non_hispanic",
     ]
 
     # Multiply each column by PWGTP and save as a new column with _w appended
@@ -279,38 +323,45 @@ def education_vars(df):
                 "atten_elementary_women_w",
                 "atten_elementary_men_w",
                 "atten_elementary_black_w",
-                "atten_elementary_non_black_w",
+                "atten_elementary_hispanic_w",
+                "atten_elementary_non_black_non_hispanic_w",
                 "elementary_w",
                 "elementary_men_w",
                 "elementary_women_w",
                 "elementary_black_w",
-                "elementary_non_black_w",
+                "elementary_hispanic_w",
+                "elementary_non_black_non_hispanic_w",
                 "atten_middle_w",
                 "atten_middle_women_w",
                 "atten_middle_men_w",
                 "atten_middle_black_w",
-                "atten_middle_non_black_w",
+                "atten_middle_hispanic_w",
+                "atten_middle_non_black_non_hispanic_w",
                 "middle_men_w",
                 "middle_women_w",
                 "middle_black_w",
-                "middle_non_black_w",
+                "middle_hispanic_w",
+                "middle_non_black_non_hispanic_w",
                 "middle_w",
                 "atten_high_school_w",
-                "atten_high_school_non_black_w",
+                "atten_high_school_non_black_non_hispanic_w",
                 "atten_high_school_black_w",
+                "atten_high_school_hispanic_w",
                 "atten_high_school_men_w",
                 "atten_high_school_women_w",
                 "high_school_w",
                 "high_school_men_w",
                 "high_school_women_w",
                 "high_school_black_w",
-                "high_school_non_black_w",
+                "high_school_hispanic_w",
+                "high_school_non_black_non_hispanic_w",
                 "PWGTP",
                 "HINCP_w",
                 "men_w",
                 "woman_w",
                 "black_w",
-                "non_black_w",
+                "hispanic_w",
+                "non_black_non_hispanic_w",
             ]
         ]
         .groupby("PUMA")
@@ -408,15 +459,26 @@ def education_indicators(df):
         df["atten_high_school_black_w"] / df["high_school_black_w"]
     ) * 100
 
+    # Calculate attendance rates (hispanic)
+    df["attendance_rate_elementary_hispanic"] = (
+        df["atten_elementary_hispanic_w"] / df["elementary_hispanic_w"]
+    ) * 100
+    df["attendance_rate_middle_hispanic"] = (
+        df["atten_middle_hispanic_w"] / df["middle_hispanic_w"]
+    ) * 100
+    df["attendance_rate_high_hispanic"] = (
+        df["atten_high_school_hispanic_w"] / df["high_school_hispanic_w"]
+    ) * 100
+
     # Calculate attendance rates (none black)
-    df["attendance_rate_elementary_non_black"] = (
-        df["atten_elementary_non_black_w"] / df["elementary_non_black_w"]
+    df["attendance_rate_elementary_non_black_non_hispanic"] = (
+        df["atten_elementary_non_black_non_hispanic_w"] / df["elementary_non_black_non_hispanic_w"]
     ) * 100
-    df["attendance_rate_middle_non_black"] = (
-        df["atten_middle_non_black_w"] / df["middle_non_black_w"]
+    df["attendance_rate_middle_non_black_non_hispanic"] = (
+        df["atten_middle_non_black_non_hispanic_w"] / df["middle_non_black_non_hispanic_w"]
     ) * 100
-    df["attendance_rate_high_non_black"] = (
-        df["atten_high_school_non_black_w"] / df["high_school_non_black_w"]
+    df["attendance_rate_high_non_black_non_hispanic"] = (
+        df["atten_high_school_non_black_non_hispanic_w"] / df["high_school_non_black_non_hispanic_w"]
     ) * 100
 
     # calculate school age population rates (as percentages)
@@ -489,7 +551,7 @@ def process_multiple_years(output_file="data/census_df.csv", full_fetch=False):
     """
     
     dfs = []
-    for year in [2013, 2023]:
+    for year in [2013,2018, 2023]:
         # for year in range(2021,2024):
         df = chicago_dataframe(year,"", full_fetch=False)
         
@@ -512,15 +574,16 @@ def rename_functions(output_file="data/census_df_long.csv"):
     conditions = [
     df_long["indicator"].str.endswith("_women") | df_long["indicator"].str.endswith("_women_w"),
     df_long["indicator"].str.endswith("_men")   | df_long["indicator"].str.endswith("_men_w"),
-    df_long["indicator"].str.endswith("_non_black") | df_long["indicator"].str.endswith("_non_black_w"),
-    df_long["indicator"].str.endswith("_black") | df_long["indicator"].str.endswith("_black_w")
+    df_long["indicator"].str.endswith("_non_black_non_hispanic") | df_long["indicator"].str.endswith("_non_black_non_hispanic_w"),
+    df_long["indicator"].str.endswith("_black") | df_long["indicator"].str.endswith("_black_w"),
+    df_long["indicator"].str.endswith("_hispanic") | df_long["indicator"].str.endswith("_hispanic_w")
     ]
-    choices = ["women", "men", "afroamerican", "nonafroamerican"]
+    choices = ["women", "men", "nonafroamerican_hispanic","afroamerican", "hispanic"]
     df_long["cut_name"] = np.select(conditions, choices, default="Total")
 
     df_long["indicator"] = df_long["indicator"]
 
-    pattern = re.compile(r'(\_men|\_women|\_black|\_non\_black)')
+    pattern = re.compile(r'(\_men|\_women|\_black||\_hispanic|\_non\_black\_non\_hispanic)')
     df_long['indicator'] = df_long['indicator'].str.replace(pattern, '', regex=True)
 
     df_long.to_csv(output_file, index=False)
