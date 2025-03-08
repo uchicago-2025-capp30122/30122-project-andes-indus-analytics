@@ -1,4 +1,5 @@
 import altair as alt
+import json
 import geopandas as gpd
 import pandas as pd
 import plotly.express as px
@@ -158,115 +159,105 @@ def create_crime_heat_map(
     return fig
 
 
-def creating_geo_chart(
-    points_data,
-    geo_data,
-    width=500,
-    height=300,
-    background_fill="lightgray",
-    background_stroke="white",
-    circle_size=10,
-    circle_color="steelblue",
-    longitude_field="lon",
-    latitude_field="lat",
-    tooltip_fields=None,
-):
-    """
-    Creates a Plotly map with a background layer (GeoJSON for Chicago PUMAs) and
-    an overlay of points (e.g., schools).
 
+def create_chicago_school_visualization(gdf_chicago, df_schools):
+    """
+    Creates an interactive Altair chart combining a Chicago PUMAs map with school data,
+    with a density plot that shows the distribution of dropout rates for schools 
+    within the brushed area (and only considering valid dropout rates).
+    
     Parameters:
-        points_data (pd.DataFrame): DataFrame containing point data (e.g., schools)
-        geo_data (dict): GeoJSON FeatureCollection of your PUMA polygons
-        width (int): Chart width in pixels.
-        height (int): Chart height in pixels.
-        background_fill (str): Fill color for the background polygons.
-        background_stroke (str): Border color for the polygons.
-        circle_size (int): Marker size for the points.
-        circle_color (str): Marker color for the points.
-        longitude_field (str): Name of the column in points_data for longitude.
-        latitude_field (str): Name of the column in points_data for latitude.
-        tooltip_fields (list of str): List of column names from points_data to include in hover info.
-                                      The first field is used as the primary label.
-
+        gdf_chicago (GeoDataFrame): A GeoDataFrame containing the Chicago PUMAs shapefile data.
+        df_schools (DataFrame): A DataFrame containing school data with columns such as 
+                                "Longitude", "Latitude", "Year", "School Name_x", 
+                                "Student Count", "DropoutRate", etc.
+    
     Returns:
-        go.Figure: A Plotly Figure object representing the map.
+        alt.Chart: An Altair chart that concatenates a map and a density plot.
     """
-    # Create an empty Plotly Figure.
-    fig = go.Figure()
-
-    # --- Background Layer: Chicago PUMA Polygons ---
-    # For the background, we use a Choroplethmapbox trace.
-    # Create a list of feature IDs from the GeoJSON properties.
-    puma_ids = [feature["properties"]["id"] for feature in geo_data["features"]]
-    # Use dummy values as the z variable because we're only using the colorscale to set the fill.
-    dummy_values = [1] * len(puma_ids)
-
-    fig.add_trace(
-        go.Choroplethmapbox(
-            geojson=geo_data,
-            locations=puma_ids,
-            z=dummy_values,
-            colorscale=[[0, background_fill], [1, background_fill]],
-            marker_line_color=background_stroke,
-            marker_line_width=1,
-            showscale=False,
-            name="Chicago PUMAs",
+    # Convert school DataFrame to GeoDataFrame (if not already one)
+    if not hasattr(df_schools, "geometry"):
+        gdf_schools = gpd.GeoDataFrame(
+            df_schools,
+            geometry=gpd.points_from_xy(df_schools["Longitude"], df_schools["Latitude"]),
+            crs="EPSG:4326"
         )
-    )
-
-    # --- Points Layer: School Locations ---
-    # If no tooltip_fields are provided, default to the longitude and latitude fields.
-    if tooltip_fields is None:
-        tooltip_fields = [longitude_field, latitude_field]
-
-    # Build a hover template. If more than one field is provided, use the first field as primary text,
-    # and the others as additional info.
-    if len(tooltip_fields) > 1:
-        hover_template = "<b>%{text}</b><br>"
-        for i, field in enumerate(tooltip_fields[1:]):
-            hover_template += f"{field}: %{{customdata[{i}]}}<br>"
-        hover_template += "<extra></extra>"
-        # Create custom data from the additional tooltip fields.
-        customdata = points_data[tooltip_fields[1:]].to_numpy()
-        text_values = points_data[tooltip_fields[0]]
     else:
-        hover_template = "<b>%{text}</b><extra></extra>"
-        customdata = None
-        text_values = points_data[tooltip_fields[0]]
+        gdf_schools = df_schools.copy()
 
-    fig.add_trace(
-        go.Scattermapbox(
-            lat=points_data[latitude_field],
-            lon=points_data[longitude_field],
-            mode="markers",
-            marker=go.scattermapbox.Marker(size=circle_size, color=circle_color),
-            text=text_values,
-            customdata=customdata,
-            hovertemplate=hover_template,
-            name="Schools",
+    # Ensure both datasets are in EPSG:4326
+    gdf_chicago = gdf_chicago.to_crs("EPSG:4326")
+    gdf_schools = gdf_schools.to_crs("EPSG:4326")
+    
+    # Optional: Perform spatial join (if needed for aggregations)
+    gdf_schools_joined = gpd.sjoin(gdf_schools, gdf_chicago, how="left", predicate="within")
+    
+    # Convert Chicago GeoDataFrame to GeoJSON for Altair
+    chicago_geojson = json.loads(gdf_chicago.to_json())
+    chicago_data = alt.Data(values=chicago_geojson["features"])
+    
+    # Define an interactive brush based on latitude (vertical slice)
+    brush = alt.selection_interval(
+        encodings=["latitude"],
+        empty=False,
+        value={"latitude": [41.80, 41.90]}
+    )
+    
+    # Prepare the school data: treat Year as string and filter to 2013 and 2023
+    gdf_schools["Year"] = gdf_schools["Year"].astype(str)
+    gdf_schools = gdf_schools[gdf_schools["Year"].isin(["2013","2018","2023"])]
+    
+    # Create a selection for year using a dropdown
+    year_options = sorted(gdf_schools["Year"].unique())
+    year_select = alt.selection_point(
+        fields=["Year"],
+        bind=alt.binding_select(options=year_options, name="Select Year:")
+    )
+    
+    # Create the Chicago map layer
+    chicago_map = alt.Chart(chicago_data).mark_geoshape(
+        fill="lightgray", stroke="white", strokeWidth=0.1
+    ).properties(width=600, height=400)
+    
+    # Create the school points layer (filter by year)
+    schools = alt.Chart(gdf_schools).transform_filter(year_select).mark_circle(opacity=0.7).encode(
+        longitude="Longitude:Q",
+        latitude="Latitude:Q",
+        tooltip=["School Name_x", "Student Count:Q", "Year"],
+        color=alt.condition(brush, alt.value("goldenrod"), alt.value("royalblue")),
+        size=alt.Size("Student Count:Q", scale=alt.Scale(range=[10, 200]), title="Student Count")
+    ).add_params(brush, year_select)
+    
+    # Combine the map and school layers with Mercator projection
+    left_map = alt.layer(chicago_map, schools).project(type="mercator").properties(width=600, height=400)
+    
+    # Ensure DropoutRate is numeric (if not already)
+    gdf_schools["DropoutRate"] = pd.to_numeric(gdf_schools["DropoutRate"], errors="coerce")
+    
+    # Create a density (KDE) plot based solely on the brushed area,
+    # filtering out records with missing dropout rates.
+    density_plot = (
+        alt.Chart(gdf_schools)
+        .transform_filter(year_select)
+        .transform_filter(brush)
+        .transform_filter("datum.DropoutRate != null")
+        .transform_density(
+            density="DropoutRate",
+            as_=["DropoutRate", "density"],
+            extent=[0, 60]  # Adjust extent based on your data range
         )
+        .mark_area(opacity=0.7, color="goldenrod")
+        .encode(
+            x=alt.X("DropoutRate:Q", title="Dropout Rate (%)"),
+            y=alt.Y("density:Q", title="Density", scale=alt.Scale(domain =[0,0.2]))
+        )
+        .properties(width=600, height=400)
     )
-
-    # --- Layout Settings ---
-    # Center the map based on the mean of your points.
-    fig.update_layout(
-        mapbox=dict(
-            style="carto-positron",
-            center=dict(
-                lat=points_data[latitude_field].mean(),
-                lon=points_data[longitude_field].mean(),
-            ),
-            zoom=10,
-        ),
-        margin={"r": 0, "t": 0, "l": 0, "b": 0},
-        width=width,
-        height=height,
-        showlegend=True,
-    )
-
-    return fig
-
+    
+    # Concatenate the map and the density plot side by side
+    final_chart = left_map | density_plot
+    
+    return final_chart
 
 def create_stacked_chart_gender(df_c_long):
     

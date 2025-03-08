@@ -1,6 +1,7 @@
 from dash import Dash, html, dcc, callback, Output, Input
 import dash_bootstrap_components as dbc
 import plotly.express as px
+import json
 import altair as alt
 import pandas as pd
 import geopandas as gpd
@@ -12,7 +13,8 @@ from figures import (create_crime_map,
                      create_geo_chart,
                      point_data_chart,
                      load_crimes_shp,
-                     create_graph_multiple)
+                     create_graph_multiple,
+                     create_chicago_school_visualization)
 from join_data import lower_colnames
 from pathlib import Path
 
@@ -128,6 +130,7 @@ app.layout = html.Div(
                                  ),
         html.Div(id="crime_map", style={"marginBottom": "20px"}),  # 1️⃣ Crime Map
         html.Div(id="schools_locations", style={"marginBottom": "20px"}),  # 8️⃣ Schools Locations
+        html.Div(id="School_droput_location", style = {"marginBottom": "20px"}) # Dropout and Location
     ],
     width=9,  # Takes 75% of space
 ),
@@ -335,6 +338,7 @@ app.layout = html.Div(
     Output("scatter-graph-container", "children"),
     Output("crime_map", "children"),    
     Output("schools_locations", "children"),
+    Output("School_droput_location", "children"),
 
     # for the cards
     Output("pumas-text", "children"),
@@ -455,6 +459,8 @@ def update_charts(selected_year, selected_crime, selected_level):
         crimes_shp, selected_crime, selected_year, crime_labels
     )
 
+    #Creating Location and Dropout
+    School_droput_location = create_chicago_school_visualization(pumas, schools_df)
 
     # Return iframes that embed the Altair charts via their HTML representation
     return (
@@ -491,6 +497,10 @@ def update_charts(selected_year, selected_crime, selected_level):
         ),
         html.Iframe(
             srcDoc=school_map.to_html(),
+            style={"width": "100%", "height": "600px", "border": "0"},
+        ),
+        html.Iframe(
+            srcDoc=School_droput_location.to_html(),
             style={"width": "100%", "height": "600px", "border": "0"},
         ),
         # for the cards
