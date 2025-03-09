@@ -249,7 +249,7 @@ def create_chicago_school_visualization(gdf_chicago, df_schools):
             x=alt.X("DropoutRate:Q", title="Dropout Rate (%)"),
             y=alt.Y("density:Q", title="Density", scale=alt.Scale(domain =[0,0.2]))
         )
-        .properties(width=600, height=400)
+        .properties(width=400, height=200)
     )
     
     # Concatenate the map and the density plot side by side

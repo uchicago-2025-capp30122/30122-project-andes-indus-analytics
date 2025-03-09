@@ -346,7 +346,7 @@ app.layout = html.Div([
                         style={
                             "border-bottom": "1px solid #ccc",
                             "margin-top": "10px",
-                            "margin-bottom": "10px",
+                            "margin-bottom": "5px",
                         }
                     ),
                 ],
@@ -447,7 +447,7 @@ app.layout = html.Div([
                     "display": "flex",
                     "flexDirection": "column",
                     "alignItems": "center",
-                    "marginBottom": "30px"
+                    "marginBottom": "5px"
                 },
                 children=[
                     html.Span(
@@ -483,7 +483,7 @@ app.layout = html.Div([
                             "font-weight": "normal",
                             "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
                             "padding": "3px",
-                            "marginBottom": "10px"
+                            "marginBottom": "5px"
                         },
                     ),
                 ],
@@ -523,7 +523,7 @@ app.layout = html.Div([
                 style={"padding": "10px"},
             ),
                                                                                     # Attendance Graph
-            html.Div(id="bar-graph-container", style={"marginBottom": "5px"}),  
+            html.Div(id="bar-graph-container", style={"marginBottom": "3px"}),  
             html.Div(id='School_droput_location', style={"marginBottom": "5px"}),    
                     # Bar Chart
             html.Div(id="scatter-graph-container", style={"marginBottom": "20px"}),  # Scatter Plot
@@ -538,7 +538,7 @@ app.layout = html.Div([
                 inline=True,
             ),
             html.Div(id="crime_map", style={"marginBottom": "20px"}),    # Crime Map
-            html.Div(id="schools_locations", style={"marginBottom": "20px"}),  # Schools Locations
+            #html.Div(id="schools_locations", style={"marginBottom": "5px"}),  # Schools Locations
             
         ],
         width=8),
@@ -586,8 +586,7 @@ app.layout = html.Div([
 
                             "As you move through the data, imagine the real‐life implications for students in each PUMA—students in higher‐performing neighborhoods "
                             "may have easier access to safe transportation or well‐equipped school facilities, while those in lower‐attending areas may face additional hurdles,"
-                            "from safety concerns to family obligations."
-                            "can be crime related to this patterns?",
+                            "from safety concerns to family obligations.",
                         ],
                         style={
                             "color": "#000000",
@@ -613,6 +612,8 @@ app.layout = html.Div([
         ],
         width=4),
     ]),
+
+
 ])
 
       
@@ -627,7 +628,6 @@ app.layout = html.Div([
     Output("bar-graph-container", "children"),
     Output("scatter-graph-container", "children"),
     Output("crime_map", "children"),    
-    Output("schools_locations", "children"),
     Output("School_droput_location", "children"),
 
     # for the cards
@@ -785,10 +785,7 @@ def update_charts(selected_year, selected_crime, selected_level):
             srcDoc=crime_map.to_html(),
             style={"width": "100%", "height": "600px", "border": "0"},
         ),
-        html.Iframe(
-            srcDoc=school_map.to_html(),
-            style={"width": "100%", "height": "600px", "border": "0"},
-        ),
+
         html.Iframe(
             srcDoc=School_droput_location.to_html(),
             style={"width": "100%", "height": "600px", "border": "0"},
