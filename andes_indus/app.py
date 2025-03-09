@@ -524,21 +524,7 @@ app.layout = html.Div([
             ),
                                                                                     # Attendance Graph
             html.Div(id="bar-graph-container", style={"marginBottom": "3px"}),  
-            html.Div(id='School_droput_location', style={"marginBottom": "5px"}),    
-                    # Bar Chart
-            html.Div(id="scatter-graph-container", style={"marginBottom": "20px"}),  # Scatter Plot
 
-            dcc.RadioItems(
-                id="level-map",
-                options=[
-                    {"label": "Puma level", "value": "Puma"},
-                    {"label": "Neighborhood level", "value": "Neighborhood"}
-                ],
-                value="Puma",
-                inline=True,
-            ),
-            html.Div(id="crime_map", style={"marginBottom": "20px"}),    # Crime Map
-            #html.Div(id="schools_locations", style={"marginBottom": "5px"}),  # Schools Locations
             
         ],
         width=8),
@@ -611,6 +597,207 @@ app.layout = html.Div([
             ),
         ],
         width=4),
+    ]),
+
+### new row - unique 
+
+        dbc.Row([
+            # Left Column
+            dbc.Col(
+                [
+
+                    html.Div(
+                            style={
+                                "width": "100%",
+                                "backgroundColor": "#f0f0f0",
+                                "padding": "15px",
+                                "borderRadius": "8px",
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "center",
+                                "marginBottom": "30px"
+                            },
+                        children=[
+                             html.Span(
+                                    "How does early school dropot rates vary by location? ",
+                                    style={
+                                        "color": "#000000",
+                                        "font-weight": "bold",
+                                        "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                                        "padding": "10px",
+                                    }
+                             ),
+                             html.Div(
+                                [
+                                    "According to the public schools regisers, ......"                           
+                                ],
+                                    style={
+                                        "color": "#000000",
+                                        "font-weight": "normal",
+                                        "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                                        "padding": "3px",
+                                    },
+                             ),        
+                        ],            
+                    ),
+
+                    html.Div(
+                        children=[
+                            html.H1(
+                                [
+                                    html.Span(
+                                        "How About School Dropots by location",
+                                        style={"color": "#000000", "font-weight": "normal"},
+                                    ),
+                                ],
+                                style={
+                                    "font-size": "20px",
+                                    "margin": "0",
+                                    "padding": "0",
+                                },
+                            ),
+                            html.Div(
+                                style={
+                                    "border-bottom": "1px solid #ccc",
+                                    "margin-top": "0px",
+                                    "margin-bottom": "10px",
+                                    "width": "40%"
+                                }
+                            ),
+                        ],
+                        style={"padding": "10px"},
+                    ),
+
+                    # Attendance Graph
+                    html.Div(id="School_droput_location", style={"marginBottom": "5px"}),
+
+                    html.Div(
+                            style={
+                                "width": "100%",
+                                "backgroundColor": "#f0f0f0",
+                                "padding": "15px",
+                                "borderRadius": "8px",
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "alignItems": "center",
+                                "marginBottom": "30px"
+                            },
+                        children=[
+                             html.Span(
+                                    "How does school attendance / dropouts correlate with crime?? ",
+                                    style={
+                                        "color": "#000000",
+                                        "font-weight": "bold",
+                                        "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                                        "padding": "10px",
+                                    }
+                             ),
+                             html.Div(
+                                [
+                                    "According to the public schools regisers, ......"                           
+                                ],
+                                    style={
+                                        "color": "#000000",
+                                        "font-weight": "normal",
+                                        "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                                        "padding": "3px",
+                                    },
+                             ),        
+                        ],            
+                    ),
+
+
+                      
+
+
+                    
+                ],
+                width=12
+                
+            ),
+        ]),
+
+## new row two columns for correlations
+
+    dbc.Row([
+        # Left Column (8 wide)
+        dbc.Col([
+             html.Div(
+                children=[
+                    html.H1(
+                        [
+                            html.Span(
+                                "High School Attendance Rate and crime by location",
+                                style={"color": "#000000", "font-weight": "normal"},
+                            ),
+                        ],
+                        style={
+                            "font-size": "20px",
+                            "margin": "0",
+                            "padding": "0",
+                        },
+                    ),
+                    html.Div(
+                        style={
+                            "border-bottom": "1px solid #ccc",
+                            "margin-top": "0px",
+                            "margin-bottom": "10px",
+                        }
+                    ),
+                ],
+                style={"padding": "10px"},
+            ),
+                                                                                    # Attendance Graph
+                                dcc.RadioItems(
+                                id="level-map",
+                                options=[
+                                    {"label": "Puma level", "value": "Puma"},
+                                    {"label": "Neighborhood level", "value": "Neighborhood"},
+                                ],
+                                value="Puma",
+                                inline=True,
+                            ),
+
+                            # Crime Map
+                            html.Div(id="crime_map", style={"marginBottom": "20px"}),  
+
+            
+        ],
+        width=6),
+
+        # Right Column (4 wide)
+        dbc.Col([
+
+               html.Div(
+                children=[
+                    html.H1(
+                        [
+                            html.Span(
+                                "High School Attendance Rate and crime by location",
+                                style={"color": "#000000", "font-weight": "normal"},
+                            ),
+                        ],
+                        style={
+                            "font-size": "20px",
+                            "margin": "0",
+                            "padding": "0",
+                        },
+                    ),
+                    html.Div(
+                        style={
+                            "border-bottom": "1px solid #ccc",
+                            "margin-top": "0px",
+                            "margin-bottom": "10px",
+                        }
+                    ),
+                ],
+                style={"padding": "10px"},
+            ),
+                                                                                    # Attendance Graph
+                                # Bar Chart
+                    html.Div(id="scatter-graph-container", style={"marginBottom": "20px"}),
+        ],
+        width=6),
     ]),
 
 
