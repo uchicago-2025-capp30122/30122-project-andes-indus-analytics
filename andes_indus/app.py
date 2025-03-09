@@ -10,13 +10,12 @@ from figures import (create_crime_map,
                      create_crime_heat_map, 
                      create_stacked_chart_gender, 
                      create_stacked_chart_race,
-                     create_geo_chart,
                      point_data_chart,
                      load_crimes_shp,
                      create_graph_multiple,
                      create_chicago_school_visualization,
                      create_scatter_dynamic)
-from join_data import lower_colnames, transform_to_long_format
+from join_data import lower_colnames
 from pathlib import Path
 
 # Loading data files - Puma level
@@ -24,8 +23,8 @@ pumas_shp = lower_colnames(gpd.read_file(Path('data/shapefiles/data_pumas.shp'))
 pumas_shp = pumas_shp.rename(columns={'total_cr_1' : 'total_crim_pc', 
                                       'non-viol_1' : 'non_violent_pc'})
 
-pumas_df = pd.read_csv(Path("data/data_pumas.csv"))
-cols_to_keep = ['puma', 'year', 'violent_pc', 'non-violen_pc', 'total_crim_pc']
+pumas_df = pd.read_csv(Path("data/data_pumas.csv")).rename(columns={'non-violen_pc':'non_violent_pc'})
+cols_to_keep = ['puma', 'year', 'violent_pc', 'non_violent_pc', 'total_crim_pc']
 attendance_cols = [
     'attendance_rate_elementary_black',
     'attendance_rate_middle_black',
@@ -57,7 +56,7 @@ schools_df = pd.read_csv(Path("data/merged_school_data.csv"))
 crime_labels = {
     "total_crim_pc": "Total Crime",
     "violent_pc": "Violent Crime",
-    "non-violen_pc": "Non Violent Crime"
+    "non_violent_pc": "Non Violent Crime"
 }
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
@@ -120,7 +119,7 @@ app.layout = html.Div([
                     {"label": str(year), "value": year}
                     for year in sorted(df_c["year"].unique())
                 ],
-                value=sorted(df_c["year"].unique())[0],
+                value=sorted(df_c["year"].unique())[2],
                 id="dropdown-year",
             ),
             html.P(""),
@@ -129,7 +128,7 @@ app.layout = html.Div([
                 options=[
                     {"label": "Total Crime", "value": "total_crim_pc"},
                     {"label": "Violent Crime", "value": "violent_pc"},
-                    {"label": "Non Violent Crime", "value": "non-violen_pc"},
+                    {"label": "Non Violent Crime", "value": "non_violent_pc"},
                 ],
                 value="total_crim_pc",
                 inline=True,
@@ -225,7 +224,7 @@ app.layout = html.Div([
                                 "established the community areas in the 1920s with the idea that the boundaries "
                                 "have roughly the same population. ",
                                 target='community-text',
-                                placement='top',
+                                placement='bottom',
                             )
                         ]),
                         style={
@@ -260,10 +259,9 @@ app.layout = html.Div([
                                 "Chicago Public Schools (CPS) is the fourth-largest U.S. school district, "
                                 "serving 323,251 students across 634 schools. In 2023, it had a graduation "
                                 r"rate of 84%, with over 80% of students being Hispanic or Black and 63.8% "
-                                "from economically disadvantaged households. Despite leading in test score"
-                                " improvements, CPS faces challenges like declining enrollment and school closures. ",
+                                "from economically disadvantaged households. ",
                                 target="school-text",
-                                placement="top",
+                                placement="bottom",
                             ),
                         ]),
                         style={
@@ -294,6 +292,11 @@ app.layout = html.Div([
                                 "justifyContent": "center"
                             }),
                             html.P(id="school-age-pop-subtext", className="card-text"),
+                            dbc.Tooltip(
+                                "Refers to the theoretical school age population aged between 5–18. ",
+                                target="school-age-pop",
+                                placement="bottom",
+                            ),
                         ]),
                         style={
                             "width": "90%",
@@ -323,6 +326,16 @@ app.layout = html.Div([
                                 "justifyContent": "center"
                             }),
                             html.P(id="crimes-subtext", className="card-text"),
+                            dbc.Tooltip(
+                                "The Chicago Police Department maintains a comprehensive database of reported "
+                                "crimes across the city. For this analysis, we focused on data from the years "
+                                "2013, 2018, and 2023, totaling nearly one million records. To categorize each "
+                                "incident as either violent or non-violent crime, we followed the FBI's Uniform "
+                                "Crime Reporting (UCR) Program guidelines. According to the UCR, violent crimes "
+                                "include four primary offenses: murder, forcible rape, robbery, and aggravated assault. ",
+                                target="crimes-text",
+                                placement="bottom",
+                            ),
                         ]),
                         style={
                             "width": "90%",
@@ -982,7 +995,7 @@ def update_charts(selected_year, selected_crime, selected_level, level_educ):
     )
 
     #Creating Location and Dropout
-    School_droput_location = create_chicago_school_visualization(pumas, schools_df)
+    School_droput_location = create_chicago_school_visualization(pumas, schools_df, selected_year)
 
     # Return iframes that embed the Altair charts via their HTML representation
     return (
