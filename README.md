@@ -20,6 +20,8 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 ***
 ### How to run the project
 
+1. Clone the repo for the project using the url on GitHub
+
 As this module brings together information from different data sources. To run this program it is necessary to provide an APP key for the City of Chicago Data.
 The steps to create an APP KEY are:
 
@@ -41,8 +43,8 @@ export CHICAGO_APP_TOKEN="Eqk9pQsM8RsYYawwjwyFUTlYj"
 
 After sort out the API Key step, by running the following commands, an html file will prompt with a draft visualization of our project. 
 
-1. Run `uv sync`
-2. Run `uv run andes_indus -m`
+2. Run `uv sync`
+3. Run `uv run andes_indus -m`
 
 ### This command may take a minute to load the project to the terminal.
 ```
@@ -56,6 +58,7 @@ Dash is running on http://127.0.0.1:8050/
 Press CTRL+C to quit
 ```
 ***
+
 ### Running Tests
 
 To run the tests, please use the following command:
@@ -64,6 +67,7 @@ To run the tests, please use the following command:
 1. 'uv run pytest tests'
 ```
 ***
+
 ## Data Sources
 
 ### 1. U.S. Census Data - American Community Survey
