@@ -5,7 +5,7 @@ Early school dropout is a multifaceted challenge that impacts education systems 
 
 This project aims to integrate, analyze, and visualize spatial, administrative, and demographic data to characterize school dropouts across Chicago schools, with a particular focus on the role of crime in shaping these educational outcomes.
 
-![](Project\Screenshot.png)
+![screenshot](Project_screenshot.png)
 
 ## Authors
 - *Angela López Sanchez*
