@@ -416,13 +416,13 @@ def create_scatter_dynamic(df:pd.DataFrame,
     df = df.drop(columns=['attendance_category'])
     df_scatter = df[(df["year"] == selected_year) & 
                     (df["level"] == selected_level) ]
-
+    
     # Base scatterplot chart
     base = alt.Chart(df_scatter).mark_point(filled=True).encode(
         x=alt.X(f'{selected_crime}:Q', title=crime_labels[selected_crime]),
         y=alt.Y('attendance_rate:Q', title=f'Attendance Rate - {level_labels[selected_level]}'),
         color=alt.Color('race:N', legend=None),
-        tooltip=['puma', 'year', 'attendance_rate']
+        tooltip=['puma', 'year', 'attendance_rate', f'{selected_crime}']
     ).properties(
         width=200,
         height=200
