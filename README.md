@@ -5,14 +5,16 @@ Early school dropout is a multifaceted challenge that impacts education systems 
 
 This project aims to integrate, analyze, and visualize spatial, administrative, and demographic data to characterize school dropouts across Chicago schools, with a particular focus on the role of crime in shaping these educational outcomes.
 
+![screenshot](Project Screenshot.png)
+
 ## Authors
 - *Angela López Sanchez*
 - *Cesar Núñez*
 - *Shahzaib Jamali*
 
 
-## Project Demo:
-![screenshot](Project Screenshot.png)
+## Project Video:
+[Projec tVideo](linktovideo)
 
 ### Data pipeline
 This project is structured to collect, process, and visualize data from multiple sources, focusing on education, crime, census, and demographic data. The pipeline follows a structured approach to integrate and process these datasets efficiently. Below is an overview of the data flow:
@@ -28,6 +30,7 @@ This project is structured to collect, process, and visualize data from multiple
 - merge_shp:
 - __main__.py: Generates the final visualization using the processed data.
 
+***
 ### How to run the project
 
 As this module brings together information from different data sources. To run this program it is necessary to provide an APP key for the City of Chicago Data.
@@ -73,7 +76,7 @@ To run the tests, please use the following command:
 ```bash
 1. 'uv run pytest tests'
 ```
-
+***
 ## Data Sources
 
 ### 1. U.S. Census Data - American Community Survey
