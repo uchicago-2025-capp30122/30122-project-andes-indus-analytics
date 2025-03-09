@@ -119,7 +119,7 @@ def build_census_csv(year, output_filename):
 def read_csv_census(text):
     return [line.split(',') for line in text.split('\n')] # this is intended for 2018
 
-def get_google_drive_files(path, year) -> pd.DataFrame:
+def get_google_drive_files(path) -> pd.DataFrame:
      # Fetch the raw CSV data from Google Drive
     response = httpx.get(path, follow_redirects=True)
 
@@ -130,14 +130,8 @@ def get_google_drive_files(path, year) -> pd.DataFrame:
         raise RuntimeError(f"Error fetching file (status={response.status_code}).")
     
     text_buffer = io.StringIO(response.text)
-    #breakpoint()
     # Read the CSV contents
-    if year == 2018:
-        df = pd.DataFrame(read_csv_census(response.text))
-        df.columns = df.iloc[0]
-        df = df[1:].reset_index(drop=True)
-    else:
-        df = pd.read_csv(text_buffer)
+    df = pd.read_csv(text_buffer)
 
     return df
 
@@ -157,9 +151,9 @@ def chicago_dataframe(year, output_filename_ch, full_fetch=False):
         elif year == 2013:
             path = "https://drive.usercontent.google.com/download?id=1h8D9WeDCCBe0F75ZNbKqyQ7078ca9HHO&export=download&authuser=0&confirm=t&uuid=580455ba-d495-4801-939f-313992f725dd&at=AEz70l7IHPdNQzGZwfDYNnRNRFEZ:1741292537535"
         elif year == 2018:
-            path = "https://drive.usercontent.google.com/download?id=14uVPIW811_ZMsYo7qmC5hWiZ6ob1tjSu&export=download&authuser=0&confirm=t&uuid=308bf37a-9709-40c0-951b-7b50ca9f8f64&at=AEz70l40rnSShC2lpzwYyBN3-0_l:1741306863376"
+            path = "https://drive.usercontent.google.com/download?id=1zcP7YJyW5NemZ_FAF2r3Ub-dcAsjYVc7&export=download&authuser=0&confirm=t&uuid=7940c379-4f49-46fa-924a-6055f0c631c5&at=AEz70l5Qlq8c0GftWr8-e9X4u-GA:1741481012388"
 
-        df = get_google_drive_files(path, year)
+        df = get_google_drive_files(path)
     #print(len(df))
     #print(df.head())
     if year == 2023:

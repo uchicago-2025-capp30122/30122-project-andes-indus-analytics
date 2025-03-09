@@ -3,7 +3,7 @@ from sodapy import Socrata
 import os
 import pandas as pd
 import numpy as np
-from api_get import get_google_drive_files
+from .api_get import get_google_drive_files
 
 class Crime(NamedTuple):
     case_number: str
@@ -126,7 +126,7 @@ def load_crime_data():
     for _, path in dict_paths.items():
         
         # Read the CSV contents
-        df = get_google_drive_files(path, 0)
+        df = get_google_drive_files(path)
         data_lst.append(df)
 
     return data_lst[0], data_lst[1]
