@@ -73,27 +73,88 @@ CHICAGO_COLORS = {
 # Layout with two columns
 app.layout = html.Div([
     # Header section
+# Header section with controls in one row
     html.Div(
-        children=[
-            html.H1(
-                [
-                    html.Span(
-                        "Understanding Crime and School Attendance in",
-                        style={"color": "#000000", "font-weight": "normal"},
+    children=[
+        dbc.Row(
+            [
+                # Title Column (Takes 5 out of 12 columns)
+            dbc.Col(
+                    html.H1(
+                        [
+                            html.Span(
+                                "Understanding Crime and School Attendance in",
+                                style={"color": "#000000", "font-weight": "normal"},
+                            ),
+                            " ",  # space
+                            html.Span(
+                                "Chicago",
+                                style={"color": "#00bfff", "font-weight": "normal"},
+                            ),
+                        ],
+                        style={
+                            "font-family": "Times New Roman, serif",
+                            "font-size": "32px",
+                            "margin": "0",
+                            "padding": "0",
+                            "white-space": "nowrap",
+                        },
                     ),
-                    " ",  # space
-                    html.Span(
-                        "Chicago",
-                        style={"color": "#00bfff", "font-weight": "normal"},
+                    width=8,  # Takes 5 columns
+                ),
+
+                # Year Slider Column (Takes 4 out of 12 columns)
+            dbc.Col(
+                    html.Div(
+                [
+                    html.Label("Select Year:", style={"font-weight": "bold", "font-size": "12px", "color": "#666666"}),
+                    dcc.Slider(
+                        id="year-slider",
+                        min=2013,
+                        max=2023,
+                        step=5,
+                        marks={year: str(year) for year in range(2013, 2024, 5)},  # Includes 2023 label
+                        value=sorted(df_c["year"].unique())[2],
+                        tooltip={"placement": "bottom", "always_visible": True},  # Always show tooltip
+                        included=False,  # Ensures marks are independent of step values
+                        updatemode="drag",  # Update as user drags
                     ),
                 ],
-                style={
-                    "font-family": "Times New Roman, serif",
-                    "font-size": "36px",
-                    "margin": "0",
-                    "padding": "0",
-                },
+                style={"width": "100%", "textAlign": "right"}  # Ensures right alignment
             ),
+                    width=2,  # Takes 3 columns
+                ),
+
+            # Crime Type Selector Column (Takes 3 out of 12 columns)
+            dbc.Col(
+                html.Div(
+                [
+                    html.Label("Select Crime Type:", style={"font-weight": "bold", "font-size": "12px", "color": "#666666"}),
+                    dcc.RadioItems(
+                        id="crime-type",
+                        options=[
+                            {"label": "Total", "value": "total_crim_pc"},
+                            {"label": "Violent", "value": "violent_pc"},
+                            {"label": "Non-Violent", "value": "non-violen_pc"},
+                        ],
+                        value="total_crim_pc",
+                        inline=True,
+                        style={
+                            "color": "#888888",  # Lighter grey for text
+                            "font-size": "12px",
+                        },
+                    ),
+                ],
+                style={"width": "100%", "textAlign": "right"}  # Ensures right alignment
+            ),
+            width=2,
+         # Takes 3 columns
+             ),
+            ],
+    align="center",  # Align all items vertically in the center
+    justify="end",  # Align to the right of the row
+),
+
             html.Div(
                 style={
                     "border-bottom": "1px solid #ccc",
@@ -112,31 +173,66 @@ app.layout = html.Div([
     # Main Content: Two columns (Left: Charts & Controls, Right: Cards)
     dbc.Row([
         # Left Column (75% Width) - Graphs and Controls
-        dbc.Col([
-            html.Label("Select Year:"),
-            dcc.Dropdown(
-                options=[
-                    {"label": str(year), "value": year}
-                    for year in sorted(df_c["year"].unique())
+        dbc.Col(
+            [
+  
+        html.Div(
+                children=[
+                    html.H1(
+                        [
+                            html.Span(
+                                f"Counts of crimes in the Chicago Area",
+                                style={"color": "#000000", "font-weight": "normal"},
+                            ),
+                        ],
+                        style={
+                            "font-size": "20px",
+                            "margin": "0",
+                            "padding": "0",
+                        },
+                    ),
+
                 ],
-                value=sorted(df_c["year"].unique())[2],
-                id="dropdown-year",
+                       style={"padding": "10px"},
             ),
-            html.P(""),
-            dcc.RadioItems(
-                id="crime-type",
-                options=[
-                    {"label": "Total Crime", "value": "total_crim_pc"},
-                    {"label": "Violent Crime", "value": "violent_pc"},
-                    {"label": "Non Violent Crime", "value": "non_violent_pc"},
-                ],
-                value="total_crim_pc",
-                inline=True,
-            ),
-            # Graphs ordered:
-            html.Div(id="crime_heatmap", style={"marginBottom": "20px"}),  # Crime Heatmap
-        ],
-        width=9),  # Takes 75% of space
+
+        html.Div(id="crime_heatmap", style={"marginBottom": "0 px"}),    
+        # Info Box - "Who is impacted?"
+        html.Div(
+            style={
+                "width": "100%",
+                "backgroundColor": CHICAGO_COLORS["white"],
+                "padding": "0px",
+                "borderRadius": "8px",
+                "display": "flex",
+                "flexDirection": "column",
+                "alignItems": "left",
+                "marginBottom": "10px"
+            },
+            children=[
+
+
+                html.Div(
+                    [
+                        "The Chicago Area has long been recognized for its high crime rates compared to other major U.S. cities, "
+                        "with persistent challenges related to gun violence, gang activity, and socio-economic disparities. "
+                        "While crime rates fluctuate year to year, Chicago consistently ranks among the cities with the highest "
+                        "violent crime rates, particularly in specific neighborhoods on the South and West sides." ,
+                    ],
+                    style={
+                        "color": "#000000",
+                        "font-weight": "normal",
+                        "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                        "padding": "3px",
+                        "marginBottom": "10px"
+                    },
+                ),
+            ],
+        ),
+    ],
+    width=9  # Moves width property to the correct place
+    ),
+
 
         # Right Column (25% Width) - Cards inside Light Grey Box
         dbc.Col([
@@ -657,9 +753,9 @@ app.layout = html.Div([
 
 ### new row - unique 
 
-        dbc.Row([
+    dbc.Row([
             # Left Column
-            dbc.Col(
+        dbc.Col(
                 [
 
                     html.Div(
@@ -685,7 +781,9 @@ app.layout = html.Div([
                              ),
                              html.Div(
                                 [
-                                    "According to the public schools regisers, ......"                           
+                                    "Now, on a school location perspective, when exploring dropout rates from south to northern areas of the city, "
+                                    "it might be inferred that dropout rates in the northern region tend to cluster within a narrow range (approximately 0–10%), "
+                                    "while in the southern region the distribution appears more varied. Factors such as neighborhood violence, resource allocation, "
                                 ],
                                     style={
                                         "color": "#000000",
@@ -693,7 +791,20 @@ app.layout = html.Div([
                                         "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
                                         "padding": "3px",
                                     },
-                             ),        
+                             ),
+
+                              html.Div(
+                        [ 
+
+                            "....can be crime related to these patterns?",
+                        ],
+                        style={
+                            "color": "#000000",
+                            "font-weight": "normal",
+                            "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                            "padding": "3px",
+                        },
+                    ),        
                         ],            
                     ),
 
@@ -890,7 +1001,8 @@ app.layout = html.Div([
     Output('crimes-text', 'children'),
     Output('crimes-subtext', 'children'),
     Output('schools-subtext', 'children'),
-    Input("dropdown-year", "value"),
+    #Input("dropdown-year", "value"),
+    Input("year-slider", "value"),
     Input("crime-type", "value"),
     Input("level-map" , "value"),
     Input("dropdown-level", 'value'),
