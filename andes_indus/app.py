@@ -16,7 +16,7 @@ from figures import (create_crime_map,
                      create_graph_multiple,
                      create_chicago_school_visualization,
                      create_scatter_dynamic)
-from join_data import lower_colnames
+from join_data import lower_colnames, transform_to_long_format
 from pathlib import Path
 
 # Loading data files - Puma level
@@ -25,6 +25,21 @@ pumas_shp = pumas_shp.rename(columns={'total_cr_1' : 'total_crim_pc',
                                       'non-viol_1' : 'non_violent_pc'})
 
 pumas_df = pd.read_csv(Path("data/data_pumas.csv"))
+cols_to_keep = ['puma', 'year', 'violent_pc', 'non-violen_pc', 'total_crim_pc']
+attendance_cols = [
+    'attendance_rate_elementary_black',
+    'attendance_rate_middle_black',
+    'attendance_rate_high_black',
+    'attendance_rate_elementary_hispanic',
+    'attendance_rate_middle_hispanic',
+    'attendance_rate_high_hispanic',
+    'attendance_rate_elementary_non_black_non_hispanic',
+    'attendance_rate_middle_non_black_non_hispanic',
+    'attendance_rate_high_non_black_non_hispanic'
+]
+pumas_df_long = pumas_df[cols_to_keep + attendance_cols]
+pumas_df_long = pumas_df_long.melt(cols_to_keep, attendance_cols, var_name= "attendance_category", value_name="attendance_rate")
+
 df_c = pd.read_csv(Path("data/census_df.csv"))
 df_c_long = pd.read_csv(Path("data/census_df_long.csv"))
 
@@ -831,16 +846,6 @@ app.layout = html.Div([
                         value='high',
                         id="dropdown-level",
                     ),
-                    dcc.Dropdown(
-                        options=[
-                            {"label": 'African-american', 'value': '_black'},
-                            {"label": 'Hispanic', 'value': '_hispanic'},
-                            {"label": 'Non African-american, Non hispanic', 'value': '_non_black'},
-                            {"label": 'All', 'value': ''}
-                        ],
-                        value='',
-                        id="dropdown-ethnicity",
-                    ),
                     html.Div(id="scatter-graph-container", style={"marginBottom": "20px"}),
         ],
         width=6),
@@ -876,9 +881,8 @@ app.layout = html.Div([
     Input("crime-type", "value"),
     Input("level-map" , "value"),
     Input("dropdown-level", 'value'),
-    Input("dropdown-ethnicity", "value")
 )
-def update_charts(selected_year, selected_crime, selected_level, level_educ , selected_ethnicity):
+def update_charts(selected_year, selected_crime, selected_level, level_educ):
    
    # cards
     pumas_count = len(
@@ -933,12 +937,11 @@ def update_charts(selected_year, selected_crime, selected_level, level_educ , se
     level_dic = {'middle': 'Middle',
                  'high' : 'High School',
                  'elementary' : 'Elementary'}
-    race_dic = {'_black': 'Black',
-                '_hispanic' : 'Hispanic',
-                '_non_black' : 'Non Black, Non Hispanic',
-                '': 'All'}
+    race_dic = {'black': 'Black',
+                'hispanic' : 'Hispanic',
+                'non_black_non_hispanic' : 'Non Black, Non Hispanic'}
 
-    fig_scatter = create_scatter_dynamic(pumas_df, selected_year, selected_crime, crime_labels, level_educ, level_dic, selected_ethnicity, race_dic)
+    fig_scatter = create_scatter_dynamic(pumas_df_long, selected_year, selected_crime, crime_labels, level_educ, level_dic)
 
     # Create a new column 'indicator_label' using the mapping
     df_c_long["indicator_label"] = (
@@ -951,7 +954,7 @@ def update_charts(selected_year, selected_crime, selected_level, level_educ , se
     fig_stacked =  create_stacked_chart_gender(df_c_long, selected_year = selected_year)
     fig_stacked2 = create_stacked_chart_race(df_c_long, selected_year=selected_year)
 
-        # multiple graph for attendance 
+    # multiple graph for attendance 
     attendance_graph = create_graph_multiple(df_c_long)
 
     # Create the bar chart sorted descending by attendance_rate_high

@@ -413,39 +413,45 @@ def create_scatter_dynamic(df:pd.DataFrame,
                            selected_crime, 
                            crime_labels,
                            selected_level,
-                           level_labels,
-                           selected_race,
-                           race_labels):
-    brush = alt.selection_interval()
+                           level_labels):
 
-    df_scatter = df[df["year"] == selected_year]
-    
-    varname = f"attendance_rate_{selected_level}{selected_race}"
-    labelname = f"Attendance Rate - {level_labels[selected_level]} - {race_labels[selected_race]}"
+    def split_attendance_info(cat):
+        parts = cat.replace('attendance_rate_', '').split('_')
+        level = parts[0]  # elementary, middle, high
+        race = '_'.join(parts[1:]) if len(parts) > 1 else 'total'
+        return pd.Series([level, race])
 
-    scatter = (
-        alt.Chart(df_scatter)
-        .mark_point()
-        .encode(
-            x=alt.X(f"{selected_crime}:Q", title=crime_labels[selected_crime]).scale(
-                zero=False, domainMid=10
-            ),
-            y=alt.X(
-                f"{varname}:Q", title=labelname
-            ).scale(zero=False, domainMid=10),
-            color=alt.condition(brush, alt.value("steelblue"), alt.value("grey")),
-        )
-        .add_params(brush)
-        .properties(title=f"Scatter Plot for Year {selected_year}")
+    df[['level', 'race']] = df['attendance_category'].apply(split_attendance_info)
+
+    # Drop the original category column if you want
+    df = df.drop(columns=['attendance_category'])
+    df_scatter = df[(df["year"] == selected_year) & 
+                    (df["level"] == selected_level) ]
+
+    # Base scatterplot chart
+    base = alt.Chart(df_scatter).mark_point(filled=True).encode(
+        x=alt.X(f'{selected_crime}:Q', title=crime_labels[selected_crime]),
+        y=alt.Y('attendance_rate:Q', title=f'Attendance Rate - {level_labels[selected_level]}'),
+        color=alt.Color('race:N', legend=None),
+        tooltip=['puma', 'year', 'attendance_rate']
+    ).properties(
+        width=200,
+        height=200
     )
 
-    regression_line = (
-        alt.Chart(df_scatter)
-        .transform_regression(selected_crime, varname)
-        .mark_line(color="red")
-        .encode(x=alt.X(f"{selected_crime}:Q"), y=alt.Y(f"{varname}:Q"))
+    # Facet grid (columns by race, rows by level)
+    chart = base.facet(
+        column=alt.Column('race:N', title='Race')
     )
 
-    fig_scatter = (scatter + regression_line).properties(
-        title=f"Scatter Plot for Year {selected_year}")
-    return fig_scatter
+    regression = alt.Chart(df_scatter).transform_regression(
+        f'{selected_crime}', 'attendance_rate'
+    ).mark_line().encode(
+        x=f'{selected_crime}:Q',
+        y='attendance_rate'
+    )
+
+    chart = (base + regression).facet(
+        column='race:N'
+    )
+    return chart
