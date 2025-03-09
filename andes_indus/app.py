@@ -811,8 +811,26 @@ app.layout = html.Div([
                 ],
                 style={"padding": "10px"},
             ),
-                                                                                    # Attendance Graph
-                                # Bar Chart
+                    # Scatter Plot Chart
+                    dcc.Dropdown(
+                        options=[
+                            {"label": 'Elementary School', 'value': 'elementary'},
+                            {"label": 'Middle School', 'value': 'middle'},
+                            {"label": 'High School', 'value': 'high'}
+                        ],
+                        value='high',
+                        id="dropdown-level",
+                    ),
+                    dcc.Dropdown(
+                        options=[
+                            {"label": 'African-american', 'value': '_black'},
+                            {"label": 'Hispanic', 'value': '_hispanic'},
+                            {"label": 'Non African-american, Non hispanic', 'value': '_non_black'},
+                            {"label": 'All', 'value': ''}
+                        ],
+                        value='',
+                        id="dropdown-ethnicity",
+                    ),
                     html.Div(id="scatter-graph-container", style={"marginBottom": "20px"}),
         ],
         width=6),
@@ -846,9 +864,11 @@ app.layout = html.Div([
     Output('schools-subtext', 'children'),
     Input("dropdown-year", "value"),
     Input("crime-type", "value"),
-    Input("level-map" , "value")
+    Input("level-map" , "value"),
+    Input("dropdown-level", 'value'),
+    Input("dropdown-ethnicity", "value")
 )
-def update_charts(selected_year, selected_crime, selected_level):
+def update_charts(selected_year, selected_crime, selected_level, level_educ , selected_ethnicity):
    
    # cards
     pumas_count = len(
@@ -900,34 +920,15 @@ def update_charts(selected_year, selected_crime, selected_level):
     
 
    # Create the scatter plot with a brush selection
-    
-    brush = alt.selection_interval()
-    df_scatter = pumas_df[pumas_df["year"] == selected_year]
-    scatter = (
-        alt.Chart(df_scatter)
-        .mark_point()
-        .encode(
-            x=alt.X(f"{selected_crime}:Q", title=crime_labels[selected_crime]).scale(
-                zero=False, domainMid=10
-            ),
-            y=alt.X(
-                "attendance_rate_high_black:Q", title="Attendance Rate - High School"
-            ).scale(zero=False, domainMid=10),
-            color=alt.condition(brush, alt.value("steelblue"), alt.value("grey")),
-        )
-        .add_params(brush)
-        .properties(title=f"Scatter Plot for Year {selected_year}")
-    )
+    level_dic = {'middle': 'Middle',
+                 'high' : 'High School',
+                 'elementary' : 'Elementary'}
+    race_dic = {'_black': 'Black',
+                '_hispanic' : 'Hispanic',
+                '_non_black' : 'Non Black, Non Hispanic',
+                '': 'All'}
 
-    regression_line = (
-        alt.Chart(df_scatter)
-        .transform_regression(selected_crime, "attendance_rate_high_black")
-        .mark_line(color="red")
-        .encode(x=alt.X(f"{selected_crime}:Q"), y=alt.Y("attendance_rate_high_black:Q"))
-    )
-
-    fig_scatter = (scatter + regression_line).properties(
-        title=f"Scatter Plot for Year {selected_year}")
+    fig_scatter = create_scatter_dynamic(pumas_df, selected_year, selected_crime, crime_labels, level_educ, level_dic, selected_ethnicity, race_dic)
 
     # Create a new column 'indicator_label' using the mapping
     df_c_long["indicator_label"] = (
@@ -943,7 +944,6 @@ def update_charts(selected_year, selected_crime, selected_level):
         # multiple graph for attendance 
     attendance_graph = create_graph_multiple(df_c_long)
 
-
     # Create the bar chart sorted descending by attendance_rate_high
     fig_bar = create_interactive_bar(
         dff, select, stroke_width, selected_year, highlight
@@ -955,18 +955,6 @@ def update_charts(selected_year, selected_crime, selected_level):
     else:
         crime_map = create_crime_map(neighborhood_shp, selected_crime, selected_year, crime_labels, selected_level, "DISTITLE")
 
-    # Creating a school map
-    school_map = create_geo_chart(
-        points_data=schools_df,
-        geo_data=pumas,
-        selected_year=2012,
-        longitude_field="Longitude",  # Use the column name from your DataFrame for longitude
-        latitude_field="Latitude",  # Use the column name for latitude
-        tooltip_fields=[
-            "School Name_x",
-            "Student Count",
-        ],  # Customize tooltips as needed
-    )
     crime_map = crime_map + point_data_chart(
         schools_df,
         2023,

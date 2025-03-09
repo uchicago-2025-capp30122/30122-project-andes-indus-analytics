@@ -407,3 +407,45 @@ def create_graph_multiple(df_c_long):
     )
     
     return graph
+
+def create_scatter_dynamic(df:pd.DataFrame, 
+                           selected_year, 
+                           selected_crime, 
+                           crime_labels,
+                           selected_level,
+                           level_labels,
+                           selected_race,
+                           race_labels):
+    brush = alt.selection_interval()
+
+    df_scatter = df[df["year"] == selected_year]
+    
+    varname = f"attendance_rate_{selected_level}{selected_race}"
+    labelname = f"Attendance Rate - {level_labels[selected_level]} - {race_labels[selected_race]}"
+
+    scatter = (
+        alt.Chart(df_scatter)
+        .mark_point()
+        .encode(
+            x=alt.X(f"{selected_crime}:Q", title=crime_labels[selected_crime]).scale(
+                zero=False, domainMid=10
+            ),
+            y=alt.X(
+                f"{varname}:Q", title=labelname
+            ).scale(zero=False, domainMid=10),
+            color=alt.condition(brush, alt.value("steelblue"), alt.value("grey")),
+        )
+        .add_params(brush)
+        .properties(title=f"Scatter Plot for Year {selected_year}")
+    )
+
+    regression_line = (
+        alt.Chart(df_scatter)
+        .transform_regression(selected_crime, varname)
+        .mark_line(color="red")
+        .encode(x=alt.X(f"{selected_crime}:Q"), y=alt.Y(f"{varname}:Q"))
+    )
+
+    fig_scatter = (scatter + regression_line).properties(
+        title=f"Scatter Plot for Year {selected_year}")
+    return fig_scatter
