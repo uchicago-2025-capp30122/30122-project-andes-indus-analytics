@@ -75,11 +75,11 @@ def point_data_chart(
     latitude_field="latitude",
     tooltip_fields=None,
 ):
-    # Filter data for the selected year and remove NaN latitude values
+    
     points_data = points_data[points_data["Year"] == selected_year].copy()
     points_data = points_data[points_data["Latitude"].notna()]
 
-    # Create Altair chart
+    
     points_chart = (
         alt.Chart(points_data)
         .mark_circle(color="gray")
@@ -173,7 +173,7 @@ def create_chicago_school_visualization(gdf_chicago, df_schools):
     Returns:
         alt.Chart: An Altair chart that concatenates a map and a density plot.
     """
-    # Convert school DataFrame to GeoDataFrame (if not already one)
+    
     if not hasattr(df_schools, "geometry"):
         gdf_schools = gpd.GeoDataFrame(
             df_schools,
@@ -183,36 +183,36 @@ def create_chicago_school_visualization(gdf_chicago, df_schools):
     else:
         gdf_schools = df_schools.copy()
 
-    # Ensure both datasets are in EPSG:4326
+    
     gdf_chicago = gdf_chicago.to_crs("EPSG:4326")
     gdf_schools = gdf_schools.to_crs("EPSG:4326")
     
-    # Optional: Perform spatial join (if needed for aggregations)
+    
     gdf_schools_joined = gpd.sjoin(gdf_schools, gdf_chicago, how="left", predicate="within")
     
-    # Convert Chicago GeoDataFrame to GeoJSON for Altair
+    
     chicago_geojson = json.loads(gdf_chicago.to_json())
     chicago_data = alt.Data(values=chicago_geojson["features"])
     
-    # Define an interactive brush based on latitude (vertical slice)
+    
     brush = alt.selection_interval(
         encodings=["latitude"],
         empty=False,
         value={"latitude": [41.80, 41.90]}
     )
     
-    # Prepare the school data: treat Year as string and filter to 2013 and 2023
+    # Prepare the school data: treat Year as string and filter to 2013, 2018 and 2023
     gdf_schools["Year"] = gdf_schools["Year"].astype(str)
     gdf_schools = gdf_schools[gdf_schools["Year"].isin(["2013","2018","2023"])]
     
-    # Create a selection for year using a dropdown
+    
     year_options = sorted(gdf_schools["Year"].unique())
     year_select = alt.selection_point(
         fields=["Year"],
         bind=alt.binding_select(options=year_options, name="Select Year:")
     )
     
-    # Create the Chicago map layer
+
     chicago_map = alt.Chart(chicago_data).mark_geoshape(
         fill="lightgray", stroke="white", strokeWidth=0.1
     ).properties(width=600, height=400)
@@ -226,14 +226,13 @@ def create_chicago_school_visualization(gdf_chicago, df_schools):
         size=alt.Size("Student Count:Q", scale=alt.Scale(range=[10, 200]), title="Student Count")
     ).add_params(brush, year_select)
     
-    # Combine the map and school layers with Mercator projection
+    
     left_map = alt.layer(chicago_map, schools).project(type="mercator").properties(width=600, height=400)
     
-    # Ensure DropoutRate is numeric (if not already)
+    
     gdf_schools["DropoutRate"] = pd.to_numeric(gdf_schools["DropoutRate"], errors="coerce")
     
-    # Create a density (KDE) plot based solely on the brushed area,
-    # filtering out records with missing dropout rates.
+    
     density_plot = (
         alt.Chart(gdf_schools)
         .transform_filter(year_select)
@@ -242,7 +241,7 @@ def create_chicago_school_visualization(gdf_chicago, df_schools):
         .transform_density(
             density="DropoutRate",
             as_=["DropoutRate", "density"],
-            extent=[0, 60]  # Adjust extent based on your data range
+            extent=[0, 60] 
         )
         .mark_area(opacity=0.7, color="goldenrod")
         .encode(
@@ -252,7 +251,7 @@ def create_chicago_school_visualization(gdf_chicago, df_schools):
         .properties(width=400, height=200)
     )
     
-    # Concatenate the map and the density plot side by side
+    
     final_chart = left_map | density_plot
     
     return final_chart

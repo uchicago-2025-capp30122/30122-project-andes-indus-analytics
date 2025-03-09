@@ -10,6 +10,9 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 - *Cesar Núñez*
 - *Shahzaib Jamali*
 
+
+## Project Demo:
+
 ## Data Sources
 
 ### 1. U.S. Census Data - American Community Survey
@@ -23,8 +26,11 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 
 ### 3. Education Data - Chicago Public Schools
 - *School Search:* [CPS Typeahead School Search](https://api.cps.edu/schoolprofile/Help/Api/GET-CPS-TypeaheadSchoolSearch_SearchValue)
-- *School Metrics:* [CPS Single School Profile](https://api.cps.edu/schoolprofile/Help/Api/GET-CPS-SingleSchoolProfile_SchoolID)
+- *School Profile:* [CPS Single School Profile](https://api.cps.edu/schoolprofile/Help/Api/GET-CPS-SingleSchoolProfile_SchoolID)
 - *Description:* This dataset contains school-related information such as attendance rate, graduation rate, school address, and geographical coordinates (longitude and latitude). No API key is required for access.
+- *School Metrics:* [CPS Dropout Data](https://www.cps.edu/about/district-data/metrics/)
+- *Description:* This excel data set contains information pertaining to the dropout rate of schools for multiple years.
+
 
 ### 4. Data pipeline
 This project is structured to collect, process, and visualize data from multiple sources, focusing on education, crime, census, and demographic data. The pipeline follows a structured approach to integrate and process these datasets efficiently. Below is an overview of the data flow:
@@ -36,6 +42,8 @@ This project is structured to collect, process, and visualize data from multiple
 - api_get.py: Fetches census and demographic data through API requests.
 - census_utils: processes census data by filtering and creating relevant variables.
 - join_data.py: Combines data from all the sources into a single dataset for visualization.
+- quadtree.py: 
+- merge_shp:
 - __main__.py: Generates the final visualization using the processed data.
 
 ### 5. How to run
@@ -63,3 +71,22 @@ After sort out the API Key step, by running the following commands, an html file
 
 1. Run `uv sync`
 2. Run `uv run andes_indus -m`
+
+### This command may take a minute to load the project to the terminal.
+```
+You are then given an HTTP link, as seen below. Copy the link into your preferred browser to interact with the webpage locally.
+
+Dash is running on http://127.0.0.1:8050/
+
+ * Serving Flask app 'app'
+ * Debug mode: off
+ * Running on http://127.0.0.1:8050
+Press CTRL+C to quit
+```
+
+### 6. Running Tests
+
+To run the tests, please use the following command:
+
+```bash
+1. 'uv run pytest tests'

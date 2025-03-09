@@ -88,7 +88,7 @@ def fetch_school_profiles(
                 f"Error fetching data for School ID {school_id}: {response.status_code}"
             )
 
-    # Convert list of dictionaries to a DataFrame
+    
     return pd.DataFrame(school_profiles)
 
 
@@ -123,17 +123,17 @@ def clean_dropout_data(file_path: str) -> pd.DataFrame:
         pd.DataFrame: A cleaned, long-format DataFrame of dropout data.
     """
     file_path = "data/Dropout_data.xlsx"
-    # Read the "All Students" sheet, skipping the first two rows
+    
     df = pd.read_excel(file_path, sheet_name="All Students", skiprows=2)
 
-    # Print original columns for reference (optional)
+    
     print("Original columns:")
     print(df.columns.tolist())
 
     # Create new column names based on groups
     new_columns = []
     for col in df.columns:
-        # Keep identifier columns as-is.
+        
         if col in ["School ID", "School Name", "Status as of 2024"]:
             new_columns.append(col)
         else:
@@ -192,14 +192,14 @@ def merge_school_data(
     dropout_df = pd.read_csv(dropout_csv_path)
     api_df = pd.read_csv(api_csv_path)
 
-    # Ensure that the "School ID" columns are of type string
+    
     dropout_df["School ID"] = dropout_df["School ID"].astype(str)
     api_df["School ID"] = api_df["School ID"].astype(str)
 
-    # Merge on "School ID" using a left join
+    
     merged_df = pd.merge(dropout_df, api_df, on="School ID", how="left")
 
-    # Save merged DataFrame to a CSV file
+    
     merged_df.to_csv(output_csv_path, index=False)
     print(f"Merged data saved to {output_csv_path}")
 
@@ -234,5 +234,5 @@ def main_education():
 
 
 if __name__ == "__main__":
-    # Fetch and save education data from API
+    
     main_education()

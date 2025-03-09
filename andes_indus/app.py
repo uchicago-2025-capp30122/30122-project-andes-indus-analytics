@@ -729,12 +729,12 @@ def update_charts(selected_year, selected_crime, selected_level):
         points_data=schools_df,
         geo_data=pumas,
         selected_year=2012,
-        longitude_field="Longitude",  # Use the column name from your DataFrame for longitude
-        latitude_field="Latitude",  # Use the column name for latitude
+        longitude_field="Longitude",  
+        latitude_field="Latitude",  
         tooltip_fields=[
             "School Name_x",
             "Student Count",
-        ],  # Customize tooltips as needed
+        ],  
     )
     crime_map = crime_map + point_data_chart(
         schools_df,
