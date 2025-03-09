@@ -254,7 +254,7 @@ def create_chicago_school_visualization(gdf_chicago, df_schools):
     
     return final_chart
 
-def create_stacked_chart_gender(df_c_long):
+def create_stacked_chart_gender(df_c_long, selected_year):
     
     # Then filter the DataFrame
     df_filtered = df_c_long[
