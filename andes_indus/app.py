@@ -10,13 +10,12 @@ from figures import (create_crime_map,
                      create_crime_heat_map, 
                      create_stacked_chart_gender, 
                      create_stacked_chart_race,
-                     create_geo_chart,
                      point_data_chart,
                      load_crimes_shp,
                      create_graph_multiple,
                      create_chicago_school_visualization,
                      create_scatter_dynamic)
-from join_data import lower_colnames, transform_to_long_format
+from join_data import lower_colnames
 from pathlib import Path
 
 # Loading data files - Puma level
@@ -24,8 +23,8 @@ pumas_shp = lower_colnames(gpd.read_file(Path('data/shapefiles/data_pumas.shp'))
 pumas_shp = pumas_shp.rename(columns={'total_cr_1' : 'total_crim_pc', 
                                       'non-viol_1' : 'non_violent_pc'})
 
-pumas_df = pd.read_csv(Path("data/data_pumas.csv"))
-cols_to_keep = ['puma', 'year', 'violent_pc', 'non-violen_pc', 'total_crim_pc']
+pumas_df = pd.read_csv(Path("data/data_pumas.csv")).rename(columns={'non-violen_pc':'non_violent_pc'})
+cols_to_keep = ['puma', 'year', 'violent_pc', 'non_violent_pc', 'total_crim_pc']
 attendance_cols = [
     'attendance_rate_elementary_black',
     'attendance_rate_middle_black',
@@ -57,7 +56,7 @@ schools_df = pd.read_csv(Path("data/merged_school_data.csv"))
 crime_labels = {
     "total_crim_pc": "Total Crime",
     "violent_pc": "Violent Crime",
-    "non-violen_pc": "Non Violent Crime"
+    "non_violent_pc": "Non Violent Crime"
 }
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
@@ -75,12 +74,12 @@ CHICAGO_COLORS = {
 app.layout = html.Div([
     # Header section
 # Header section with controls in one row
-html.Div(
+    html.Div(
     children=[
         dbc.Row(
             [
                 # Title Column (Takes 5 out of 12 columns)
-                dbc.Col(
+            dbc.Col(
                     html.H1(
                         [
                             html.Span(
@@ -105,8 +104,8 @@ html.Div(
                 ),
 
                 # Year Slider Column (Takes 4 out of 12 columns)
-        dbc.Col(
-            html.Div(
+            dbc.Col(
+                    html.Div(
                 [
                     html.Label("Select Year:", style={"font-weight": "bold", "font-size": "12px", "color": "#666666"}),
                     dcc.Slider(
@@ -123,12 +122,12 @@ html.Div(
                 ],
                 style={"width": "100%", "textAlign": "right"}  # Ensures right alignment
             ),
-            width=2,  # Takes 3 columns
-        ),
+                    width=2,  # Takes 3 columns
+                ),
 
-        # Crime Type Selector Column (Takes 3 out of 12 columns)
-        dbc.Col(
-            html.Div(
+            # Crime Type Selector Column (Takes 3 out of 12 columns)
+            dbc.Col(
+                html.Div(
                 [
                     html.Label("Select Crime Type:", style={"font-weight": "bold", "font-size": "12px", "color": "#666666"}),
                     dcc.RadioItems(
@@ -148,9 +147,9 @@ html.Div(
                 ],
                 style={"width": "100%", "textAlign": "right"}  # Ensures right alignment
             ),
-            width=2,  # Takes 3 columns
-        ),
-    ],
+         # Takes 3 columns
+             ),
+            ],
     align="center",  # Align all items vertically in the center
     justify="end",  # Align to the right of the row
 ),
@@ -173,10 +172,9 @@ html.Div(
     # Main Content: Two columns (Left: Charts & Controls, Right: Cards)
     dbc.Row([
         # Left Column (75% Width) - Graphs and Controls
-dbc.Col(
-    [
-        # Crime Heatmap
-        
+        dbc.Col(
+            [
+  
         html.Div(
                 children=[
                     html.H1(
@@ -232,7 +230,7 @@ dbc.Col(
         ),
     ],
     width=9  # Moves width property to the correct place
-),
+    ),
 
 
         # Right Column (25% Width) - Cards inside Light Grey Box
@@ -321,7 +319,7 @@ dbc.Col(
                                 "established the community areas in the 1920s with the idea that the boundaries "
                                 "have roughly the same population. ",
                                 target='community-text',
-                                placement='top',
+                                placement='bottom',
                             )
                         ]),
                         style={
@@ -356,10 +354,9 @@ dbc.Col(
                                 "Chicago Public Schools (CPS) is the fourth-largest U.S. school district, "
                                 "serving 323,251 students across 634 schools. In 2023, it had a graduation "
                                 r"rate of 84%, with over 80% of students being Hispanic or Black and 63.8% "
-                                "from economically disadvantaged households. Despite leading in test score"
-                                " improvements, CPS faces challenges like declining enrollment and school closures. ",
+                                "from economically disadvantaged households. ",
                                 target="school-text",
-                                placement="top",
+                                placement="bottom",
                             ),
                         ]),
                         style={
@@ -390,6 +387,11 @@ dbc.Col(
                                 "justifyContent": "center"
                             }),
                             html.P(id="school-age-pop-subtext", className="card-text"),
+                            dbc.Tooltip(
+                                "Refers to the theoretical school age population aged between 5–18. ",
+                                target="school-age-pop",
+                                placement="bottom",
+                            ),
                         ]),
                         style={
                             "width": "90%",
@@ -419,6 +421,16 @@ dbc.Col(
                                 "justifyContent": "center"
                             }),
                             html.P(id="crimes-subtext", className="card-text"),
+                            dbc.Tooltip(
+                                "The Chicago Police Department maintains a comprehensive database of reported "
+                                "crimes across the city. For this analysis, we focused on data from the years "
+                                "2013, 2018, and 2023, totaling nearly one million records. To categorize each "
+                                "incident as either violent or non-violent crime, we followed the FBI's Uniform "
+                                "Crime Reporting (UCR) Program guidelines. According to the UCR, violent crimes "
+                                "include four primary offenses: murder, forcible rape, robbery, and aggravated assault. ",
+                                target="crimes-text",
+                                placement="bottom",
+                            ),
                         ]),
                         style={
                             "width": "90%",
@@ -1094,7 +1106,7 @@ def update_charts(selected_year, selected_crime, selected_level, level_educ):
     )
 
     #Creating Location and Dropout
-    School_droput_location = create_chicago_school_visualization(pumas, schools_df)
+    School_droput_location = create_chicago_school_visualization(pumas, schools_df, selected_year)
 
     # Return iframes that embed the Altair charts via their HTML representation
     return (
