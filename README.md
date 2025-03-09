@@ -17,20 +17,6 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 [Project Video](linktovideo)
 ***
 
-### Data pipeline
-This project is structured to collect, process, and visualize data from multiple sources, focusing on education, crime, census, and demographic data. The pipeline follows a structured approach to integrate and process these datasets efficiently. Below is an overview of the data flow:
-
-![](data_pipeline.jpg)
-
-- education.py: Contains functions to fetch education-related data.
-- crime_utils.py: Includes functions for retrieving crime and homicide data.
-- api_get.py: Fetches census and demographic data through API requests.
-- census_utils: processes census data by filtering and creating relevant variables.
-- join_data.py: Combines data from all the sources into a single dataset for visualization.
-- quadtree.py: 
-- merge_shp:
-- __main__.py: Generates the final visualization using the processed data.
-
 ***
 ### How to run the project
 
@@ -69,7 +55,7 @@ Dash is running on http://127.0.0.1:8050/
  * Running on http://127.0.0.1:8050
 Press CTRL+C to quit
 ```
-
+***
 ### Running Tests
 
 To run the tests, please use the following command:
