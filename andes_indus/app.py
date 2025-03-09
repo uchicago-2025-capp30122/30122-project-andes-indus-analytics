@@ -304,7 +304,7 @@ app.layout = html.Div([
                     html.H1(
                         [
                             html.Span(
-                                "Population by Education Level, Gender and Race/Ethnicity",
+                                f"Population by Education Level, Gender and Race/Ethnicity {"year"}",
                                 style={"color": "#000000", "font-weight": "normal"},
                             ),
                         ],
@@ -332,7 +332,7 @@ app.layout = html.Div([
                     html.H1(
                         [
                             html.Span(
-                                "School Attendance Rate by Education Level, Gender and Race/Ethnicity",
+                                "School Attendance Rate by Education Level and Race/Ethnicity",
                                 style={"color": "#000000", "font-weight": "normal"},
                             ),
                         ],
@@ -346,17 +346,43 @@ app.layout = html.Div([
                         style={
                             "border-bottom": "1px solid #ccc",
                             "margin-top": "10px",
-                            "margin-bottom": "60px",
+                            "margin-bottom": "10px",
                         }
                     ),
                 ],
-                style={"padding": "20px"},
+                style={"padding": "10px"},
             ),
 
 
-            html.Div(id="attendance_graph", style={"marginBottom": "20px"}), 
+            html.Div(id="attendance_graph", style={"marginBottom": "0px", "alignItems": "center","justifyContent": "center"}), 
+
+             html.Div(
+                children=[
+                    html.H1(
+                        [
+                            html.Span(
+                                "High School Attendance Rate by location (PUMA)",
+                                style={"color": "#000000", "font-weight": "normal"},
+                            ),
+                        ],
+                        style={
+                            "font-size": "20px",
+                            "margin": "0",
+                            "padding": "0",
+                        },
+                    ),
+                    html.Div(
+                        style={
+                            "border-bottom": "1px solid #ccc",
+                            "margin-top": "0px",
+                            "margin-bottom": "10px",
+                        }
+                    ),
+                ],
+                style={"padding": "10px"},
+            ),
                                                                                     # Attendance Graph
-            html.Div(id="bar-graph-container", style={"marginBottom": "20px"}),      # Bar Chart
+            html.Div(id="bar-graph-container", style={"marginBottom": "10px"}),      # Bar Chart
             html.Div(id="scatter-graph-container", style={"marginBottom": "20px"}),  # Scatter Plot
 
             dcc.RadioItems(
@@ -386,7 +412,7 @@ app.layout = html.Div([
                     "display": "flex",
                     "flexDirection": "column",
                     "alignItems": "center",
-                    "marginBottom": "80px"
+                    "marginBottom": "100px"
                 },
                 children=[
                     html.Span(
@@ -412,7 +438,8 @@ app.layout = html.Div([
                                     "font-weight": "bold"
                                 },
                             ),
-                            ".",
+                            ". School age population might face particular risks when surounded by high crime rates."
+                            "but... who is this population?",
                         ],
                         style={
                             "color": "#000000",
@@ -444,7 +471,7 @@ app.layout = html.Div([
                             "font-weight": "normal",
                             "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
                             "padding": "3px",
-                            "marginBottom": "30px"
+                            "marginBottom": "20px"
                         },
                     ),
 
@@ -465,7 +492,7 @@ app.layout = html.Div([
                 },
                 children=[
                     html.Span(
-                        "How is Characterized School Attendance in the Chicago Area",
+                        "How is Characterized School Attendance in the Chicago Area?",
                         style={
                             "color": "#000000",
                             "font-weight": "bold",
@@ -475,19 +502,73 @@ app.layout = html.Div([
                     ),
                     html.Div(
                         [
-                            "Living or studying in a violent neighborhood can influence the stress levels, "
-                            "community interactions and might generate cumulative educational disadvantage ",
-                            html.A(
-                                "(Burdick-Will, 2017)",
-                                href="https://doi.org/10.1086/691424",
-                                target="_blank",
-                                style={
-                                    "color": "#007BFF",
-                                    "textDecoration": "none",
-                                    "font-weight": "bold"
-                                },
-                            ),
-                            ".",
+                            "School attendance rates vary across education levels and population characteristics.  "
+                            "Although attendance rates in elementary school are nearly universal, attendance in middle and high school varies significantly across race and ethnicity."
+                            "For non–African American or non–Hispanic groups, high school attendance is around 80%, whereas for the Hispanic population, it does not surpass 73%. ",
+                            
+                        ],
+                        style={
+                            "color": "#000000",
+                            "font-weight": "normal",
+                            "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                            "padding": "3px",
+                        },
+                    ),
+                    html.Div(
+                        [ 
+                            "Adolescents between the ages of 14 and 18 (high school age) often find themselves at a critical crossroads in their development, making them more"
+                            "vulnerable to early school dropout and more susceptible to the effects of high crime rates in their surroundings.",
+                        ],
+                        style={
+                            "color": "#000000",
+                            "font-weight": "normal",
+                            "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                            "padding": "30px",
+                            "marginBottom": "10px"
+                        },
+                    ),
+                ],
+            ),
+
+            html.Div(
+                style={
+                    "width": "100%",
+                    "backgroundColor": "#f0f0f0",
+                    "padding": "15px",
+                    "borderRadius": "8px",
+                    "display": "flex",
+                    "flexDirection": "column",
+                    "alignItems": "center",
+                    "marginBottom": "30px"
+                },
+                children=[
+                    html.Span(
+                        "How does attendance to highschool vary by location? ",
+                        style={
+                            "color": "#000000",
+                            "font-weight": "bold",
+                            "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                            "padding": "10px",
+                        }
+                    ),
+                    html.Div(
+                        [
+                            "School attendance rates vary across education levels and population characteristics.  "
+                            "Although attendance rates in elementary school are nearly universal, attendance in middle and high school varies significantly across race and ethnicity."
+                            "For non–African American or non–Hispanic groups, high school attendance is around 80%, whereas for the Hispanic population, it does not surpass 73%. ",
+                            
+                        ],
+                        style={
+                            "color": "#000000",
+                            "font-weight": "normal",
+                            "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                            "padding": "3px",
+                        },
+                    ),
+                    html.Div(
+                        [ 
+                            "Adolescents between the ages of 14 and 18 (high school age) often find themselves at a critical crossroads in their development, making them more"
+                            "vulnerable to early school dropout and more susceptible to the effects of high crime rates in their surroundings.",
                         ],
                         style={
                             "color": "#000000",
@@ -498,6 +579,8 @@ app.layout = html.Div([
                     ),
                 ],
             ),
+
+
         ],
         width=4),
     ]),
@@ -658,7 +741,7 @@ def update_charts(selected_year, selected_crime, selected_level):
 
         html.Iframe(
             srcDoc=attendance_graph.to_html(),
-            style={"width": "100%", "height": "600px", "border": "0"},
+            style={"width": "100%", "height": "600px", "border": "0", "justifyContent": "center" },
         ),
 
         html.Iframe(
