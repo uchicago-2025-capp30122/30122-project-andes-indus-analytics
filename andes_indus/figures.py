@@ -99,18 +99,20 @@ def create_interactive_bar(dff, select, stroke_width, selected_year, highlight):
         alt.Chart(dff)
         .mark_bar(fill="#0099cc", stroke="black", cursor="pointer")
         .encode(
-            x=alt.X(
+            # Swap 'puma_label' to the y-axis
+            y=alt.Y(
                 "puma_label",
                 axis=alt.Axis(title="PUMA name"),
                 sort=alt.EncodingSortField(
                     field="attendance_rate_high", op="sum", order="descending"
                 ),
             ),
-            y=alt.Y(
+            # Swap 'attendance_rate_high' to the x-axis
+            x=alt.X(
                 "attendance_rate_high",
                 axis=alt.Axis(title="Attendance rate - high school"),
             ),
-            fillOpacity=alt.when(select).then(alt.value(1)).otherwise(alt.value(0.3)),
+            fillOpacity=alt.condition(select, alt.value(1), alt.value(0.3)),
             strokeWidth=stroke_width,
         )
         .properties(
@@ -120,6 +122,7 @@ def create_interactive_bar(dff, select, stroke_width, selected_year, highlight):
     )
 
     return bar
+
 
 def create_crime_heat_map(
     gdf: gpd.GeoDataFrame, selected_crime: str, selected_year: int, label_dict: dict
@@ -293,9 +296,9 @@ def create_stacked_chart_gender(df_c_long, selected_year):
                                                         titleFontSize=14, 
                                                         labelFontSize=12)),
 
-            y=alt.Y('indicator_label:N', sort=indicator_order),
+            y=alt.Y('indicator_label:N', sort=indicator_order, title=""),
            
-            color=alt.Color('cut_name:N', scale=color_scale),
+            color=alt.Color('cut_name:N', scale=color_scale, title="Cut"),
             # Opacity is based on whether 'cut_name' is selected
             opacity=alt.condition(gender_selection, alt.value(0.9), alt.value(0.2)),
             tooltip=[
@@ -352,7 +355,7 @@ def create_stacked_chart_race(df_c_long, selected_year):
 
     y=alt.Y('indicator_label:N', sort=indicator_order),
    
-    color=alt.Color('cut_name:N', scale=color_scale2),
+    color=alt.Color('cut_name:N', scale=color_scale2, title="Cut"),
     opacity=alt.condition(race_selection, alt.value(0.9), alt.value(0.2)),
     tooltip=[alt.Tooltip('year', title='Year'), alt.Tooltip('value', title='Population number')]
     ).add_params(race_selection, year_selection).properties(
@@ -399,8 +402,8 @@ def create_graph_multiple(df_c_long):
                 )),
     facet=alt.Facet("indicator_label:O", columns=1, title="", sort=indicator_order),
     ).properties(
-    width=400,
-    height=120,
+    width=450,
+    height=100,
     )
     
     return graph
