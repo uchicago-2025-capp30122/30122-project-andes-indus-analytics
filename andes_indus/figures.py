@@ -1,9 +1,10 @@
 import altair as alt
+import json
 import geopandas as gpd
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from .api_get import get_google_drive_files
+from api_get import get_google_drive_files
 
 def create_crime_map(
     gdf: gpd.GeoDataFrame, selected_crime: str, 
@@ -29,7 +30,6 @@ def create_crime_map(
     )
 
     return map
-
 
 def create_geo_chart(
     points_data,
@@ -68,7 +68,6 @@ def create_geo_chart(
     final_chart = background_chart + points_chart
     return final_chart
 
-
 def point_data_chart(
     points_data,
     selected_year,
@@ -93,7 +92,6 @@ def point_data_chart(
     )
 
     return points_chart
-
 
 def create_interactive_bar(dff, select, stroke_width, selected_year, highlight):
     # Create the bar chart sorted descending by attendance_rate_high
@@ -122,7 +120,6 @@ def create_interactive_bar(dff, select, stroke_width, selected_year, highlight):
     )
 
     return bar
-
 
 def create_crime_heat_map(
     gdf: gpd.GeoDataFrame, selected_crime: str, selected_year: int, label_dict: dict
@@ -158,117 +155,106 @@ def create_crime_heat_map(
     return fig
 
 
-def creating_geo_chart(
-    points_data,
-    geo_data,
-    width=500,
-    height=300,
-    background_fill="lightgray",
-    background_stroke="white",
-    circle_size=10,
-    circle_color="steelblue",
-    longitude_field="lon",
-    latitude_field="lat",
-    tooltip_fields=None,
-):
+def create_chicago_school_visualization(gdf_chicago, df_schools):
     """
-    Creates a Plotly map with a background layer (GeoJSON for Chicago PUMAs) and
-    an overlay of points (e.g., schools).
-
+    Creates an interactive Altair chart combining a Chicago PUMAs map with school data,
+    with a density plot that shows the distribution of dropout rates for schools 
+    within the brushed area (and only considering valid dropout rates).
+    
     Parameters:
-        points_data (pd.DataFrame): DataFrame containing point data (e.g., schools)
-        geo_data (dict): GeoJSON FeatureCollection of your PUMA polygons
-        width (int): Chart width in pixels.
-        height (int): Chart height in pixels.
-        background_fill (str): Fill color for the background polygons.
-        background_stroke (str): Border color for the polygons.
-        circle_size (int): Marker size for the points.
-        circle_color (str): Marker color for the points.
-        longitude_field (str): Name of the column in points_data for longitude.
-        latitude_field (str): Name of the column in points_data for latitude.
-        tooltip_fields (list of str): List of column names from points_data to include in hover info.
-                                      The first field is used as the primary label.
-
+        gdf_chicago (GeoDataFrame): A GeoDataFrame containing the Chicago PUMAs shapefile data.
+        df_schools (DataFrame): A DataFrame containing school data with columns such as 
+                                "Longitude", "Latitude", "Year", "School Name_x", 
+                                "Student Count", "DropoutRate", etc.
+    
     Returns:
-        go.Figure: A Plotly Figure object representing the map.
+        alt.Chart: An Altair chart that concatenates a map and a density plot.
     """
-    # Create an empty Plotly Figure.
-    fig = go.Figure()
-
-    # --- Background Layer: Chicago PUMA Polygons ---
-    # For the background, we use a Choroplethmapbox trace.
-    # Create a list of feature IDs from the GeoJSON properties.
-    puma_ids = [feature["properties"]["id"] for feature in geo_data["features"]]
-    # Use dummy values as the z variable because we're only using the colorscale to set the fill.
-    dummy_values = [1] * len(puma_ids)
-
-    fig.add_trace(
-        go.Choroplethmapbox(
-            geojson=geo_data,
-            locations=puma_ids,
-            z=dummy_values,
-            colorscale=[[0, background_fill], [1, background_fill]],
-            marker_line_color=background_stroke,
-            marker_line_width=1,
-            showscale=False,
-            name="Chicago PUMAs",
+    # Convert school DataFrame to GeoDataFrame (if not already one)
+    if not hasattr(df_schools, "geometry"):
+        gdf_schools = gpd.GeoDataFrame(
+            df_schools,
+            geometry=gpd.points_from_xy(df_schools["Longitude"], df_schools["Latitude"]),
+            crs="EPSG:4326"
         )
-    )
-
-    # --- Points Layer: School Locations ---
-    # If no tooltip_fields are provided, default to the longitude and latitude fields.
-    if tooltip_fields is None:
-        tooltip_fields = [longitude_field, latitude_field]
-
-    # Build a hover template. If more than one field is provided, use the first field as primary text,
-    # and the others as additional info.
-    if len(tooltip_fields) > 1:
-        hover_template = "<b>%{text}</b><br>"
-        for i, field in enumerate(tooltip_fields[1:]):
-            hover_template += f"{field}: %{{customdata[{i}]}}<br>"
-        hover_template += "<extra></extra>"
-        # Create custom data from the additional tooltip fields.
-        customdata = points_data[tooltip_fields[1:]].to_numpy()
-        text_values = points_data[tooltip_fields[0]]
     else:
-        hover_template = "<b>%{text}</b><extra></extra>"
-        customdata = None
-        text_values = points_data[tooltip_fields[0]]
+        gdf_schools = df_schools.copy()
 
-    fig.add_trace(
-        go.Scattermapbox(
-            lat=points_data[latitude_field],
-            lon=points_data[longitude_field],
-            mode="markers",
-            marker=go.scattermapbox.Marker(size=circle_size, color=circle_color),
-            text=text_values,
-            customdata=customdata,
-            hovertemplate=hover_template,
-            name="Schools",
+    # Ensure both datasets are in EPSG:4326
+    gdf_chicago = gdf_chicago.to_crs("EPSG:4326")
+    gdf_schools = gdf_schools.to_crs("EPSG:4326")
+    
+    # Optional: Perform spatial join (if needed for aggregations)
+    gdf_schools_joined = gpd.sjoin(gdf_schools, gdf_chicago, how="left", predicate="within")
+    
+    # Convert Chicago GeoDataFrame to GeoJSON for Altair
+    chicago_geojson = json.loads(gdf_chicago.to_json())
+    chicago_data = alt.Data(values=chicago_geojson["features"])
+    
+    # Define an interactive brush based on latitude (vertical slice)
+    brush = alt.selection_interval(
+        encodings=["latitude"],
+        empty=False,
+        value={"latitude": [41.80, 41.90]}
+    )
+    
+    # Prepare the school data: treat Year as string and filter to 2013 and 2023
+    gdf_schools["Year"] = gdf_schools["Year"].astype(str)
+    gdf_schools = gdf_schools[gdf_schools["Year"].isin(["2013","2018","2023"])]
+    
+    # Create a selection for year using a dropdown
+    year_options = sorted(gdf_schools["Year"].unique())
+    year_select = alt.selection_point(
+        fields=["Year"],
+        bind=alt.binding_select(options=year_options, name="Select Year:")
+    )
+    
+    # Create the Chicago map layer
+    chicago_map = alt.Chart(chicago_data).mark_geoshape(
+        fill="lightgray", stroke="white", strokeWidth=0.1
+    ).properties(width=600, height=400)
+    
+    # Create the school points layer (filter by year)
+    schools = alt.Chart(gdf_schools).transform_filter(year_select).mark_circle(opacity=0.7).encode(
+        longitude="Longitude:Q",
+        latitude="Latitude:Q",
+        tooltip=["School Name_x", "Student Count:Q", "Year"],
+        color=alt.condition(brush, alt.value("goldenrod"), alt.value("royalblue")),
+        size=alt.Size("Student Count:Q", scale=alt.Scale(range=[10, 200]), title="Student Count")
+    ).add_params(brush, year_select)
+    
+    # Combine the map and school layers with Mercator projection
+    left_map = alt.layer(chicago_map, schools).project(type="mercator").properties(width=600, height=400)
+    
+    # Ensure DropoutRate is numeric (if not already)
+    gdf_schools["DropoutRate"] = pd.to_numeric(gdf_schools["DropoutRate"], errors="coerce")
+    
+    # Create a density (KDE) plot based solely on the brushed area,
+    # filtering out records with missing dropout rates.
+    density_plot = (
+        alt.Chart(gdf_schools)
+        .transform_filter(year_select)
+        .transform_filter(brush)
+        .transform_filter("datum.DropoutRate != null")
+        .transform_density(
+            density="DropoutRate",
+            as_=["DropoutRate", "density"],
+            extent=[0, 60]  # Adjust extent based on your data range
         )
+        .mark_area(opacity=0.7, color="goldenrod")
+        .encode(
+            x=alt.X("DropoutRate:Q", title="Dropout Rate (%)"),
+            y=alt.Y("density:Q", title="Density", scale=alt.Scale(domain =[0,0.2]))
+        )
+        .properties(width=600, height=400)
     )
+    
+    # Concatenate the map and the density plot side by side
+    final_chart = left_map | density_plot
+    
+    return final_chart
 
-    # --- Layout Settings ---
-    # Center the map based on the mean of your points.
-    fig.update_layout(
-        mapbox=dict(
-            style="carto-positron",
-            center=dict(
-                lat=points_data[latitude_field].mean(),
-                lon=points_data[longitude_field].mean(),
-            ),
-            zoom=10,
-        ),
-        margin={"r": 0, "t": 0, "l": 0, "b": 0},
-        width=width,
-        height=height,
-        showlegend=True,
-    )
-
-    return fig
-
-
-def create_stacked_chart_gender(df_c_long):
+def create_stacked_chart_gender(df_c_long, selected_year):
     
     # Then filter the DataFrame
     df_filtered = df_c_long[
@@ -277,9 +263,11 @@ def create_stacked_chart_gender(df_c_long):
         & (df_c_long['cut_name'].isin(['women', 'men']))
     ]
 
+    df_filtered = df_filtered[df_filtered['year'] == selected_year]
+
     color_scale = alt.Scale(
         domain=['men', 'women'],
-        range=['#1f77b4', '#eb9b44']
+        range=['#005A9C', '#A8D0E6' ] 
     )
 
     indicator_order = ['Elementary', 'Middle', 'High School']
@@ -289,10 +277,6 @@ def create_stacked_chart_gender(df_c_long):
         fields=['cut_name'],
         bind='legend'
     )
-
-    # -- Year selection (bound to a dropdown) --
-    unique_years = sorted(df_filtered['year'].unique())
-    #year_dropdown = alt.binding_select(options=unique_years, name='Select year')
 
     # IMPORTANT: selection_point is valid in Altair 5+
     year_selection = alt.selection_point(
@@ -305,8 +289,12 @@ def create_stacked_chart_gender(df_c_long):
         alt.Chart(df_filtered)
         .mark_bar()
         .encode(
-            x=alt.X('sum(value):Q', stack='zero', title='Population'),
-            y=alt.Y('indicator_label:N', sort=indicator_order, title='Education level'),
+            x=alt.X('sum(value):Q', stack='zero', axis=alt.Axis(title='Population', 
+                                                        titleFontSize=14, 
+                                                        labelFontSize=12)),
+
+            y=alt.Y('indicator_label:N', sort=indicator_order),
+           
             color=alt.Color('cut_name:N', scale=color_scale),
             # Opacity is based on whether 'cut_name' is selected
             opacity=alt.condition(gender_selection, alt.value(0.9), alt.value(0.2)),
@@ -320,37 +308,60 @@ def create_stacked_chart_gender(df_c_long):
         .add_params(gender_selection, year_selection)
         # Filter the data by selected year
         .transform_filter(year_selection)
+        .properties(
+            width=500,  #  Increase width
+            height=100,  # Increase height
+            title="Gender"
+        )
     )
 
     return bar
 
-def create_stacked_chart_race(df_c_long):
+def create_stacked_chart_race(df_c_long, selected_year):
     
     # Then filter using the updated column
     df_filtered2 = df_c_long[
         (df_c_long['PUMA'] == 9999) &
         (df_c_long['indicator_label'].isin(['High School', 'Middle', 'Elementary'])) &
-        (df_c_long['cut_name'].isin(['afroamerican', 'nonafroamerican']))    ]
+        (df_c_long['cut_name'].isin(['hispanic', 'afroamerican', 'nonafroamerican_hispanic']))    ]
+
+    df_filtered2 = df_filtered2[df_filtered2['year'] == selected_year]
 
     color_scale2 = alt.Scale(
-        domain=['afroamerican', 'nonafroamerican'],        # The categories in cut_name
-        range=['#1f77b4', '#eb9b44']    
+        domain=['afroamerican',"hispanic", 'nonafroamerican_hispanic'],        # The categories in cut_name
+        range=['#005A9C', '#A8D0E6', '#E57373' ]    
     )
  
     indicator_order = ['Elementary', 'Middle', 'High School']
-    # Define selection
-    selection = alt.selection_point(fields=['cut_name'], bind='legend')
-    # Create stacked bar chart
+   
+    # -- race selection (bound to legend) --
+    race_selection = alt.selection_point(
+        fields=['cut_name'],
+        bind='legend'
+    )
+
+    year_selection = alt.selection_point(
+        fields=['year'],
+    )
+       # Create stacked bar chart
     bar = alt.Chart(df_filtered2).mark_bar().encode(
-    x=alt.X('sum(value):Q', stack='zero', axis=alt.Axis(title='Population')),
-    y=alt.Y('indicator_label:N', sort=indicator_order, axis=alt.Axis(title='Education level')),
+
+    x=alt.X('sum(value):Q', stack='zero', axis=alt.Axis(title='Population', 
+                                                        titleFontSize=14, 
+                                                        labelFontSize=12)),
+
+    y=alt.Y('indicator_label:N', sort=indicator_order),
+   
     color=alt.Color('cut_name:N', scale=color_scale2),
-    opacity=alt.condition(selection, alt.value(0.9), alt.value(0.2)),
+    opacity=alt.condition(race_selection, alt.value(0.9), alt.value(0.2)),
     tooltip=[alt.Tooltip('year', title='Year'), alt.Tooltip('value', title='Population number')]
-    ).add_params(selection)
+    ).add_params(race_selection, year_selection).properties(
+            width=500,  #  Increase width
+            height=100,  # Increase height
+            title="Race/Ethnicity"
+        ).transform_filter(year_selection)
 
     return bar
-
 
 def load_crimes_shp():
     path = 'https://drive.usercontent.google.com/download?id=17lrQgaXcTAQTM4kMqt19RYvC4gtF9wCn&export=download&authuser=0&confirm=t&uuid=f69248de-b684-4c5f-976b-63576e8c9741&at=AEz70l53DiY7nTnR_fRZmhZYPvOx:1741223440221'
@@ -365,3 +376,32 @@ def load_crimes_shp():
         ).reset_index()
 
     return block_data
+
+def create_graph_multiple(df_c_long):
+        
+    # Then filter using the updated column
+    df_filtered2 = df_c_long[
+        (df_c_long['PUMA'] == 9999) &
+        (df_c_long['indicator'].isin(['attendance_rate_elementary', 'attendance_rate_middle', 'attendance_rate_high'])) &
+        (df_c_long['cut_name'].isin(['afroamerican', 'nonafroamerican_hispanic',"Total","hispanic"])) ]
+    
+    indicator_order = ['Elementary', 'Middle', 'High School']
+
+    graph = alt.Chart(df_filtered2).mark_point().encode(
+    alt.X("value", scale=alt.Scale(domain=[60,100],zero=False), axis=alt.Axis(title='Percentage', titleFontSize=14, labelFontSize=12) ),
+    y=alt.X("year:N",axis=alt.Axis(title='Year', titleFontSize=14, labelFontSize=12)),
+    color=alt.Color(
+                "cut_name:N",
+                legend=alt.Legend(
+                    title="Cut",
+                    titleFontSize=14,
+                    labelFontSize=12
+                )),
+    facet=alt.Facet("indicator_label:O", columns=1, title="", sort=indicator_order),
+    ).properties(
+    width=400,
+    height=120,
+    )
+    
+    return graph
+

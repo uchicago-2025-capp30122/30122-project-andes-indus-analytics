@@ -3,7 +3,7 @@ from sodapy import Socrata
 import os
 import pandas as pd
 import numpy as np
-from .api_get import get_google_drive_files
+from api_get import get_google_drive_files
 
 class Crime(NamedTuple):
     case_number: str

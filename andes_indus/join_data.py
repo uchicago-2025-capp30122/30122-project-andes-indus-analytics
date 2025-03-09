@@ -1,4 +1,4 @@
-from .merge_shp import (
+from merge_shp import (
     load_pumas_shp,
     load_neighborhood_shp,
     gen_chi_bbox,
@@ -6,9 +6,9 @@ from .merge_shp import (
     load_schools,
     assign_puma_neighborhood,
 )
-from .crime_utils import get_all_crime_data, load_crime_data, classify_violent_crimes
-from .education import main_education
-from .census_utils import process_multiple_years
+from crime_utils import get_all_crime_data, load_crime_data, classify_violent_crimes
+from education import main_education
+from census_utils import process_multiple_years
 from pathlib import Path
 import pandas as pd
 import geopandas as gpd

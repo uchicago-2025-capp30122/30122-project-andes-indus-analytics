@@ -4,7 +4,7 @@ import httpx
 import time
 import io
 
-YEAR = [2013,2023]
+YEAR = [2013, 2018, 2023]
 
 class FetchException(Exception):
     """
@@ -159,6 +159,7 @@ def chicago_dataframe(year, output_filename_ch, full_fetch=False):
     if year == 2023:
         chicago_df = df[(df["PUMA"].astype(int) >= 3151) & (df["PUMA"].astype(int) <= 3168)]
     else:
+        df = df[df["ST"] != '']
         chicago_df = df[
             (df["ST"].astype(int) == 17) &
             (
@@ -178,6 +179,6 @@ if __name__ == "__main__":
     for yr in YEAR:
         output_filename = Path(f"census_{yr}.csv")
         output_filename_ch = Path(f"census_{yr}_ch.csv")
-        build_census_csv(yr, output_filename)
+        chicago_dataframe(yr, output_filename_ch, full_fetch=False)
         time.sleep(10)
        
