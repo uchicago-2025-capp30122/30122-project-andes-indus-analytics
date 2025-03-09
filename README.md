@@ -12,27 +12,9 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 
 
 ## Project Demo:
+![screenshot](Project Screenshot.png)
 
-## Data Sources
-
-### 1. U.S. Census Data - American Community Survey
-- *Source:* [U.S. Census Bureau](https://www.census.gov/programs-surveys/acs)
-- *Description:* This dataset provides demographic data extracted from the U.S. Census Bureau’s American Community Survey. No API key is required for access.
-
-### 2. Chicago Crime Data - City of Chicago
-- *Crime Data:* [City of Chicago Crime Data](https://data.cityofchicago.org/Public-Safety/Crimes-Map/mw69-m6xi)
-- *Homicide Data:* [City of Chicago Homicide Data](https://data.cityofchicago.org/Public-Safety/Homicides/ijzp-q8t2)
-- *Description:* This dataset includes crime and homicide statistics for the City of Chicago. No API key is required for access.
-
-### 3. Education Data - Chicago Public Schools
-- *School Search:* [CPS Typeahead School Search](https://api.cps.edu/schoolprofile/Help/Api/GET-CPS-TypeaheadSchoolSearch_SearchValue)
-- *School Profile:* [CPS Single School Profile](https://api.cps.edu/schoolprofile/Help/Api/GET-CPS-SingleSchoolProfile_SchoolID)
-- *Description:* This dataset contains school-related information such as attendance rate, graduation rate, school address, and geographical coordinates (longitude and latitude). No API key is required for access.
-- *School Metrics:* [CPS Dropout Data](https://www.cps.edu/about/district-data/metrics/)
-- *Description:* This excel data set contains information pertaining to the dropout rate of schools for multiple years.
-
-
-### 4. Data pipeline
+### Data pipeline
 This project is structured to collect, process, and visualize data from multiple sources, focusing on education, crime, census, and demographic data. The pipeline follows a structured approach to integrate and process these datasets efficiently. Below is an overview of the data flow:
 
 ![](data_pipeline.jpg)
@@ -46,7 +28,7 @@ This project is structured to collect, process, and visualize data from multiple
 - merge_shp:
 - __main__.py: Generates the final visualization using the processed data.
 
-### 5. How to run
+### How to run the project
 
 As this module brings together information from different data sources. To run this program it is necessary to provide an APP key for the City of Chicago Data.
 The steps to create an APP KEY are:
@@ -84,9 +66,28 @@ Dash is running on http://127.0.0.1:8050/
 Press CTRL+C to quit
 ```
 
-### 6. Running Tests
+### Running Tests
 
 To run the tests, please use the following command:
 
 ```bash
 1. 'uv run pytest tests'
+```
+
+## Data Sources
+
+### 1. U.S. Census Data - American Community Survey
+- *Source:* [U.S. Census Bureau](https://www.census.gov/programs-surveys/acs)
+- *Description:* This dataset provides demographic data extracted from the U.S. Census Bureau’s American Community Survey. No API key is required for access.
+
+### 2. Chicago Crime Data - City of Chicago
+- *Crime Data:* [City of Chicago Crime Data](https://data.cityofchicago.org/Public-Safety/Crimes-Map/mw69-m6xi)
+- *Homicide Data:* [City of Chicago Homicide Data](https://data.cityofchicago.org/Public-Safety/Homicides/ijzp-q8t2)
+- *Description:* This dataset includes crime and homicide statistics for the City of Chicago. No API key is required for access.
+
+### 3. Education Data - Chicago Public Schools
+- *School Search:* [CPS Typeahead School Search](https://api.cps.edu/schoolprofile/Help/Api/GET-CPS-TypeaheadSchoolSearch_SearchValue)
+- *School Profile:* [CPS Single School Profile](https://api.cps.edu/schoolprofile/Help/Api/GET-CPS-SingleSchoolProfile_SchoolID)
+- *Description:* This dataset contains school-related information such as attendance rate, graduation rate, school address, and geographical coordinates (longitude and latitude). No API key is required for access.
+- *School Metrics:* [CPS Dropout Data](https://www.cps.edu/about/district-data/metrics/)
+- *Description:* This excel data set contains information pertaining to the dropout rate of schools for multiple years.
