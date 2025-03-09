@@ -356,47 +356,6 @@ app.layout = html.Div([
 
             html.Div(id="attendance_graph", style={"marginBottom": "0px", "alignItems": "center","justifyContent": "center"}), 
 
-             html.Div(
-                children=[
-                    html.H1(
-                        [
-                            html.Span(
-                                "High School Attendance Rate by location (PUMA)",
-                                style={"color": "#000000", "font-weight": "normal"},
-                            ),
-                        ],
-                        style={
-                            "font-size": "20px",
-                            "margin": "0",
-                            "padding": "0",
-                        },
-                    ),
-                    html.Div(
-                        style={
-                            "border-bottom": "1px solid #ccc",
-                            "margin-top": "0px",
-                            "margin-bottom": "10px",
-                        }
-                    ),
-                ],
-                style={"padding": "10px"},
-            ),
-                                                                                    # Attendance Graph
-            html.Div(id="bar-graph-container", style={"marginBottom": "10px"}),      # Bar Chart
-            html.Div(id="scatter-graph-container", style={"marginBottom": "20px"}),  # Scatter Plot
-
-            dcc.RadioItems(
-                id="level-map",
-                options=[
-                    {"label": "Puma level", "value": "Puma"},
-                    {"label": "Neighborhood level", "value": "Neighborhood"}
-                ],
-                value="Puma",
-                inline=True,
-            ),
-            html.Div(id="crime_map", style={"marginBottom": "20px"}),    # Crime Map
-            html.Div(id="schools_locations", style={"marginBottom": "20px"}),  # Schools Locations
-            html.Div(id='School_droput_location', style={"marginBottom": "20px"})
         ],
         width=8),
 
@@ -523,12 +482,69 @@ app.layout = html.Div([
                             "color": "#000000",
                             "font-weight": "normal",
                             "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
-                            "padding": "30px",
+                            "padding": "3px",
                             "marginBottom": "10px"
                         },
                     ),
                 ],
             ),
+
+
+        ],
+        width=4),
+    ]),
+
+    dbc.Row([
+        # Left Column (8 wide)
+        dbc.Col([
+             html.Div(
+                children=[
+                    html.H1(
+                        [
+                            html.Span(
+                                "High School Attendance Rate and School dropouts by location",
+                                style={"color": "#000000", "font-weight": "normal"},
+                            ),
+                        ],
+                        style={
+                            "font-size": "20px",
+                            "margin": "0",
+                            "padding": "0",
+                        },
+                    ),
+                    html.Div(
+                        style={
+                            "border-bottom": "1px solid #ccc",
+                            "margin-top": "0px",
+                            "margin-bottom": "10px",
+                        }
+                    ),
+                ],
+                style={"padding": "10px"},
+            ),
+                                                                                    # Attendance Graph
+            html.Div(id="bar-graph-container", style={"marginBottom": "5px"}),  
+            html.Div(id='School_droput_location', style={"marginBottom": "5px"}),    
+                    # Bar Chart
+            html.Div(id="scatter-graph-container", style={"marginBottom": "20px"}),  # Scatter Plot
+
+            dcc.RadioItems(
+                id="level-map",
+                options=[
+                    {"label": "Puma level", "value": "Puma"},
+                    {"label": "Neighborhood level", "value": "Neighborhood"}
+                ],
+                value="Puma",
+                inline=True,
+            ),
+            html.Div(id="crime_map", style={"marginBottom": "20px"}),    # Crime Map
+            html.Div(id="schools_locations", style={"marginBottom": "20px"}),  # Schools Locations
+            
+        ],
+        width=8),
+
+        # Right Column (4 wide)
+        dbc.Col([
 
             html.Div(
                 style={
@@ -543,7 +559,7 @@ app.layout = html.Div([
                 },
                 children=[
                     html.Span(
-                        "How does attendance to highschool vary by location? ",
+                        "How does attendance to high school vary by location? ",
                         style={
                             "color": "#000000",
                             "font-weight": "bold",
@@ -553,10 +569,7 @@ app.layout = html.Div([
                     ),
                     html.Div(
                         [
-                            "School attendance rates vary across education levels and population characteristics.  "
-                            "Although attendance rates in elementary school are nearly universal, attendance in middle and high school varies significantly across race and ethnicity."
-                            "For non–African American or non–Hispanic groups, high school attendance is around 80%, whereas for the Hispanic population, it does not surpass 73%. ",
-                            
+                            "School attendance rates vary across education levels and population characteristics.  "                           
                         ],
                         style={
                             "color": "#000000",
@@ -567,8 +580,26 @@ app.layout = html.Div([
                     ),
                     html.Div(
                         [ 
-                            "Adolescents between the ages of 14 and 18 (high school age) often find themselves at a critical crossroads in their development, making them more"
-                            "vulnerable to early school dropout and more susceptible to the effects of high crime rates in their surroundings.",
+                            "When exploring high school attendance rates by Public Use Microdata Areas (PUMAs) "
+                            "throughout Chicago, at first glance, certain PUMAs—particularly those in the northern or central parts of "
+                            "the city—are clustered near the top, reporting attendance rates above 80%. Meanwhile, areas toward the bottom often sit closer to 60%."
+
+                            "As you move through the data, imagine the real‐life implications for students in each PUMA—students in higher‐performing neighborhoods "
+                            "may have easier access to safe transportation or well‐equipped school facilities, while those in lower‐attending areas may face additional hurdles,"
+                            "from safety concerns to family obligations."
+                            "can be crime related to this patterns?",
+                        ],
+                        style={
+                            "color": "#000000",
+                            "font-weight": "normal",
+                            "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+                            "padding": "3px",
+                        },
+                    ),
+                    html.Div(
+                        [ 
+
+                            "....can be crime related to this patterns?",
                         ],
                         style={
                             "color": "#000000",
@@ -579,8 +610,6 @@ app.layout = html.Div([
                     ),
                 ],
             ),
-
-
         ],
         width=4),
     ]),
