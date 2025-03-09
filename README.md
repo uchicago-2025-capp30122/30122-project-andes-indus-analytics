@@ -15,7 +15,7 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 
 ## Project Video:
 [Project Video](linktovideo)
-***
+
 
 ***
 ### How to run the project
