@@ -147,6 +147,7 @@ app.layout = html.Div([
                 ],
                 style={"width": "100%", "textAlign": "right"}  # Ensures right alignment
             ),
+            width=2,
          # Takes 3 columns
              ),
             ],
