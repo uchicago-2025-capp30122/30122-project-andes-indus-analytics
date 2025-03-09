@@ -249,7 +249,7 @@ def create_chicago_school_visualization(gdf_chicago, df_schools):
             x=alt.X("DropoutRate:Q", title="Dropout Rate (%)"),
             y=alt.Y("density:Q", title="Density", scale=alt.Scale(domain =[0,0.2]))
         )
-        .properties(width=600, height=400)
+        .properties(width=400, height=200)
     )
     
     # Concatenate the map and the density plot side by side
@@ -353,7 +353,7 @@ def create_stacked_chart_race(df_c_long, selected_year):
                                                         titleFontSize=14, 
                                                         labelFontSize=12)),
 
-    y=alt.Y('indicator_label:N', sort=indicator_order),
+    y=alt.Y('indicator_label:N', sort=indicator_order, title=""),
    
     color=alt.Color('cut_name:N', scale=color_scale2, title="Cut"),
     opacity=alt.condition(race_selection, alt.value(0.9), alt.value(0.2)),
