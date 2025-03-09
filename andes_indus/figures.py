@@ -152,11 +152,10 @@ def create_crime_heat_map(
     )
 
     fig.update_layout(
-        title=f"Heatmap of {label_dict[selected_crime]} for Year {selected_year}",
-        margin={"r": 0, "t": 50, "l": 0, "b": 0},
+    #    title=f"Heatmap of {label_dict[selected_crime]} for Year {selected_year}",
+        margin={"r": 0, "t": 0, "l": 0, "b": 0},
     )
     return fig
-
 
 def create_chicago_school_visualization(gdf_chicago, df_schools):
     """
