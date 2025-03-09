@@ -177,7 +177,7 @@ app.layout = html.Div([
                         dbc.CardBody([
                             html.Div([
                                 html.H4(
-                                    "178",
+                                    id="community-text",
                                     className="card-title",
                                     style={"margin": 0, "textAlign": "center"}
                                 ),
@@ -192,7 +192,15 @@ app.layout = html.Div([
                                 "gap": "8px",
                                 "justifyContent": "center"
                             }),
-                            html.P("Neighborhoods", className="card-text"),
+                            html.P("Community areas", className="card-text"),
+                            dbc.Tooltip(
+                                "Chicago community areas are distinct geographical areas that the city uses "
+                                "to track social and physical characteristics. The University of Chicago "
+                                "established the community areas in the 1920s with the idea that the boundaries "
+                                "have roughly the same population. ",
+                                target='community-text',
+                                placement='top',
+                            )
                         ]),
                         style={
                             "width": "90%",
@@ -206,7 +214,7 @@ app.layout = html.Div([
                         dbc.CardBody([
                             html.Div([
                                 html.H4(
-                                    "644",
+                                    id="school-text",
                                     className="card-title",
                                     style={"margin": 0, "textAlign": "center"}
                                 ),
@@ -221,7 +229,16 @@ app.layout = html.Div([
                                 "gap": "8px",
                                 "justifyContent": "center"
                             }),
-                            html.P("Public Schools in 2023", className="card-text"),
+                            html.P(id="schools-subtext", className="card-text"),
+                            dbc.Tooltip(
+                                "Chicago Public Schools (CPS) is the fourth-largest U.S. school district, "
+                                "serving 323,251 students across 634 schools. In 2023, it had a graduation "
+                                r"rate of 84%, with over 80% of students being Hispanic or Black and 63.8% "
+                                "from economically disadvantaged households. Despite leading in test score"
+                                " improvements, CPS faces challenges like declining enrollment and school closures. ",
+                                target="school-text",
+                                placement="top",
+                            ),
                         ]),
                         style={
                             "width": "90%",
@@ -235,7 +252,7 @@ app.layout = html.Div([
                         dbc.CardBody([
                             html.Div([
                                 html.H4(
-                                    "391K",
+                                    id="school-age-pop",
                                     className="card-title",
                                     style={"margin": 0, "textAlign": "center"}
                                 ),
@@ -250,7 +267,7 @@ app.layout = html.Div([
                                 "gap": "8px",
                                 "justifyContent": "center"
                             }),
-                            html.P("School-age population", className="card-text"),
+                            html.P(id="school-age-pop-subtext", className="card-text"),
                         ]),
                         style={
                             "width": "90%",
@@ -264,7 +281,7 @@ app.layout = html.Div([
                         dbc.CardBody([
                             html.Div([
                                 html.H4(
-                                    "260K",
+                                    id="crimes-text",
                                     className="card-title",
                                     style={"margin": 0, "textAlign": "center"}
                                 ),
@@ -279,7 +296,7 @@ app.layout = html.Div([
                                 "gap": "8px",
                                 "justifyContent": "center"
                             }),
-                            html.P("Total crimes in 2023", className="card-text"),
+                            html.P(id="crimes-subtext", className="card-text"),
                         ]),
                         style={
                             "width": "90%",
@@ -520,6 +537,13 @@ app.layout = html.Div([
 
     # for the cards
     Output("pumas-text", "children"),
+    Output("community-text", "children"),
+    Output("school-age-pop", "children"),
+    Output("school-age-pop-subtext", 'children'),
+    Output("school-text", "children"),
+    Output('crimes-text', 'children'),
+    Output('crimes-subtext', 'children'),
+    Output('schools-subtext', 'children'),
     Input("dropdown-year", "value"),
     Input("crime-type", "value"),
     Input("level-map" , "value")
@@ -533,6 +557,25 @@ def update_charts(selected_year, selected_crime, selected_level):
             & (df_c_long["PUMA"] != 9999)
         ]["PUMA"].unique()
     )
+    
+    community_text = '77'
+    
+    schools_text = '634'
+    schools_sub_text = f'Number of Public Schools in {selected_year}'
+
+    school_age =  df_c[df_c['PUMA']==9999][['elementary_w',
+                                            'high_school_w',
+                                            'middle_w','year']].set_index('year'
+                                                                          ).sum(axis=1)
+    
+    school_age_pop = f'{int(round(school_age[selected_year]/1000,0))}K'
+    school_age_pop_text = f'School age population {selected_year}'
+
+    n_crimes = crimes_shp.groupby(['year']).agg(count = ('count','sum')).reset_index()
+    crimes_count = int(round(n_crimes[n_crimes['year'] == selected_year].iloc[0,1] / 1000, 0))
+    crimes_count = f'{crimes_count}K'
+    
+    crimes_sub_text = f"Total crimes in {selected_year}"
 
     # for the interactive barchart
     brush = alt.selection_interval()
@@ -683,7 +726,13 @@ def update_charts(selected_year, selected_crime, selected_level):
         ),
         # for the cards
         str(pumas_count),
-        
+        community_text,
+        school_age_pop,
+        school_age_pop_text,
+        schools_text,
+        crimes_count,
+        crimes_sub_text,
+        schools_sub_text
     )
 
 
