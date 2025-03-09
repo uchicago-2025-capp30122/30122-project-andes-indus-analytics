@@ -46,7 +46,13 @@ crime_labels = {
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
-colors = {"background": "#111188", "text": "#7FDBFF"}
+CHICAGO_COLORS = {
+    "navy": "#0B3D91",       # Could use for headers or card borders
+    "red": "#C60C30",        # Could use for highlighting urgent metrics
+    "sky": "#5DA9E9",        # Could use for some backgrounds or accent
+    "white": "#FFFFFF",      # Clean background
+    "light_gray": "#F8F9FA", # or #f0f0f0
+}
 
 
 # Layout with two columns
@@ -81,7 +87,11 @@ app.layout = html.Div([
                 }
             ),
         ],
-        style={"padding": "10px"},
+        style={"padding": "10px",
+               "position": "sticky",     # Make the header sticky
+                "top": 0,
+                "zIndex": 9999,
+                "backgroundColor": CHICAGO_COLORS["white"]},
     ),
 
     # Main Content: Two columns (Left: Charts & Controls, Right: Cards)
