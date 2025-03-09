@@ -14,7 +14,8 @@ from figures import (create_crime_map,
                      point_data_chart,
                      load_crimes_shp,
                      create_graph_multiple,
-                     create_chicago_school_visualization)
+                     create_chicago_school_visualization,
+                     create_scatter_dynamic)
 from join_data import lower_colnames
 from pathlib import Path
 
@@ -683,6 +684,7 @@ def update_charts(selected_year, selected_crime, selected_level):
     
 
    # Create the scatter plot with a brush selection
+    
     brush = alt.selection_interval()
     df_scatter = pumas_df[pumas_df["year"] == selected_year]
     scatter = (
@@ -710,9 +712,8 @@ def update_charts(selected_year, selected_crime, selected_level):
 
     fig_scatter = (scatter + regression_line).properties(
         title=f"Scatter Plot for Year {selected_year}")
-    
 
-        # Create a new column 'indicator_label' using the mapping
+    # Create a new column 'indicator_label' using the mapping
     df_c_long["indicator_label"] = (
         df_c_long["indicator"].map(indicator_map).fillna(df_c_long["indicator"])
     )

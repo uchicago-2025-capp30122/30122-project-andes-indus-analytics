@@ -407,4 +407,3 @@ def create_graph_multiple(df_c_long):
     )
     
     return graph
-
