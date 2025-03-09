@@ -30,7 +30,6 @@ def create_crime_map(
 
     return map
 
-
 def create_geo_chart(
     points_data,
     geo_data,
@@ -68,7 +67,6 @@ def create_geo_chart(
     final_chart = background_chart + points_chart
     return final_chart
 
-
 def point_data_chart(
     points_data,
     selected_year,
@@ -93,7 +91,6 @@ def point_data_chart(
     )
 
     return points_chart
-
 
 def create_interactive_bar(dff, select, stroke_width, selected_year, highlight):
     # Create the bar chart sorted descending by attendance_rate_high
@@ -122,7 +119,6 @@ def create_interactive_bar(dff, select, stroke_width, selected_year, highlight):
     )
 
     return bar
-
 
 def create_crime_heat_map(
     gdf: gpd.GeoDataFrame, selected_crime: str, selected_year: int, label_dict: dict
@@ -156,7 +152,6 @@ def create_crime_heat_map(
         margin={"r": 0, "t": 50, "l": 0, "b": 0},
     )
     return fig
-
 
 def creating_geo_chart(
     points_data,
@@ -196,8 +191,7 @@ def creating_geo_chart(
     fig = go.Figure()
 
     # --- Background Layer: Chicago PUMA Polygons ---
-    # For the background, we use a Choroplethmapbox trace.
-    # Create a list of feature IDs from the GeoJSON properties.
+
     puma_ids = [feature["properties"]["id"] for feature in geo_data["features"]]
     # Use dummy values as the z variable because we're only using the colorscale to set the fill.
     dummy_values = [1] * len(puma_ids)
@@ -267,8 +261,7 @@ def creating_geo_chart(
 
     return fig
 
-
-def create_stacked_chart_gender(df_c_long):
+def create_stacked_chart_gender(df_c_long, selected_year):
     
     # Then filter the DataFrame
     df_filtered = df_c_long[
@@ -276,6 +269,8 @@ def create_stacked_chart_gender(df_c_long):
         & (df_c_long['indicator_label'].isin(['High School', 'Middle', 'Elementary']))
         & (df_c_long['cut_name'].isin(['women', 'men']))
     ]
+
+    df_filtered = df_filtered[df_filtered['year'] == selected_year]
 
     color_scale = alt.Scale(
         domain=['men', 'women'],
@@ -290,10 +285,6 @@ def create_stacked_chart_gender(df_c_long):
         bind='legend'
     )
 
-    # -- Year selection (bound to a dropdown) --
-    unique_years = sorted(df_filtered['year'].unique())
-    #year_dropdown = alt.binding_select(options=unique_years, name='Select year')
-
     # IMPORTANT: selection_point is valid in Altair 5+
     year_selection = alt.selection_point(
         fields=['year'],
@@ -305,8 +296,12 @@ def create_stacked_chart_gender(df_c_long):
         alt.Chart(df_filtered)
         .mark_bar()
         .encode(
-            x=alt.X('sum(value):Q', stack='zero', title='Population'),
-            y=alt.Y('indicator_label:N', sort=indicator_order, title='Education level'),
+            x=alt.X('sum(value):Q', stack='zero', axis=alt.Axis(title='Population', 
+                                                        titleFontSize=14, 
+                                                        labelFontSize=12)),
+
+            y=alt.Y('indicator_label:N', sort=indicator_order),
+           
             color=alt.Color('cut_name:N', scale=color_scale),
             # Opacity is based on whether 'cut_name' is selected
             opacity=alt.condition(gender_selection, alt.value(0.9), alt.value(0.2)),
@@ -320,11 +315,16 @@ def create_stacked_chart_gender(df_c_long):
         .add_params(gender_selection, year_selection)
         # Filter the data by selected year
         .transform_filter(year_selection)
+        .properties(
+            width=500,  #  Increase width
+            height=100,  # Increase height
+            title="Gender"
+        )
     )
 
     return bar
 
-def create_stacked_chart_race(df_c_long):
+def create_stacked_chart_race(df_c_long, selected_year):
     
     # Then filter using the updated column
     df_filtered2 = df_c_long[
@@ -332,25 +332,43 @@ def create_stacked_chart_race(df_c_long):
         (df_c_long['indicator_label'].isin(['High School', 'Middle', 'Elementary'])) &
         (df_c_long['cut_name'].isin(['hispanic', 'afroamerican', 'nonafroamerican_hispanic']))    ]
 
+    df_filtered2 = df_filtered2[df_filtered2['year'] == selected_year]
+
     color_scale2 = alt.Scale(
         domain=['afroamerican',"hispanic", 'nonafroamerican_hispanic'],        # The categories in cut_name
         range=['#005A9C', '#A8D0E6', '#E57373' ]    
     )
  
     indicator_order = ['Elementary', 'Middle', 'High School']
-    # Define selection
-    selection = alt.selection_point(fields=['cut_name'], bind='legend')
-    # Create stacked bar chart
+   
+    # -- race selection (bound to legend) --
+    race_selection = alt.selection_point(
+        fields=['cut_name'],
+        bind='legend'
+    )
+
+    year_selection = alt.selection_point(
+        fields=['year'],
+    )
+       # Create stacked bar chart
     bar = alt.Chart(df_filtered2).mark_bar().encode(
-    x=alt.X('sum(value):Q', stack='zero', axis=alt.Axis(title='Population')),
-    y=alt.Y('indicator_label:N', sort=indicator_order, axis=alt.Axis(title='Education level')),
+
+    x=alt.X('sum(value):Q', stack='zero', axis=alt.Axis(title='Population', 
+                                                        titleFontSize=14, 
+                                                        labelFontSize=12)),
+
+    y=alt.Y('indicator_label:N', sort=indicator_order),
+   
     color=alt.Color('cut_name:N', scale=color_scale2),
-    opacity=alt.condition(selection, alt.value(0.9), alt.value(0.2)),
+    opacity=alt.condition(race_selection, alt.value(0.9), alt.value(0.2)),
     tooltip=[alt.Tooltip('year', title='Year'), alt.Tooltip('value', title='Population number')]
-    ).add_params(selection)
+    ).add_params(race_selection, year_selection).properties(
+            width=500,  #  Increase width
+            height=100,  # Increase height
+            title="Race/Ethnicity"
+        ).transform_filter(year_selection)
 
     return bar
-
 
 def load_crimes_shp():
     path = 'https://drive.usercontent.google.com/download?id=17lrQgaXcTAQTM4kMqt19RYvC4gtF9wCn&export=download&authuser=0&confirm=t&uuid=f69248de-b684-4c5f-976b-63576e8c9741&at=AEz70l53DiY7nTnR_fRZmhZYPvOx:1741223440221'
@@ -366,7 +384,6 @@ def load_crimes_shp():
 
     return block_data
 
-
 def create_graph_multiple(df_c_long):
         
     # Then filter using the updated column
@@ -374,16 +391,23 @@ def create_graph_multiple(df_c_long):
         (df_c_long['PUMA'] == 9999) &
         (df_c_long['indicator'].isin(['attendance_rate_elementary', 'attendance_rate_middle', 'attendance_rate_high'])) &
         (df_c_long['cut_name'].isin(['afroamerican', 'nonafroamerican_hispanic',"Total","hispanic"])) ]
+    
+    indicator_order = ['Elementary', 'Middle', 'High School']
 
     graph = alt.Chart(df_filtered2).mark_point().encode(
-    alt.X("value", scale=alt.Scale(domain=[60,100],zero=False), axis=alt.Axis(title='Percentage') ),
-    y=alt.X("year:N",axis=alt.Axis(title='Year')),
-    color="cut_name:N",
-    facet=alt.Facet("indicator_label:O", columns=2, title="Education Level"),
+    alt.X("value", scale=alt.Scale(domain=[60,100],zero=False), axis=alt.Axis(title='Percentage', titleFontSize=14, labelFontSize=12) ),
+    y=alt.X("year:N",axis=alt.Axis(title='Year', titleFontSize=14, labelFontSize=12)),
+    color=alt.Color(
+                "cut_name:N",
+                legend=alt.Legend(
+                    title="Cut",
+                    titleFontSize=14,
+                    labelFontSize=12
+                )),
+    facet=alt.Facet("indicator_label:O", columns=1, title="", sort=indicator_order),
     ).properties(
-    width=200,
-    height=100,
-    title= "Attendance Rate by Education Level and Race/Ethnicity"
+    width=400,
+    height=120,
     )
     
     return graph
