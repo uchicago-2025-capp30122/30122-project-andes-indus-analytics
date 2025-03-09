@@ -5,7 +5,7 @@ Early school dropout is a multifaceted challenge that impacts education systems 
 
 This project aims to integrate, analyze, and visualize spatial, administrative, and demographic data to characterize school dropouts across Chicago schools, with a particular focus on the role of crime in shaping these educational outcomes.
 
-![screenshot](Project Screenshot.png)
+![](Project/Screenshot.png)
 
 ## Authors
 - *Angela López Sanchez*
@@ -14,7 +14,8 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 
 
 ## Project Video:
-[Projec tVideo](linktovideo)
+[Project Video](linktovideo)
+***
 
 ### Data pipeline
 This project is structured to collect, process, and visualize data from multiple sources, focusing on education, crime, census, and demographic data. The pipeline follows a structured approach to integrate and process these datasets efficiently. Below is an overview of the data flow:
