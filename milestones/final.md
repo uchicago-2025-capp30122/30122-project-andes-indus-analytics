@@ -50,7 +50,7 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 - **Overview:** Explain how data is ingested, processed, and output.
 - **Diagram:**  
 
-![]([Datapipeline.png](https://github.com/uchicago-2025-capp30122/30122-project-andes-indus-analytics/blob/287b2a12f2065ef2ce3bdf854ec230ff8574c714/Datapipeline.png))
+![Structure](https://github.com/uchicago-2025-capp30122/30122-project-andes-indus-analytics/blob/287b2a12f2065ef2ce3bdf854ec230ff8574c714/Datapipeline.png)
 
 - **Additional Considerations:** Highlight any key points a newcomer should know about data handling, security, or compliance.
 
