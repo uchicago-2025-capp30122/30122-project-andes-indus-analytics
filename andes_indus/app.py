@@ -3,7 +3,7 @@ import dash_bootstrap_components as dbc
 import plotly.express as px
 import json
 import altair as alt
-from app_layout.figures import (create_crime_map,
+from andes_indus.app_layout.figures import (create_crime_map,
                                 create_interactive_bar,
                                 create_crime_heat_map, 
                                 create_stacked_chart_gender, 
@@ -12,10 +12,10 @@ from app_layout.figures import (create_crime_map,
                                 create_graph_multiple,
                                 create_chicago_school_visualization,
                                 create_scatter_dynamic)
-from app_layout.final_section import gen_final_section
-from app_layout.app_utils import crime_labels
-from app_layout.header import gen_header
-from app_layout.load_data import (pumas_shp, pumas_df_long, df_c, df_c_long, 
+from andes_indus.app_layout.final_section import gen_final_section
+from andes_indus.app_layout.app_utils import crime_labels
+from andes_indus.app_layout.header import gen_header
+from andes_indus.app_layout.load_data import (pumas_shp, pumas_df_long, df_c, df_c_long, 
                                   schools_df, pumas, neighborhood_shp, crimes_shp)
 from andes_indus.app_layout.main_content import (gen_first_row, gen_second_row,
                                                  gen_third_row, gen_fourth_row,
