@@ -61,7 +61,7 @@ Press CTRL+C to quit
 
 ### Running Tests
 
-To run the tests, please use the following command:
+To run the tests, please use the following command in andes-indus:
 
 ```bash
 1. 'uv run pytest tests'

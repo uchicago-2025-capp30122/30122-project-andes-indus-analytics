@@ -10,7 +10,7 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 - [Project Structure](#project-structure)
 - [Team Responsibilities](#team-responsibilities)
 - [Final Thoughts](#final-thoughts)
-- [Additional Resources](#additional-resources)
+- [Contact Information](#additional-resources)
 
 ---
 
@@ -45,7 +45,7 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
     - Education : We created two seperate csv files from the two sources and merged the data to make it comparable and accessible.
     - Census :
 
-### Data Flow
+### Data Flow and Project Structure
 
 - **Overview:** Explain how data is ingested, processed, and output.
 - **Diagram:**  
@@ -74,19 +74,34 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 ## Team Responsibilities
 
 ### Team Member Contributions
-- **Team Member 1 (Angela Lopez):**  
-  - *Role:* 
+- **Team Member 1 (Angela Lopez):**   
   - *Responsibilities:* 
+
+    - Data Collection: Pulled data from the census API. API-Get.py
+    - Data Cleaning: Created functions for cleaning census data. census_utils.py
+    - Data Engineering/Database: 
+    - Data Visualization: Creating graphs for demoraphic and attendace rate. figures.py
+
 - **Team Member 2 (César Núñez):**  
-  - *Role:*   
   - *Responsibilities:* 
+
+    - Data Collection:
+    - Data Cleaning:
+    - Data Engineering/Database
+    - Data Visualization: 
+
 - **Team Member 3 (Shahzaib Jamali):**  
-  - *Role:* 
   - *Responsibilities:* 
+
+    - Data Collection: Pulled data from CPS APIs and accessed Dropout data from excel file 
+    - Data Cleaning: Cleaned the data for education and merging API data and excel data. Education.py
+    - Data Engineering/Database: 
+    - Data Visualization:
 
 
 ### Collaboration Notes
-- Summarize how the team coordinated ().
+
+The team coordinated its efforts by establishing a clear version control strategy. Each member worked on an individual branch within the repository, allowing for independent development of features and updates. All changes were communicated through commits from these branches into a centralized main branch, ensuring that updates were systematically integrated and the project's progress remained transparent..
 
 ---
 
@@ -97,14 +112,9 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 - **Outcomes:** Reflect on what was actually accomplished.
 - **Lessons Learned:** Note key takeaways and areas for future improvement.
 
-### Future Considerations
-- Outline ideas for next steps or additional features.
-- Mention potential challenges to address in subsequent versions.
-
 ---
 
-## Additional Resources
-
-- **Documentation:** Link to further detailed documentation if available.
-- **Issue Tracker:** Link to the project’s issue tracker.
 - **Contact Information:** Provide details on how to reach the team for support or contributions.
+- Angela : [Github](https://github.com/AngelaLop) [Email](alopezsanchez@uchicago.edu)
+- César  : [Github](https://github.com/cesarnunezh) [Email](cnunezh@uchicago.edu)
+- Shahzaib : [Github](https://github.com/Shahzaib-Jamali) [Email](shahzaibjamali@uchicago.edu)

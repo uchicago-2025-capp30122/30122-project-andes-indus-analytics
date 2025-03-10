@@ -148,12 +148,12 @@ def create_crime_heat_map(
         center={"lat": gdf["latitude"].mean(), "lon": gdf["longitude"].mean()},
         zoom=9,
         mapbox_style="carto-positron",
-        color_continuous_scale="emrld",
+        color_continuous_scale="balance",
     )
 
     fig.update_layout(
-        title=f"Heatmap of {label_dict[selected_crime]} for Year {selected_year}",
-        margin={"r": 0, "t": 50, "l": 0, "b": 0},
+    #    title=f"Heatmap of {label_dict[selected_crime]} for Year {selected_year}",
+        margin={"r": 0, "t": 0, "l": 0, "b": 0},
     )
     return fig
 
@@ -416,13 +416,13 @@ def create_scatter_dynamic(df:pd.DataFrame,
     df = df.drop(columns=['attendance_category'])
     df_scatter = df[(df["year"] == selected_year) & 
                     (df["level"] == selected_level) ]
-
+    
     # Base scatterplot chart
     base = alt.Chart(df_scatter).mark_point(filled=True).encode(
         x=alt.X(f'{selected_crime}:Q', title=crime_labels[selected_crime]),
         y=alt.Y('attendance_rate:Q', title=f'Attendance Rate - {level_labels[selected_level]}'),
         color=alt.Color('race:N', legend=None),
-        tooltip=['puma', 'year', 'attendance_rate']
+        tooltip=['puma', 'year', 'attendance_rate', f'{selected_crime}']
     ).properties(
         width=200,
         height=200
