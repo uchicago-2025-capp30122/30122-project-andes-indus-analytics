@@ -1,16 +1,8 @@
 # Understanding School Dropouts in Chicago: The Role of Crime and Socioeconomic Factors
 
+## Project Overview
+
 This project aims to integrate, analyze, and visualize spatial, administrative, and demographic data to characterize school dropouts across Chicago schools, with a particular focus on the role of crime in shaping these educational outcomes.By running the application, you will be able to explore these factors and their relationships on an interactive dashboard.
-
----
-
-## Table of Contents
-- [Introduction](##introduction)
-- [Data Documentation](##data-documentation)
-- [Project Structure](##project-structure)
-- [Team Responsibilities](##team-responsibilities)
-- [Final Thoughts](##final-thoughts)
-- [Contact Information](##contact-information)
 
 ---
 
