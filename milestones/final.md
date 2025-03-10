@@ -50,7 +50,7 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 - **Overview:** Explain how data is ingested, processed, and output.
 - **Diagram:**  
 
-![Image_Timeline](Datapipeline.png)
+![](Datapipeline.png)
 
 - **Additional Considerations:** Highlight any key points a newcomer should know about data handling, security, or compliance.
 
