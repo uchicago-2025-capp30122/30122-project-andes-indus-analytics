@@ -1,6 +1,6 @@
 from shapely.geometry import Polygon, MultiPolygon, Point
-from quadtree import Quadtree, BBox
-from crime_utils import Crime
+from andes_indus.quadtree import Quadtree, BBox
+from andes_indus.crime_utils import Crime
 from typing import NamedTuple, Optional
 import pathlib
 import shapefile
@@ -46,11 +46,10 @@ class School(NamedTuple):
 
 
 def load_pumas_shp(path: pathlib.Path, pumas_year: int) -> list[Puma]:
-    '''
-    Creates a list of Pumas objects to 
-    '''
-    name_dict = {2010 : 4,
-                 2020 : 3}
+    """
+    Creates a list of Pumas objects to
+    """
+    name_dict = {2010: 4, 2020: 3}
 
     pumas = []
     with shapefile.Reader(path) as sf:
