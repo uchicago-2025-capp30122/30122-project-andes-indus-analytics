@@ -5,12 +5,12 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 ---
 
 ## Table of Contents
-- [Introduction](#introduction)
-- [Data Documentation](#data-documentation)
-- [Project Structure](#project-structure)
-- [Team Responsibilities](#team-responsibilities)
-- [Final Thoughts](#final-thoughts)
-- [Contact Information](#additional-resources)
+- [Introduction](##introduction)
+- [Data Documentation](##data-documentation)
+- [Project Structure](##project-structure)
+- [Team Responsibilities](##team-responsibilities)
+- [Final Thoughts](##final-thoughts)
+- [Contact Information](##contact-information)
 
 ---
 
