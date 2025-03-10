@@ -148,7 +148,7 @@ def create_crime_heat_map(
         center={"lat": gdf["latitude"].mean(), "lon": gdf["longitude"].mean()},
         zoom=9,
         mapbox_style="carto-positron",
-        color_continuous_scale="emrld",
+        color_continuous_scale="balance",
     )
 
     fig.update_layout(

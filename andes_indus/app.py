@@ -3,449 +3,30 @@ import dash_bootstrap_components as dbc
 import plotly.express as px
 import json
 import altair as alt
-import pandas as pd
-import geopandas as gpd
-from figures import (create_crime_map, 
-                     create_interactive_bar, 
-                     create_crime_heat_map, 
-                     create_stacked_chart_gender, 
-                     create_stacked_chart_race,
-                     point_data_chart,
-                     load_crimes_shp,
-                     create_graph_multiple,
-                     create_chicago_school_visualization,
-                     create_scatter_dynamic)
-from join_data import lower_colnames
-from pathlib import Path
-
-# Loading data files - Puma level
-pumas_shp = lower_colnames(gpd.read_file(Path('data/shapefiles/data_pumas.shp')))
-pumas_shp = pumas_shp.rename(columns={'total_cr_1' : 'total_crim_pc', 
-                                      'non-viol_1' : 'non_violent_pc'})
-
-pumas_df = pd.read_csv(Path("data/data_pumas.csv")).rename(columns={'non-violen_pc':'non_violent_pc'})
-cols_to_keep = ['puma', 'year', 'violent_pc', 'non_violent_pc', 'total_crim_pc']
-attendance_cols = [
-    'attendance_rate_elementary_black',
-    'attendance_rate_middle_black',
-    'attendance_rate_high_black',
-    'attendance_rate_elementary_hispanic',
-    'attendance_rate_middle_hispanic',
-    'attendance_rate_high_hispanic',
-    'attendance_rate_elementary_non_black_non_hispanic',
-    'attendance_rate_middle_non_black_non_hispanic',
-    'attendance_rate_high_non_black_non_hispanic'
-]
-pumas_df_long = pumas_df[cols_to_keep + attendance_cols]
-pumas_df_long = pumas_df_long.melt(cols_to_keep, attendance_cols, var_name= "attendance_category", value_name="attendance_rate")
-
-df_c = pd.read_csv(Path("data/census_df.csv"))
-df_c_long = pd.read_csv(Path("data/census_df_long.csv"))
-
-# Loading maps shapefiles
-pumas = gpd.read_file(Path("data/shapefiles/pumas/chicago_pumas.shp"))
-neighborhood_shp = gpd.read_file(Path('data/shapefiles/data_neighborhoods.shp'))
-neighborhood_shp = neighborhood_shp.rename(columns={'total_cr_1' : 'total_crim_pc', 
-                                      'non-viol_1' : 'non_violent_pc'})
-crimes_shp = gpd.GeoDataFrame(load_crimes_shp())
-
-# Loading school locations
-schools_df = pd.read_csv(Path("data/merged_school_data.csv"))
-
-# Labels for graphs 
-crime_labels = {
-    "total_crim_pc": "Total Crime",
-    "violent_pc": "Violent Crime",
-    "non_violent_pc": "Non Violent Crime"
-}
+from app_layout.figures import (create_crime_map,
+                                create_interactive_bar,
+                                create_crime_heat_map, 
+                                create_stacked_chart_gender, 
+                                create_stacked_chart_race,
+                                point_data_chart,
+                                create_graph_multiple,
+                                create_chicago_school_visualization,
+                                create_scatter_dynamic)
+from app_layout.final_section import gen_final_section
+from app_layout.app_utils import crime_labels
+from app_layout.header import gen_header
+from app_layout.load_data import (pumas_shp, pumas_df_long, df_c, df_c_long, 
+                                  schools_df, pumas, neighborhood_shp, crimes_shp)
+from andes_indus.app_layout.main_content import gen_first_row
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
-
-CHICAGO_COLORS = {
-    "navy": "#0B3D91",       # Could use for headers or card borders
-    "red": "#C60C30",        # Could use for highlighting urgent metrics
-    "sky": "#5DA9E9",        # Could use for some backgrounds or accent
-    "white": "#FFFFFF",      # Clean background
-    "light_gray": "#F8F9FA", # or #f0f0f0
-}
-
 
 # Layout with two columns
 app.layout = html.Div([
     # Header section
-# Header section with controls in one row
-    html.Div(
-    children=[
-        dbc.Row(
-            [
-                # Title Column (Takes 5 out of 12 columns)
-            dbc.Col(
-                    html.H1(
-                        [
-                            html.Span(
-                                "Understanding Crime and School Attendance in",
-                                style={"color": "#000000", "font-weight": "normal"},
-                            ),
-                            " ",  # space
-                            html.Span(
-                                "Chicago",
-                                style={"color": "#00bfff", "font-weight": "normal"},
-                            ),
-                        ],
-                        style={
-                            "font-family": "Times New Roman, serif",
-                            "font-size": "32px",
-                            "margin": "0",
-                            "padding": "0",
-                            "white-space": "nowrap",
-                        },
-                    ),
-                    width=8,  # Takes 5 columns
-                ),
+    gen_header(),
 
-                # Year Slider Column (Takes 4 out of 12 columns)
-            dbc.Col(
-                    html.Div(
-                [
-                    html.Label("Select Year:", style={"font-weight": "bold", "font-size": "12px", "color": "#666666"}),
-                    dcc.Slider(
-                        id="year-slider",
-                        min=2013,
-                        max=2023,
-                        step=5,
-                        marks={year: str(year) for year in range(2013, 2024, 5)},  # Includes 2023 label
-                        value=sorted(df_c["year"].unique())[2],
-                        tooltip={"placement": "bottom", "always_visible": True},  # Always show tooltip
-                        included=False,  # Ensures marks are independent of step values
-                        updatemode="drag",  # Update as user drags
-                    ),
-                ],
-                style={"width": "100%", "textAlign": "right"}  # Ensures right alignment
-            ),
-                    width=2,  # Takes 3 columns
-                ),
-
-            # Crime Type Selector Column (Takes 3 out of 12 columns)
-            dbc.Col(
-                html.Div(
-                [
-                    html.Label("Select Crime Type:", style={"font-weight": "bold", "font-size": "12px", "color": "#666666"}),
-                    dcc.RadioItems(
-                        id="crime-type",
-                        options=[
-                            {"label": "Total", "value": "total_crim_pc"},
-                            {"label": "Violent", "value": "violent_pc"},
-                            {"label": "Non-Violent", "value": "non-violen_pc"},
-                        ],
-                        value="total_crim_pc",
-                        inline=True,
-                        style={
-                            "color": "#888888",  # Lighter grey for text
-                            "font-size": "12px",
-                        },
-                    ),
-                ],
-                style={"width": "100%", "textAlign": "right"}  # Ensures right alignment
-            ),
-            width=2,
-         # Takes 3 columns
-             ),
-            ],
-    align="center",  # Align all items vertically in the center
-    justify="end",  # Align to the right of the row
-),
-
-            html.Div(
-                style={
-                    "border-bottom": "1px solid #ccc",
-                    "margin-top": "5px",
-                    "margin-bottom": "20px",
-                }
-            ),
-        ],
-        style={"padding": "10px",
-               "position": "sticky",     # Make the header sticky
-                "top": 0,
-                "zIndex": 9999,
-                "backgroundColor": CHICAGO_COLORS["white"]},
-    ),
-
-    # Main Content: Two columns (Left: Charts & Controls, Right: Cards)
-    dbc.Row([
-        # Left Column (75% Width) - Graphs and Controls
-        dbc.Col(
-            [
-  
-        html.Div(
-                children=[
-                    html.H1(
-                        [
-                            html.Span(
-                                f"Counts of crimes in the Chicago Area",
-                                style={"color": "#000000", "font-weight": "normal"},
-                            ),
-                        ],
-                        style={
-                            "font-size": "20px",
-                            "margin": "0",
-                            "padding": "0",
-                        },
-                    ),
-
-                ],
-                       style={"padding": "10px"},
-            ),
-
-        html.Div(id="crime_heatmap", style={"marginBottom": "0 px"}),    
-        # Info Box - "Who is impacted?"
-        html.Div(
-            style={
-                "width": "100%",
-                "backgroundColor": CHICAGO_COLORS["white"],
-                "padding": "0px",
-                "borderRadius": "8px",
-                "display": "flex",
-                "flexDirection": "column",
-                "alignItems": "left",
-                "marginBottom": "10px"
-            },
-            children=[
-
-
-                html.Div(
-                    [
-                        "The Chicago Area has long been recognized for its high crime rates compared to other major U.S. cities, "
-                        "with persistent challenges related to gun violence, gang activity, and socio-economic disparities. "
-                        "While crime rates fluctuate year to year, Chicago consistently ranks among the cities with the highest "
-                        "violent crime rates, particularly in specific neighborhoods on the South and West sides." ,
-                    ],
-                    style={
-                        "color": "#000000",
-                        "font-weight": "normal",
-                        "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
-                        "padding": "3px",
-                        "marginBottom": "10px"
-                    },
-                ),
-            ],
-        ),
-    ],
-    width=9  # Moves width property to the correct place
-    ),
-
-
-        # Right Column (25% Width) - Cards inside Light Grey Box
-        dbc.Col([
-            html.Div(
-                style={
-                    "width": "100%",
-                    "backgroundColor": "#f0f0f0",  # Light grey background
-                    "padding": "15px",
-                    "borderRadius": "10px",
-                    "display": "flex",
-                    "flexDirection": "column",
-                    "alignItems": "center",
-                    "marginBottom": "110px"
-                },
-                children=[
-                    html.Span(
-                        "What are we analyzing?",
-                        style={
-                            "color": "#000000",
-                            "font-weight": "bold",
-                            "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
-                            "padding": "10px",
-                        }
-                    ),
-
-                    dbc.Card(
-                        dbc.CardBody([
-                            html.Div([
-                                html.H4(
-                                    id="pumas-text",
-                                    className="card-title",
-                                    style={"margin": 0, "textAlign": "center"}
-                                ),
-                                html.I(
-                                    className="fas fa-chart-bar",
-                                    style={"fontSize": "1.5rem"}
-                                ),
-                            ],
-                            style={
-                                "display": "flex",
-                                "alignItems": "center",
-                                "gap": "8px",
-                                "justifyContent": "center"
-                            }),
-                            html.P("Pumas", className="card-text"),
-                            dbc.Tooltip(
-                                "PUMAs refer to the Public Use Microdata Areas that are non-overlapping, "
-                                "statistical geographic areas that partition each state or equivalent entity "
-                                "into geographic areas containing no fewer than 100,000 people each.",
-                                target="pumas-text",
-                                placement="top",
-                            ),
-                        ]),
-                        style={
-                            "width": "90%",
-                            "textAlign": "center",
-                            "borderLeft": "6px solid #37526f",
-                            "marginBottom": "10px"
-                        },
-                    ),
-
-                    dbc.Card(
-                        dbc.CardBody([
-                            html.Div([
-                                html.H4(
-                                    id="community-text",
-                                    className="card-title",
-                                    style={"margin": 0, "textAlign": "center"}
-                                ),
-                                html.I(
-                                    className="fas fa-file-alt",
-                                    style={"fontSize": "1.5rem", "textAlign": "center"}
-                                ),
-                            ],
-                            style={
-                                "display": "flex",
-                                "alignItems": "center",
-                                "gap": "8px",
-                                "justifyContent": "center"
-                            }),
-                            html.P("Community areas", className="card-text"),
-                            dbc.Tooltip(
-                                "Chicago community areas are distinct geographical areas that the city uses "
-                                "to track social and physical characteristics. The University of Chicago "
-                                "established the community areas in the 1920s with the idea that the boundaries "
-                                "have roughly the same population. ",
-                                target='community-text',
-                                placement='bottom',
-                            )
-                        ]),
-                        style={
-                            "width": "90%",
-                            "textAlign": "center",
-                            "borderLeft": "6px solid #3b6d92",
-                            "marginBottom": "10px"
-                        },
-                    ),
-
-                    dbc.Card(
-                        dbc.CardBody([
-                            html.Div([
-                                html.H4(
-                                    id="school-text",
-                                    className="card-title",
-                                    style={"margin": 0, "textAlign": "center"}
-                                ),
-                                html.I(
-                                    className="fas fa-calendar-check",
-                                    style={"fontSize": "1.5rem"}
-                                ),
-                            ],
-                            style={
-                                "display": "flex",
-                                "alignItems": "center",
-                                "gap": "8px",
-                                "justifyContent": "center"
-                            }),
-                            html.P(id="schools-subtext", className="card-text"),
-                            dbc.Tooltip(
-                                "Chicago Public Schools (CPS) is the fourth-largest U.S. school district, "
-                                "serving 323,251 students across 634 schools. In 2023, it had a graduation "
-                                r"rate of 84%, with over 80% of students being Hispanic or Black and 63.8% "
-                                "from economically disadvantaged households. ",
-                                target="school-text",
-                                placement="bottom",
-                            ),
-                        ]),
-                        style={
-                            "width": "90%",
-                            "textAlign": "center",
-                            "borderLeft": "6px solid #3f88b4",
-                            "marginBottom": "10px"
-                        },
-                    ),
-
-                    dbc.Card(
-                        dbc.CardBody([
-                            html.Div([
-                                html.H4(
-                                    id="school-age-pop",
-                                    className="card-title",
-                                    style={"margin": 0, "textAlign": "center"}
-                                ),
-                                html.I(
-                                    className="fas fa-download",
-                                    style={"fontSize": "1.5rem"}
-                                ),
-                            ],
-                            style={
-                                "display": "flex",
-                                "alignItems": "center",
-                                "gap": "8px",
-                                "justifyContent": "center"
-                            }),
-                            html.P(id="school-age-pop-subtext", className="card-text"),
-                            dbc.Tooltip(
-                                "Refers to the theoretical school age population aged between 5–18. ",
-                                target="school-age-pop",
-                                placement="bottom",
-                            ),
-                        ]),
-                        style={
-                            "width": "90%",
-                            "textAlign": "center",
-                            "borderLeft": "6px solid #eb9b44",
-                            "marginBottom": "10px"
-                        },
-                    ),
-
-                    dbc.Card(
-                        dbc.CardBody([
-                            html.Div([
-                                html.H4(
-                                    id="crimes-text",
-                                    className="card-title",
-                                    style={"margin": 0, "textAlign": "center"}
-                                ),
-                                html.I(
-                                    className="fas fa-download",
-                                    style={"fontSize": "1.5rem"}
-                                ),
-                            ],
-                            style={
-                                "display": "flex",
-                                "alignItems": "center",
-                                "gap": "8px",
-                                "justifyContent": "center"
-                            }),
-                            html.P(id="crimes-subtext", className="card-text"),
-                            dbc.Tooltip(
-                                "The Chicago Police Department maintains a comprehensive database of reported "
-                                "crimes across the city. For this analysis, we focused on data from the years "
-                                "2013, 2018, and 2023, totaling nearly one million records. To categorize each "
-                                "incident as either violent or non-violent crime, we followed the FBI's Uniform "
-                                "Crime Reporting (UCR) Program guidelines. According to the UCR, violent crimes "
-                                "include four primary offenses: murder, forcible rape, robbery, and aggravated assault. ",
-                                target="crimes-text",
-                                placement="bottom",
-                            ),
-                        ]),
-                        style={
-                            "width": "90%",
-                            "textAlign": "center",
-                            "borderLeft": "6px solid #ba9873",
-                            "marginBottom": "10px"
-                        },
-                    ),
-                ],
-            ),
-        ],
-        width=3),  # Takes 25% of space
-    ],
-    style={"marginBottom": "3px"}),
+    gen_first_row(),
 
     # Second big Row
     dbc.Row([
@@ -456,7 +37,7 @@ app.layout = html.Div([
                     html.H1(
                         [
                             html.Span(
-                                f"Population by Education Level, Gender and Race/Ethnicity {"year"}",
+                                f"Population by Education Level, Gender and Race/Ethnicity",
                                 style={"color": "#000000", "font-weight": "normal"},
                             ),
                         ],
@@ -474,10 +55,26 @@ app.layout = html.Div([
                         }
                     ),
                 ],
-                       style={"padding": "10px"},
+                       style={"padding": "10px",
+                              "alignItems": "center",
+                              "justifyContent": "center"},
             ),
-            html.Div(id="stacked-graph-container", style={"marginBottom": "5px"}),   # Stacked Chart (Gender)
-            html.Div(id="stacked2-graph-container", style={"marginBottom": "150px"}), # Stacked Chart (Race)
+                dbc.Row(  
+                    dbc.Col(
+                        html.Div(id="stacked-graph-container"),
+                        width={"offset": 2},
+                    ),
+                    style={"marginBottom": "5px", "justifyContent": "center"}
+                ),
+
+                # Second Graph (Race)
+                dbc.Row(  
+                    dbc.Col(
+                        html.Div(id="stacked2-graph-container"),
+                        width={"offset": 2},
+                    ),
+                    style={"marginBottom": "100px", "justifyContent": "center"}
+                ),
 
             html.Div(
                 children=[
@@ -504,10 +101,13 @@ app.layout = html.Div([
                 ],
                 style={"padding": "10px"},
             ),
-
-
-            html.Div(id="attendance_graph", style={"marginBottom": "0px", "alignItems": "center","justifyContent": "center"}), 
-
+            dbc.Row(  
+                    dbc.Col(
+                        html.Div(id="attendance_graph"),
+                        width={"offset": 2},
+                    ),
+                    style={"marginBottom": "0px", "alignItems": "center","justifyContent": "center"}
+                ),
         ],
         width=8),
 
@@ -557,7 +157,8 @@ app.layout = html.Div([
                             "font-weight": "normal",
                             "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
                             "padding": "3px",
-                            "marginBottom": "30px"
+                            "marginBottom": "30px",
+                            "textAlign": "justify"
                         },
                     ),
                     html.Div(
@@ -569,7 +170,8 @@ app.layout = html.Div([
                             "font-weight": "normal",
                             "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
                             "padding": "3px",
-                            "marginBottom": "30px"
+                            "marginBottom": "30px",
+                            "textAlign": "justify"
                         },
                     ),
                     html.Div(
@@ -582,7 +184,8 @@ app.layout = html.Div([
                             "font-weight": "normal",
                             "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
                             "padding": "3px",
-                            "marginBottom": "20px"
+                            "marginBottom": "20px",
+                            "textAlign": "justify"
                         },
                     ),
 
@@ -623,6 +226,7 @@ app.layout = html.Div([
                             "font-weight": "normal",
                             "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
                             "padding": "3px",
+                            "textAlign": "justify"
                         },
                     ),
                     html.Div(
@@ -654,7 +258,7 @@ app.layout = html.Div([
                     html.H1(
                         [
                             html.Span(
-                                "High School Attendance Rate and School dropouts by location",
+                                "High School Attendance Rate by location",
                                 style={"color": "#000000", "font-weight": "normal"},
                             ),
                         ],
@@ -674,9 +278,14 @@ app.layout = html.Div([
                 ],
                 style={"padding": "10px"},
             ),
-                                                                                    # Attendance Graph
-            html.Div(id="bar-graph-container", style={"marginBottom": "3px"}),  
-
+            # Attendance Graph
+            dbc.Row(  
+                    dbc.Col(
+                        html.Div(id="bar-graph-container"),
+                        width={"offset": 2},
+                    ),
+                    style={"marginBottom": "0px", "alignItems": "center","justifyContent": "center"}
+                ),
             
         ],
         width=8),
@@ -731,6 +340,7 @@ app.layout = html.Div([
                             "font-weight": "normal",
                             "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
                             "padding": "3px",
+                            "textAlign": "justify"
                         },
                     ),
                     html.Div(
@@ -757,7 +367,6 @@ app.layout = html.Div([
             # Left Column
         dbc.Col(
                 [
-
                     html.Div(
                             style={
                                 "width": "100%",
@@ -771,7 +380,7 @@ app.layout = html.Div([
                             },
                         children=[
                              html.Span(
-                                    "How does early school dropot rates vary by location? ",
+                                    "How does early school dropout rates vary by location? ",
                                     style={
                                         "color": "#000000",
                                         "font-weight": "bold",
@@ -781,39 +390,72 @@ app.layout = html.Div([
                              ),
                              html.Div(
                                 [
-                                    "Now, on a school location perspective, when exploring dropout rates from south to northern areas of the city, "
-                                    "it might be inferred that dropout rates in the northern region tend to cluster within a narrow range (approximately 0–10%), "
-                                    "while in the southern region the distribution appears more varied. Factors such as neighborhood violence, resource allocation, "
+                                    "Chicago is traditionally divided into distinct northern and southern regions, each "
+                                    "characterized by unique socioeconomic dynamics that have been extensively examined "
+                                    "in the literature ",
+                                    html.A("(Burdick‑Will, 2016; ",
+                                           href="https://doi.org/10.1093/sf/sow041",
+                                           target="_blank",
+                                           style={
+                                               "color": "#007BFF",
+                                               "textDecoration": "none",
+                                               "font-weight": "bold"
+                                               },
+                                               ),
+                                    html.A("Jankov & Caref, 2017).",
+                                           href="https://doi.org/10.14507/epaa.25.2631",
+                                           target="_blank",
+                                           style={
+                                               "color": "#007BFF",
+                                               "textDecoration": "none",
+                                               "font-weight": "bold"
+                                               },
+                                               ),
+                                    "This interactive graph invites exploration into whether differences in dropout rates "
+                                    "emerge as one transitions from the south side to the north. Initial observations of "
+                                    "the density plot suggest that dropout rates in the northern region tend to cluster "
+                                    "within a narrow range (approximately 0–10%), while in the southern region the distribution "
+                                    "appears more varied. Furthermore, the graph investigates the spatial distribution of "
+                                    "schools in these areas, raising questions about whether schools are dispersed evenly "
+                                    "or concentrated in particular locations. These visual insights resonate with research "
+                                    "findings indicating that factors such as neighborhood violence, resource allocation, "
+                                    "and school segregation may influence educational outcomes differently across Chicago’s "
+                                    "north and south ",
+                                    html.A("(Hirschfield, 2009; ",
+                                           href="https://doi.org/10.1177/003804070908200404",
+                                           target="_blank",
+                                           style={
+                                               "color": "#007BFF",
+                                               "textDecoration": "none",
+                                               "font-weight": "bold"
+                                               },
+                                               ),
+                                    html.A("Phillippo & Griffin, 2016). ",
+                                           href="https://doi.org/10.1007/s11256-016-0373-x",
+                                           target="_blank",
+                                           style={
+                                               "color": "#007BFF",
+                                               "textDecoration": "none",
+                                               "font-weight": "bold"
+                                               },
+                                               )
                                 ],
                                     style={
                                         "color": "#000000",
                                         "font-weight": "normal",
                                         "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
                                         "padding": "3px",
+                                        "textAlign": "center"
                                     },
                              ),
-
-                              html.Div(
-                        [ 
-
-                            "....can be crime related to these patterns?",
-                        ],
-                        style={
-                            "color": "#000000",
-                            "font-weight": "normal",
-                            "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
-                            "padding": "3px",
-                        },
-                    ),        
                         ],            
                     ),
-
-                    html.Div(
+                html.Div(
                         children=[
                             html.H1(
                                 [
                                     html.Span(
-                                        "How About School Dropots by location",
+                                        "High School Dropout Rates by location",
                                         style={"color": "#000000", "font-weight": "normal"},
                                     ),
                                 ],
@@ -834,9 +476,14 @@ app.layout = html.Div([
                         ],
                         style={"padding": "10px"},
                     ),
-
-                    # Attendance Graph
-                    html.Div(id="School_droput_location", style={"marginBottom": "5px"}),
+                    # Schools locations
+                dbc.Row(
+                    dbc.Col(
+                        html.Div(id="School_droput_location"),
+                        width={"offset": 1},
+                        ),
+                        style={"marginBottom": "0px", "alignItems": "center","justifyContent": "center"}
+                        ),
 
                     html.Div(
                             style={
@@ -851,7 +498,7 @@ app.layout = html.Div([
                             },
                         children=[
                              html.Span(
-                                    "How does school attendance / dropouts correlate with crime?? ",
+                                    "How does school attendance / dropouts correlate with crime? ",
                                     style={
                                         "color": "#000000",
                                         "font-weight": "bold",
@@ -861,23 +508,33 @@ app.layout = html.Div([
                              ),
                              html.Div(
                                 [
-                                    "According to the public schools regisers, ......"                           
+                                    "From a high‐level perspective, this map of Chicago, organized by PUMAs, displays two key variables: "
+                                    "the Crime Rate, shown through choropleth shading where darker shades indicate higher total crime "
+                                    "occurrences per 1,000 inhabitants, and the Dropout Rate, represented by bubble size where larger "
+                                    "circles reflect higher dropout percentages. A clear pattern emerges in areas with high crime and "
+                                    "high dropout rates. Specifically, PUMAs on the city’s South Side and parts of the West Side are "
+                                    "shaded in darker tones, signaling elevated crime rates. In these same areas, the map often features "
+                                    "some of the largest bubbles, indicating higher dropout rates. In contrast, the northern portions of "
+                                    "the city generally display lighter shading, signifying lower crime occurrences. Correspondingly, "
+                                    "bubble sizes in these neighborhoods tend to be smaller, pointing to relatively lower dropout rates. \n "
+                                    "School attendance and crime rates in Chicago exhibit nuanced patterns by education level and ethnicity. "
+                                    "The scatter plots below illustrate the varying relationships between attendance rates and crime rates "
+                                    "across all PUMAs. Throughout the entire period of analysis, middle school attendance rates show negative "
+                                    "associations with both violent and non-violent crime rates for African Americans. In other words, in "
+                                    "geographic areas where crime rates per 1,000 inhabitants are higher, attendance rates for African American "
+                                    "students tend to be lower. This pattern is also observed in the relationship between high school attendance "
+                                    "rates for African American students and violent crime rates."                           
                                 ],
                                     style={
                                         "color": "#000000",
                                         "font-weight": "normal",
                                         "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
                                         "padding": "3px",
+                                        "textAlign": "center"
                                     },
                              ),        
                         ],            
-                    ),
-
-
-                      
-
-
-                    
+                    ),               
                 ],
                 width=12
                 
@@ -940,7 +597,7 @@ app.layout = html.Div([
                     html.H1(
                         [
                             html.Span(
-                                "High School Attendance Rate and crime by location",
+                                "High School Attendance Rate and crime by ethnicity",
                                 style={"color": "#000000", "font-weight": "normal"},
                             ),
                         ],
@@ -974,7 +631,9 @@ app.layout = html.Div([
         ],
         width=6),
     ]),
-
+    
+    # Final section
+    gen_final_section()
 
 ])
 
@@ -1001,7 +660,6 @@ app.layout = html.Div([
     Output('crimes-text', 'children'),
     Output('crimes-subtext', 'children'),
     Output('schools-subtext', 'children'),
-    #Input("dropdown-year", "value"),
     Input("year-slider", "value"),
     Input("crime-type", "value"),
     Input("level-map" , "value"),
@@ -1122,7 +780,7 @@ def update_charts(selected_year, selected_crime, selected_level, level_educ):
         ),
         html.Iframe(
             srcDoc=fig_stacked2.to_html(),
-            style={"width": "100%", "height": "230", "border": "5", "alignItems": "center"},
+            style={"width": "100%", "height": "210px", "border": "5", "alignItems": "center"},
         ),
 
         html.Iframe(
