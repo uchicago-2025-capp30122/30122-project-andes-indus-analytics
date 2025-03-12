@@ -1,7 +1,7 @@
 from dash import Dash, html, dcc, callback, Output, Input
 import dash_bootstrap_components as dbc
 import altair as alt
-from andes_indus.app_layout.figures import (
+from .app_layout.figures import (
     create_crime_map,
     create_interactive_bar,
     create_crime_heat_map,
@@ -12,10 +12,10 @@ from andes_indus.app_layout.figures import (
     create_chicago_school_visualization,
     create_scatter_dynamic,
 )
-from andes_indus.app_layout.final_section import gen_final_section
-from andes_indus.app_layout.app_utils import crime_labels
-from andes_indus.app_layout.header import gen_header
-from andes_indus.app_layout.load_data import (
+from .app_layout.final_section import gen_final_section
+from .app_layout.app_utils import crime_labels
+from .app_layout.header import gen_header
+from .app_layout.load_data import (
     pumas_shp,
     pumas_df_long,
     df_c,
@@ -25,7 +25,7 @@ from andes_indus.app_layout.load_data import (
     neighborhood_shp,
     crimes_shp,
 )
-from andes_indus.app_layout.main_content import (
+from .app_layout.main_content import (
     gen_first_row,
     gen_second_row,
     gen_third_row,

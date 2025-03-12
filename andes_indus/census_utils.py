@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from andes_indus.api_get import chicago_dataframe
+from .api_get import chicago_dataframe
 import re
 
 
@@ -360,9 +360,7 @@ def education_vars(df):
     ]
 
     # Multiply each column by PWGTP and save as a new column with _w appended
-    df.loc[:, [f"{col}_w" for col in cols_to_weight]] = df.loc[
-        :, cols_to_weight
-    ].multiply(df["PWGTP"], axis=0)
+    df[[f"{col}_w" for col in cols_to_weight]] = df.loc[:, cols_to_weight].multiply(df["PWGTP"], axis=0)
 
     selected_columns_df = (
         df[
@@ -607,7 +605,6 @@ def process_multiple_years(output_file="data/census_df.csv", full_fetch=False):
     for year in [2013, 2018, 2023]:
         # for year in range(2021,2024):
         df = chicago_dataframe(year, "", full_fetch=False)
-
         dfs.append(
             variable_labels(
                 education_indicators(

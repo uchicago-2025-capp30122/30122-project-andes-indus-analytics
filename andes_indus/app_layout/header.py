@@ -86,9 +86,7 @@ def gen_header():
                                     options=[
                                         {"label": "Total", "value": "total_crim_pc"},
                                         {"label": "Violent", "value": "violent_pc"},
-                                        {
-                                            "label": "Non-Violent",
-                                            "value": "non-violen_pc",
+                                        {"label": "Non-Violent","value": "non_violent_pc",
                                         },
                                     ],
                                     value="total_crim_pc",

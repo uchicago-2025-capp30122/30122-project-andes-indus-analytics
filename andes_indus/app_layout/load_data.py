@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 import geopandas as gpd
 from .figures import load_crimes_shp
-from andes_indus.join_data import lower_colnames
+from ..join_data import lower_colnames
 from .app_utils import ATTENDANCE_COLS
 
 # Loading data files - Puma level

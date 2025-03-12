@@ -24,6 +24,8 @@ crime_labels = {
     "total_crim_pc": "Total Crime",
     "violent_pc": "Violent Crime",
     "non_violent_pc": "Non Violent Crime",
+    "non-violen_pc": "Non Violent Crime",
+    
 }
 
 style_center_text = {
