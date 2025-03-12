@@ -21,9 +21,9 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 ### How to run the project
 
 1. Clone the repo for the project using the url on GitHub
-
-    `git clone git@github.com:uchicago-2025-capp30122/30122-project-andes-indus-analytics.git`
-
+```
+git clone git@github.com:uchicago-2025-capp30122/30122-project-andes-indus-analytics.git
+```
 As this module brings together information from different data sources. To run this program it is necessary to provide an APP key for the City of Chicago Data.
 The steps to create an APP KEY are:
 
@@ -44,18 +44,24 @@ export CHICAGO_APP_TOKEN="Eqk9pQsM8RsYYawwjwyFUTlYj"
 
 After sort out the API Key step, by running the following commands, a new tab in your preferred browser will prompt with the final visualization of our project. 
 
-2. Run `uv sync`
-### This command may take a minute to load the project to the terminal.
-3. Run `uv run -m andes_indus`, if you want to use the data we have already storage on [Google Drive](https://drive.google.com/drive/folders/1Xw6wfJzPkBWHGvuAjtEUTKerQygmDidL).
-### This command may take 15 minutes to load the project to the terminal.
-4. Run `uv run -m andes_indus --full`, if you want to fetch the data from the original sources. This might take 15 minutes to run on average.
-
+2. Syncronize the virtuar environment.
+```
+uv sync
+```
+3. If you want to use the data we have already storage on [Google Drive](https://drive.google.com/drive/folders/1Xw6wfJzPkBWHGvuAjtEUTKerQygmDidL), run the following command in the terminal. This command should take <b>1 minute</b> to run.
+```
+uv run -m andes_indus
+```
+4. If you want to fetch the data from the original sources, run the following command in the terminal. This command should take <b>15 minute</b> to run.
+```
+uv run -m andes_indus --full
+```
 ### Running Tests
 
 Before running any test, you should define the CHICAGO_APP_TOKEN in your environment. Then to run the tests, please use the following command in andes-indus.
 
-```bash
-`uv run pytest tests`
+```
+uv run pytest tests
 ```
 ***
 
@@ -67,7 +73,7 @@ Before running any test, you should define the CHICAGO_APP_TOKEN in your environ
 
 ### 2. Chicago Crime Data - City of Chicago
 - *Crime Data:* [City of Chicago Crime Data](https://data.cityofchicago.org/Public-Safety/Crimes-Map/mw69-m6xi)
-- *Description:* This dataset includes crime statistics for the City of Chicago.
+- *Description:* This dataset includes crime records for the City of Chicago. 
 
 ### 3. Education Data - Chicago Public Schools
 - *School Search:* [CPS Typeahead School Search](https://api.cps.edu/schoolprofile/Help/Api/GET-CPS-TypeaheadSchoolSearch_SearchValue)
