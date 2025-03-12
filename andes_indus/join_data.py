@@ -1,4 +1,4 @@
-from andes_indus.merge_shp import (
+from .merge_shp import (
     load_pumas_shp,
     load_neighborhood_shp,
     gen_chi_bbox,
@@ -6,13 +6,13 @@ from andes_indus.merge_shp import (
     load_schools,
     assign_puma_neighborhood,
 )
-from andes_indus.crime_utils import (
+from .crime_utils import (
     get_all_crime_data,
     load_crime_data,
     classify_violent_crimes,
 )
-from andes_indus.education import main_education
-from andes_indus.census_utils import process_multiple_years
+from .education import main_education
+from .census_utils import process_multiple_years
 from pathlib import Path
 import pandas as pd
 import geopandas as gpd
@@ -21,7 +21,7 @@ import numpy as np
 
 def group_crime_data_by(new_data_lst: pd.DataFrame, group: str) -> pd.DataFrame:
     path = Path(f"data/crime_by_{group}.csv")
-    if not path.exists():
+    if not path.exists() and (__name__ == "__main__"):
         new_data_lst.to_csv(path)
 
     new_data_lst = classify_violent_crimes(new_data_lst)
@@ -45,7 +45,7 @@ def group_crime_data_by(new_data_lst: pd.DataFrame, group: str) -> pd.DataFrame:
 
 def group_school_data_by(new_data_lst: pd.DataFrame, group: str) -> pd.DataFrame:
     path = Path(f"data/schools_by_{group}.csv")
-    if not path.exists():
+    if not path.exists() and (__name__ == "__main__"):
         new_data_lst.to_csv(path)
 
     numeric_cols = [
@@ -112,16 +112,24 @@ def zero_fill_cols(
     return df
 
 
-def gen_pc_stats(df: pd.DataFrame, popvar: str) -> pd.DataFrame:
-    df = df.rename(
-        columns={
-            "Non-violent": "non-violen",
+def gen_pc_stats(df: pd.DataFrame, popvar: str, full_fetch) -> pd.DataFrame:
+    if full_fetch:
+        cols_dic = {
+            "non-violent": "non_violent",
+            "violent": "violent",
+            "total_crimes": "total_crim",
+        }
+    else:
+        cols_dic = {
+            "Non-violent": "non_violent",
             "Violent": "violent",
             "total_crimes": "total_crim",
         }
+    df = df.rename(
+        columns=cols_dic
     )
 
-    for var in ["total_crim", "violent", "non-violen"]:
+    for var in ["total_crim", "violent", "non_violent"]:
         df[f"{var}_pc"] = df[f"{var}"] / df[popvar] * 1000
 
     return df
@@ -141,7 +149,7 @@ def gen_final_data(full_fetch=False):
     if path_census.exists():
         census_data = lower_colnames(pd.read_csv(path_census))
     else:
-        process_multiple_years(path_census)
+        process_multiple_years(path_census, True)
         census_data = lower_colnames(pd.read_csv(path_census))
 
     # Merging crime and school data to pumas
@@ -234,7 +242,7 @@ def gen_final_data(full_fetch=False):
     data_pumas = pumas_shp.merge(crimes_by_puma, how="inner", on=["puma"])
     data_pumas = data_pumas.merge(schools_by_puma, how="inner", on=["puma", "year"])
     data_pumas = data_pumas.merge(census_data, how="inner", on=["puma", "year"])
-    data_pumas = gen_pc_stats(data_pumas, "pwgtp")
+    data_pumas = gen_pc_stats(data_pumas, "pwgtp", full_fetch)
     data_pumas.to_csv("data/data_pumas.csv")
     data_pumas.to_file("data/shapefiles/data_pumas.shp")
 
@@ -268,7 +276,7 @@ def gen_final_data(full_fetch=False):
         pop_neighborhoods, how="inner", on=["neighborhood"]
     )
 
-    data_neighborhoods = gen_pc_stats(data_neighborhoods, "pop2020")
+    data_neighborhoods = gen_pc_stats(data_neighborhoods, "pop2020", full_fetch)
 
     data_neighborhoods.to_csv("data/data_neighborhoods.csv")
     data_neighborhoods.to_file("data/shapefiles/data_neighborhoods.shp")
@@ -310,5 +318,5 @@ def transform_to_long_format(
         var_name=var_name,  # new column name for old wide-column headers
         value_name=value_name,  # new column name for the data values
     )
-    df_long.to_csv("census_long.csv", index=False)
+    df_long.to_csv("data/census_df_long.csv", index=False)
     return df_long

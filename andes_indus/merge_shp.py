@@ -1,6 +1,6 @@
 from shapely.geometry import Polygon, MultiPolygon, Point
-from andes_indus.quadtree import Quadtree, BBox
-from andes_indus.crime_utils import Crime
+from .quadtree import Quadtree, BBox
+from .crime_utils import Crime
 from typing import NamedTuple, Optional
 import pathlib
 import shapefile

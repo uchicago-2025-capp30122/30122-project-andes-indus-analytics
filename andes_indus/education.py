@@ -105,8 +105,6 @@ def save_to_csv(df, filename="data/cps_school_profiles.csv"):
         filename (str): The filename to save.
     """
     df.to_csv(filename, index=False)
-    print(f"Data saved to {filename}")
-
 
 def clean_dropout_data(file_path: str) -> pd.DataFrame:
     """
@@ -128,8 +126,7 @@ def clean_dropout_data(file_path: str) -> pd.DataFrame:
     df = pd.read_excel(file_path, sheet_name="All Students", skiprows=2)
 
     # Print original columns for reference (optional)
-    print("Original columns:")
-    print(df.columns.tolist())
+
 
     # Create new column names based on groups
     new_columns = []
@@ -155,8 +152,6 @@ def clean_dropout_data(file_path: str) -> pd.DataFrame:
                 new_columns.append(col_str)
 
     df.columns = new_columns
-    print("\nRenamed columns:")
-    print(df.columns.tolist())
 
     # Reshape the DataFrame from wide to long format
     stubnames = ["DropoutRate", "NumDropouts", "TotalStudents", "AdjustedStudents"]
@@ -165,9 +160,6 @@ def clean_dropout_data(file_path: str) -> pd.DataFrame:
     df_long = pd.wide_to_long(
         df, stubnames=stubnames, i=id_vars, j="Year", sep="_", suffix=r"\d{4}"
     ).reset_index()
-
-    print("\nLong-format DataFrame preview:")
-    print(df_long.head())
 
     return df_long
 
@@ -202,7 +194,6 @@ def merge_school_data(
 
     # Save merged DataFrame to a CSV file
     merged_df.to_csv(output_csv_path, index=False)
-    print(f"Merged data saved to {output_csv_path}")
 
     return merged_df
 
@@ -222,14 +213,11 @@ def main_education():
     dropout_df_long = clean_dropout_data(dropout_excel_path)
     dropout_csv_path = "data/cleaned_dropout_data.csv"
     dropout_df_long.to_csv(dropout_csv_path, index=False)
-    print(f"Cleaned dropout data saved to {dropout_csv_path}")
 
     # Merge the dropout data with the API education data
     merged_csv_path = "data/merged_school_data.csv"
     try:
         merged_data = merge_school_data(dropout_csv_path, api_csv_path, merged_csv_path)
-        print("\nMerged DataFrame preview:")
-        print(merged_data.head())
     except FileNotFoundError as e:
         print(f"Error: {e}\nPlease ensure the dropout CSV path is correct.")
 

@@ -5,7 +5,7 @@ Early school dropout is a multifaceted challenge that impacts education systems 
 
 This project aims to integrate, analyze, and visualize spatial, administrative, and demographic data to characterize school dropouts across Chicago schools, with a particular focus on the role of crime in shaping these educational outcomes.By running the application, you will be able to explore these factors and their relationships on an interactive dashboard.
 
-![screenshot](Project_screenshot.png)
+![screenshot](images/project_screenshot.png)
 
 ## Authors
 - *Angela López Sanchez*
@@ -21,16 +21,17 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 ### How to run the project
 
 1. Clone the repo for the project using the url on GitHub
-
+```
+git clone git@github.com:uchicago-2025-capp30122/30122-project-andes-indus-analytics.git
+```
 As this module brings together information from different data sources. To run this program it is necessary to provide an APP key for the City of Chicago Data.
 The steps to create an APP KEY are:
 
-1. Enter https://data.cityofchicago.org/ to create an account
-2. Enter https://data.cityofchicago.org/profile/edit/developer_settings and hit "Create a new App Token"
-4. Safe your APP TOKEN in a safe place 
+    1. Enter https://data.cityofchicago.org/ to create an account
+    2. Enter https://data.cityofchicago.org/profile/edit/developer_settings and hit "Create a new App Token"
+    3. Safe your APP TOKEN in a safe place 
 
-For the simplicity of this milestone you can work with the key: `Eqk9pQsM8RsYYawwjwyFUTlYj`
-you can define a constant in the terminal:
+For simplicity, you can work with our key that will be provided by email and you shouyld define a constant in the terminal:
 
 On Windows: 
 ```
@@ -41,30 +42,26 @@ On Linux/MacOS:
 export CHICAGO_APP_TOKEN="Eqk9pQsM8RsYYawwjwyFUTlYj"
 ```
 
-After sort out the API Key step, by running the following commands, an html file will prompt with a draft visualization of our project. 
+After sort out the API Key step, by running the following commands, a new tab in your preferred browser will prompt with the final visualization of our project. 
 
-2. Run `uv sync`
-3. Run `uv run andes_indus -m`
-
-### This command may take a minute to load the project to the terminal.
+2. Syncronize the virtuar environment.
 ```
-You are then given an HTTP link, as seen below. Copy the link into your preferred browser to interact with the webpage locally.
-
-Dash is running on http://127.0.0.1:8050/
-
- * Serving Flask app 'app'
- * Debug mode: off
- * Running on http://127.0.0.1:8050
-Press CTRL+C to quit
+uv sync
 ```
-***
-
+3. If you want to use the data we have already storage on [Google Drive](https://drive.google.com/drive/folders/1Xw6wfJzPkBWHGvuAjtEUTKerQygmDidL), run the following command in the terminal. This command should take <b>1 minute</b> to run.
+```
+uv run -m andes_indus
+```
+4. If you want to fetch the data from the original sources, run the following command in the terminal. This command should take <b>15 minute</b> to run.
+```
+uv run -m andes_indus --full
+```
 ### Running Tests
 
-To run the tests, please use the following command in andes-indus:
+Before running any test, you should define the CHICAGO_APP_TOKEN in your environment. Then to run the tests, please use the following command in andes-indus.
 
-```bash
-1. 'uv run pytest tests'
+```
+uv run pytest tests
 ```
 ***
 
@@ -76,8 +73,7 @@ To run the tests, please use the following command in andes-indus:
 
 ### 2. Chicago Crime Data - City of Chicago
 - *Crime Data:* [City of Chicago Crime Data](https://data.cityofchicago.org/Public-Safety/Crimes-Map/mw69-m6xi)
-- *Homicide Data:* [City of Chicago Homicide Data](https://data.cityofchicago.org/Public-Safety/Homicides/ijzp-q8t2)
-- *Description:* This dataset includes crime and homicide statistics for the City of Chicago. No API key is required for access.
+- *Description:* This dataset includes crime records for the City of Chicago. 
 
 ### 3. Education Data - Chicago Public Schools
 - *School Search:* [CPS Typeahead School Search](https://api.cps.edu/schoolprofile/Help/Api/GET-CPS-TypeaheadSchoolSearch_SearchValue)
