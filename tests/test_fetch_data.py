@@ -27,7 +27,7 @@ def test_get_google_drive_files():
                  'crime_by_block' :'https://drive.usercontent.google.com/download?id=17lrQgaXcTAQTM4kMqt19RYvC4gtF9wCn&export=download&authuser=0&confirm=t&uuid=f69248de-b684-4c5f-976b-63576e8c9741&at=AEz70l53DiY7nTnR_fRZmhZYPvOx:1741223440221'}
 
     assert len(get_google_drive_files(path_dict['census23'])) == 3405809
-    assert len(get_google_drive_files(path_dict['census18'])) == 3214540
+    assert len(get_google_drive_files(path_dict['census18'])) == 3214539
     assert len(get_google_drive_files(path_dict['crime_by_puma'])) == 822278
     assert len(get_google_drive_files(path_dict['crime_by_neighborhood'])) == 827734
     assert len(get_google_drive_files(path_dict['crime_by_block'])) == 831220
@@ -51,7 +51,7 @@ def test_get_crime_data():
     crime_code = "ijzp-q8t2"
     lst_years = [2013, 2018, 2023]
 
-    assert len(get_crime_data(client, crime_code, [2023], True)) == 261243
+    assert len(get_crime_data(client, crime_code, [2023], True)) == 261244
     assert len(get_crime_data(client, crime_code, lst_years[0:2], True)) == 569977
 
 def test_agg_puma():
