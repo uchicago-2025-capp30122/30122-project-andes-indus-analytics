@@ -54,7 +54,7 @@ A dataset at the Neighborhood and Year level.
 `app.py` contains the dashboard code, which leverages the `app_layout` folder. This folder includes the figures, text, and structure necessary to create the front end of the dashboard.   
 - **Diagram:**  
 
-![Structure](https://github.com/uchicago-2025-capp30122/30122-project-andes-indus-analytics/blob/287b2a12f2065ef2ce3bdf854ec230ff8574c714/Datapipeline.png)
+![Structure](Datapipeline.png)
 
 ---
 
@@ -103,9 +103,11 @@ The team coordinated its efforts by establishing a clear version control strateg
 ## Final Thoughts
 
 ### Project Goals vs. Outcomes
+<<<<<<< HEAD
 - **Intended Goals:** This project aimed to integrate, analyze, and visualize spatial, administrative, and demographic data to characterize school dropouts across Chicago schools, with a particular focus on the role of crime in shaping these educational outcomes. 
 - **Outcomes:** The project successfully demonstrated a naïve relationship between crime and education outcomes (school dropout rates and school attendance). The next step in this project is to complete the causal analysis by robustly conducting a well-specified spatial regression analysis.
-
+- **Lessons Learned:** 
+Integrating data from the community survey, crime data, and educational metrics proved more challenging than anticipated. We had to invest significant effort into cleaning and integrating the datasets, and key assumptions—such as treating the number of schools as constant over three years—were necessary to merge the information. This experience underscored the complexities of working with disparate data sources. Key takeaways include the need for careful planning around data integration, transparent documentation of assumptions, and iterative validation to maintain data accuracy. 
 
 ---
 
