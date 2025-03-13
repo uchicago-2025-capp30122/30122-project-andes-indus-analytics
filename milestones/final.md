@@ -42,7 +42,7 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 - **Overview:** Explain how data is ingested, processed, and output.
 - **Diagram:**  
 
-![Structure](milestones/Datapipeline.png)
+![Structure](Datapipeline.png)
 
 ---
 
