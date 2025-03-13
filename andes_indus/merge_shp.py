@@ -47,7 +47,11 @@ class School(NamedTuple):
 
 def load_pumas_shp(path: pathlib.Path, pumas_year: int) -> list[Puma]:
     """
-    Creates a list of Pumas objects to
+    Creates a list of Pumas objects
+
+    Inputs: 
+        - path: path from a shapefile
+        - pumas_year: year from the correspondent shapefile
     """
     name_dict = {2010: 4, 2020: 3}
 
@@ -66,6 +70,12 @@ def load_pumas_shp(path: pathlib.Path, pumas_year: int) -> list[Puma]:
 
 
 def load_neighborhood_shp(path: pathlib.Path) -> list[Neighborhood]:
+    '''
+    Creates a list of Neighborhood objects
+
+    Inputs:
+        - path: path from a shapefile
+    '''
     neighborhood = []
     with shapefile.Reader(path) as sf:
         for shape_rec in sf.shapeRecords():
@@ -81,7 +91,7 @@ def load_neighborhood_shp(path: pathlib.Path) -> list[Neighborhood]:
 
 def load_schools(path: pathlib.Path) -> list[School]:
     """
-    Given a CSV containing facility data, return a list of Facility objects.
+    Given a CSV containing facility data, return a list of School objects.
     """
     schools = []
     with open(path) as f:
@@ -117,6 +127,10 @@ def load_schools(path: pathlib.Path) -> list[School]:
 
 
 def gen_chi_bbox(division: list[Puma | Neighborhood]):
+    '''
+    Helper function to create a Chicago BBox object from a given list of Puma or 
+    Neighborhood
+    '''
     min_lon = min(p.polygon.bounds[0] for p in division)  # min x (longitude)
     min_lat = min(p.polygon.bounds[1] for p in division)  # min y (latitude)
     max_lon = max(p.polygon.bounds[2] for p in division)  # max x (longitude)
@@ -129,7 +143,7 @@ def gen_chi_bbox(division: list[Puma | Neighborhood]):
 
 def gen_quadtree(division: list[Puma | Neighborhood], chi_bbox: BBox):
     """
-    Helper function to create a quadtree for the pumas o neighborhoods
+    Helper function to create a quadtree for the Pumas o Neighborhoods
     """
     capacity = 5
     quadtree = Quadtree(chi_bbox, capacity)
@@ -141,6 +155,10 @@ def gen_quadtree(division: list[Puma | Neighborhood], chi_bbox: BBox):
 
 
 def assign_division(quadtree: Quadtree, location: Crime | School) -> str:
+    '''
+    Helper function to assign a Puma or Neighborhood to a specified Crime or 
+    School object.
+    '''
     if (location.longitude == "") or (location.latitude == ""):
         return None
     else:
@@ -154,6 +172,9 @@ def assign_division(quadtree: Quadtree, location: Crime | School) -> str:
 def assign_puma_to_list(
     data_lst: list[Crime | School], quadtree_chi: Quadtree
 ) -> list[Crime | School]:
+    '''
+    Helper function to assign a Puma to a list of Crime or School objects
+    '''
     new_data_lst = []
     for point in data_lst:
         new_puma = assign_division(quadtree_chi, point)
@@ -174,6 +195,9 @@ def assign_puma_to_list(
 def assign_neighborhood_to_list(
     data_lst: list[Crime | School], quadtree_chi: Quadtree
 ) -> list[Crime | School]:
+    '''
+    Helper function to assign a Neigborhood to a list of Crime or School objects
+    '''
     new_data_lst = []
     for point in data_lst:
         new_neighborhood = assign_division(quadtree_chi, point)
@@ -190,6 +214,10 @@ def assign_neighborhood_to_list(
 def assign_puma_neighborhood(
     data_lst: list[Crime | School], quadtree_chi: Quadtree, group: str
 ) -> pd.DataFrame:
+    '''
+    Final function that creates a pd.DataFrame at Crime or School level with the 
+    information of the correspondent Puma or Neighborhood.
+    '''
     assert group in ("puma", "neighborhood")
     if group == "puma":
         new_data_lst = assign_puma_to_list(data_lst, quadtree_chi)

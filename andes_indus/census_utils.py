@@ -6,7 +6,7 @@ import re
 
 def cleaning_data(df):
     """
-    load a cvs file and clean:
+    Load a cvs file and clean:
     - transform variables from string to numeric
     - drop observations with no income information
     """
@@ -21,7 +21,9 @@ def cleaning_data(df):
 
 
 def social_variables(df):
-    # dummy
+    '''
+    Creates dummy variables for gender and ethnicity
+    '''
     df.loc[:, "men"] = np.where((df["SEX"] == 1), 1, 0)
     df.loc[:, "woman"] = np.where((df["SEX"] == 2), 1, 0)
     df.loc[:, "black"] = np.where((df["RACBLK"] == 1), 1, 0)
@@ -541,6 +543,9 @@ def education_indicators(df):
 
 
 def variable_labels(df, year):
+    '''
+    Helper function to create labels for each PUMA.
+    '''
     if year == 2023:
         label_map = {
             3151: "(Northwest) - Albany Park, Norwood Park, Forest Glen, North Park & O'Hare",

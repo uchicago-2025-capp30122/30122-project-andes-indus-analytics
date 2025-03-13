@@ -68,11 +68,11 @@ uv run pytest tests
 ## Data Sources
 
 ### 1. U.S. Census Data - American Community Survey
-- *Source:* [U.S. Census Bureau](https://www.census.gov/programs-surveys/acs)
+- *Source:* [U.S. Census Bureau](https://www.census.gov/data/developers/data-sets/census-microdata-api.html)
 - *Description:* This dataset provides demographic data extracted from the U.S. Census Bureau’s American Community Survey. No API key is required for access.
 
 ### 2. Chicago Crime Data - City of Chicago
-- *Crime Data:* [City of Chicago Crime Data](https://data.cityofchicago.org/Public-Safety/Crimes-Map/mw69-m6xi)
+- *Crime Data:* [City of Chicago Crime Data](https://dev.socrata.com/foundry/data.cityofchicago.ls/ijzp-q8t2)
 - *Description:* This dataset includes crime records for the City of Chicago. 
 
 ### 3. Education Data - Chicago Public Schools

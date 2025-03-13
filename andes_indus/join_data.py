@@ -20,6 +20,9 @@ import numpy as np
 
 
 def group_crime_data_by(new_data_lst: pd.DataFrame, group: str) -> pd.DataFrame:
+    '''
+    Helper function to group crime data by Puma or Neighborhood
+    '''
     path = Path(f"data/crime_by_{group}.csv")
     if not path.exists() and (__name__ == "__main__"):
         new_data_lst.to_csv(path)
@@ -44,6 +47,9 @@ def group_crime_data_by(new_data_lst: pd.DataFrame, group: str) -> pd.DataFrame:
 
 
 def group_school_data_by(new_data_lst: pd.DataFrame, group: str) -> pd.DataFrame:
+    '''
+    Helper function to group school data by Puma or Neighborhood
+    '''
     path = Path(f"data/schools_by_{group}.csv")
     if not path.exists() and (__name__ == "__main__"):
         new_data_lst.to_csv(path)
@@ -108,11 +114,17 @@ def lower_colnames(
 def zero_fill_cols(
     df: pd.DataFrame | gpd.GeoDataFrame, colname: str, n_zeros: int
 ) -> pd.DataFrame | gpd.GeoDataFrame:
+    '''
+    Helper function to fill zeros on id columns
+    '''
     df[colname] = df[colname].astype(dtype=str).str.zfill(n_zeros)
     return df
 
 
 def gen_pc_stats(df: pd.DataFrame, popvar: str, full_fetch) -> pd.DataFrame:
+    '''
+    Function that creates per capita indicators for crime data.
+    '''
     if full_fetch:
         cols_dic = {
             "non-violent": "non_violent",
@@ -136,6 +148,9 @@ def gen_pc_stats(df: pd.DataFrame, popvar: str, full_fetch) -> pd.DataFrame:
 
 
 def gen_final_data(full_fetch=False):
+    '''
+    Function that joins the data and creates csv files to be used in the dashboard.
+    '''
     # Gathering education data
     path_schools = Path("data/merged_school_data.csv")
     if path_schools.exists():

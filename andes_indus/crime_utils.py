@@ -43,6 +43,9 @@ def get_crime_data(
 
 
 def process_results(results, lst_results, full_fetch=False) -> list:
+    '''
+    Creates a list of Crimes from the selected data sources () 
+    '''
     if full_fetch:
         for row in results:
             if "latitude" in row.keys():
@@ -81,6 +84,9 @@ def process_results(results, lst_results, full_fetch=False) -> list:
 
 
 def classify_violent_crimes(df: pd.DataFrame) -> pd.DataFrame:
+    '''
+    Helper function to classify crimes into violent or non violent crime
+    '''
     mask1_1 = df["primary_type"] == "HOMICIDE"
     mask1_2 = df["primary_type"] == "ROBBERY"
     mask1_3 = df["primary_type"] == "CRIMINAL SEXUAL ASSAULT"
@@ -93,6 +99,9 @@ def classify_violent_crimes(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def get_all_crime_data():
+    '''
+    Fetch the data from the original source
+    '''
     # Creating the APP Key for the data sources.
     try:
         CHICAGO_APP_TOKEN = os.environ["CHICAGO_APP_TOKEN"]
@@ -119,6 +128,9 @@ def get_all_crime_data():
 
 
 def load_crime_data():
+    '''
+    Fetch the data from our Google Drive folder.
+    '''
     # Original Google Drive share link (VIEW link)
     dict_paths = {
         "crime_by_puma": "https://drive.usercontent.google.com/download?id=1JUDBpR3ot26PW-2F93pLGkIbZy7dFpF7&export=download&authuser=0&confirm=t&uuid=26c3238d-a65a-449f-a6c0-9195dec5f1b8&at=AEz70l6g5TH5Nh_sh4o71wbuDkur:1741115211114",
