@@ -42,7 +42,7 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 - **Overview:** Explain how data is ingested, processed, and output.
 - **Diagram:**  
 
-![Structure](https://github.com/uchicago-2025-capp30122/30122-project-andes-indus-analytics/blob/287b2a12f2065ef2ce3bdf854ec230ff8574c714/Datapipeline.png)
+![Structure](milestones/Datapipeline.png)
 
 ---
 
@@ -98,9 +98,12 @@ The team coordinated its efforts by establishing a clear version control strateg
 ## Final Thoughts
 
 ### Project Goals vs. Outcomes
-- **Intended Goals:** Summarize what the project set out to achieve.
-- **Outcomes:** Reflect on what was actually accomplished.
-- **Lessons Learned:** Note key takeaways and areas for future improvement.
+- **Intended Goals:** 
+The intended goal of our project was to provide a comprehensive analysis of crime and education trends across Chicago. By integrating diverse datasets—from community demographics and crime statistics to detailed educational metrics—our goal was to equip policymakers, community leaders, and educators with actionable insights. These insights can drive data-driven decisions, improve resource allocation, enhance community safety, and foster educational improvements across various neighborhoods in Chicago.
+- **Outcomes:** 
+We discovered that merging community, crime, and education data required extensive cleaning and normalization, and we had to make certain assumptions to reconcile differences. For example, we assumed that the number of schools remained constant over the three years of analysis, an approximation necessary to align the education data. This experience underscored the complexity of working with disparate data sources and highlighted the importance of careful data management and assumption testing in multi-source analysis
+- **Lessons Learned:** 
+Integrating data from the community survey, crime data, and educational metrics proved more challenging than anticipated. We had to invest significant effort into cleaning and normalizing the datasets, and key assumptions—such as treating the number of schools as constant over three years—were necessary to merge the information. This experience underscored the complexities of working with disparate data sources. Key takeaways include the need for careful planning around data integration, transparent documentation of assumptions, and iterative validation to maintain data accuracy. For future improvements, developing more robust methods for handling temporal variations and automating parts of the integration process could help streamline the workflow and enhance overall data fidelity.
 
 ---
 
