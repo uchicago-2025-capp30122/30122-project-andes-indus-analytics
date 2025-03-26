@@ -32,17 +32,6 @@ The steps to create an APP KEY are:
     2. Enter https://data.cityofchicago.org/profile/edit/developer_settings and hit "Create a new App Token"
     3. Safe your APP TOKEN in a safe place 
 
-For simplicity, you can work with our key that will be provided by email and you shouyld define a constant in the terminal:
-
-On Windows: 
-```
-$env:CHICAGO_APP_TOKEN = "Eqk9pQsM8RsYYawwjwyFUTlYj"
-```
-On Linux/MacOS:
-```
-export CHICAGO_APP_TOKEN="Eqk9pQsM8RsYYawwjwyFUTlYj"
-```
-
 After sort out the API Key step, by running the following commands, a new tab in your preferred browser will prompt with the final visualization of our project. 
 
 2. Syncronize the virtuar environment.
