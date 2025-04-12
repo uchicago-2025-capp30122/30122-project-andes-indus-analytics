@@ -183,36 +183,3 @@ class Quadtree:
                     results.append(pid)
 
         return results
-
-
-def quadtree_spatial_join(
-    facilities: list,
-    tracts: list,
-) -> list[tuple[str, str]]:
-    # These variables should be passed in to your root quadtree.
-    #
-    # Bounding box of Illinois, should be used as bounds of your
-    # root quadtree.
-    il_bbox = BBox(-91.513079, 36.970298, -87.494756, 42.508481)
-    capacity = 10
-    quadtree = Quadtree(il_bbox, capacity)
-
-    # Add each tract polygon to the quadtree
-    for tract_id, tract_poly in tracts:
-        quadtree.add_polygon(tract_id, tract_poly)
-
-    # For each facility, find which tract polygons it falls in
-    results = []
-    for facility in facilities:
-        # Create a Shapely point from facility’s longitude & latitude
-        fac_point = Point(facility.longitude, facility.latitude)
-
-        # Look for matchin tracts in the Quadtree
-        matching_tract_ids = quadtree.match(fac_point)
-
-        # If polygons that contain the point,
-        # you can append them all:
-        for tract_id in matching_tract_ids:
-            results.append((facility.id, tract_id))
-
-    return results
