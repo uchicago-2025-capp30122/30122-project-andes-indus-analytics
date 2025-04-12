@@ -8,19 +8,22 @@ This project aims to integrate, analyze, and visualize spatial, administrative, 
 ![screenshot](images/project_screenshot.png)
 
 ## Authors
-- *Angela López Sanchez*
-- *Cesar Núñez*
-- *Shahzaib Jamali*
-
+| **Team Member**     | **Responsibilities** |
+|---------------------|----------------------|
+| **Angela Lopez** <br> alopezsanchez@uchicago.edu   | - Pulled data from the Census API.<br> - Cleaned census, social, and education indicator data.<br> - Designed graphs for demographics and attendance rates.<br> - Structured and styled the dashboard. |
+| **César Núñez**  <br> cnunezh@uchicago.edu    | - Pulled crime data from the Chicago Police Department.<br> - Cleaned and reshaped crime data, and merged all data sources.<br> - Built module test functions.<br> - Created crime-related visualizations. |
+| **Shahzaib Jamali** <br> shahzaibjamali@uchicago.edu  | - Pulled data from CPS APIs and Excel dropout files.<br> - Cleaned education data and merged sources.<br> - Created school-related graphs.<br> - Led project storytelling. |
 
 ## Project Video:
-[Project Video](https://youtu.be/aOXfe6JOBbc)
-<iframe width="560" height="315" src="https://www.youtube.com/embed/aOXfe6JOBbc?si=u1gJ_QG2Ke2TZLO0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[Project Video](https://youtu.be/aOXfe6JOBbc) 
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/aOXfe6JOBbc/0.jpg)](https://www.youtube.com/watch?v=aOXfe6JOBbc)
 
 ***
 ### How to run the project
 
-1. Clone the repo for the project using the url on GitHub
+1. [Install UV](https://docs.astral.sh/uv/getting-started/installation/)
+2. Clone the repo for the project using the url on GitHub
 ```
 git clone git@github.com:uchicago-2025-capp30122/30122-project-andes-indus-analytics.git
 ```
@@ -31,28 +34,17 @@ The steps to create an APP KEY are:
     2. Enter https://data.cityofchicago.org/profile/edit/developer_settings and hit "Create a new App Token"
     3. Safe your APP TOKEN in a safe place 
 
-For simplicity, you can work with our key that will be provided by email and you shouyld define a constant in the terminal:
-
-On Windows: 
-```
-$env:CHICAGO_APP_TOKEN = "Eqk9pQsM8RsYYawwjwyFUTlYj"
-```
-On Linux/MacOS:
-```
-export CHICAGO_APP_TOKEN="Eqk9pQsM8RsYYawwjwyFUTlYj"
-```
-
 After sort out the API Key step, by running the following commands, a new tab in your preferred browser will prompt with the final visualization of our project. 
 
-2. Syncronize the virtuar environment.
+3. Syncronize the virtuar environment.
 ```
 uv sync
 ```
-3. If you want to use the data we have already storage on [Google Drive](https://drive.google.com/drive/folders/1Xw6wfJzPkBWHGvuAjtEUTKerQygmDidL), run the following command in the terminal. This command should take <b>1 minute</b> to run.
+4. If you want to use the data we have already storage on Google Drive, run the following command in the terminal. This command should take <b>1 minute</b> to run.
 ```
 uv run -m andes_indus
 ```
-4. If you want to fetch the data from the original sources, run the following command in the terminal. This command should take <b>15 minute</b> to run.
+5. If you want to fetch the data from the original sources, run the following command in the terminal. This command should take <b>15 minute</b> to run.
 ```
 uv run -m andes_indus --full
 ```
@@ -81,3 +73,6 @@ uv run pytest tests
 - *Description:* This dataset contains school-related information such as attendance rate, graduation rate, school address, and geographical coordinates (longitude and latitude). No API key is required for access.
 - *School Metrics:* [CPS Dropout Data](https://www.cps.edu/about/district-data/metrics/)
 - *Description:* This excel data set contains information pertaining to the dropout rate of schools for multiple years.
+
+## Acknowledgments
+We would like to express our sincere gratitude to James Turk (CAPP 30122 Instructor) and Daniel Muñoz (CAPP 30122 TA) for their support and guidance throughout this project.
