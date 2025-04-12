@@ -1,9 +1,9 @@
 # Understanding School Dropouts in Chicago: The Role of Crime and Socioeconomic Factors
 
 ## Abstract
-Early school dropout is a multifaceted challenge that impacts education systems and societal outcomes in both developed and developing countries. In the United States, this phenomenon varies notably across and within regions. For instance, Chicago public schools display a wide range of 9th-grade dropout rates, ranging from 0% to 56.6% (CDPS, 2024). While the influence of individual, family, and school characteristics is well documented, a growing body of studies has begun to explore the effects of broader social contexts on adolescent educational outcomes such as neighborhood crime or violence. 
+Early school dropout is a multifaceted challenge that impacts education systems and societal outcomes in both developed and developing countries. In the United States, this phenomenon varies notably across and within regions. For instance, Chicago public schools display a wide range of 9th-grade dropout rates, ranging from 0% to 56.6% (CDPS, 2024). While the influence of individual, family, and school characteristics is well documented, a growing body of studies has begun to explore the effects of broader social contexts on adolescent educational outcomes including neighborhood crime or violence. 
 
-This project aims to integrate, analyze, and visualize spatial, administrative, and demographic data to characterize school dropouts across Chicago schools, with a particular focus on the role of crime in shaping these educational outcomes.By running the application, you will be able to explore these factors and their relationships on an interactive dashboard.
+This project aims to integrate, analyze, and visualize spatial, administrative, and demographic data to characterize school dropouts across Chicago schools, with a particular focus on the role of crime in shaping these educational outcomes. By running the application, you will be able to explore these factors and their relationships on an interactive dashboard.
 
 ![screenshot](images/project_screenshot.png)
 
@@ -32,15 +32,15 @@ The steps to create an APP KEY are:
 
     1. Enter https://data.cityofchicago.org/ to create an account
     2. Enter https://data.cityofchicago.org/profile/edit/developer_settings and hit "Create a new App Token"
-    3. Safe your APP TOKEN in a safe place 
+    3. Save your APP TOKEN in a safe place 
 
 After sort out the API Key step, by running the following commands, a new tab in your preferred browser will prompt with the final visualization of our project. 
 
-3. Syncronize the virtuar environment.
+3. Synchronize the virtual environment.
 ```
 uv sync
 ```
-4. If you want to use the data we have already storage on Google Drive, run the following command in the terminal. This command should take <b>1 minute</b> to run.
+4. If you want to use the data we have already stored on Google Drive, run the following command in the terminal. This command should take <b>1 minute</b> to run.
 ```
 uv run -m andes_indus
 ```
